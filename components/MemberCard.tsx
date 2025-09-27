@@ -1,17 +1,19 @@
+import { groupColors } from "@/app/team/page";
 import Image from "next/image";
 
 interface MemberCardProps {
   image?: string;
   phoneNumber?: string;
-  activeStatus?: boolean;
   bio?: string;
   additionalInformation?: string;
   memberID?: number;
   memberName?: string;
   isClickable?: boolean;
+  linkedin?: string;
   skeleton?: boolean;
   mentor?: boolean;
   skeletonType?: "default" | "small";
+  teamGroup?: string;
 }
 
 const SkeletonLoader = ({
@@ -46,6 +48,7 @@ const MemberCard = ({
   skeleton = false,
   skeletonType = "default",
   mentor = false,
+  teamGroup,
 }: MemberCardProps) => {
 
   if (skeleton) {
@@ -65,13 +68,18 @@ const MemberCard = ({
                 src={image}
                 alt={memberName ?? "Member Image"}
                 fill
-                style={{ objectFit: "cover", width: "100%" }}
+                style={{ 
+                  objectFit: "cover", 
+                  width: "100%", 
+                  filter: "brightness(0.8)",
+                }}
                 sizes="(max-width: 640px) 48vw, (max-width: 1024px) 32vw, 200px"
-                className="border-2 border-cloudWhite transition duration-300"
+                className="border-2 border-slate transition duration-300 rounded-xl"
+                priority
               />
             ) : (
               <div
-                className="flex h-full w-full items-center justify-center border-2 border-cloudWhite transition duration-300"
+                className="flex h-full w-full items-center justify-center rounded-xl border-2 border-slate transition duration-300"
               >
                 <svg
                   width="60"
@@ -86,19 +94,19 @@ const MemberCard = ({
                     cx="17"
                     cy="20"
                     r="2.5"
-                    fill="--color-cloud-white"
+                    fill="var(--color-cloud-white)"
                     className="transition duration-300"
                   />
                   <circle
                     cx="31"
                     cy="20"
                     r="2.5"
-                    fill="--color-cloud-white"
+                    fill="var(--color-cloud-white)"
                     className="transition duration-300"
                   />
                   <path
                     d="M17 29c2 3 12 3 14 0"
-                    stroke="--color-cloud-white"
+                    stroke="var(--color-cloud-white)"
                     strokeWidth="2"
                     fill="none"
                     strokeLinecap="round"
@@ -110,24 +118,26 @@ const MemberCard = ({
             {mentor && (
               <div
                 className={`absolute right-0 top-0 z-30 rounded-bl-md bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${
-                  !image ? "border-r-2 border-t-2 border-cloudWhite" : ""
+                  !image ? "border-r-2 border-t-2 border-slate" : ""
                 }`}
               >
                 Mentor
               </div>
             )}
             {additionalInformation && (
-              <div className="absolute bottom-0 left-0 z-30 w-full bg-skyMint py-1 text-center text-moonlight">
+              <div className="absolute bottom-0 left-0 z-30 w-full bg-sky-mint rounded-b-xl py-1 text-center text-moonlight"
+                style={{ backgroundColor: teamGroup ? `var(--${groupColors[teamGroup]})` : "var(--color-sky-mint)" }}
+              >
                 {additionalInformation}
               </div>
             )}
           </span>
         </div>
         {(memberName ?? bio ?? phoneNumber) && (
-          <span
+            <span
             className="items-left mt-2 flex w-full flex-col text-left"
             style={{ maxWidth: "100%" }}
-          >
+            >
             {memberName && <h5 className="truncate">{memberName}</h5>}
             {bio && <span className="truncate text-sm text-muted">{bio}</span>}
             {phoneNumber && (

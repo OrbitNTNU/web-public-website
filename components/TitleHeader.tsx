@@ -21,7 +21,7 @@ const TitleHeader = ({ title, titleText, description }: TitleHeaderProps) => {
           )}
         </div>
         {description && (
-          <p className="flex w-full flex-col justify-center whitespace-pre-line text-left text-muted md:w-2/3 md:w-2/3 md:px-8 lg:w-1/2 ">
+          <p className="flex w-full flex-col justify-center whitespace-pre-line text-left text-muted md:w-2/3 md:px-8 lg:w-1/2 ">
             {description}
           </p>
         )}
