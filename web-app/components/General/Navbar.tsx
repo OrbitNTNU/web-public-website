@@ -73,8 +73,9 @@ export default function Navbar() {
                                 key={item.label}
                                 href={item.href}
                                 onClick={() => setOpen(false)}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
                                 transition={{
                                     delay: 0.1 + i * 0.08,
                                     type: "spring",
@@ -82,10 +83,9 @@ export default function Navbar() {
                                 }}
                                 whileHover={{
                                     scale: 1.08,
-                                    color: "#00fff7",
-                                    letterSpacing: "0.15em",
+                                    color: "var(--color-berry-blast)",
                                 }}
-                                className="text-white text-4xl font-medium no-underline uppercase tracking-wider bg-none border-none outline-none cursor-pointer transition-colors duration-200"
+                                className="text-cloud-white text-4xl font-medium no-underline uppercase tracking-wider bg-none border-none outline-none cursor-pointer transition-colors duration-200"
                             >
                                 {item.label}
                             </motion.a>
