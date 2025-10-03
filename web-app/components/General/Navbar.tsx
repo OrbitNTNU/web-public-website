@@ -20,54 +20,61 @@ export default function Navbar() {
     const navigate = (path: string) => {
         setOpen(false);
         router.push(path);
-    }
+    };
 
     return (
-        <nav className="fixed top-0 left-0 w-screen z-50 pointer-events-auto px-4 md:px-8 py-4 md:py-8 flex justify-between items-center font-sans pb-8"
-            style={{
-            background: "linear-gradient(to bottom, var(--color-charcoal) 80%, rgba(24,24,27,0) 100%)"
-            }}
-        >
-            <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, type: "spring" }}
-                className="font-bold text-lg tracking-wider text-white select-none cursor-pointer"
-                onClick={() => navigate("/")}
+        <>
+            <nav
+                className="sticky top-4 left-0 w-full z-50
+    px-4 md:px-8 py-4 flex justify-between items-center font-sans
+    rounded-2xl md:rounded-2xl relative overflow-hidden"
             >
-                <Image src="/logo.png" alt="Logo" width={100} height={100} />
-            </motion.div>
+                {/* Glass background layer */}
+                <div className="absolute inset-0  backdrop-blur-sm  rounded-2xl" />
 
-            <motion.button
-                onClick={() => setOpen((v) => !v)}
-                initial={false}
-                animate={{ rotate: open ? 90 : 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="bg-none border-none outline-none cursor-pointer p-0 flex flex-col gap-1.5 z-[105]"
-                aria-label="Toggle menu"
-            >
-                <motion.span
-                    className="block w-7 h-0.5 bg-cloud-white rounded"
-                    animate={{
-                        rotate: open ? 45 : 0,
-                        y: open ? 8 : 0,
-                    }}
-                />
-                <motion.span
-                    className="block w-5 h-0.5 bg-cloud-white rounded"
-                    animate={{
-                        opacity: open ? 0 : 1,
-                    }}
-                />
-                <motion.span
-                    className="block w-7 h-0.5 bg-cloud-white rounded"
-                    animate={{
-                        rotate: open ? -45 : 0,
-                        y: open ? -8 : 0,
-                    }}
-                />
-            </motion.button>
+                {/* Logo (crisp) */}
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, type: "spring" }}
+                    className="relative z-10 cursor-pointer"
+                    onClick={() => navigate("/")}
+                >
+                    <Image
+                        src="/logo.png"
+                        alt="Logo"
+                        width={100}
+                        height={100}
+                        className="h-10 w-auto"
+                        priority
+                    />
+                </motion.div>
 
+                {/* Menu toggle (crisp) */}
+                <motion.button
+                    onClick={() => setOpen((v) => !v)}
+                    initial={false}
+                    animate={{ rotate: open ? 90 : 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="relative z-10 cursor-pointer p-0 flex flex-col gap-1.5"
+                    aria-label="Toggle menu"
+                >
+                    <motion.span
+                        className="block w-7 h-0.5 bg-cloud-white rounded"
+                        animate={{ rotate: open ? 45 : 0, y: open ? 8 : 0 }}
+                    />
+                    <motion.span
+                        className="block w-5 h-0.5 bg-cloud-white rounded"
+                        animate={{ opacity: open ? 0 : 1 }}
+                    />
+                    <motion.span
+                        className="block w-7 h-0.5 bg-cloud-white rounded"
+                        animate={{ rotate: open ? -45 : 0, y: open ? -8 : 0 }}
+                    />
+                </motion.button>
+            </nav>
+
+            {/* Fullscreen menu */}
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -76,7 +83,8 @@ export default function Navbar() {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.98, y: -20 }}
                         transition={{ duration: 0.35, type: "spring" }}
-                        className="fixed top-0 left-0 w-screen h-screen bg-charcoal flex flex-col items-center justify-center gap-10 z-[100]"
+                        className="fixed top-0 left-0 w-screen h-screen bg-charcoal/90 backdrop-blur-md
+                       flex flex-col items-center justify-center gap-10 z-[100]"
                     >
                         {navItems.map((item, i) => (
                             <motion.a
@@ -91,7 +99,8 @@ export default function Navbar() {
                                     stiffness: 200,
                                     delay: i * 0.1 + 0.2,
                                 }}
-                                className="text-cloud-white hover:scale-105 duration-200 text-4xl font-medium no-underline uppercase tracking-wider bg-none border-none outline-none cursor-pointer transition-transform"
+                                className="text-cloud-white hover:scale-105 duration-200 text-4xl
+                           font-medium no-underline uppercase tracking-wider transition-transform"
                             >
                                 {item.label}
                             </motion.a>
@@ -99,6 +108,6 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </nav>
+        </>
     );
 }
