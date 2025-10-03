@@ -16,7 +16,9 @@ export default function RootLayout({
       <body>
         <div className={'antialiased px-4 md:px-8'}>
         <Navbar />
+        <div className="flex flex-col max-w-[2000px] mx-auto pt-32 md:pt-40 pb-20 min-h-screen">
           {children}
+        </div>
         </div>
       </body>
     </html>

@@ -11,16 +11,19 @@ const controls = [
         key: "members",
         icon: "people",
         label: "Members",
+        hideOnSmallScreens: false,
     },
     {
         key: "grid",
         icon: "grid_view",
         label: "Team grid",
+        hideOnSmallScreens: false,
     },
     {
         key: "list",
         icon: "list",
         label: "List View",
+        hideOnSmallScreens: true,
     },
 ] as const;
 
@@ -34,8 +37,8 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
     }, []);
 
     return (
-        <section className="flex flex-col md:flex-row items-center justify-between mb-8">
-            <div className="flex space-x-8">
+        <section className="flex flex-col lg:flex-row items-center justify-between mb-8">
+            <div className="items-left w-auto flex flex-row space-x-8">
                 {controls.map((control, idx) => (
                     <button
                         key={control.key}
@@ -46,6 +49,7 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                                 ? "opacity-100 translate-x-0"
                                 : "opacity-0 -translate-x-10"
                             }
+                            ${control.hideOnSmallScreens ? "hidden md:flex" : "flex"}
                         `}
                         style={{ transitionDelay: `${idx * 120}ms` }}
                         onClick={() => setViewMode(control.key)}
@@ -62,12 +66,12 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                 ))}
             </div>
             <div
-                className="flex justify-end flex-1 items-center"
+                className="flex justify-end flex-1 items-center w-full mt-20 lg:mt-0"
             >
                 <input
                     type="text"
                     placeholder="Search"
-                    className="border-b w-128 text-left text-xl pb-2 pr-4 bg-transparent text-cloud-white placeholder:text-slate focus:outline-none"
+                    className="border-b w-full lg:w-128 text-left text-xl pb-2 pr-4 bg-transparent text-cloud-white placeholder:text-slate focus:outline-none"
                     onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
                 />
                 <span className="material-icons">search</span>

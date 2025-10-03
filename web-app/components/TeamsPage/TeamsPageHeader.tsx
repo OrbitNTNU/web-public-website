@@ -1,6 +1,6 @@
 const TeamsPageHeader = () => {
     return (
-        <section className="my-40">
+        <section className="mb-20 md:mb-40">
             <div className="w-full md:w-3/4">
                 <span
                     className="text-2xl text-cloud-white md:text-5xl"
