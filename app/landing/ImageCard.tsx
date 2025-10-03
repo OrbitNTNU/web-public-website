@@ -21,7 +21,6 @@ export const ImageCard: React.FC<ImageCardProps> = ({
                                                         staticMode = false,
                                                     }) => {
     if (staticMode) {
-        // 👉 Simple stacked version for mobile
         return (
             <div className={`relative group ${className}`}>
                 <div className="relative w-full h-full">
