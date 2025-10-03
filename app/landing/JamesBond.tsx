@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 export default function JamesBond() {
     const [isMobile, setIsMobile] = useState(false);
 
-    // Detect mobile
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth < 768);
         checkMobile();
@@ -17,7 +16,7 @@ export default function JamesBond() {
 
     const { scrollYProgress } = useScroll();
     const radius = useTransform(scrollYProgress, [0, 0.6], [0, 400]);
-    const angle = useTransform(scrollYProgress, [0, 0.8], [0, 6.28]); // 2π
+    const angle = useTransform(scrollYProgress, [0, 0.8], [0, 6.28]); // 2PI
 
     const cubesatAngle = useTransform(angle, (a) => a);
     const cubesatX = useTransform(cubesatAngle, (a) => Math.cos(a) * radius.get());
