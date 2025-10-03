@@ -73,7 +73,7 @@ const MemberView = ({
                 .map(team => (
                     <div key={team.teamName}>
                         <motion.div
-                            className="mb-8 w-1/2"
+                            className="mb-8 w-full md:w-1/2"
                             initial={{ x: 50, opacity: 0 }}
                             whileInView={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
