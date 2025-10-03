@@ -19,7 +19,7 @@ const SearchFilters = ({
     setSelectedFilters
 }: SearchFiltersProps) => {
     return (
-        <section className="grid grid-cols-1 xl:grid-cols-5 gap-32 my-20">
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-x-32 my-20">
             {filters.map((filter, idx) => {
                 const options = filter === "Team"
                     ? teamsData.map(team => team.teamName)

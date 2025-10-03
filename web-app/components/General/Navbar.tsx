@@ -2,45 +2,47 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const navItems = [
     { label: "Home", href: "/" },
-    { label: "Projects", href: "/projects" },
+    { label: "Team", href: "/team" },
     { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Articles", href: "/articles" },
+    { label: "Projects", href: "/projects" },
+    { label: "Sponsors", href: "/sponsors" },
 ];
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const router = useRouter();
+
+    const navigate = (path: string) => {
+        setOpen(false);
+        router.push(path);
+    }
 
     return (
-        <>
-        <nav className="
-  fixed top-4 left-1/2 -translate-x-1/2 w-[95%] z-50 px-8 py-2 flex justify-between items-center
-  backdrop-blur-xs rounded-xl
-"
-            >
+        <nav className="fixed top-0 left-0 w-screen z-50 pointer-events-auto px-4 md:px-8 py-4 md:py-8 flex justify-between items-center font-sans pb-8"
+            style={{
+            background: "linear-gradient(to bottom, var(--color-charcoal) 80%, rgba(24,24,27,0) 100%)"
+            }}
+        >
             <motion.div
-                initial={{opacity: 0, y: -20}}
-                animate={{opacity: 1, y: 0}}
-                transition={{duration: 0.7, type: "spring"}}
-                className="font-bold text-lg tracking-wider text-white select-none"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, type: "spring" }}
+                className="font-bold text-lg tracking-wider text-white select-none cursor-pointer"
+                onClick={() => navigate("/")}
             >
-                <Image
-                    src="/logo.png"
-                    alt="Logo"
-                    width={100}
-                    height={100}
-                    className="drop-shadow-[0_0_3px_rgba(0,0,0,1)]"
-                />
-
+                <Image src="/logo.png" alt="Logo" width={100} height={100} />
             </motion.div>
 
             <motion.button
                 onClick={() => setOpen((v) => !v)}
                 initial={false}
-                animate={{rotate: open ? 90 : 0}}
-                transition={{type: "spring", stiffness: 300, damping: 20}}
+                animate={{ rotate: open ? 90 : 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="bg-none border-none outline-none cursor-pointer p-0 flex flex-col gap-1.5 z-[105]"
                 aria-label="Toggle menu"
             >
@@ -65,42 +67,38 @@ export default function Navbar() {
                     }}
                 />
             </motion.button>
-        </nav>
-    <AnimatePresence>
-        {open && (
-            <motion.div
-                key="menu"
-                initial={{opacity: 0, scale: 0.98, y: -20}}
-                animate={{opacity: 1, scale: 1, y: 0}}
-                exit={{opacity: 0, scale: 0.98, y: -20}}
-                transition={{duration: 0.35, type: "spring"}}
-                className="fixed top-0 left-0 w-screen h-screen bg-[rgba(10,10,10,0.96)] flex flex-col items-center justify-center gap-10 z-[100]"
-            >
-                {navItems.map((item, i) => (
-                    <motion.a
-                        key={item.label}
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        initial={{opacity: 0, x: -50}}
-                        animate={{opacity: 1, x: 0}}
-                        exit={{opacity: 0, x: -50}}
-                        transition={{
-                            delay: 0.1 + i * 0.08,
-                            type: "spring",
-                            stiffness: 200,
-                        }}
-                        whileHover={{
-                            scale: 1.08,
-                            color: "var(--color-berry-blast)",
-                        }}
-                        className="text-cloud-white text-4xl font-medium no-underline uppercase tracking-wider bg-none border-none outline-none cursor-pointer transition-colors duration-200"
+
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                        key="menu"
+                        initial={{ opacity: 0, scale: 0.98, y: -20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.98, y: -20 }}
+                        transition={{ duration: 0.35, type: "spring" }}
+                        className="fixed top-0 left-0 w-screen h-screen bg-charcoal flex flex-col items-center justify-center gap-10 z-[100]"
                     >
-                        {item.label}
-                    </motion.a>
-                ))}
-            </motion.div>
-        )}
-    </AnimatePresence>
-            </>
+                        {navItems.map((item, i) => (
+                            <motion.a
+                                key={item.label}
+                                href={item.href}
+                                onClick={() => navigate(item.href)}
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -50 }}
+                                transition={{
+                                    type: "tween",
+                                    stiffness: 200,
+                                    delay: i * 0.1 + 0.2,
+                                }}
+                                className="text-cloud-white hover:scale-105 duration-200 text-4xl font-medium no-underline uppercase tracking-wider bg-none border-none outline-none cursor-pointer transition-transform"
+                            >
+                                {item.label}
+                            </motion.a>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </nav>
     );
 }
