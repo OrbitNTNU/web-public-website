@@ -9,9 +9,6 @@ interface GridViewProps {
     selectedFilters: { [key: string]: string[] };
 }
 
-const getRandom = (min: number, max: number) =>
-    Math.random() * (max - min) + min;
-
 const GridView = ({
     teamsData,
     searchTerm,
