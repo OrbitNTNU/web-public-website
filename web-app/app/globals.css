@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "tailwindcss";
 
-@theme {
+:root {
   --color-night-sky: #132940;
   --color-moonlight: #142036;
   --color-emerald-fizz: #2ecc71;
@@ -47,6 +47,50 @@
   /* Fonts */
   --font-poppins: "Poppins", sans-serif;
   --font-merriweather: "Merriweather", serif;
+}
+
+@theme {
+  --color-night-sky: var(--color-night-sky);
+  --color-moonlight: var(--color-moonlight);
+  --color-emerald-fizz: var(--color-emerald-fizz);
+  --color-dark-emerald: var(--color-dark-emerald);
+  --color-pink-blast: var(--color-pink-blast);
+  --color-dark-pink: var(--color-dark-pink);
+  --color-sky-mint: var(--color-sky-mint);
+  --color-dark-mint: var(--color-dark-mint);
+  --color-laser-lemon: var(--color-laser-lemon);
+  --color-orange-sherbert: var(--color-orange-sherbert);
+  --color-dark-lemon: var(--color-dark-lemon);
+  --color-cloud-white: var(--color-cloud-white);
+  --color-dark-gray: var(--color-dark-gray);
+  --color-strong: var(--color-strong);
+  --color-cream: var(--color-cream);
+  --color-slate: var(--color-slate);
+  --color-muted: var(--color-muted);
+  --color-berry-blast: var(--color-berry-blast);
+  --color-musty-mangrove: var(--color-musty-mangrove);
+  --color-charcoal: var(--color-charcoal);
+
+  --color-selfiesat-green: var(--color-selfiesat-green);
+  --color-selfiesat-blue: var(--color-selfiesat-blue);
+  --color-selfiesat-yellow: var(--color-selfiesat-yellow);
+  --color-selfiesat-dark-blue: var(--color-selfiesat-dark-blue);
+  --color-selfiesat-light-blue: var(--color-selfiesat-light-blue);
+
+  --color-framsat-pink: var(--color-framsat-pink);
+  --color-framsat-blue: var(--color-framsat-blue);
+  --color-framsat-yellow: var(--color-framsat-yellow);
+  --color-framsat-red: var(--color-framsat-red);
+  --color-framsat-gray: var(--color-framsat-gray);
+
+  --color-biosat-blue: var(--color-biosat-blue);
+  --color-biosat-dark-green: var(--color-biosat-dark-green);
+  --color-biosat-yellow: var(--color-biosat-yellow);
+  --color-biosat-green: var(--color-biosat-green);
+  --color-biosat-light-green: var(--color-biosat-light-green);
+
+  --font-poppins: var(--font-poppins);
+  --font-merriweather: var(--font-merriweather);
 }
 
 @layer base {
