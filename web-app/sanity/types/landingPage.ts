@@ -66,7 +66,7 @@ export interface BigProject {
 
 export interface ProjectsShowcase {
   _key: string;
-  _type: "bigProjects";
+  _type: "projectsShowcase";
   title: string;
   bigProjects: BigProject[];
 }
