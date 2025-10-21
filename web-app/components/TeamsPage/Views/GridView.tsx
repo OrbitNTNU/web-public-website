@@ -66,12 +66,13 @@ const GridView = ({
                                 viewport={{ once: true, amount: 0.2 }}
                             >
                                 <span
-                                    className={`block w-4 h-4 rounded-full mr-2 bg-${color}`}
+                                    className={`block w-4 h-4 rounded-full mr-2`}
+                                    style={{ backgroundColor: `var(--${color})` }}
                                 ></span>
                                 {groupName.split("_").join(" ")}
                             </motion.h2>
                             <motion.div
-                                className="w-full h-auto columns-1 md:columns-2 gap-8"
+                                className="w-full h-auto columns-1 md:columns-2 2xl:columns-3 gap-8"
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true }}
