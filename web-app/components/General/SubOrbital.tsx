@@ -96,7 +96,7 @@ export default function SubOrbital() {
                                 <Image
                                     src={proj.img}
                                     alt={proj.name + " patch"}
-                                    className="object-contain group-hover:scale-105 group-hover:-translate-y-2 transition-transform duration-500"
+                                    className="object-contain shadow-md shadow-charcoal rounded-full group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
                                     width={180}
                                     height={180}
                                     priority
@@ -106,9 +106,9 @@ export default function SubOrbital() {
                                     width={180}
                                     height={180}
                                     viewBox="0 0 180 180"
-                                    className="bg-night-sky rounded-full flex items-center justify-center group-hover:scale-105 group-hover:-translate-y-2 transition-transform duration-500"
+                                    className="bg-cloud-white shadow-md shadow-charcoal group-hover:shadow-xl rounded-full flex items-center justify-center group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
                                 >
-                                    <circle cx="90" cy="90" r="85" fill="var(--color-charcoal)" stroke="var(--color-cloud-white)" strokeWidth="2" />
+                                    <circle cx="90" cy="90" r="89" fill="var(--color-charcoal)" stroke="var(--color-cloud-white)" strokeWidth="0" />
                                     <text
                                         x="50%"
                                         y="50%"

@@ -41,6 +41,7 @@ const GridView = ({
         groupedTeams[team.group].push(team);
     });
 
+    // Log the group colors for all teams in groupedTeams
     return (
         <div className="mb-40 space-y-12">
             {groupsWithSearch
@@ -50,76 +51,81 @@ const GridView = ({
                     if (groupB === "MENTORS" && groupA !== "MENTORS") return -1;
                     return groupA.localeCompare(groupB);
                 })
-                .map((groupName) => (
-                    <div key={groupName}>
-                        <motion.h2
-                            className="text-xl font-bold mb-4 flex items-center gap-2 text-cloud-white"
-                            initial={{ x: 50, opacity: 0 }}
-                            whileInView={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                            viewport={{ once: true, amount: 0.2 }}
-                        >
-                            <span
-                                className="block w-4 h-4 rounded-full mr-2"
-                                style={{ backgroundColor: `var(--${groupColors[groupName]})` }}
-                            ></span>
-                            {groupName.split("_").join(" ")}
-                        </motion.h2>
-                        <motion.div
-                            className="w-full h-auto columns-1 md:columns-2 gap-8"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{
-                                hidden: {},
-                                visible: {
-                                    transition: {
-                                        staggerChildren: 0.15,
-                                    },
-                                },
-                            }}
-                        >
+                .map((groupName) => {
 
-                            {(groupedTeams[groupName] || [])
-                                .map((team, index) => {
-                                    return (
-                                        <motion.div
-                                            key={team.teamID}
-                                            className={`relative break-inside-avoid ${index !== 0 ? "mt-8" : ""} cursor-pointer hover:scale-105 transition duration-300 ease-in-out border-2 rounded-3xl p-8 flex flex-col`}
-                                            variants={{
-                                                hidden: { opacity: 0 },
-                                                visible: {
-                                                    opacity: 1,
-                                                    transition: {
-                                                        duration: 0.6,
-                                                        delay: (index + 1) * 0.15,
-                                                        ease: "easeOut",
+                    const teamsInGroup = groupedTeams[groupName] || [];
+                    const color = groupColors[groupName] || groupColors["default"];
+
+                    return (
+                        <div key={groupName}>
+                            <motion.h2
+                                className="text-xl font-bold mb-4 flex items-center gap-2 text-cloud-white"
+                                initial={{ x: 50, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                viewport={{ once: true, amount: 0.2 }}
+                            >
+                                <span
+                                    className={`block w-4 h-4 rounded-full mr-2 bg-${color}`}
+                                ></span>
+                                {groupName.split("_").join(" ")}
+                            </motion.h2>
+                            <motion.div
+                                className="w-full h-auto columns-1 md:columns-2 gap-8"
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }}
+                                variants={{
+                                    hidden: {},
+                                    visible: {
+                                        transition: {
+                                            staggerChildren: 0.15,
+                                        },
+                                    },
+                                }}
+                            >
+
+                                {teamsInGroup
+                                    .map((team, index) => {
+                                        return (
+                                            <motion.div
+                                                key={team.teamID}
+                                                className={`relative break-inside-avoid ${index !== 0 ? "mt-8" : ""} cursor-pointer hover:scale-105 transition duration-300 ease-in-out border-2 rounded-3xl p-8 flex flex-col`}
+                                                variants={{
+                                                    hidden: { opacity: 0 },
+                                                    visible: {
+                                                        opacity: 1,
+                                                        transition: {
+                                                            duration: 0.6,
+                                                            delay: (index + 1) * 0.15,
+                                                            ease: "easeOut",
+                                                        },
                                                     },
-                                                },
-                                            }}
-                                            style={{
-                                                borderColor: `var(--${groupColors[groupName]})`,
-                                            }}
-                                            onClick={() => {
-                                                const slugPromise = getSlug(team.teamID);
-                                                slugPromise.then((slug) => {
-                                                    void router.push(`/team/${slug}`);
-                                                });
-                                            }}
-                                        >
-                                            <span className="flex flex-row justify-between">
-                                                <h3>{team.teamName}</h3>
-                                                <span className="material-icons">
-                                                    chevron_right
+                                                }}
+                                                style={{
+                                                    borderColor: `var(--${color})`,
+                                                }}
+                                                onClick={() => {
+                                                    const slugPromise = getSlug(team.teamID);
+                                                    slugPromise.then((slug) => {
+                                                        void router.push(`/team/${slug}`);
+                                                    });
+                                                }}
+                                            >
+                                                <span className="flex flex-row justify-between">
+                                                    <h3>{team.teamName}</h3>
+                                                    <span className="material-icons">
+                                                        chevron_right
+                                                    </span>
                                                 </span>
-                                            </span>
-                                            <p className="text-slate">{team.description}</p>
-                                        </motion.div>
-                                    );
-                                })}
-                        </motion.div>
-                    </div>
-                ))}
+                                                <p className="text-slate">{team.description}</p>
+                                            </motion.div>
+                                        );
+                                    })}
+                            </motion.div>
+                        </div>
+                    )
+                })}
         </div>
     );
 };

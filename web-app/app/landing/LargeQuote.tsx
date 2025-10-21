@@ -13,6 +13,7 @@ export default function LargeQuote({ text }: LargeQuotesProps) {
 
     return (
         <div className="w-full max-w-7xl mx-auto px-4">
+
             <motion.h2
                 ref={ref}
                 initial={{ filter: "blur(16px)", opacity: 0 }}

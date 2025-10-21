@@ -62,6 +62,7 @@ export default function Projects() {
 
     return (
         <section className="py-8 w-full max-w-7xl mx-auto px-4">
+
             <motion.h2
                 initial={{ opacity: 0, filter: "blur(16px)" }}
                 animate={{ opacity: 1, filter: "blur(0px)" }}
@@ -75,7 +76,7 @@ export default function Projects() {
                 {patches.map((patch, idx) => (
                     <motion.div
                         key={patch.name}
-                        className="cursor-pointer rounded-2xl overflow-hidden flex flex-col items-center p-8 min-h-[340px] transition-transform duration-500 hover:scale-105 hover:-translate-y-2"
+                        className="z-5 cursor-pointer rounded-2xl overflow-hidden flex flex-col items-center p-8 min-h-[340px] transition-transform duration-500 hover:scale-105 hover:-translate-y-2"
                         style={{
                             background: getGradient(patch.colors),
                         }}
