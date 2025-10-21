@@ -1,7 +1,8 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
+import { useRef } from "react";
 
 interface DoubleImagesProps {
     src1: string;
@@ -72,13 +73,14 @@ const imageVariants: Variants = {
         y: 0,
         filter: "blur(0px)",
         transition: {
-            duration: 0.5,
-            ease: ["easeOut"],
+            duration: 0.6,
+            ease: "easeOut",
             delay: custom,
         },
     }),
     hover: {
         filter: "brightness(0.8)",
+        transition: { duration: 0.3 },
     },
 };
 
@@ -112,12 +114,15 @@ const DoubleImages = ({
     const gridCols = getGridCols(variant);
 
     // Generate random delays for each image (between 0.15 and 0.35 seconds)
-    const delay1 = 0.15 + Math.random() * 0.4;
-    const delay2 = 0.15 + Math.random() * 0.7;
+    const delay1 = 0.15 + Math.random() * 1.3;
+    const delay2 = 0.21 + Math.random() * 0.7;
 
     const isLarge = (variant: DoubleImagesProps["variant"], index: number) =>
         (variant === "one-third-two-third" && index === 1) ||
         (variant === "two-third-one-third" && index === 0);
+
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-50px" });
 
     const renderImage = (
         src: string,
@@ -126,9 +131,13 @@ const DoubleImages = ({
         link?: string,
         aspectClass?: string
     ) => {
+       
         const image = (
             <motion.div
+                ref={ref}
                 variants={imageVariants}
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
                 custom={delay}
                 whileHover={link ? "hover" : undefined}
             >
