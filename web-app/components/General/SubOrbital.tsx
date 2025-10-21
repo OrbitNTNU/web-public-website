@@ -19,7 +19,7 @@ const subOrbitalProjects = [
     {
         name: "Cansat",
         year: "2021",
-        img: "/patches/sub-orbital/SO_22.png",
+        img: "/patches/sub-orbital/SO_21.png",
         link: "/projects/suborbital-2022"
     },
     {
@@ -118,7 +118,7 @@ export default function SubOrbital() {
                                         fill="var(--color-slate)"
                                         fontFamily="sans-serif"
                                     >
-                                        Patch Coming
+                                        No Patch
                                     </text>
                                 </svg>
                             )}
