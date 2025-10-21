@@ -42,7 +42,7 @@ const patches = [
     },
     {
         name: "BioSat",
-        img: "/patches/BS.PNG",
+        img: "/patches/BS.png",
         colors: [
             "var(--color-biosat-green)",
             "var(--color-biosat-dark-green)",
