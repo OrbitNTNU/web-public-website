@@ -39,7 +39,7 @@ export default function JamesBond() {
     const contactY = useTransform(contactAngle, (a) => Math.sin(a) * radius.get());
 
     return (
-        <main className="bg-charcoal text-cloud-white">
+        <main className="text-cloud-white">
             {/* Intro */}
             <section className="h-[100vh] flex items-center justify-center">
                 <h2 className="text-3xl font-light">....</h2>

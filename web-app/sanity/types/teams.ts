@@ -1,25 +1,12 @@
 // sanity-types.d.ts
 
 import { PortableTextBlock } from "@portabletext/react";
+import { Image } from "./image";
 
 // ====== Shared types ======
 export interface Slug {
   _type: "slug";
   current: string;
-}
-
-export interface Image {
-  _type: "image";
-  asset: {
-    _ref: string;
-    _type: "reference";
-  };
-  hotspot?: {
-    x: number;
-    y: number;
-    height: number;
-    width: number;
-  };
 }
 
 export interface File {

@@ -66,7 +66,7 @@ const GridView = ({
                             {groupName.split("_").join(" ")}
                         </motion.h2>
                         <motion.div
-                            className="w-full h-auto columns-1 md:columns-3 gap-8"
+                            className="w-full h-auto columns-1 md:columns-2 gap-8"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}

@@ -23,58 +23,40 @@ export default function Navbar() {
     };
 
     return (
-        <>
-            <nav
-                className="sticky top-4 left-0 w-full z-50
-    px-4 md:px-8 py-4 flex justify-between items-center font-sans
-    rounded-2xl md:rounded-2xl relative overflow-hidden"
+        <nav className="fixed top-0 left-0 w-screen z-50 px-4 md:px-8 py-4 flex justify-between items-center pb-8"
+        >
+            <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, type: "spring" }}
+                className="font-bold text-lg tracking-wider text-white select-none cursor-pointer"
+                onClick={() => navigate("/")}
             >
-                {/* Glass background layer */}
-                <div className="absolute inset-0  backdrop-blur-sm  rounded-2xl" />
+                <Image src="/logo.png" alt="Logo" width={100} height={100} />
+            </motion.div>
 
-                {/* Logo (crisp) */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, type: "spring" }}
-                    className="relative z-10 cursor-pointer"
-                    onClick={() => navigate("/")}
-                >
-                    <Image
-                        src="/logo.png"
-                        alt="Logo"
-                        width={100}
-                        height={100}
-                        className="h-10 w-auto"
-                        priority
-                    />
-                </motion.div>
-
-                {/* Menu toggle (crisp) */}
-                <motion.button
-                    onClick={() => setOpen((v) => !v)}
-                    initial={false}
-                    animate={{ rotate: open ? 90 : 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="relative z-10 cursor-pointer p-0 flex flex-col gap-1.5"
-                    aria-label="Toggle menu"
-                >
-                    <motion.span
-                        className="block w-7 h-0.5 bg-cloud-white rounded"
-                        animate={{ rotate: open ? 45 : 0, y: open ? 8 : 0 }}
-                    />
-                    <motion.span
-                        className="block w-5 h-0.5 bg-cloud-white rounded"
-                        animate={{ opacity: open ? 0 : 1 }}
-                    />
-                    <motion.span
-                        className="block w-7 h-0.5 bg-cloud-white rounded"
-                        animate={{ rotate: open ? -45 : 0, y: open ? -8 : 0 }}
-                    />
-                </motion.button>
-            </nav>
-
-            {/* Fullscreen menu */}
+            {/* Menu toggle (crisp) */}
+            <motion.button
+                onClick={() => setOpen((v) => !v)}
+                initial={false}
+                animate={{ rotate: open ? 90 : 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative z-[101] cursor-pointer p-0 flex flex-col gap-1.5"
+                aria-label="Toggle menu"
+            >
+                <motion.span
+                    className="block w-7 h-0.5 bg-cloud-white rounded"
+                    animate={{ rotate: open ? 45 : 0, y: open ? 8 : 0 }}
+                />
+                <motion.span
+                    className="block w-5 h-0.5 bg-cloud-white rounded"
+                    animate={{ opacity: open ? 0 : 1 }}
+                />
+                <motion.span
+                    className="block w-7 h-0.5 bg-cloud-white rounded"
+                    animate={{ rotate: open ? -45 : 0, y: open ? -8 : 0 }}
+                />
+            </motion.button>
             <AnimatePresence>
                 {open && (
                     <motion.div
@@ -108,6 +90,6 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </>
+        </nav>
     );
 }

@@ -14,9 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className={'antialiased px-4 md:px-8'}>
+        <div className={'antialiased'}>
         <Navbar />
-        <div className="flex flex-col max-w-[2000px] mx-auto pt-32 md:pt-40 pb-20 min-h-screen">
+        <div className="flex flex-col mx-auto pb-20 min-h-screen gap-20 md:gap-40">
           {children}
         </div>
         </div>

@@ -1,15 +1,16 @@
-import Image from "next/image";
-
 export default function Hero() {
     return (
-        <section className="w-screen mb-40">
-            <Image
-                src="/orbitbig.jpg"
-                alt="Orbitbig Hero"
-                fill
-                className="object-cover object-bottom"
-                priority
-            />
+        <section className="w-screen h-screen relative overflow-hidden">
+            <video
+                src="/landing-video.mp4"
+                className="absolute top-0 left-0 w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+            >
+                Your browser does not support the video tag.
+            </video>
         </section>
     );
 }

@@ -43,7 +43,7 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                     <button
                         key={control.key}
                         type="button"
-                        className={`cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all duration-500
+                        className={`cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all
                             ${viewMode === control.key ? "text-cloud-white" : "text-slate"}
                             ${animate
                                 ? "opacity-100 translate-x-0"
@@ -51,7 +51,6 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                             }
                             ${control.hideOnSmallScreens ? "hidden md:flex" : "flex"}
                         `}
-                        style={{ transitionDelay: `${idx * 120}ms` }}
                         onClick={() => setViewMode(control.key)}
                     >
                         <span

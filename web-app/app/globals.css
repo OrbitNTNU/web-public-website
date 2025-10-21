@@ -25,6 +25,25 @@
   --color-musty-mangrove: #104859;
   --color-charcoal: #111113;
 
+  /* Color pallettes for the projects */
+  --color-selfiesat-green: #266D45;
+  --color-selfiesat-blue: #4265B3;
+  --color-selfiesat-yellow: #FEAA02;
+  --color-selfiesat-dark-blue: #0E2F4C;
+  --color-selfiesat-light-blue: #297075;
+
+  --color-framsat-pink: #D0378E;
+  --color-framsat-blue: rgb(96, 154, 212);
+  --color-framsat-yellow: #FEAA02;
+  --color-framsat-red: #B62B0D;
+  --color-framsat-gray: #37EDDA;
+
+  --color-biosat-blue: #027EE2;
+  --color-biosat-dark-green: rgb(15, 46, 38);
+  --color-biosat-yellow: #FEAA02;
+  --color-biosat-green: #3FCA3F;
+  --color-biosat-light-green: #94CA94;
+
   /* Fonts */
   --font-poppins: "Poppins", sans-serif;
   --font-merriweather: "Merriweather", serif;
@@ -34,7 +53,7 @@
   html {
     font-family: var(--font-poppins);
     background-color: var(--color-charcoal);
-    color: var(--color-strong);
+    color: var(--color-cloud-white);
   }
 
   body {
@@ -42,9 +61,15 @@
     padding: 0;
   }
 
-  h1 { font-size: 2rem; font-weight: 400; }
-  h2 { font-size: 1.5rem; font-weight: 300; }
-  h3 { font-size: 1.1rem; font-weight: 200; }
+  h1, h2, h3 {
+    font-stretch: expanded;
+    font-weight: 300;
+    letter-spacing: 0;
+  }
+
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.1rem; }
   p, span { font-size: 0.9rem; }
 
   @media (min-width: 640px) {

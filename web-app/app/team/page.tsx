@@ -90,7 +90,7 @@ const Teams = () => {
     if (!teamsData) return <div className="text-cloud-white">No team data available.</div>;
 
     return (
-        <div className="w-full relative">
+        <div className="w-full relative md:w-4/5 mx-auto my-40">
             {/* Star pattern background */}
             <TeamsPageHeader />
             <TeamsControls
@@ -106,7 +106,6 @@ const Teams = () => {
                 selectedFilters={selectedFilters}
                 setSelectedFilters={setSelectedFilters}
             />
-
             {viewMode === "grid" && (
                 <GridView
                     teamsData={teamsData}
