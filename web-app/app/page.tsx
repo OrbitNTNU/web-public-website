@@ -31,7 +31,6 @@ export default function Home() {
 
   return (
     <>
-   
       <Hero />
       {landingPage.sections?.map((section: LandingPageSection) => {
         switch (section._type) {
@@ -99,7 +98,7 @@ export default function Home() {
             )
 
           case "projectsShowcase":
-            return <Projects key={section._key} />
+            return <Projects key={section._key} projects={section.bigProjects} />
 
           case "subOrbitalShowcase":
             return <SubOrbital key={section._key} />

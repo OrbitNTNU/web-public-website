@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased relative bg-charcoal">
+      <body className="antialiased relative bg-charcoal overflow-x-hidden">
         <Navbar />
 
         <div className="absolute inset-0 pointer-events-none">

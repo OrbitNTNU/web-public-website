@@ -53,9 +53,16 @@ export async function fetchLandingPage() {
         },
         _type == "projectsShowcase" => {
           _type,
-          placeholder
-        }
-      }
+          bigProjects[]->{
+            _id,
+            title,
+            teaser,
+            patch,
+            slug,
+            gradientColors,
+          }
+        },
+      },
     }
   `
   return client.fetch(query)

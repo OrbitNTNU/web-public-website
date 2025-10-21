@@ -51,10 +51,24 @@ export interface DoubleImageCollage {
 }
 
 // 🚀 Projects Showcase
+export interface BigProject {
+    _key: string;
+    _id: string;
+    _type: "bigProject";
+    title: string;
+    teaser: string;
+    patch: Image;
+    slug: {
+        current: string;
+    };
+    gradientColors: string[];
+}
+
 export interface ProjectsShowcase {
   _key: string;
-  _type: "projectsShowcase";
-  placeholder: string;
+  _type: "bigProjects";
+  title: string;
+  bigProjects: BigProject[];
 }
 
 export interface SubOrbitalShowcase {
@@ -62,6 +76,7 @@ export interface SubOrbitalShowcase {
   _type: "subOrbitalShowcase";
   placeholder: string;
 }
+
 
 // ─────────────── PAGE STRUCTURE ───────────────
 
