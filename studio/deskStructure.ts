@@ -1,5 +1,5 @@
-import { MdHome, MdGroups, MdAddChart } from 'react-icons/md'
-import { StructureBuilder } from 'sanity/structure'
+import {MdHome, MdGroups, MdAddChart} from 'react-icons/md'
+import {StructureBuilder} from 'sanity/structure'
 
 export const deskStructure = (S: StructureBuilder) =>
   S.list()
@@ -9,11 +9,7 @@ export const deskStructure = (S: StructureBuilder) =>
       S.listItem()
         .title('Landing Page')
         .icon(MdHome)
-        .child(
-          S.document()
-            .schemaType('landingPage')
-            .documentId('landingPage')
-        ),
+        .child(S.document().schemaType('landingPage').documentId('landingPage')),
 
       // Teams
       S.listItem()
@@ -25,4 +21,19 @@ export const deskStructure = (S: StructureBuilder) =>
       S.listItem()
         .title('Projects')
         .icon(MdAddChart)
+        .child(
+          S.list()
+            .title('Projects')
+            .items([
+              S.listItem()
+                .title('Sub Orbital Projects')
+                .schemaType('subOrbitalProject')
+                .child(S.documentTypeList('subOrbitalProject').title('Sub Orbital Projects')),
+
+              S.listItem()
+                .title('Big Projects')
+                .schemaType('bigProject')
+                .child(S.documentTypeList('bigProject').title('Big Projects')),
+            ]),
+        ),
     ])

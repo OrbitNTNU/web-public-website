@@ -1,3 +1,4 @@
+import bigProject from "./bigProject";
 import doubleImage from "./doubleImage";
 import doubleImageCollage from "./doubleImageCollage";
 import landingPage from "./landingPage";
@@ -12,6 +13,7 @@ import imageSection from "./sections/imageSection";
 import textSection from "./sections/textSection";
 import videoSection from "./sections/videoSection";
 import spanningText from "./spanningText";
+import subOrbitalProject from "./subOrbitalProject";
 import subOrbitalShowcase from "./subOrbitalShowcase";
 import team from "./team";
 
@@ -31,5 +33,7 @@ export const schemaTypes = [
     doubleImage,
     doubleImageCollage,
     projectsShowcase,
-    subOrbitalShowcase
+    subOrbitalShowcase,
+    bigProject,
+    subOrbitalProject
 ]
