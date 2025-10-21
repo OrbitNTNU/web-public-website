@@ -17,24 +17,31 @@ export default function RootLayout({
       <body className="antialiased relative bg-charcoal">
         <Navbar />
 
-        {/* Starfield overlay */}
         <div className="absolute inset-0 pointer-events-none">
           {Array.from({ length: 200 }).map((_, i) => {
             const size = Math.random() * 4 + 1;
+            const topPercent = Math.random() * 100;
+
+            // Fade stars out as we go lower on the page
+            // Opacity = 1 at top (0%), 0 at bottom (100%)
+            const opacity = Math.max(0, 1 - topPercent / 60); // fades quickly
+
+            if (opacity <= 0) return null; // skip stars that would be invisible
 
             return (
               <div
-              key={i}
-              className="bg-cloud-white rounded-full"
-              style={{
-                width: `${size}px`,
-                height: `${size}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                position: "absolute",
-              }}
-            />
-            )
+                key={i}
+                className="bg-cloud-white rounded-full"
+                style={{
+                  width: `${size}px`,
+                  height: `${size}px`,
+                  top: `${topPercent}%`,
+                  left: `${Math.random() * 100}%`,
+                  position: "absolute",
+                  opacity,
+                }}
+              />
+            );
           })}
         </div>
 

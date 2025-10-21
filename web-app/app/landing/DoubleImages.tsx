@@ -78,10 +78,6 @@ const imageVariants: Variants = {
             delay: custom,
         },
     }),
-    hover: {
-        filter: "brightness(0.8)",
-        transition: { duration: 0.3 },
-    },
 };
 
 const textVariants: Variants = {
@@ -145,9 +141,6 @@ const DoubleImages = ({
                     src={src}
                     alt={alt}
                     className={`w-full mb-4 h-auto rounded-lg shadow-lg ${aspectClass} object-cover`}
-                    style={{
-                        filter: "brightness(0.8)",
-                    }}
                     width={1600}
                     height={600}
                 />

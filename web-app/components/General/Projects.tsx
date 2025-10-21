@@ -62,7 +62,9 @@ export default function Projects() {
 
     return (
         <section className="py-8 w-full max-w-7xl mx-auto px-4">
-
+            {/* <div
+                className="absolute -translate-y-20 left-0 w-4/5 h-128 bg-slate opacity-10 rounded-r-2xl"
+            /> */}
             <motion.h2
                 initial={{ opacity: 0, filter: "blur(16px)" }}
                 animate={{ opacity: 1, filter: "blur(0px)" }}
