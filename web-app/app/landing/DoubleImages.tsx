@@ -118,7 +118,7 @@ const DoubleImages = ({
         (variant === "two-third-one-third" && index === 0);
 
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-50px" });
+    const isInView = useInView(ref, { once: true });
 
     const renderImage = (
         src: string,
