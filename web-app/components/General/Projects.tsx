@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
-import { BigProject } from "@/sanity/types/landingPage";
 import { useRouter } from "next/navigation";
+import { BigProject } from "@/sanity/types/project";
 
 function getGradient(colors: string[]) {
     return `linear-gradient(135deg, ${colors.join(", ")})`;
