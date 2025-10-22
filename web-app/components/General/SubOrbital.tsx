@@ -7,12 +7,12 @@ import { useRouter } from "next/navigation";
 // SubOrbital project data
 const subOrbitalProjects = [
     {
-        name: "Project 19",
+        name: "OrbitxPropulse",
         year: "2019",
         link: "/projects/suborbital-2019"
     },
     {
-        name: "Project 20",
+        name: "H.A.B.T.",
         year: "2020",
         link: "/projects/suborbital-2020"
     },
@@ -25,6 +25,7 @@ const subOrbitalProjects = [
     {
         name: "Ledzep",
         year: "2022",
+        img: "/patches/sub-orbital/SO_22.png",
         link: "/projects/suborbital-2022"
     },
     {
@@ -96,7 +97,7 @@ export default function SubOrbital() {
                                 <Image
                                     src={proj.img}
                                     alt={proj.name + " patch"}
-                                    className="w-32 md:w-48 h-32 md:h-48 object-contain shadow-md shadow-charcoal rounded-full group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
+                                    className="w-38 md:w-48 h-38 md:h-48 object-contain shadow-md shadow-charcoal rounded-full group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
                                     width={180}
                                     height={180}
                                     priority
@@ -106,7 +107,7 @@ export default function SubOrbital() {
                                     width={180}
                                     height={180}
                                     viewBox="0 0 180 180"
-                                    className="w-32 md:w-48 h-32 md:h-48 bg-cloud-white shadow-md shadow-charcoal group-hover:shadow-xl rounded-full flex items-center justify-center group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
+                                    className="w-38 md:w-48 h-38 md:h-48 bg-cloud-white shadow-md shadow-charcoal group-hover:shadow-xl rounded-full flex items-center justify-center group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
                                 >
                                     <circle cx="90" cy="90" r="89" fill="var(--color-charcoal)" stroke="var(--color-cloud-white)" strokeWidth="0" />
                                     <text

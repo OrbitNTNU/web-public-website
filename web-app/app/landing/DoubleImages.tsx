@@ -110,8 +110,8 @@ const DoubleImages = ({
     const gridCols = getGridCols(variant);
 
     // Generate random delays for each image (between 0.15 and 0.35 seconds)
-    const delay1 = 0.15 + Math.random() * 1.3;
-    const delay2 = 0.21 + Math.random() * 0.7;
+    const delay1 = 0.15 + Math.random();
+    const delay2 = 0.21 + Math.random();
 
     const isLarge = (variant: DoubleImagesProps["variant"], index: number) =>
         (variant === "one-third-two-third" && index === 1) ||
@@ -136,13 +136,17 @@ const DoubleImages = ({
                 animate={isInView ? "visible" : "hidden"}
                 custom={delay}
                 whileHover={link ? "hover" : undefined}
+                className="overflow-hidden mb-4 rounded-lg"
             >
                 <Image
                     src={src}
                     alt={alt}
-                    className={`w-full mb-4 h-auto rounded-lg shadow-lg ${aspectClass} object-cover`}
+                    className={`w-full h-auto rounded-lg shadow-lg ${aspectClass} object-cover ${link ? "cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out" : ""}`}
                     width={1600}
                     height={600}
+                    style={{
+                        objectFit: "cover",
+                    }}
                 />
             </motion.div>
         );

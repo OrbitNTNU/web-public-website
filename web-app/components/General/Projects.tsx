@@ -32,10 +32,10 @@ export default function Projects({ projects }: ProjectsProps) {
             </motion.h2>
 
             <div className="grid gap-8 max-w-7xl mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {projects.map((bigProject, idx) => (
+                {projects.map((bigProject) => (
                     <motion.div
                         key={bigProject._id}
-                        className="z-5 cursor-pointer rounded-2xl overflow-hidden flex flex-col items-center p-8 min-h-[340px] transition-transform duration-500 hover:scale-105 hover:-translate-y-2"
+                        className="z-5 cursor-pointer rounded-2xl overflow-hidden flex flex-row md:flex-col items-center gap-4 md:gap-0 p-4 md:p-8 md:min-h-[340px] transition-transform duration-500 hover:scale-105 hover:-translate-y-2"
                         style={{
                             background: getGradient(bigProject.gradientColors),
                         }}
@@ -45,11 +45,10 @@ export default function Projects({ projects }: ProjectsProps) {
                         transition={{
                             type: "tween",
                             stiffness: 200,
-                            delay: idx * 0.2 + 0.2,
                         }}
                         onClick={() => void router.push(`projects/${bigProject.slug.current}`)}
                     >
-                        <div className="relative w-full flex justify-center mb-4">
+                        <div className="relative flex justify-center w-2/5 md:w-full">
                             <Image
                                 src={imageBuilder(bigProject.patch)}
                                 alt={bigProject.title + " patch"}
@@ -59,14 +58,17 @@ export default function Projects({ projects }: ProjectsProps) {
                                 priority
                             />
                         </div>
-                        <h3 className="mb-4 font-black">{bigProject.title.toUpperCase()}</h3>
-                        <p className="mt-2 italic text-center font-semibold">{bigProject.teaser}</p>
-                        <Link href={`/projects/${bigProject.slug.current}`} className="mt-auto">
-                            <button className="px-4 py-2 flex flex-row gap-2 items-center">
+                        <span className="flex flex-col items-start md:items-center md:text-left gap-2 md:mt-4 w-3/5 md:w-full">
+                            <h3 className="font-black">{bigProject.title.toUpperCase()}</h3>
+                            <p className="italic md:text-center font-semibold">{bigProject.teaser}</p>
+                            <Link href={`/projects/${bigProject.slug.current}`} className="mt-auto">
+                                <button className="md:px-4 py-2 flex flex-row gap-2 items-center">
                                 Explore
                                 <span className="material-icons">arrow_forward</span>
                             </button>
                         </Link>
+
+                        </span>
                     </motion.div>
                 ))}
             </div>
