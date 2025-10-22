@@ -1,4 +1,5 @@
 import { client } from "../config"
+import { BigProject } from "../types/project"
 
 export async function fetchAllBigProjects() {
   const query = `
@@ -15,11 +16,19 @@ export async function fetchAllBigProjects() {
   return client.fetch(query)
 }
 
-export async function fetchBigProjectBanner(slug: string) {
+export async function fetchBigProjectBySlug(slug: string): Promise<BigProject | null> {
   const query = `
     *[_type == "bigProject" && slug.current == $slug][0]{
-      bannerImage
+      _id,
+      _type,
+      title,
+      teaser,
+      "slug": slug,
+      patch,
+      gradientColors,
+      sections[]
     }
   `
+
   return client.fetch(query, { slug })
 }

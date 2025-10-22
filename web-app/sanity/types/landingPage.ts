@@ -1,8 +1,7 @@
-
-
 // ─────────────── COMPONENT TYPES ───────────────
 
 import { Image } from "./image";
+import { BigProject } from "./project";
 
 // 🪐 Large Quote
 export interface LargeQuote {
@@ -51,18 +50,6 @@ export interface DoubleImageCollage {
 }
 
 // 🚀 Projects Showcase
-export interface BigProject {
-    _key: string;
-    _id: string;
-    _type: "bigProject";
-    title: string;
-    teaser: string;
-    patch: Image;
-    slug: {
-        current: string;
-    };
-    gradientColors: string[];
-}
 
 export interface ProjectsShowcase {
   _key: string;
@@ -76,7 +63,6 @@ export interface SubOrbitalShowcase {
   _type: "subOrbitalShowcase";
   placeholder: string;
 }
-
 
 // ─────────────── PAGE STRUCTURE ───────────────
 

@@ -1,3 +1,4 @@
+import bannerImage from "./bannerImage";
 import bigProject from "./bigProject";
 import doubleImage from "./doubleImage";
 import doubleImageCollage from "./doubleImageCollage";
@@ -35,5 +36,6 @@ export const schemaTypes = [
     projectsShowcase,
     subOrbitalShowcase,
     bigProject,
-    subOrbitalProject
+    subOrbitalProject,
+    bannerImage
 ]
