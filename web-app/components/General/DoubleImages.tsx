@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef } from "react";
 
 interface DoubleImagesProps {
@@ -15,8 +15,8 @@ interface DoubleImagesProps {
     title2?: string;
     caption2?: string;
     link2?: string;
-    variant?: "half-half" 
-    | "one-third-two-third" 
+    variant?: "half-half"
+    | "one-third-two-third"
     | "two-third-one-third"
     | "half-half-long-left"
     | "half-half-long-right";
@@ -43,7 +43,7 @@ const getColSpan = (variant: DoubleImagesProps["variant"], index: number) => {
     if (variant === "two-third-one-third") {
         return index === 0 ? "md:col-span-2" : "col-span-1";
     }
-    return "";   
+    return "";
 };
 
 const getRowSpan = (variant: DoubleImagesProps["variant"], index: number) => {
@@ -118,6 +118,12 @@ const DoubleImages = ({
         (variant === "two-third-one-third" && index === 0);
 
     const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"],
+    });
+
+    const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
     const renderImage = (
         src: string,
@@ -138,16 +144,18 @@ const DoubleImages = ({
                 whileHover={link ? "hover" : undefined}
                 className="overflow-hidden mb-4"
             >
-                <Image
-                    src={src}
-                    alt={alt}
-                    className={`w-full h-auto shadow-lg ${aspectClass} object-cover ${link ? "cursor-pointer hover:scale-105 transition-transform duration-500 ease-in-out" : ""}`}
-                    width={1600}
-                    height={600}
-                    style={{
-                        objectFit: "cover",
-                    }}
-                />
+                <motion.div style={{ y: y }}>
+                    <Image
+                        src={src}
+                        alt={alt}
+                        className={`scale-115 w-full h-auto shadow-lg ${aspectClass} object-cover ${link ? "cursor-pointer hover:scale-120 transition-transform duration-500 ease-in-out" : ""}`}
+                        width={1600}
+                        height={600}
+                        style={{
+                            objectFit: "cover",
+                        }}
+                    />
+                </motion.div>
             </motion.div>
         );
         return link ? (
@@ -160,7 +168,7 @@ const DoubleImages = ({
     };
 
     return (
-        <div className={`w-full px-4 md:px-12 mx-auto grid ${gridCols} gap-8 md:auto-rows-fr max-w-[2000px]`}>
+        <div className={`w-full px-4 md:px-12 mx-auto grid ${gridCols} gap-8 md:auto-rows-fr max-w-7xl`}>
             <motion.div
                 className={`relative ${getColSpan(variant, 0)} ${getRowSpan(variant, 0)}`}
                 initial="hidden"
