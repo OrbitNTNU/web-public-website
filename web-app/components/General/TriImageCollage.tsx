@@ -74,7 +74,7 @@ const TriImageCollage = ({
   return (
     <section
       ref={ref}
-      className="max-w-7xl mx-auto w-full px-4 sm:px-6 relative overflow-hidden"
+      className="mx-auto w-full px-4 sm:px-6 relative overflow-hidden"
     >
       {title && (
         <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">

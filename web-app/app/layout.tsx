@@ -17,7 +17,7 @@ export default function RootLayout({
       <body className="antialiased relative bg-charcoal overflow-x-hidden">
         <Navbar />
 
-        <div className="absolute inset-0 pointer-events-none">
+        {/* <div className="absolute inset-0 pointer-events-none">
           {Array.from({ length: 200 }).map((_, i) => {
             const size = Math.random() * 4 + 1;
             const topPercent = Math.random() * 100;
@@ -43,7 +43,7 @@ export default function RootLayout({
               />
             );
           })}
-        </div>
+        </div> */}
 
         {/* Main content */}
         <div className="relative flex flex-col mx-auto pb-20 min-h-screen gap-20 md:gap-40 z-10">

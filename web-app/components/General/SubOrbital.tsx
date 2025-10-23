@@ -1,131 +1,71 @@
 'use client';
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 // SubOrbital project data
 const subOrbitalProjects = [
-    {
-        name: "OrbitxPropulse",
-        year: "2019",
-        link: "/projects/suborbital-2019"
-    },
-    {
-        name: "H.A.B.T.",
-        year: "2020",
-        link: "/projects/suborbital-2020"
-    },
-    {
-        name: "Cansat",
-        year: "2021",
-        img: "/patches/sub-orbital/SO_21.png",
-        link: "/projects/suborbital-2022"
-    },
-    {
-        name: "Ledzep",
-        year: "2022",
-        img: "/patches/sub-orbital/SO_22.png",
-        link: "/projects/suborbital-2022"
-    },
-    {
-        name: "Barosat",
-        year: "2023",
-        img: "/patches/sub-orbital/SO_23.png",
-        link: "/projects/suborbital-2023"
-    },
-    {
-        name: "Magsat",
-        year: "2024",
-        img: "/patches/sub-orbital/SO_24.png",
-        link: "/projects/suborbital-2024"
-    },
-    {
-        name: "Raysat",
-        year: "2025",
-        img: "/patches/sub-orbital/SO_25.png",
-        link: "/projects/suborbital-2025"
-    },
-    {
-        name: "MutantSat",
-        year: "2026",
-        link: "/projects/suborbital-2026"
-    },
+    { name: "OrbitxPropulse", year: "2019", link: "/projects/suborbital-2019" },
+    { name: "H.A.B.T.", year: "2020", link: "/projects/suborbital-2020" },
+    { name: "Cansat", year: "2021", img: "/patches/sub-orbital/SO_21.png", link: "/projects/suborbital-2022" },
+    { name: "Ledzep", year: "2022", img: "/patches/sub-orbital/SO_22.png", link: "/projects/suborbital-2022" },
+    { name: "Barosat", year: "2023", img: "/patches/sub-orbital/SO_23.png", link: "/projects/suborbital-2023" },
+    { name: "Magsat", year: "2024", img: "/patches/sub-orbital/SO_24.png", link: "/projects/suborbital-2024" },
+    { name: "Raysat", year: "2025", img: "/patches/sub-orbital/SO_25.png", link: "/projects/suborbital-2025" },
+    { name: "MutantSat", year: "2026", link: "/projects/suborbital-2026" },
 ];
 
 export default function SubOrbital() {
     const router = useRouter();
 
     return (
-        <section className="py-8 w-full max-w-7xl mx-auto px-4">
-            <motion.h2
-                initial={{ opacity: 0, filter: "blur(16px)" }}
-                animate={{ opacity: 1, filter: "blur(0px)" }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="text-center mx-auto mb-2"
+        <section className="py-8 w-full mx-auto max-w-[2000px]">
+            <motion.h3
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ type: "tween", stiffness: 200 }}
+                className="mb-8 tracking-wider text-center mx-auto px-4 md:px-12"
             >
-                SUBORBITAL PROJECTS
-            </motion.h2>
-            <motion.div
-                initial={{ opacity: 0, filter: "blur(16px)" }}
-                animate={{ opacity: 1, filter: "blur(0px)" }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className="text-center mx-auto mb-12"
-            >
-                <p className="w-full md:max-w-1/2 mx-auto">
-                    Suborbital projects are small-scale satellite missions designed for research and technology demonstration in the suborbital environment.
-                </p>
-            </motion.div>
+                SubOrbital Projects
+            </motion.h3>
 
-            <div className="flex flex-row flex-wrap gap-4 md:gap-12 w-full items-center justify-center">
-                {subOrbitalProjects.map((proj, idx) => (
+            {/* Horizontal scroll container */}
+            <div
+                className="relative w-full overflow-x-auto overflow-y-hidden scrollbar-none py-4 flex gap-6 md:gap-12 px-4 md:px-12"
+                style={{ scrollbarWidth: "none" }}
+            >
+                {subOrbitalProjects.sort((a, b) => b.year.localeCompare(a.year)).map((proj, idx) => (
                     <motion.div
-                        key={proj.name}
-                        className="cursor-pointer flex flex-col items-center group"
+                        key={`${proj.name}-${idx}`}
+                        className="flex-shrink-0 cursor-pointer flex flex-col items-center group w-32 md:w-48"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
-                        transition={{
-                            type: "tween",
-                            stiffness: 200,
-                            delay: idx * 0.15 + 0.2,
-                        }}
+                        transition={{ type: "tween", stiffness: 200, delay: 0.2 }}
                         onClick={() => void router.push(proj.link)}
+                        style={{
+                            transform: `translateY(${idx % 2 === 1 ? '3rem' : '0'})`,
+                        }}
                     >
                         <div className="relative w-full flex justify-center mb-4">
                             {proj.img ? (
                                 <Image
                                     src={proj.img}
                                     alt={proj.name + " patch"}
-                                    className="w-38 md:w-48 h-38 md:h-48 object-contain shadow-md shadow-charcoal rounded-full group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
-                                    width={180}
-                                    height={180}
+                                    className="w-32 md:w-48 h-32 md:h-48 object-contain shadow-md shadow-charcoal rounded-full group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
+                                    width={192}
+                                    height={192}
                                     priority
                                 />
                             ) : (
-                                <svg
-                                    width={180}
-                                    height={180}
-                                    viewBox="0 0 180 180"
-                                    className="w-38 md:w-48 h-38 md:h-48 bg-cloud-white shadow-md shadow-charcoal group-hover:shadow-xl rounded-full flex items-center justify-center group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
-                                >
-                                    <circle cx="90" cy="90" r="89" fill="var(--color-charcoal)" stroke="var(--color-cloud-white)" strokeWidth="0" />
-                                    <text
-                                        x="50%"
-                                        y="50%"
-                                        textAnchor="middle"
-                                        dominantBaseline="middle"
-                                        fontSize="20"
-                                        fill="var(--color-slate)"
-                                        fontFamily="sans-serif"
-                                    >
-                                        No Patch
-                                    </text>
-                                </svg>
+                                <div className="w-32 md:w-48 h-32 md:h-48 bg-charcoal flex items-center justify-center rounded-full shadow-md border-cloud-white border shadow-charcoal group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500">
+                                    <span className="text-cloud-white text-sm text-center">No Patch</span>
+                                </div>
                             )}
                         </div>
-                        <h3 className="font-black text-center">{proj.name.toUpperCase()}</h3>
-                        <p className="italic text-center">{proj.year}</p>
+                        <h3 className="font-black text-center text-sm md:text-base">{proj.name.toUpperCase()}</h3>
+                        <p className="italic text-center text-xs md:text-sm">{proj.year}</p>
                     </motion.div>
                 ))}
             </div>

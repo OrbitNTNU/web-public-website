@@ -136,12 +136,12 @@ const DoubleImages = ({
                 animate={isInView ? "visible" : "hidden"}
                 custom={delay}
                 whileHover={link ? "hover" : undefined}
-                className="overflow-hidden mb-4 rounded-lg"
+                className="overflow-hidden mb-4"
             >
                 <Image
                     src={src}
                     alt={alt}
-                    className={`w-full h-auto rounded-lg shadow-lg ${aspectClass} object-cover ${link ? "cursor-pointer hover:scale-110 transition-transform duration-500 ease-in-out" : ""}`}
+                    className={`w-full h-auto shadow-lg ${aspectClass} object-cover ${link ? "cursor-pointer hover:scale-105 transition-transform duration-500 ease-in-out" : ""}`}
                     width={1600}
                     height={600}
                     style={{
@@ -160,7 +160,7 @@ const DoubleImages = ({
     };
 
     return (
-        <div className={`w-full px-4 max-w-7xl mx-auto grid ${gridCols} gap-8 md:auto-rows-fr`}>
+        <div className={`w-full px-4 md:px-12 mx-auto grid ${gridCols} gap-8 md:auto-rows-fr max-w-[2000px]`}>
             <motion.div
                 className={`relative ${getColSpan(variant, 0)} ${getRowSpan(variant, 0)}`}
                 initial="hidden"
@@ -187,7 +187,7 @@ const DoubleImages = ({
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.7 }}
                     >
-                        {caption1}
+                        <p>{caption1}</p>
                     </motion.span>
                 )}
             </motion.div>
@@ -217,7 +217,7 @@ const DoubleImages = ({
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.7 }}
                     >
-                        {caption2}
+                        <p>{caption2}</p>
                     </motion.span>
                 )}
             </motion.div>

@@ -12,14 +12,14 @@ export default function LargeQuote({ text }: LargeQuotesProps) {
     const isInView = useInView(ref, { once: true });
 
     return (
-        <div className="w-full max-w-7xl mx-auto px-4">
+        <div className="w-full mx-auto px-4 max-w-7xl">
 
             <motion.h2
                 ref={ref}
                 initial={{ filter: "blur(16px)", opacity: 0 }}
                 animate={isInView ? { filter: "blur(0px)", opacity: 1 } : {}}
                 transition={{ duration: 1 }}
-                className="text-3xl md:text-4xl lg:text-6xl font-light text-center max-w-7xl mx-auto font-merriweather italic"
+                className="text-3xl md:text-4xl lg:text-6xl text-center mx-auto"
             >
                 {text}
             </motion.h2>

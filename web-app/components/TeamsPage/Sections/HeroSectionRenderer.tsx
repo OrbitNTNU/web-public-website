@@ -32,7 +32,7 @@ const HeroSectionRender = ({ content }: HeroSectionProps) => {
           zIndex: 5,
         }}
       />
-      <div className="relative z-10 text-left w-full px-4 md:px-8">
+      <div className="relative z-10 text-left w-full ">
         <h1 className="font-merriweather">{title}</h1>
         {subtitle && <p className="md:ml-4 text-muted">{subtitle}</p>}
       </div>

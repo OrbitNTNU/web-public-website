@@ -4,7 +4,7 @@ import { fetchBigProjectBySlug } from "@/sanity/queries/projects";
 import { BigProject } from "@/sanity/types/project";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import BannerImage from "./BannerImage";
+import BannerImage from "../../../components/General/BannerImage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder"
 
 const ProjectPage = () => {
@@ -25,7 +25,7 @@ const ProjectPage = () => {
     const isBiosat = projectPage.slug.current === "biosat";
 
     return (
-        <div className="w-full max-w-7xl mx-auto px-4 py-16">
+        <div className="w-full mx-auto px-4 py-16">
             {projectPage.sections.map((section) => {
                 switch (section._type) {
                     case "bannerImage":

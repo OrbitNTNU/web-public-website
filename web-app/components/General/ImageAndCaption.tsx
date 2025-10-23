@@ -42,7 +42,7 @@ const ImageAndCaption = ({
     const { width, height } = imageSizes[variant];
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 sm:px-8">
+        <section className="w-full mx-auto px-4 sm:px-8">
             <motion.div
                 className={`flex ${variantStyles[variant]}`}
                 initial={{ opacity: 0, y: 30 }}

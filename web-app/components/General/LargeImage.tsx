@@ -8,7 +8,7 @@ interface LargeImageProps {
 
 const LargeImage = ({ src, alt, caption }: LargeImageProps) => {
     return (
-        <div className="w-full px-4 md:px-8 max-w-7xl mx-auto relative">
+        <div className="w-full  mx-auto relative">
             <Image
                 src={src}
                 alt={alt}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useScroll, useTransform } from "framer-motion";
-import { ImageCard } from "@/app/landing/ImageCard";
+import { ImageCard } from "@/components/General/ImageCard";
 import { useEffect, useState } from "react";
 
 export default function JamesBond() {

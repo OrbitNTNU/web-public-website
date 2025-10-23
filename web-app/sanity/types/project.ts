@@ -26,6 +26,7 @@ export interface BigProject {
   slug: {
     current: string;
   };
+  image: Image;
   gradientColors: string[];
   sections: ProjectSection[];
 }

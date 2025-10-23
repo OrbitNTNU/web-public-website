@@ -60,6 +60,7 @@ export async function fetchLandingPage() {
             patch,
             slug,
             gradientColors,
+            image,
           }
         },
       },

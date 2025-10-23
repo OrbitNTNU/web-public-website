@@ -65,7 +65,7 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                 ))}
             </div>
             <div
-                className="flex justify-end flex-1 items-center w-full mt-20 lg:mt-0"
+                className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0"
             >
                 <input
                     type="text"

@@ -23,7 +23,7 @@ const cards = [
 
 const NavPanel = () => {
     return (
-        <div className="px-8 max-w-7xl mx-auto gap-8">
+        <div className="px-8 mx-auto gap-8">
             <h1 className="mb-8 text-left">
                 Europe&apos;s largest technical student organization.
             </h1>
