@@ -41,12 +41,9 @@ export default function SubOrbital() {
                         className="flex-shrink-0 cursor-pointer flex flex-col items-center group w-32 md:w-48"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.3 }}
-                        transition={{ type: "tween", stiffness: 200, delay: 0.2 }}
+                        viewport={{ once: true, amount: 0.1 }}
+                        transition={{ type: "tween", stiffness: 200, delay: 0.1 * idx }}
                         onClick={() => void router.push(proj.link)}
-                        style={{
-                            transform: `translateY(${idx % 2 === 1 ? '3rem' : '0'})`,
-                        }}
                     >
                         <div className="relative w-full flex justify-center mb-4">
                             {proj.img ? (

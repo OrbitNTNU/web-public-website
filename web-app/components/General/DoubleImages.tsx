@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useRef } from "react";
 
 interface DoubleImagesProps {
@@ -87,9 +87,9 @@ const textVariants: Variants = {
         y: 0,
         filter: "blur(0px)",
         transition: {
-            duration: 0.7,
+            duration: 0.4,
             ease: "easeOut",
-            delay: 0.6,
+            delay: 0.2,
         },
     },
 };
@@ -110,15 +110,14 @@ const DoubleImages = ({
     const gridCols = getGridCols(variant);
 
     // Generate random delays for each image (between 0.15 and 0.35 seconds)
-    const delay1 = 0.15 + Math.random();
-    const delay2 = 0.21 + Math.random();
+    const delay1 = 0.15 * Math.random();
+    const delay2 = 0.21 * Math.random();
 
     const isLarge = (variant: DoubleImagesProps["variant"], index: number) =>
         (variant === "one-third-two-third" && index === 1) ||
         (variant === "two-third-one-third" && index === 0);
 
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
 
     const renderImage = (
         src: string,
@@ -127,13 +126,14 @@ const DoubleImages = ({
         link?: string,
         aspectClass?: string
     ) => {
-       
         const image = (
             <motion.div
                 ref={ref}
                 variants={imageVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ type: "tween", stiffness: 200, delay: 0.1 }}
                 custom={delay}
                 whileHover={link ? "hover" : undefined}
                 className="overflow-hidden mb-4"
