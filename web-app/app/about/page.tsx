@@ -1,4 +1,6 @@
+'use client';
 import GlobeDots from "@/components/General/GlobeDots";
+import SDGs from "@/components/General/SDGs";
 
 const About = () => {
     return (
@@ -8,10 +10,15 @@ const About = () => {
                 Welcome to our website! We are dedicated to providing the best content and resources for our community.
                 Our mission is to inspire, educate, and connect people through engaging articles, projects, and events.
             </p>
-            <GlobeDots 
+            {/* <GlobeDots 
                 title="We create the space industry's future talent"
                 subtitle="We are designing and building small satellites that we launch into space. We want to create the next generation of talent by working on complex projects together."
-            />
+            /> */}
+            <div className="h-screen"></div>
+            <SDGs />
+            <div className="h-screen"></div>
+            <div className="h-screen"></div>
+
         </div>
     );
 }
