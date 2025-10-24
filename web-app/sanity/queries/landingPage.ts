@@ -63,6 +63,9 @@ export async function fetchLandingPage() {
             image,
           }
         },
+        _type == "projectsShowcase" => {
+          _type,
+        },
       },
     }
   `

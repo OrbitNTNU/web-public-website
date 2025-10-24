@@ -64,6 +64,11 @@ export interface SubOrbitalShowcase {
   placeholder: string;
 }
 
+export interface InstagramEmbed {
+  _key: string;
+  _type: "instagramEmbed";
+}
+
 // ─────────────── PAGE STRUCTURE ───────────────
 
 // Union of all section types
@@ -74,7 +79,8 @@ export type LandingPageSection =
   | DoubleImage
   | DoubleImageCollage
   | ProjectsShowcase
-  | SubOrbitalShowcase;
+  | SubOrbitalShowcase
+  | InstagramEmbed;
 
 // 🪩 Landing Page Document
 export interface LandingPage {

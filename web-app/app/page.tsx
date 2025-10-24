@@ -13,6 +13,7 @@ import Projects from "@/components/General/Projects"
 import { imageBuilder } from "@/sanity/utils/imageBuilder"
 import { Loading } from "@/components/Loading"
 import SubOrbital from "@/components/General/SubOrbital"
+import InstagramEmbed from "@/components/General/InstagramEmbed"
 // import NavPanel from "./landing/NavPanel"
 // import InstagramEmbed from "./landing/InstagramEmbed"
 
@@ -102,6 +103,9 @@ export default function Home() {
 
           case "subOrbitalShowcase":
             return <SubOrbital key={section._key} />
+
+          case "instagramEmbed":
+            return <InstagramEmbed key={section._key} />
 
           default:
             return null

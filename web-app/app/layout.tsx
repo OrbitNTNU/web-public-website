@@ -17,14 +17,14 @@ export default function RootLayout({
       <body className="antialiased relative bg-charcoal overflow-x-hidden">
         <Navbar />
 
-        {/* <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 pointer-events-none">
           {Array.from({ length: 200 }).map((_, i) => {
             const size = Math.random() * 4 + 1;
             const topPercent = Math.random() * 100;
 
             // Fade stars out as we go lower on the page
             // Opacity = 1 at top (0%), 0 at bottom (100%)
-            const opacity = Math.max(0, 1 - topPercent / 60); // fades quickly
+            const opacity = Math.max(0, 1 - topPercent / 90); // fades quickly
 
             if (opacity <= 0) return null; // skip stars that would be invisible
 
@@ -43,10 +43,10 @@ export default function RootLayout({
               />
             );
           })}
-        </div> */}
+        </div>
 
         {/* Main content */}
-        <div className="relative flex flex-col mx-auto pb-20 min-h-screen gap-20 md:gap-40 z-10">
+        <div className="relative flex flex-col mx-auto min-h-screen gap-20 md:gap-40 z-10">
           {children}
         </div>
       </body>
