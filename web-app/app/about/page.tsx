@@ -1,6 +1,6 @@
 'use client';
 import GlobeDots from "@/components/General/GlobeDots";
-import SDGs from "@/components/General/SDGs";
+import SDGs from "@/components/General/SDGs/SDGs";
 
 const About = () => {
     return (
@@ -16,9 +16,6 @@ const About = () => {
             /> */}
             <div className="h-screen"></div>
             <SDGs />
-            <div className="h-screen"></div>
-            <div className="h-screen"></div>
-
         </div>
     );
 }
