@@ -51,7 +51,7 @@ export default function InstagramEmbed() {
                             type: "tween",
                             stiffness: 200,
                         }}
-                className="px-4 md:px-12 mb-8 tracking-wider"
+                className="px-4 md:px-12 mb-8 tracking-wider max-w-[2000px] mx-auto"
             >
                 Our feed
             </motion.h3>

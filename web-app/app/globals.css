@@ -145,4 +145,9 @@
   .overflow-x-auto::-webkit-scrollbar {
     display: none;
   }
+
+  .line.animate {
+    animation-delay: 0.8s;
+    animation: fadeIn 0.5s forwards;
+  }
 }

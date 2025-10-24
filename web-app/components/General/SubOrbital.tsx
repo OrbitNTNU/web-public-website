@@ -19,7 +19,7 @@ export default function SubOrbital() {
     const router = useRouter();
 
     return (
-        <section className="py-8 w-full mx-auto max-w-[2000px]">
+        <section className="w-full mx-auto max-w-[2000px]">
             <motion.h3
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
