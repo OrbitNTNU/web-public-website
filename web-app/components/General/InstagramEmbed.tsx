@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function InstagramEmbed() {
   useEffect(() => {
@@ -41,9 +42,23 @@ export default function InstagramEmbed() {
   }, []);
 
   return (
-      <div
-        id="orbitntnu-juicer-feed"
-        className="mx-auto"
-      />
+    <section>
+        <motion.h3
+                 initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{
+                            type: "tween",
+                            stiffness: 200,
+                        }}
+                className="px-4 md:px-12 mb-8 tracking-wider"
+            >
+                Our feed
+            </motion.h3>
+            <div
+              id="orbitntnu-juicer-feed"
+              className="mx-auto"
+            />
+    </section>
   );
 }

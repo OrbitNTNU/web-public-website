@@ -111,9 +111,6 @@ export default function Home() {
             return null
         }
       })}
-      <footer className="w-full py-8 text-center text-sm text-cloud-white italic">
-        &copy; {new Date().getFullYear()} Orbit NTNU. All rights reserved.
-      </footer> 
     </>
   )
 }
