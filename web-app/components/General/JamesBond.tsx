@@ -15,7 +15,7 @@ export default function JamesBond() {
     }, []);
 
     const { scrollYProgress } = useScroll();
-    const radius = useTransform(scrollYProgress, [0, 0.6], [0, 400]);
+    const radius = useTransform(scrollYProgress, [0.1, 0.3, 0.8], [0, 200, 700]);
     const angle = useTransform(scrollYProgress, [0, 0.8], [0, 6.28]); // 2PI
 
     const cubesatAngle = useTransform(angle, (a) => a);
@@ -41,14 +41,14 @@ export default function JamesBond() {
     return (
         <main className="text-cloud-white">
             {/* Intro */}
-            <section className="h-[100vh] flex items-center justify-center">
+            {/* <section className="h-[100vh] flex items-center justify-center">
                 <h2 className="text-3xl font-light">....</h2>
-            </section>
+            </section> */}
 
             {/* Spiral for desktop / stacked for mobile */}
-            <section className="relative min-h-screen">
+            <section className="relative">
                 {isMobile ? (
-                    <div className="flex flex-col items-center text-center py-20 space-y-12">
+                    <div className="flex flex-col items-center text-center">
                         <div>
                             <h1 className="text-2xl font-light tracking-wide">ABOUT</h1>
                             <p className="text-xs text-slate mt-1 font-light">DISCOVER</p>
@@ -60,29 +60,68 @@ export default function JamesBond() {
                         <ImageCard src="/fjell.png" alt="Contact" label="CONTACT" className="w-64 h-80" staticMode />
                     </div>
                 ) : (
-                    <section className="relative h-[800vh] mb-[50vh]">
+                    <section className="relative h-[300vh] mb-120">
                         <div className="sticky top-0 h-screen flex items-center justify-center overflow-visible">
                             {/* Center "ABOUT" */}
                             <div className="absolute text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                <h1 className="text-2xl font-light tracking-wide">ABOUT</h1>
-                                <p className="text-xs text-slate mt-1 font-light">DISCOVER</p>
+                                <h1>ABOUT</h1>
+                                <p>DISCOVER</p>
                             </div>
 
                             {/* Floating Images */}
-                            <ImageCard src="/sat.png" alt="CubeSat" label="CUBESAT" x={cubesatX} y={cubesatY} className="w-64 h-80" />
-                            <ImageCard src="/ntnu.png" alt="Student Driven" label="STUDENT DRIVEN" x={studentX} y={studentY} className="w-64 h-80" />
-                            <ImageCard src="/aurora.png" alt="Report" label="REPORT" x={reportX} y={reportY} className="w-64 h-80" />
-                            <ImageCard src="/orbitluv.png" alt="Teams" label="TEAMS" x={teamsX} y={teamsY} className="w-96 h-64" />
-                            <ImageCard src="/fjell.png" alt="Contact" label="CONTACT" x={contactX} y={contactY} className="w-64 h-80" />
+                            <ImageCard
+                                src="/sat.png"
+                                alt="SelfieSat CubeSat in orbit"
+                                label="SELFIESAT — OUR FIRST SATELLITE"
+                                x={cubesatX}
+                                y={cubesatY}
+                                className="w-120 h-90"
+                            />
+
+                            <ImageCard
+                                src="/ntnu.png"
+                                alt="Orbit NTNU student team"
+                                label="POWERED BY STUDENTS"
+                                x={studentX}
+                                y={studentY}
+                                className="w-120 h-90"
+                            />
+
+                            <ImageCard
+                                src="/aurora.png"
+                                alt="Aurora mission patch and report"
+                                label="RESEARCH & INNOVATION"
+                                x={reportX}
+                                y={reportY}
+                                className="w-120 h-90"
+                            />
+
+                            <ImageCard
+                                src="/orbitluv.png"
+                                alt="Orbit NTNU interdisciplinary teams collaborating"
+                                label="INTERDISCIPLINARY TEAMS"
+                                x={teamsX}
+                                y={teamsY}
+                                className="w-120 h-90"
+                            />
+
+                            <ImageCard
+                                src="/fjell.png"
+                                alt="Orbit NTNU outreach and public engagement"
+                                label="INSPIRING NORWAY’S SPACE FUTURE"
+                                x={contactX}
+                                y={contactY}
+                                className="w-120 h-90"
+                            />
                         </div>
                     </section>
                 )}
             </section>
 
             {/* Extra content */}
-            <section className="h-[100vh] bg-translucent flex items-center justify-center relative">
+            {/* <section className="h-[100vh] bg-translucent flex items-center justify-center relative">
                 <h2 className="text-3xl font-light">AFTER THE SPIN...</h2>
-            </section>
+            </section> */}
         </main>
     );
 }

@@ -13,7 +13,7 @@ interface TriImageCollageProps {
   src3: string;
   alt3: string;
   variant?: "large-left" | "large-right";
-wideCaption?: boolean;
+  wideCaption?: boolean;
 }
 
 const TriImageCollage = ({
@@ -26,7 +26,7 @@ const TriImageCollage = ({
   src3,
   alt3,
   variant = "large-left",
-    wideCaption = false,
+  wideCaption = false,
 }: TriImageCollageProps) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -40,7 +40,7 @@ const TriImageCollage = ({
   const yTop = useTransform(scrollYProgress, [0, 1], ["-80%", "-320%"]);
 
   // Lower image parallax (subtle)
-  const yBottom = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const yBottom = useTransform(scrollYProgress, [0, 1], ["-40%", "20%"]);
 
   const { gridClasses, imageLayouts } = useMemo(() => {
     let gridClasses = "relative grid gap-4";
@@ -48,18 +48,18 @@ const TriImageCollage = ({
 
     if (variant === "large-left") {
       gridClasses += " md:grid-cols-3 md:grid-rows-2";
-    imageLayouts = [
-      { className: "md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
-      { className: "md:col-start-2 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:mr-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
-      { className: "absolute hidden md:block md:w-2/5 w-1/2 md:right-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
-    ];
+      imageLayouts = [
+        { className: "md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
+        { className: "md:col-start-2 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:mr-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
+        { className: "absolute hidden md:block md:w-2/5 w-1/2 md:right-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
+      ];
     } else {
-    gridClasses += " md:grid-cols-3 md:grid-rows-2";
-    imageLayouts = [
-      { className: "md:col-start-1 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:ml-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
-      { className: "md:col-start-2 md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
-      { className: "absolute hidden md:block md:w-2/5 w-1/2 md:left-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
-    ];
+      gridClasses += " md:grid-cols-3 md:grid-rows-2";
+      imageLayouts = [
+        { className: "md:col-start-1 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:ml-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
+        { className: "md:col-start-2 md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
+        { className: "absolute hidden md:block md:w-2/5 w-1/2 md:left-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
+      ];
     }
 
     return { gridClasses, imageLayouts };
@@ -74,7 +74,7 @@ const TriImageCollage = ({
   return (
     <section
       ref={ref}
-      className="mx-auto w-full px-4 sm:px-6 relative overflow-hidden"
+      className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden max-w-7xl"
     >
       {title && (
         <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">
@@ -85,7 +85,7 @@ const TriImageCollage = ({
         <p className={`text-slate mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>{caption}</p>
       )}
 
-      <div className={gridClasses + " md:relative"} style={{ minHeight: "600px" }}>
+      <div className={gridClasses + " md:relative"}>
         {/* Mobile stack */}
         <div className="flex flex-col gap-4 md:hidden">
           {images.map((img, index) => (
@@ -95,7 +95,7 @@ const TriImageCollage = ({
                 alt={img.alt}
                 width={800}
                 height={600}
-                className="w-full h-auto rounded-lg shadow-md object-cover"
+                className="w-full h-auto shadow-md object-cover"
               />
             </div>
           ))}
@@ -119,7 +119,7 @@ const TriImageCollage = ({
                     alt={img.alt}
                     width={600}
                     height={400}
-                    className="w-full h-auto object-cover rounded-lg shadow-xl"
+                    className="w-full h-auto object-cover shadow-xl"
                   />
                 </motion.div>
               );
@@ -138,7 +138,7 @@ const TriImageCollage = ({
                     alt={img.alt}
                     width={800}
                     height={600}
-                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                    className="w-full h-full object-cover shadow-lg"
                   />
                 </motion.div>
               );
@@ -152,7 +152,7 @@ const TriImageCollage = ({
                   alt={img.alt}
                   width={800}
                   height={600}
-                  className="w-full h-full object-cover rounded-lg shadow-lg"
+                  className="w-full h-full object-cover shadow-lg"
                 />
               </div>
             );

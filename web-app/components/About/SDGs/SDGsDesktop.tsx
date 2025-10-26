@@ -46,7 +46,7 @@ const SDGsDesktop = () => {
     ];
 
     return (
-        <section className="relative h-[80vh] w-full px-4 md:px-12">
+        <section className="relative w-full px-4 md:px-12">
             <div className="flex flex-col justify-center items-center overflow-visible">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ const SDGsDesktop = () => {
                 </div>
 
                 <motion.div
-                    className="mt-8 max-w-2xl text-center px-4"
+                    className="mt-8 max-w-2xl text-center px-4 h-[150px]"
                     animate={{ opacity: 1, y: 20 }}
                     transition={{ duration: 0.3 }}
                 >

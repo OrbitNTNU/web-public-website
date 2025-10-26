@@ -1,4 +1,4 @@
-export default function Hero() {
+export default function AboutHero() {
     return (
         <section className="w-screen relative top-0 left-0 h-screen">
             <video

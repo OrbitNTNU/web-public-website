@@ -10,7 +10,7 @@ export async function fetchAllBigProjects() {
       patch,
       slug,
       gradientColors,
-      order
+      image,
     }
   `
   return client.fetch(query)

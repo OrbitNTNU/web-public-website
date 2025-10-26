@@ -1,16 +1,9 @@
 'use client';
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { useRouter } from "next/navigation";
 import { BigProject } from "@/sanity/types/project";
-
-function getGradient(colors: string[], opacity = 0.6) {
-    // rgba version for overlay
-    const rgbaColors = colors.map(c => c + Math.floor(opacity * 255).toString(16));
-    return `linear-gradient(135deg, ${rgbaColors.join(", ")})`;
-}
 
 interface ProjectsProps {
     projects: BigProject[];

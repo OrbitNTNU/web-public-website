@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 interface ImageAndCaptionProps {
     src: string;
@@ -39,10 +40,21 @@ const ImageAndCaption = ({
     link,
     variant = "standard",
 }: ImageAndCaptionProps) => {
+    const ref = useRef<HTMLDivElement | null>(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"],
+    });
+
+    // Create a strong parallax transform (move image slower than scroll)
+    const y = useTransform(scrollYProgress, [0, 1.0], [-50, 50]);
     const { width, height } = imageSizes[variant];
 
     return (
-        <section className="w-full mx-auto px-4 sm:px-8">
+        <section
+            className="w-full mx-auto px-4 sm:px-8 max-w-7xl overflow-hidden"
+            ref={ref}
+        >
             <motion.div
                 className={`flex ${variantStyles[variant]}`}
                 initial={{ opacity: 0, y: 30 }}
@@ -50,13 +62,11 @@ const ImageAndCaption = ({
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, ease: "easeOut" }}
             >
-                {/* Image */}
+                {/* Parallax Image */}
                 <motion.div
-                    className={`flex-shrink-0 ${imageWidthClass[variant]}`}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className={`flex-shrink-0 relative overflow-hidden ${imageWidthClass[variant]}`}
+                    style={{ y }}
+                    transition={{ type: "spring", stiffness: 50, damping: 20 }}
                 >
                     {link ? (
                         <a href={link} target="_blank" rel="noopener noreferrer">
@@ -65,8 +75,7 @@ const ImageAndCaption = ({
                                 alt={alt}
                                 width={width}
                                 height={height}
-                                className="w-full h-auto rounded-lg shadow-lg hover:opacity-90 transition-opacity duration-300"
-                                style={{ objectFit: "cover" }}
+                                className="w-full h-auto shadow-lg hover:opacity-90 transition-opacity duration-300"
                             />
                         </a>
                     ) : (
@@ -75,12 +84,13 @@ const ImageAndCaption = ({
                             alt={alt}
                             width={width}
                             height={height}
-                            className="w-full h-auto rounded-lg shadow-lg"
-                            style={{ objectFit: "cover" }}
+                            className="w-full h-auto shadow-lg scale-150"
+                            style={{ transformOrigin: "top center" }    }
                         />
                     )}
                 </motion.div>
-                {/* Text */}
+
+                {/* Text Content */}
                 {(title || caption) && (
                     <motion.div
                         className={`flex flex-col justify-start ${wideCaption ? "flex-1" : ""}`}
@@ -89,13 +99,21 @@ const ImageAndCaption = ({
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
                     >
-                        {title && <h3 className="font-black mb-4">{title.toUpperCase()}</h3>}
-                        {caption && <p className="text-slate leading-relaxed">{caption}</p>}
+                        {title && (
+                            <h3 className="font-black text-2xl mb-4 tracking-tight">
+                                {title.toUpperCase()}
+                            </h3>
+                        )}
+                        {caption && (
+                            <p className="text-slate leading-relaxed whitespace-pre-wrap">
+                                {caption}
+                            </p>
+                        )}
                     </motion.div>
                 )}
             </motion.div>
         </section>
     );
-}
+};
 
 export default ImageAndCaption;
