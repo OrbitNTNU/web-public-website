@@ -33,7 +33,7 @@ const ProjectsOverviewPage = () => {
                         Our Projects
                     </span>
                     <span
-                        className="block text-2xl text-slate sm:ml-2 sm:inline md:text-5xl"
+                        className="block text-2xl text-charcoal-light sm:ml-2 sm:inline md:text-5xl"
                     >
                         - Pushing the boundaries of student-led space innovation. Our projects range from Selfie-taking CubeSats to high-altitude suborbital flights, each designed and built by our passionate members.
                     </span>

@@ -44,7 +44,7 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                         key={control.key}
                         type="button"
                         className={`cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all
-                            ${viewMode === control.key ? "text-cloud-white" : "text-slate"}
+                            ${viewMode === control.key ? "text-cloud-white" : "text-charcoal-light"}
                             ${animate
                                 ? "opacity-100 translate-x-0"
                                 : "opacity-0 -translate-x-10"
@@ -55,7 +55,7 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                     >
                         <span
                             className={`group-hover:text-cloud-white material-icons transition-colors
-                                ${viewMode === control.key ? "text-cloud-white" : "text-slate"}
+                                ${viewMode === control.key ? "text-cloud-white" : "text-charcoal-light"}
                             `}
                         >
                             {control.icon}
@@ -70,7 +70,7 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                 <input
                     type="text"
                     placeholder="Search"
-                    className="border-b w-full lg:w-128 text-left text-xl pb-2 pr-4 bg-transparent text-cloud-white placeholder:text-slate focus:outline-none"
+                    className="border-b w-full lg:w-128 text-left text-xl pb-2 pr-4 bg-transparent text-cloud-white placeholder:text-charcoal-light focus:outline-none"
                     onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
                 />
                 <span className="material-icons">search</span>

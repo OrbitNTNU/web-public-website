@@ -11,7 +11,7 @@ const TIER_COLORS: Record<string, string> = {
   main: "bg-[var(--color-laser-lemon)] text-[var(--color-dark-gray)]",
   platinum: "bg-[var(--color-moonlight)] text-[var(--color-cloud-white)]",
   gold: "bg-[var(--color-orange-sherbert)] text-[var(--color-dark-gray)]",
-  silver: "bg-[var(--color-slate)] text-[var(--color-cloud-white)]",
+  silver: "bg-[var(--color-charcoal-light)] text-[var(--color-cloud-white)]",
   bronze: "bg-[var(--color-dark-emerald)] text-[var(--color-cloud-white)]",
   partner: "bg-[var(--color-night-sky)] text-[var(--color-cloud-white)]"
 };
@@ -81,7 +81,7 @@ export default function SponsorPage() {
     const renderTierSection = (title: string, sponsors: (BaseSponsor | RichSponsor)[], tier: string) => {
         if (!sponsors || sponsors.length === 0) return null;
         return (
-            <section className="mb-12">
+            <section className="mb-12 w-full px-4 md:px-12">
                 <div className="mb-4">{title}</div>
                 <div className="flex flex-col gap-4">{sponsors.map((s, i) => renderSponsor(s, tier, i))}</div>
             </section>
@@ -89,11 +89,19 @@ export default function SponsorPage() {
     };
 
     return (
-        <div className="w-full relative md:w-4/5 mx-auto my-40 ">
-            <section className="mb-20 md:mb-40">
+        <div className="w-full relative max-w-[2000px] mx-auto gap-20 md:gap-40 my-40 flex flex-col">
+            <section className="px-4 md:px-12">
                 <div className="w-full md:w-3/4">
-                    <h1 className="text-2xl md:text-5xl font-bold">{sponsorsPage.title}</h1>
-                    {sponsorsPage.caption && <p className="block text-2xl md:text-5xl mt-2 text-slate-400">{sponsorsPage.caption}</p>}
+                    <span
+                        className="text-2xl text-cloud-white md:text-5xl"
+                    >
+                        {sponsorsPage.title}
+                    </span>
+                    <span
+                        className="block text-2xl text-charcoal-light sm:ml-2 sm:inline md:text-5xl"
+                    >
+                        {sponsorsPage.caption}
+                    </span>
                 </div>
             </section>
 

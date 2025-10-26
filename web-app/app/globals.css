@@ -24,6 +24,7 @@
   --color-berry-blast: #2897e0;
   --color-musty-mangrove: #104859;
   --color-charcoal: #111113;
+  --color-charcoal-light: #909094;
 
   /* Color pallettes for the projects */
   --color-selfiesat-green: #266D45;
@@ -70,7 +71,7 @@
   --color-berry-blast: var(--color-berry-blast);
   --color-musty-mangrove: var(--color-musty-mangrove);
   --color-charcoal: var(--color-charcoal);
-
+  --color-charcoal-light: var(--color-charcoal-light);
   --color-selfiesat-green: var(--color-selfiesat-green);
   --color-selfiesat-blue: var(--color-selfiesat-blue);
   --color-selfiesat-yellow: var(--color-selfiesat-yellow);

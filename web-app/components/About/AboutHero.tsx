@@ -21,7 +21,6 @@ export default function AboutHero() {
                     keyboard_arrow_down
                 </p>
             </div>
-
         </section>
     );
 }

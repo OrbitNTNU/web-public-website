@@ -40,7 +40,7 @@ const GeneralCollage = ({
                 </h1>
             )}
             {caption && (
-                <p className={`text-slate-400 mb-8 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>
+                <p className={`text-charcoal-light mb-8 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>
                     {caption}
                 </p>
             )}

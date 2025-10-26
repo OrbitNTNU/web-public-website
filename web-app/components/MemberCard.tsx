@@ -74,12 +74,12 @@ const MemberCard = ({
                   filter: "brightness(0.8)",
                 }}
                 sizes="(max-width: 640px) 48vw, (max-width: 1024px) 32vw, 200px"
-                className="border-2 border-slate transition duration-300 rounded-xl"
+                className="border-2 border-charcoal-light transition duration-300 rounded-xl"
                 priority
               />
             ) : (
               <div
-                className="flex h-full w-full items-center justify-center rounded-xl border-2 border-slate transition duration-300"
+                className="flex h-full w-full items-center justify-center rounded-xl border-2 border-charcoal-light transition duration-300"
               >
                 <svg
                   width="60"
@@ -118,7 +118,7 @@ const MemberCard = ({
             {mentor && (
               <div
                 className={`absolute right-0 top-0 z-30 rounded-bl-md bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${
-                  !image ? "border-r-2 border-t-2 border-slate" : ""
+                  !image ? "border-r-2 border-t-2 border-charcoal-light" : ""
                 }`}
               >
                 Mentor
@@ -141,7 +141,7 @@ const MemberCard = ({
             {memberName && <h5 className="truncate">{memberName}</h5>}
             {bio && <span className="truncate text-sm text-muted">{bio}</span>}
             {phoneNumber && (
-              <span className="truncate text-sm text-slate">{phoneNumber}</span>
+              <span className="truncate text-sm text-charcoal-light">{phoneNumber}</span>
             )}
           </span>
         )}

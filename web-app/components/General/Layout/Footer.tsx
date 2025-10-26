@@ -92,7 +92,7 @@ export const Footer = () => {
                 </div>
 
                 {/* Copyright */}
-                <p className="text-center text-slate mt-8">
+                <p className="text-center text-charcoal-light mt-8">
                     &copy; {year} Orbit NTNU. All rights reserved.
                 </p>
             </footer>

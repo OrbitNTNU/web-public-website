@@ -75,15 +75,15 @@ const ListView = ({
         <table className="min-w-full border-collapse mb-40">
             <thead>
                 <tr>
-                    <th className="px-4 py-2 text-left text-slate border-b border-slate">Group</th>
-                    <th className="px-4 py-2 text-left text-slate border-b border-slate">Team</th>
-                    <th className="px-4 py-2 text-slate border-b border-slate text-right">Members</th>
+                    <th className="px-4 py-2 text-left text-charcoal-light border-b border-charcoal-light">Group</th>
+                    <th className="px-4 py-2 text-left text-charcoal-light border-b border-charcoal-light">Team</th>
+                    <th className="px-4 py-2 text-charcoal-light border-b border-charcoal-light text-right">Members</th>
                 </tr>
             </thead>
             <tbody>
                 {Object.entries(filteredGroups).length === 0 ? (
                     <tr>
-                        <td colSpan={3} className="px-4 py-8 text-center text-slate">
+                        <td colSpan={3} className="px-4 py-8 text-center text-charcoal-light">
                             No results found.
                         </td>
                     </tr>
@@ -95,7 +95,7 @@ const ListView = ({
                     })
                     .map(([groupName, teams]: [string, Team[]]) => (
                         <tr key={groupName}>
-                            <td className="w-[240px] px-2 py-4 border-b border-slate text-cloud-white font-semibold align-top">
+                            <td className="w-[240px] px-2 py-4 border-b border-charcoal-light text-cloud-white font-semibold align-top">
                                 <button className="w-full text-left cursor-pointer focus:outline-none flex flex-row gap-2 items-center">
                                     <span
                                         className="block w-4 h-4 rounded-full mr-2"
@@ -104,7 +104,7 @@ const ListView = ({
                                     {groupName.split("_").join(" ")}
                                 </button>
                             </td>
-                            <td className="w-[240px] px-2 py-4 border-slate border-b text-cloud-white align-top">
+                            <td className="w-[240px] px-2 py-4 border-charcoal-light border-b text-cloud-white align-top">
                                 <div className="flex flex-col">
                                     {teams.map((team: Team) => (
                                         <button
@@ -125,7 +125,7 @@ const ListView = ({
                                     ))}
                                 </div>
                             </td>
-                            <td className="px-2 py-4 border-slate border-b text-slate">
+                            <td className="px-2 py-4 border-charcoal-light border-b text-charcoal-light">
                                 <div className="flex flex-wrap gap-x-2 gap-y-2">
                                     {(() => {
                                         const filteredMembers: Member[] = teams
@@ -138,7 +138,7 @@ const ListView = ({
                                                 className={`cursor-pointer hover:text-cloud-white transition-all duration-300 ease-in-out
                                                     ${activeTeam && teams.some((team: Team) => team.teamID === activeTeam && team.members.includes(member))
                                                         ? "text-emerald-fizz"
-                                                        : "font-normal text-slate"
+                                                        : "font-normal text-charcoal-light"
                                                     }`}
                                             >
                                                 {(() => {

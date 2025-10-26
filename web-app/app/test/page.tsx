@@ -109,7 +109,7 @@ const SelfieSatPage = () => {
         graphic='/selfiesat/3.jpg'
         additionalGraphic='/tests/3.png'
       />
-      <GeneralCollage 
+      <GeneralCollage
         title="Mission Highlights"
         caption="SelfieSat was launched on May 5, 2022, aboard a SpaceX Falcon 9 rocket as part of the NUTS-3 mission. The satellite operated successfully for several months, capturing stunning images of Earth and transmitting them back to ground stations."
         images={[
@@ -154,14 +154,14 @@ const SelfieSatPage = () => {
           src="/tests/1.png"
           alt="SelfieSat Image 6"
           title="Building SelfieSat"
-        caption="SelfieSat successfully captured and transmitted 118 complete space selfies during its mission. The project was a remarkable achievement for the student team, demonstrating not only technical expertise but also the ability to collaborate across disciplines and overcome significant engineering challenges. Throughout its operational period, SelfieSat provided invaluable data and imagery, contributing to educational outreach and inspiring future generations of space enthusiasts."
+          caption="SelfieSat successfully captured and transmitted 118 complete space selfies during its mission. The project was a remarkable achievement for the student team, demonstrating not only technical expertise but also the ability to collaborate across disciplines and overcome significant engineering challenges. Throughout its operational period, SelfieSat provided invaluable data and imagery, contributing to educational outreach and inspiring future generations of space enthusiasts."
           wideCaption={true}
           link="https://www.ntnu.edu/ie/selfiesat"
           variant="large-right"
         />
-        <LargeImage 
+        <LargeImage
           src="/tests/2.png"
-          alt="SelfieSat in Testing" 
+          alt="SelfieSat in Testing"
         />
         <ImageAndCaption
           src="/tests/3.png"

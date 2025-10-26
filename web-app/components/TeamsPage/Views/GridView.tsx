@@ -119,7 +119,7 @@ const GridView = ({
                                                         chevron_right
                                                     </span>
                                                 </span>
-                                                <p className="text-slate">{team.description}</p>
+                                                <p className="text-charcoal-light">{team.description}</p>
                                             </motion.div>
                                         );
                                     })}

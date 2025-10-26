@@ -82,7 +82,7 @@ const TriImageCollage = ({
         </h1>
       )}
       {caption && (
-        <p className={`text-slate mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>{caption}</p>
+        <p className={`text-charcoal-light mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>{caption}</p>
       )}
 
       <div className={gridClasses + " md:relative"}>

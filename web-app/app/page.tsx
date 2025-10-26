@@ -14,6 +14,8 @@ import { imageBuilder } from "@/sanity/utils/imageBuilder"
 import { Loading } from "@/components/Loading"
 import SubOrbital from "@/components/General/SubOrbital"
 import InstagramEmbed from "@/components/General/InstagramEmbed"
+import JoinCard from "@/components/General/JoinCard"
+import ForSponsorsCard from "@/components/General/ForSponsorsCard"
 // import NavPanel from "./landing/NavPanel"
 // import InstagramEmbed from "./landing/InstagramEmbed"
 
@@ -111,6 +113,8 @@ export default function Home() {
             return null
         }
       })}
+      <ForSponsorsCard />
+      <JoinCard />
     </>
   )
 }

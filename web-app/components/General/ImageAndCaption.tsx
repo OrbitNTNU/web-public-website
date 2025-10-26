@@ -105,7 +105,7 @@ const ImageAndCaption = ({
                             </h3>
                         )}
                         {caption && (
-                            <p className="text-slate leading-relaxed whitespace-pre-wrap">
+                            <p className="text-charcoal-light leading-relaxed whitespace-pre-wrap">
                                 {caption}
                             </p>
                         )}

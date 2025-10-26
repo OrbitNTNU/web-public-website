@@ -195,7 +195,7 @@ const DoubleImages = ({
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.7 }}
                     >
-                        <p>{caption1}</p>
+                        <p className="text-charcoal-light whitespace-pre-wrap">{caption1}</p>
                     </motion.span>
                 )}
             </motion.div>
@@ -225,7 +225,7 @@ const DoubleImages = ({
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.7 }}
                     >
-                        <p>{caption2}</p>
+                        <p className="text-charcoal-light whitespace-pre-wrap">{caption2}</p>
                     </motion.span>
                 )}
             </motion.div>

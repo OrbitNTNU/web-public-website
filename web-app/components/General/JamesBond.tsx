@@ -51,7 +51,7 @@ export default function JamesBond() {
                     <div className="flex flex-col items-center text-center">
                         <div>
                             <h1 className="text-2xl font-light tracking-wide">ABOUT</h1>
-                            <p className="text-xs text-slate mt-1 font-light">DISCOVER</p>
+                            <p className="text-xs text-charcoal-light mt-1 font-light">DISCOVER</p>
                         </div>
                         <ImageCard src="/sat.png" alt="CubeSat" label="CUBESAT" className="w-64 h-80" staticMode />
                         <ImageCard src="/ntnu.png" alt="Student Driven" label="STUDENT DRIVEN" className="w-64 h-80" staticMode />

@@ -68,7 +68,7 @@ const Specifications = ({
                 className="flex items-center justify-between px-4 py-3"
                 variants={rowVariants}
               >
-                <span className="text-slate tracking-wide uppercase text-sm md:text-base">
+                <span className="text-charcoal-light tracking-wide uppercase text-sm md:text-base">
                   {label}
                 </span>
                 <span className="text-cloud-white tracking-tight text-lg md:text-xl font-medium">

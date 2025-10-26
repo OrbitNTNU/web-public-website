@@ -52,7 +52,7 @@ const MultiArray = () => {
             <span className="material-icons" style={{ fontSize: "5rem" }}>{step.icon}</span>
             <h1 className="text-berry-blast">{step.number}</h1>
             <h2>{step.title}</h2>
-            <p className="text-slate">{step.description}</p>
+            <p className="text-charcoal-light">{step.description}</p>
           </motion.div>
         ))}
       </div>

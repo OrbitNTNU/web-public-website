@@ -90,12 +90,12 @@ const SDGsDesktop = () => {
                     {hoveredId ? (
                         <div>
                             <h3 className="mb-4">{sdgs.find((sdg) => sdg.id === hoveredId)?.title}</h3>
-                            <p className="text-slate">{sdgs.find((sdg) => sdg.id === hoveredId)?.description}</p>
+                            <p className="text-charcoal-light">{sdgs.find((sdg) => sdg.id === hoveredId)?.description}</p>
                         </div>
                     ) : (
                         <div className="flex flex-col items-center gap-4">
                             <h3 className="material-icons">keyboard_arrow_up</h3>
-                            <p className="text-slate">Hover over an SDG to learn more about how Orbit NTNU contributes to achieving the Sustainable Development Goals.</p>
+                            <p className="text-charcoal-light">Hover over an SDG to learn more about how Orbit NTNU contributes to achieving the Sustainable Development Goals.</p>
                         </div>
                     )}
                 </motion.div>

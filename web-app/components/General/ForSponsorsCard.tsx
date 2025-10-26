@@ -14,7 +14,7 @@ const ForSponsorsCard = () => {
                     Partner with Us
                 </motion.h2>
                 <motion.p
-                    className="mb-10 w-full md:w-2/3 text-slate mx-auto leading-relaxed"
+                    className="mb-10 w-full md:w-2/3 text-charcoal-light mx-auto leading-relaxed"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}

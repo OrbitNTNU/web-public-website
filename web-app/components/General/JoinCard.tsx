@@ -71,7 +71,7 @@ const JoinCard = () => {
                     Curious about joining Orbit NTNU?
                 </motion.h2>
                 <motion.p
-                    className="mb-10 w-full md:w-2/3 text-slate mx-auto leading-relaxed"
+                    className="mb-10 w-full md:w-2/3 text-charcoal-light mx-auto leading-relaxed"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
@@ -84,14 +84,13 @@ const JoinCard = () => {
             </div>
 
             {/* Disciplines */}
-            <h3 className="mb-8 tracking-wider">Some of the fields we cover:</h3>
             <div
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
             >
                 {disciplines.map((item, i) => (
                     <motion.div
                         key={i}
-                        className="shadow-md border-1 border-slate rounded-md p-6 flex flex-col items-start"
+                        className="shadow-md border-1 border-charcoal-light rounded-md p-6 flex flex-col"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
@@ -99,7 +98,7 @@ const JoinCard = () => {
                     >
                         <div className="text-4xl mb-4">{item.icon}</div>
                         <h3 className="mb-2">{item.title}</h3>
-                        <p className="text-slate leading-relaxed">{item.desc}</p>
+                        <p className="text-charcoal-light leading-relaxed">{item.desc}</p>
                     </motion.div>
                 ))}
             </div>
@@ -112,7 +111,7 @@ const JoinCard = () => {
                 {benefits.map((item, i) => (
                     <motion.div
                         key={i}
-                        className="shadow-md border-1 border-slate rounded-md p-6 flex flex-col items-start"
+                        className="shadow-md border-1 border-charcoal-light rounded-md p-6 flex flex-col"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
@@ -122,9 +121,9 @@ const JoinCard = () => {
                             delay: 0.2 * i,
                         }}
                     >
-                        <div className="text-3xl mb-3">{item.icon}</div>
+                        <div className="mb-3">{item.icon}</div>
                         <h4 className="mb-1">{item.title}</h4>
-                        <p className="text-slate">{item.desc}</p>
+                        <p className="text-charcoal-light">{item.desc}</p>
                     </motion.div>
                 ))}
             </div>

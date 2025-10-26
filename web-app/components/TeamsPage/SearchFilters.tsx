@@ -50,7 +50,7 @@ const SearchFilters = ({
                                     key={option}
                                     className={`flex items-center cursor-pointer whitespace-nowrap group hover:text-cloud-white transition-all duration-100 ${selectedFilters[filter]?.includes(option)
                                         ? "text-cloud-white"
-                                        : "text-slate"
+                                        : "text-charcoal-light"
                                         }`}
                                     style={{
                                         opacity: openDropdowns[idx] ? 1 : 0,
@@ -71,7 +71,7 @@ const SearchFilters = ({
                                     }}
                                 >
                                     <span
-                                        className={`w-4 h-4 mr-2 flex items-center group-hover:border-cloud-white justify-center border-1 border-slate
+                                        className={`w-4 h-4 mr-2 flex items-center group-hover:border-cloud-white justify-center border-1 border-charcoal-light
                                                     ${selectedFilters[filter]?.includes(option)
                                                 ? "bg-cloud-white border-cloud-white text-cloud-white"
                                                 : "bg-transparent"
@@ -109,7 +109,7 @@ const SearchFilters = ({
                                 }}
                             >
                                 {options.filter((_, idx2) => selectedFilters[filter]?.includes(options[idx2])).map((option) => (
-                                    <li key={option} className="flex items-left text-slate text-sm" >
+                                    <li key={option} className="flex items-left text-charcoal-light text-sm" >
                                         &bull; {option}
                                     </li>
                                 ))}
@@ -121,7 +121,7 @@ const SearchFilters = ({
             <span/>
                 <button
                     type="button"
-                    className="text-slate hover:text-cloud-white transition-colors duration-150 flex w-full justify-end items-start gap-2"
+                    className="text-charcoal-light hover:text-cloud-white transition-colors duration-150 flex w-full justify-end items-start gap-2"
                     onClick={() => {
                         setSelectedFilters({});
                         setOpenDropdowns(new Array(filters.length).fill(false));
