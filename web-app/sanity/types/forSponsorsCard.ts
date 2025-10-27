@@ -11,7 +11,7 @@ export interface SponsorCTA {
 export interface ForSponsorsCardType {
   _id: string;
   _key: string;
-  _type: "forSponsorsCard";
+  _type: "forSponsorsCardRef";
   data: {
       title: string;
       intro: string;

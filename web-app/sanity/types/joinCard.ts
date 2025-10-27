@@ -17,7 +17,7 @@ export interface JoinBenefit {
 export interface JoinCardType {
   _id: string;
   _key: string;
-  _type: "joinCard";
+  _type: "joinCardRef";
   data: {
     title: string;
     intro: string;
