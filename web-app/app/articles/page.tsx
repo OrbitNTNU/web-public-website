@@ -120,7 +120,7 @@ const ArticlesOverviewPage = () => {
                         transition={{
                             type: "tween",
                             stiffness: 200,
-                            delay: isMobile ? 0 : 0.2 * idx, // 🚀 no delay on mobile
+                            delay: isMobile ? 0 : 0.2, // 🚀 no delay on mobile
                             duration: 0.4,
                         }}
                         onClick={() => void router.push(`${article.link}`)}

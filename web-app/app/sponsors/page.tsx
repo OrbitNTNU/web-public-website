@@ -93,12 +93,12 @@ export default function SponsorPage() {
             <section className="px-4 md:px-12">
                 <div className="w-full md:w-3/4">
                     <span
-                        className="text-2xl text-cloud-white md:text-5xl"
+                        className="text-2xl text-cloud-white md:md:text-3xl"
                     >
                         {sponsorsPage.title}
                     </span>
                     <span
-                        className="block text-2xl text-charcoal-light sm:ml-2 sm:inline md:text-5xl"
+                        className="block text-2xl text-charcoal-light sm:ml-2 sm:inline md:md:text-3xl"
                     >
                         {sponsorsPage.caption}
                     </span>
