@@ -9,6 +9,7 @@ import ListView from "../../components/TeamsPage/Views/ListView";
 import MemberView from "../../components/TeamsPage/Views/MembersView";
 import { Loading } from "../../components/Loading";
 import { fetchTeamSlug } from "@/sanity/queries/teams";
+import GalleryView from "@/components/TeamsPage/Views/GalleryView";
 
 export interface Member {
     name: string;
@@ -58,7 +59,7 @@ const Teams = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [activeTeam, setActiveTeam] = useState<number | null>(null);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [viewMode, setViewMode] = useState<"grid" | "list" | "members">("members");
+    const [viewMode, setViewMode] = useState<"grid" | "list" | "members" | "gallery">("members");
     const [openDropdowns, setOpenDropdowns] = useState<boolean[]>(Array(filters.length).fill(false));
     const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
 
@@ -124,6 +125,13 @@ const Teams = () => {
             )}
             {viewMode === "members" && (
                 <MemberView
+                    teamsData={teamsData}
+                    searchTerm={searchTerm}
+                    selectedFilters={selectedFilters}
+                />
+            )}
+            {viewMode === "gallery" && (
+                <GalleryView
                     teamsData={teamsData}
                     searchTerm={searchTerm}
                     selectedFilters={selectedFilters}

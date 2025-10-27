@@ -3,12 +3,12 @@ const TeamsPageHeader = () => {
         <section className="mb-20 md:mb-40">
             <div className="w-full md:w-3/4">
                 <span
-                    className="text-2xl text-cloud-white md:text-5xl"
+                    className="text-2xl text-cloud-white md:text-3xl"
                 >
                     Teams and Members
                 </span>
                 <span
-                    className="block text-2xl text-charcoal-light sm:ml-2 sm:inline md:text-5xl"
+                    className="block text-2xl text-charcoal-light sm:ml-2 sm:inline md:text-3xl"
                 >
                     Our teams are the heartbeat of Orbit. Each one brings together diverse skills, perspectives, and passions to push ideas into reality.
                 </span>

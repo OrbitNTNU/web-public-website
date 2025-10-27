@@ -1,8 +1,9 @@
+import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 interface TeamsControlsProps {
-    viewMode: "grid" | "list" | "members";
-    setViewMode: (mode: "grid" | "list" | "members") => void;
+    viewMode: "grid" | "list" | "members" | "gallery";
+    setViewMode: (mode: "grid" | "list" | "members" | "gallery") => void;
     setSearchTerm: (term: string) => void;
 }
 
@@ -25,33 +26,30 @@ const controls = [
         label: "List View",
         hideOnSmallScreens: true,
     },
+    {
+        key: "gallery",
+        icon: "photo_library",
+        label: "Gallery",
+        hideOnSmallScreens: true,
+    },
 ] as const;
 
 const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsProps) => {
-    const [animate, setAnimate] = useState(false);
-
-    useEffect(() => {
-        // Trigger animation after mount
-        const timeout = setTimeout(() => setAnimate(true), 100);
-        return () => clearTimeout(timeout);
-    }, []);
 
     return (
         <section className="flex flex-col lg:flex-row items-center justify-between mb-8">
             <div className="items-left w-auto flex flex-row space-x-8">
-                {controls.map((control, idx) => (
-                    <button
+                {controls.map((control) => (
+                    <motion.button
                         key={control.key}
                         type="button"
                         className={`cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all
                             ${viewMode === control.key ? "text-cloud-white" : "text-charcoal-light"}
-                            ${animate
-                                ? "opacity-100 translate-x-0"
-                                : "opacity-0 -translate-x-10"
-                            }
                             ${control.hideOnSmallScreens ? "hidden md:flex" : "flex"}
                         `}
                         onClick={() => setViewMode(control.key)}
+                        initial={{ scale: 1 }}
+                        whileTap={{ scale: 0.9 }}
                     >
                         <span
                             className={`group-hover:text-cloud-white material-icons transition-colors
@@ -61,7 +59,7 @@ const TeamsControls = ({ viewMode, setViewMode, setSearchTerm }: TeamsControlsPr
                             {control.icon}
                         </span>
                         <span>{control.label}</span>
-                    </button>
+                    </motion.button>
                 ))}
             </div>
             <div

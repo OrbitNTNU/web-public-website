@@ -1,8 +1,8 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
     { label: "Home", href: "/" },
@@ -16,6 +16,12 @@ const navItems = [
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     const router = useRouter();
 
     const navigate = (path: string) => {
@@ -23,8 +29,10 @@ export default function Navbar() {
         router.push(path);
     };
 
+    const pathname = usePathname();
+
     return (
-        <nav className="fixed top-0 left-0 w-screen z-50 p-4 flex justify-between items-center pb-8"
+        <nav className="fixed top-0 left-0 w-screen z-50 py-4 px-8 flex justify-between items-center pb-8"
         >
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
@@ -36,13 +44,43 @@ export default function Navbar() {
                 <Image src="/logo.png" alt="Logo" width={100} height={100} />
             </motion.div>
 
+            <motion.div>
+                <div className="hidden md:flex gap-8">
+                    {navItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        return (
+                            <motion.div
+                                key={item.label}
+                                onClick={() => navigate(item.href)}
+                                className="cursor-pointer relative inline-block group"
+                            >
+                                <p
+                                    className="text-cloud-white font-medium no-underline uppercase tracking-wider transition-colors duration-200"
+                                >
+                                    {item.label}
+                                </p>
+
+                                {/* Animated underline */}
+                                {mounted && (
+                                    <span
+                                        className={`absolute left-0 bottom-0 h-[2px] bg-cloud-white rounded origin-left transition-all duration-300 ease-out
+                                        ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                                    />
+                                )}
+
+                            </motion.div>
+                        );
+                    })}
+
+                </div>
+            </motion.div>
             {/* Menu toggle (crisp) */}
             <motion.button
                 onClick={() => setOpen((v) => !v)}
                 initial={false}
                 animate={{ rotate: open ? 90 : 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative z-[101] cursor-pointer p-0 flex flex-col gap-1.5"
+                className="flex md:hidden relative z-[101] cursor-pointer p-0  flex-col gap-1.5"
                 aria-label="Toggle menu"
             >
                 <motion.span
