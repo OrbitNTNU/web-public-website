@@ -15,7 +15,7 @@ import JoinCard from "@/components/General/JoinCard";
 
 const About = () => {
     return (
-        <>
+        <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-40 my-40 flex flex-col">
             {/* <h1 className="text-4xl font-bold mb-4">About Us</h1>
             <p className="text-lg text-center max-w-2xl">
                 Welcome to our website! We are dedicated to providing the best content and resources for our community.
@@ -27,20 +27,21 @@ const About = () => {
             />
             <div className="h-screen"></div> */}
             {/* <MultiArray /> */}
-            <AboutHero />
-            <TriImageCollage
-                title="A brief history"
-                caption="Founded in 2018, Orbit NTNU is Norway’s largest student organization dedicated to space technology. Based at the Norwegian University of Science and Technology (NTNU), we give students hands-on experience in designing, building, and operating small satellites. Through projects like SelfieSat and FramSat, our members work across disciplines such as electronics, computer science, mechanical design, and communications - bridging the gap between academia and the space industry."
-                wideCaption={true}
-
-                src1="/tests/4.png"
-                alt1="Orbit NTNU members working on a satellite"
-                src2="/tests/2.png"
-                alt2="Orbit NTNU satellite launch"
-                src3="/tests/3.png"
-                alt3="Orbit NTNU outreach event"
-            />
-            <SDGs />
+            {/* <AboutHero /> */}
+            <section className="px-4 md:px-12">
+                <div className="w-full">
+                    <span
+                        className="text-2xl text-cloud-white md:text-3xl"
+                    >
+                        About Orbit NTNU
+                    </span>
+                    <span
+                        className="block text-2xl text-charcoal-light sm:ml-2 sm:inline md:text-3xl"
+                    >
+                        - Empowering students to reach new heights in space technology and exploration. Orbit NTNU is Norway’s largest student organization dedicated to space technology, providing hands-on experience in designing, building, and operating small satellites.
+                    </span>
+                </div>
+            </section>
             <DoubleImages
                 variant="two-third-one-third"
                 src1="/tests/1.png"
@@ -53,6 +54,20 @@ const About = () => {
                 title2="Inspiring the Next Generation"
                 caption2="Beyond building satellites, Orbit NTNU is deeply committed to engaging with the community and inspiring the next generation of space engineers. Our outreach team organizes hands-on workshops, talks, and exhibitions for schools, science fairs, and public events — giving children and students a glimpse into how satellites work and what it takes to reach space. Through these programs, we hope to ignite curiosity, promote STEM education, and show that space technology is something anyone can be part of, regardless of background. Every outreach event is a chance to share our passion for exploration and empower others to dream bigger."
             />
+            <SDGs />
+            <TriImageCollage
+                title="A brief history"
+                caption="Founded in 2018, Orbit NTNU is Norway’s largest student organization dedicated to space technology. Based at the Norwegian University of Science and Technology (NTNU), we give students hands-on experience in designing, building, and operating small satellites. Through projects like SelfieSat and FramSat, our members work across disciplines such as electronics, computer science, mechanical design, and communications - bridging the gap between academia and the space industry."
+                wideCaption={true}
+
+                src1="/tests/4.png"
+                alt1="Orbit NTNU members working on a satellite"
+                src2="/tests/2.png"
+                alt2="Orbit NTNU satellite launch"
+                src3="/tests/3.png"
+                alt3="Orbit NTNU outreach event"
+            />
+            
             {/* <JamesBond /> */}
             <LargeQuote
                 text="Empowering students to reach new heights in space technology and exploration."
@@ -77,7 +92,7 @@ const About = () => {
                 link="/teams"
             />
             {/* <JoinCard /> */}
-        </>
+        </div>
     );
 }
 
