@@ -1,8 +1,8 @@
 // ─────────────── COMPONENT TYPES ───────────────
 
-import { ForSponsorsCard } from "./forSponsorsCard";
+import { ForSponsorsCardType } from "./forSponsorsCard";
 import { Image } from "./image";
-import { JoinCard } from "./joinCard";
+import { JoinCardType } from "./joinCard";
 import { BigProject } from "./project";
 
 // 🪐 Large Quote
@@ -83,8 +83,8 @@ export type LandingPageSection =
   | ProjectsShowcase
   | SubOrbitalShowcase
   | InstagramEmbed
-  | JoinCard
-  | ForSponsorsCard
+  | JoinCardType
+  | ForSponsorsCardType
   ;
 
 // 🪩 Landing Page Document
