@@ -11,6 +11,12 @@ export const deskStructure = (S: StructureBuilder) =>
         .icon(MdHome)
         .child(S.document().schemaType('landingPage').documentId('landingPage')),
 
+      S.listItem()
+        .title('Sponsors Page')
+        .icon(MdHome)
+        .child(S.document().schemaType('sponsorsPage').documentId('sponsorsPage')),
+
+      S.divider().title('General Information'),
       // Teams
       S.listItem()
         .title('Teams')
@@ -36,4 +42,21 @@ export const deskStructure = (S: StructureBuilder) =>
                 .child(S.documentTypeList('bigProject').title('Big Projects')),
             ]),
         ),
-    ])
+      S.divider().title('Shared Components'),
+     S.listItem()
+        .title('Join Card')
+        .child(
+          S.document()
+            .schemaType('joinCard')
+            .documentId('singleton-joinCard') // fixed ID ensures singleton
+        ),
+
+      // Singleton: For Sponsors Card
+      S.listItem()
+        .title('For Sponsors Card')
+        .child(
+          S.document()
+            .schemaType('forSponsorsCard')
+            .documentId('singleton-forSponsorsCard')
+        ),
+    ]);

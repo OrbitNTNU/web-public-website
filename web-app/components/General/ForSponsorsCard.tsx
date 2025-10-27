@@ -1,6 +1,11 @@
+import { ForSponsorsCardType } from "@/sanity/types/forSponsorsCard";
 import { motion } from "framer-motion";
 
-const ForSponsorsCard = () => {
+interface ForSponsorsCardProps {
+    data: ForSponsorsCardType["data"];
+}
+
+const ForSponsorsCard = ({ data }: ForSponsorsCardProps) => {
     return (
         <section className="w-full mx-auto px-4 md:px-12 max-w-7xl text-left md:text-center">
             {/* Header */}
@@ -11,7 +16,7 @@ const ForSponsorsCard = () => {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    Partner with Us
+                    {data.title}
                 </motion.h2>
                 <motion.p
                     className="mb-10 w-full md:w-2/3 text-charcoal-light mx-auto leading-relaxed"
@@ -20,40 +25,37 @@ const ForSponsorsCard = () => {
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     viewport={{ once: true }}
                 >
-                    By sponsoring Orbit NTNU, you&apos;re not just supporting a student organization; you&apos;re investing in the future of space exploration and technology. Join us on this exciting journey and help shape the next generation of innovators.
+                    {data.intro}
                 </motion.p>
             </div>
 
             {/* Call to Action */}
-            <span className="flex flex-row gap-4 justify-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ delay: 0.2 }}
-                >
-                    <a
-                        href="/sponsor/about"
-                        className="inline-block bg-emerald-fizz text-charcoal px-6 py-3 rounded-md shadow-lg hover:bg-sky-mint transition-colors duration-300"
-                    >
-                        Learn More About Sponsorship
-                    </a>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ delay: 0.2 }}
-                >
-                    <a
-                        href="/sponsors"
-                        className="inline-block bg-pink-blast text-cloud-white px-6 py-3 rounded-md shadow-lg hover:bg-dark-pink transition-colors duration-300"
-                    >
-                        See Our Current Sponsors
-                    </a>
-                </motion.div>
-            </span>
-
+            {data.ctaButtons && data.ctaButtons.length > 0 && (
+                <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-4">
+                    {data.ctaButtons.map((button, index) => {
+                        const buttonColor = button.color;
+                        const buttonTextColor = button.textColor;
+                        const buttonHoverColor = button.hoverColor;
+                        
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.3 }}
+                                transition={{ delay: 0.2 }}
+                            >
+                                <a
+                                    href={button.url}
+                                    className={`inline-block px-6 py-3 rounded-md shadow-lg transition-colors duration-300 ${buttonColor} hover:${buttonHoverColor} ${buttonTextColor} hover:opacity-90`}
+                                >
+                                    {button.text}
+                                </a>
+                            </motion.div>
+                        )
+                    })}
+                </div>
+            )}
         </section>
     );
 };

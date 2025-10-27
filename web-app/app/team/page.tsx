@@ -90,7 +90,7 @@ const Teams = () => {
     if (!teamsData) return <div className="text-cloud-white">No team data available.</div>;
 
     return (
-        <div className="w-full relative md:w-4/5 mx-auto my-40 ">
+        <div className="w-full relative max-w-[2000px] mx-auto my-40 flex flex-col px-4 md:px-12">
             {/* Star pattern background */}
             <TeamsPageHeader />
             <TeamsControls

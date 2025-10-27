@@ -74,12 +74,12 @@ const MemberCard = ({
                   filter: "brightness(0.8)",
                 }}
                 sizes="(max-width: 640px) 48vw, (max-width: 1024px) 32vw, 200px"
-                className="border-2 border-charcoal-light transition duration-300 rounded-xl"
+                className="border-2 border-charcoal-light transition duration-300"
                 priority
               />
             ) : (
               <div
-                className="flex h-full w-full items-center justify-center rounded-xl border-2 border-charcoal-light transition duration-300"
+                className="flex h-full w-full items-center justify-center border-2 border-charcoal-light bg-charcoal"
               >
                 <svg
                   width="60"
@@ -117,7 +117,7 @@ const MemberCard = ({
             )}
             {mentor && (
               <div
-                className={`absolute right-0 top-0 z-30 rounded-bl-md bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${
+                className={`absolute right-0 top-0 z-30 bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${
                   !image ? "border-r-2 border-t-2 border-charcoal-light" : ""
                 }`}
               >
@@ -125,7 +125,7 @@ const MemberCard = ({
               </div>
             )}
             {additionalInformation && (
-              <div className="absolute bottom-0 left-0 z-30 w-full bg-sky-mint rounded-b-xl py-1 text-center text-moonlight"
+              <div className="absolute bottom-0 left-0 z-30 w-full bg-sky-mint py-1 text-center text-moonlight"
                 style={{ backgroundColor: teamGroup ? `var(--${groupColors[teamGroup]})` : "var(--color-sky-mint)" }}
               >
                 {additionalInformation}

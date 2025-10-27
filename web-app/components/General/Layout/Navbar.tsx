@@ -30,7 +30,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, type: "spring" }}
-                className="font-bold text-lg tracking-wider text-white select-none cursor-pointer"
+                className="font-bold text-lg tracking-wider text-white select-none cursor-pointer z-10"
                 onClick={() => navigate("/")}
             >
                 <Image src="/logo.png" alt="Logo" width={100} height={100} />

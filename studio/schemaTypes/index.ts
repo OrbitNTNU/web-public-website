@@ -2,7 +2,7 @@ import bannerImage from "./bannerImage";
 import bigProject from "./bigProject";
 import doubleImage from "./doubleImage";
 import doubleImageCollage from "./doubleImageCollage";
-import landingPage from "./landingPage";
+import landingPage from "./pages/landingPage";
 import largeImage from "./largeImage";
 import largeQuote from "./largeQuote";
 import projectsShowcase from "./projectsShowcase";
@@ -17,6 +17,16 @@ import spanningText from "./spanningText";
 import subOrbitalProject from "./subOrbitalProject";
 import subOrbitalShowcase from "./subOrbitalShowcase";
 import team from "./team";
+import sponsorsPage from "./pages/sponsorsPage";
+import mainSponsor from "./sponsors/mainSponsor";
+import platinumSponsor from "./sponsors/platinumSponsor";
+import goldSponsor from "./sponsors/goldSsponsor";
+import silverSponsor from "./sponsors/silverSponsor";
+import bronzeSponsor from "./sponsors/bronzeSponsor";
+import partnerSponsor from "./sponsors/partnerSponsor";
+import instagramEmbed from "./instagramEmbed";
+import joinCard from "./joinCard";
+import forSponsorsCard from "./forSponsorsCard";
 
 export const schemaTypes = [
     team,
@@ -37,5 +47,15 @@ export const schemaTypes = [
     subOrbitalShowcase,
     bigProject,
     subOrbitalProject,
-    bannerImage
+    bannerImage,
+    sponsorsPage,
+    mainSponsor,
+    platinumSponsor,
+    goldSponsor,
+    silverSponsor,
+    bronzeSponsor,
+    partnerSponsor,
+    instagramEmbed,
+    joinCard,
+    forSponsorsCard,
 ]

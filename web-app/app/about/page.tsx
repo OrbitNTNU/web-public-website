@@ -66,7 +66,7 @@ const About = () => {
                 src3="/tests/3.png"
                 alt3="Orbit NTNU outreach event"
             />
-            <ForSponsorsCard />
+            {/* <ForSponsorsCard /> */}
             <ImageAndCaption
                 title="About Orbit NTNU"
                 caption={"Orbit NTNU is Norway’s largest student organization dedicated to space technology.\n\nFounded in 2018 and based at the Norwegian University of Science and Technology (NTNU), we provide students with hands-on experience in designing, building, and operating small satellites.\n\nOur multidisciplinary teams work on real satellite projects, gaining practical skills that prepare them for careers in the space industry."}
@@ -76,7 +76,7 @@ const About = () => {
                 variant="large-right"
                 link="/teams"
             />
-            <JoinCard />
+            {/* <JoinCard /> */}
         </>
     );
 }

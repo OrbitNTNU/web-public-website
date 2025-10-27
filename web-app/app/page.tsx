@@ -32,6 +32,7 @@ export default function Home() {
     return <Loading />
   }
 
+  console.log(landingPage);
   return (
     <>
       <Hero />
@@ -109,12 +110,16 @@ export default function Home() {
           case "instagramEmbed":
             return <InstagramEmbed key={section._key} />
 
+          case "joinCardRef":
+            return <JoinCard key={section._key} data={section.data} />
+
+          case "forSponsorsCardRef":
+            return <ForSponsorsCard key={section._key} data={section.data} />
+
           default:
             return null
         }
       })}
-      <ForSponsorsCard />
-      <JoinCard />
     </>
   )
 }

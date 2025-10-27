@@ -1,4 +1,4 @@
-import { client } from "../config"
+import { client } from "../config";
 
 export async function fetchLandingPage() {
   const query = `
@@ -66,8 +66,33 @@ export async function fetchLandingPage() {
         _type == "projectsShowcase" => {
           _type,
         },
+        _type == "joinCardRef" => {
+          _type,
+          "data": *[_type=="joinCard" && _id=="singleton-joinCard"][0]{
+            title,
+            intro,
+            disciplines[]{title, icon, desc, color},
+            benefits[]{title, icon, desc, color},
+            ctaText,
+            ctaUrl
+          }
+        },
+        _type == "forSponsorsCardRef" => {
+          _type,
+          "data": *[_type=="forSponsorsCard" && _id=="singleton-forSponsorsCard"][0]{
+            title,
+            intro,
+            ctaButtons[]{
+              text,
+              url,
+              color,
+              hoverColor,
+              textColor
+            }
+          }
+        }
       },
     }
-  `
-  return client.fetch(query)
+  `;
+  return client.fetch(query);
 }

@@ -67,8 +67,8 @@ const ProjectsOverviewPage = () => {
                     caption2="We believe in the power of inspiration. Through our outreach programs, we engage with students and the community to spark interest in space technology and STEM fields."
                 />
               </section>
-            <JoinCard />
-            <ForSponsorsCard />
+            {/* <JoinCard />
+            <ForSponsorsCard /> */}
         </div>
     )
 }

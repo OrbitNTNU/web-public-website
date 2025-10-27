@@ -38,6 +38,13 @@ export default defineType({
       components: {input: GradientSelector},
     }),
     defineField({
+      name: 'image',
+      title: 'Main Image',
+      type: 'image',
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'sections',
       title: 'Sections',
       type: 'array',

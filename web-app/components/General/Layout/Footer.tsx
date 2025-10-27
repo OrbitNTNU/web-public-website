@@ -5,7 +5,7 @@ import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook } from "react-icons/fa";
 
 export const Footer = () => {
     const year = new Date().getFullYear();
-
+    
     const pages = [
         { title: "Home", url: "/" },
         { title: "About", url: "/about" },
