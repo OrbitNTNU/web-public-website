@@ -22,6 +22,9 @@ const About = () => {
             <div className="h-screen"></div> */}
             {/* <MultiArray /> */}
             {/* <AboutHero /> */}
+            <LargeQuote
+                text="Empowering students to reach new heights in space technology and exploration."
+            />
             <TriImageCollage
                 title="A brief history"
                 caption="Founded in 2018, Orbit NTNU is Norway’s largest student organization dedicated to space technology. Based at the Norwegian University of Science and Technology (NTNU), we give students hands-on experience in designing, building, and operating small satellites. Through projects like SelfieSat and FramSat, our members work across disciplines such as electronics, computer science, mechanical design, and communications - bridging the gap between academia and the space industry."

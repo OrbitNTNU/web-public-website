@@ -1,7 +1,7 @@
 'use client';
 import { useRef, useMemo } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 
 interface TriImageCollageProps {
   title?: string;
@@ -16,6 +16,19 @@ interface TriImageCollageProps {
   wideCaption?: boolean;
 }
 
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+      delay: 0.2,
+    },
+  },
+};
 const TriImageCollage = ({
   title,
   caption,
@@ -77,12 +90,26 @@ const TriImageCollage = ({
       className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden max-w-7xl"
     >
       {title && (
-        <h3 className="tracking-wider mb-4">
+        <motion.h3
+          className="tracking-wider mb-4"
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.7 }}
+        >
           {title}
-        </h3>
+        </motion.h3>
       )}
       {caption && (
-        <p className={`text-charcoal-light mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>{caption}</p>
+        <motion.p
+          className={`text-charcoal-light mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.7 }}
+        >
+          {caption}
+        </motion.p>
       )}
 
       <div className={gridClasses + " md:relative"}>
