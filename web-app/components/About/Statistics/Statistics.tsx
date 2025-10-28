@@ -59,7 +59,7 @@ const Statistics = () => {
     }
 
     return (
-        <div className="flex flex-col gap-20 md:gap-40 max-w-[1600px] w-full mx-auto px-4 md:px-12">
+        <div className="flex flex-col gap-20 md:gap-40 w-full mx-auto px-4 md:px-12">
             <MemberDistribution
                 data={memberDistributionInTeams}
             />

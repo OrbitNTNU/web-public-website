@@ -61,7 +61,7 @@ export default function Navbar() {
                                 className="cursor-pointer relative inline-block group"
                             >
                                 <p
-                                    className="text-cloud-white font-medium no-underline uppercase tracking-wider transition-colors duration-200"
+                                    className="text-cloud-white font-medium no-underline uppercase tracking-wider transition-colors duration-200 text-sm"
                                 >
                                     {item.label}
                                 </p>

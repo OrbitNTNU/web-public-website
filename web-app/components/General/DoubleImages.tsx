@@ -178,18 +178,18 @@ const DoubleImages = ({
                 {renderImage(src1, alt1, delay1, link1, getImageAspect(variant, 0))}
                 {title1 && (
                     <motion.h3
-                        className="font-black w-full sm:w-auto md:px-4"
+                        className="tracking-wider mb-4"
                         variants={textVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.7 }}
                     >
-                        {title1.toUpperCase()}
+                        {title1}
                     </motion.h3>
                 )}
                 {caption1 && (
                     <motion.span
-                        className={`block w-full ${isLarge(variant, 0) ? "md:max-w-2/3" : ""} md:px-4`}
+                        className={`block w-full ${isLarge(variant, 0) ? "md:max-w-3/4" : ""}`}
                         variants={textVariants}
                         initial="hidden"
                         whileInView="visible"
@@ -208,18 +208,18 @@ const DoubleImages = ({
                 {renderImage(src2, alt2, delay2, link2, getImageAspect(variant, 1))}
                 {title2 && (
                     <motion.h3
-                        className="font-black w-full sm:w-auto md:px-4"
+                        className="tracking-wider mb-4"
                         variants={textVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.7 }}
                     >
-                        {title2.toUpperCase()}
+                        {title2}
                     </motion.h3>
                 )}
                 {caption2 && (
                     <motion.span
-                        className={`block w-full ${isLarge(variant, 1) ? "md:max-w-2/3" : ""} md:px-4`}
+                        className={`block w-full ${isLarge(variant, 1) ? "md:max-w-3/4" : ""}`}
                         variants={textVariants}
                         initial="hidden"
                         whileInView="visible"

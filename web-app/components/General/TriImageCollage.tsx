@@ -77,8 +77,8 @@ const TriImageCollage = ({
       className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden max-w-7xl"
     >
       {title && (
-        <h3 className="font-black mb-2">
-          {title.toUpperCase()}
+        <h3 className="tracking-wider mb-4">
+          {title}
         </h3>
       )}
       {caption && (
@@ -146,7 +146,15 @@ const TriImageCollage = ({
 
             // Largest image (static)
             return (
-              <div key={index} className={layout.className} style={layout.style}>
+              <motion.div
+                key={index}
+                className={layout.className}
+                style={layout.style}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -154,7 +162,7 @@ const TriImageCollage = ({
                   height={600}
                   className="w-full h-full object-cover shadow-lg"
                 />
-              </div>
+              </motion.div>
             );
           })}
         </div>

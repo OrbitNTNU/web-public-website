@@ -60,7 +60,7 @@ const SDGsDesktop = () => {
                     {sdgs.map((sdg, idx) => (
                         <motion.div
                             className={`absolute w-56 h-56 rounded-xl overflow-hidden cursor-pointer transition-all duration-400 ${hoveredId === sdgs[idx].id
-                                ? "scale-110 -translate-y-10 shadow-2xl"
+                                ? "scale-110 -translate-y-10 shadow-3xl"
                                 : ""
                                 }`}
                             style={{ x: xs[idx], y: ys[idx], rotate: rotates[idx], zIndex: hoveredId === sdgs[idx].id ? 100 : 50 - Math.abs(idx - Math.floor(sdgs.length / 2)) * 10 }}

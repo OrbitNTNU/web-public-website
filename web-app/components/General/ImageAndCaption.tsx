@@ -100,8 +100,8 @@ const ImageAndCaption = ({
                         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
                     >
                         {title && (
-                            <h3 className="font-black mb-4 tracking-tight">
-                                {title.toUpperCase()}
+                            <h3 className="tracking-wider mb-4">
+                                {title}
                             </h3>
                         )}
                         {caption && (

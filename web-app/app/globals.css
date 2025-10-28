@@ -24,7 +24,7 @@
   --color-berry-blast: #2897e0;
   --color-musty-mangrove: #104859;
   --color-charcoal: #111113;
-  --color-charcoal-light: #909094;
+  --color-charcoal-light: #aeaeae;
 
   /* Color pallettes for the projects */
   --color-selfiesat-green: #266D45;
@@ -115,20 +115,20 @@
   h1 { font-size: 2rem; }
   h2 { font-size: 1.5rem; }
   h3 { font-size: 1.1rem; }
-  p, span { font-size: 0.8rem; }
+  p, span { font-size: 1.1rem; }
 
   @media (min-width: 640px) {
     h1 { font-size: 2.5rem; }
     h2 { font-size: 1.5rem; }
     h3 { font-size: 1.25rem; }
-    p, span { font-size: 0.8rem; }
+    p, span { font-size: 1.0rem; }
   }
 
   @media (min-width: 1024px) {
     h1 { font-size: 3rem; }
     h2 { font-size: 2rem; }
     h3 { font-size: 1.5rem; }
-    p, span { font-size: 0.9rem; }
+    p, span { font-size: 1.2rem; }
   }
 }
 
