@@ -32,8 +32,14 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <nav className="fixed top-0 left-0 w-screen z-50 py-4 px-8 flex justify-between items-center pb-8"
+        <nav className="fixed top-0 left-0 w-screen z-50 py-4 px-4 md:px-8 flex justify-between items-center pb-8"
         >
+            <div
+                className="absolute inset-0 w-full h-[200px] pointer-events-none z-[-1]"
+                style={{
+                    background: "linear-gradient(to bottom, var(--color-charcoal) 0%, rgba(0,0,0,0) 100%)",
+                }}
+            />
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}

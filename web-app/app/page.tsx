@@ -19,6 +19,7 @@ import ForSponsorsCard from "@/components/General/ForSponsorsCard"
 // import NavPanel from "./landing/NavPanel"
 // import InstagramEmbed from "./landing/InstagramEmbed"
 
+// MAKE SSR
 export default function Home() {
   const [landingPage, setLandingPage] = useState<LandingPage | null>(null)
 
@@ -32,7 +33,6 @@ export default function Home() {
     return <Loading />
   }
 
-  console.log(landingPage);
   return (
     <>
       <Hero />
