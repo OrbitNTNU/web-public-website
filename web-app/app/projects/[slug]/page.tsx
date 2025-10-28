@@ -8,7 +8,8 @@ import BannerImage from "../../../components/General/BannerImage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder"
 
 const ProjectPage = () => {
-    const slug = useParams().slug?.toString() || "";
+    const params = useParams();
+    const slug = params?.slug?.toString() || "";
 
     const [projectPage, setProjectPage] = useState<BigProject | null>(null)
     
