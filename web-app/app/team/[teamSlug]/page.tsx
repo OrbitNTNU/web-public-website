@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 const TeamPage = () => {
   const params = useParams();
-    const teamSlug = params?.slug?.toString() || "";
+  const teamSlug = params?.slug?.toString() || "";
 
   const [teamDocument, setTeamDocument] = useState<TeamDocument | null>(null);
 
@@ -22,16 +22,12 @@ const TeamPage = () => {
   }, [teamSlug]);
 
   if (!teamDocument) {
-    return (
-      <Loading />
-    );
+    return <Loading />;
   }
 
   if (!teamDocument.content) {
     return (
-          <div className="w-full relative flex flex-col">
-            No content available
-          </div>
+      <div className="w-full relative flex flex-col">No content available</div>
     );
   }
 

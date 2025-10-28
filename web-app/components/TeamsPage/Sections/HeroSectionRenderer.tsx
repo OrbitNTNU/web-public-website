@@ -4,7 +4,7 @@ import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import Image from "next/image";
 
 interface HeroSectionProps {
-  content: HeroSection
+  content: HeroSection;
 }
 
 const HeroSectionRender = ({ content }: HeroSectionProps) => {
@@ -20,7 +20,7 @@ const HeroSectionRender = ({ content }: HeroSectionProps) => {
           className="object-cover mt-4 md:mt-8 rounded-xl"
           priority
           style={{
-            colorAdjust: 'exact',
+            colorAdjust: "exact",
           }}
         />
       )}
@@ -28,7 +28,8 @@ const HeroSectionRender = ({ content }: HeroSectionProps) => {
       <div
         className="absolute top-4 md:top-8 left-0 w-full h-full rounded-xl pointer-events-none"
         style={{
-          background: "linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.2) 100%)",
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 80%, rgba(0,0,0,0.2) 100%)",
           zIndex: 5,
         }}
       />

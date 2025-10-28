@@ -38,7 +38,7 @@ const MultiArray = () => {
       </motion.h3>
       <div className="grid grid-cols-1 md:grid-cols-3 w-full gap-20">
         {steps.map((step, idx) => (
-          <motion.div 
+          <motion.div
             key={idx}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +49,9 @@ const MultiArray = () => {
               delay: 0.2 * idx,
             }}
           >
-            <span className="material-icons" style={{ fontSize: "5rem" }}>{step.icon}</span>
+            <span className="material-icons" style={{ fontSize: "5rem" }}>
+              {step.icon}
+            </span>
             <h1 className="text-berry-blast">{step.number}</h1>
             <h2>{step.title}</h2>
             <p className="text-charcoal-light">{step.description}</p>

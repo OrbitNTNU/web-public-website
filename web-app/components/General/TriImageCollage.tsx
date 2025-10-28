@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useRef, useMemo } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
@@ -57,21 +57,36 @@ const TriImageCollage = ({
 
   const { gridClasses, imageLayouts } = useMemo(() => {
     let gridClasses = "relative grid gap-4";
-    let imageLayouts: Array<{ className: string; style?: React.CSSProperties }> = [];
+    let imageLayouts: Array<{
+      className: string;
+      style?: React.CSSProperties;
+    }> = [];
 
     if (variant === "large-left") {
       gridClasses += " md:grid-cols-3 md:grid-rows-2";
       imageLayouts = [
         { className: "md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
-        { className: "md:col-start-2 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:mr-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
-        { className: "absolute hidden md:block md:w-2/5 w-1/2 md:right-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
+        {
+          className:
+            "md:col-start-2 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:mr-12 relative z-20 mt-12 shadow-2xl",
+        }, // lower, tailwind shadow
+        {
+          className:
+            "absolute hidden md:block md:w-2/5 w-1/2 md:right-0 md:bottom-0 z-10 shadow-3xl",
+        }, // top floating, tailwind shadow
       ];
     } else {
       gridClasses += " md:grid-cols-3 md:grid-rows-2";
       imageLayouts = [
-        { className: "md:col-start-1 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:ml-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
+        {
+          className:
+            "md:col-start-1 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:ml-12 relative z-20 mt-12 shadow-2xl",
+        }, // lower, tailwind shadow
         { className: "md:col-start-2 md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
-        { className: "absolute hidden md:block md:w-2/5 w-1/2 md:left-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
+        {
+          className:
+            "absolute hidden md:block md:w-2/5 w-1/2 md:left-0 md:bottom-0 z-10 shadow-3xl",
+        }, // top floating, tailwind shadow
       ];
     }
 
@@ -153,7 +168,10 @@ const TriImageCollage = ({
             }
 
             // Lower image with subtle parallax
-            if (index === 1 && variant === "large-left" || index === 0 && variant === "large-right") {
+            if (
+              (index === 1 && variant === "large-left") ||
+              (index === 0 && variant === "large-right")
+            ) {
               return (
                 <motion.div
                   key={index}

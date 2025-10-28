@@ -13,17 +13,20 @@ const ImageSectionRenderer = ({ content }: ImageSectionProps) => {
   if (alignment === "center") {
     return (
       <section className="flex flex-col items-center py-12 max-w-5xl">
-        {caption && (
-          <h3 className="mb-8 w-full">
-            {caption}
-          </h3>
-        )}
+        {caption && <h3 className="mb-8 w-full">{caption}</h3>}
         <div className="relative w-full h-auto">
           <Image
             src={imageUrl}
             alt={caption ?? "Image"}
             width={500}
-            height={image.hotspot?.height ? Math.round((500 / (image.hotspot?.width || 1)) * (image.hotspot?.height || 1)) : 300}
+            height={
+              image.hotspot?.height
+                ? Math.round(
+                    (500 / (image.hotspot?.width || 1)) *
+                      (image.hotspot?.height || 1),
+                  )
+                : 300
+            }
             className="object-cover rounded-lg h-auto w-full"
           />
         </div>

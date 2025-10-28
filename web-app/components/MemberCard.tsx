@@ -50,16 +50,12 @@ const MemberCard = ({
   mentor = false,
   teamGroup,
 }: MemberCardProps) => {
-
   if (skeleton) {
     return <SkeletonLoader skeletonType={skeletonType} />;
   }
 
   return (
-    <span
-      className="flex flex-col items-stretch"
-      style={{ width: "100%" }}
-    >
+    <span className="flex flex-col items-stretch" style={{ width: "100%" }}>
       <div className="flex w-full flex-col items-stretch">
         <div className="relative aspect-[2/3] w-full">
           <span className="group block h-full w-full relative">
@@ -68,9 +64,9 @@ const MemberCard = ({
                 src={image}
                 alt={memberName ?? "Member Image"}
                 fill
-                style={{ 
-                  objectFit: "cover", 
-                  width: "100%", 
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
                   filter: "brightness(0.8)",
                 }}
                 sizes="(max-width: 640px) 48vw, (max-width: 1024px) 32vw, 200px"
@@ -78,9 +74,7 @@ const MemberCard = ({
                 priority
               />
             ) : (
-              <div
-                className="flex h-full w-full items-center justify-center border-2 border-charcoal-light bg-charcoal"
-              >
+              <div className="flex h-full w-full items-center justify-center border-2 border-charcoal-light bg-charcoal">
                 <svg
                   width="60"
                   height="60"
@@ -125,8 +119,13 @@ const MemberCard = ({
               </div>
             )}
             {additionalInformation && (
-              <div className="absolute bottom-0 left-0 z-30 w-full bg-sky-mint py-1 text-center text-moonlight"
-                style={{ backgroundColor: teamGroup ? `var(--${groupColors[teamGroup]})` : "var(--color-sky-mint)" }}
+              <div
+                className="absolute bottom-0 left-0 z-30 w-full bg-sky-mint py-1 text-center text-moonlight"
+                style={{
+                  backgroundColor: teamGroup
+                    ? `var(--${groupColors[teamGroup]})`
+                    : "var(--color-sky-mint)",
+                }}
               >
                 {additionalInformation}
               </div>
@@ -134,14 +133,16 @@ const MemberCard = ({
           </span>
         </div>
         {(memberName ?? bio ?? phoneNumber) && (
-            <span
+          <span
             className="items-left mt-2 flex w-full flex-col text-left"
             style={{ maxWidth: "100%" }}
-            >
+          >
             {memberName && <h5 className="truncate">{memberName}</h5>}
             {bio && <span className="truncate text-sm text-muted">{bio}</span>}
             {phoneNumber && (
-              <span className="truncate text-sm text-charcoal-light">{phoneNumber}</span>
+              <span className="truncate text-sm text-charcoal-light">
+                {phoneNumber}
+              </span>
             )}
           </span>
         )}

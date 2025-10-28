@@ -25,5 +25,5 @@ export interface JoinCardType {
     benefits: JoinBenefit[];
     ctaText: string;
     ctaUrl: string;
-  }
+  };
 }

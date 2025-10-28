@@ -33,7 +33,7 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
       setStudies(
         Object.entries(data)
           .map(([study, count]) => ({ study, count }))
-          .filter(({ count }) => count > 0)
+          .filter(({ count }) => count > 0),
       );
     }
   }, [data]);
@@ -43,7 +43,10 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
     const checkScroll = () => {
       const el = scrollRef.current;
       if (el) {
-        setShowArrow(el.scrollWidth > el.clientWidth && el.scrollLeft + el.clientWidth < el.scrollWidth - 10);
+        setShowArrow(
+          el.scrollWidth > el.clientWidth &&
+            el.scrollLeft + el.clientWidth < el.scrollWidth - 10,
+        );
       }
     };
     checkScroll();
@@ -62,11 +65,14 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
   const filteredStudies = studies.filter((s) => s.study !== "Unknown");
   const mostCommon = filteredStudies.reduce(
     (acc, curr) => (curr.count > acc.count ? curr : acc),
-    { study: "", count: 0 }
+    { study: "", count: 0 },
   );
 
   const summary = useMemo(() => {
-    const totalStudies = filteredStudies.reduce((acc, curr) => acc + curr.count, 0);
+    const totalStudies = filteredStudies.reduce(
+      (acc, curr) => acc + curr.count,
+      0,
+    );
     return {
       totalStudies,
       differentStudiesCount: filteredStudies.length,
@@ -114,11 +120,17 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
       <h3 className="font-black mb-2">Our Fields of Study</h3>
 
       <p className="mb-8 max-w-3xl text-charcoal-light md:ml-auto md:text-right md:max-w-2/3">
-        There are currently <strong className="text-cloud-white">{summary.totalStudies}</strong> registered with a field of study,
-        spanning <strong className="text-cloud-white">{summary.differentStudiesCount}</strong> different studies.
-        The most common field of study is{" "}
-        <strong className="text-cloud-white">{summary.mostCommonStudy}</strong> with{" "}
-        <strong className="text-cloud-white">{summary.mostCommonCount}</strong> members.
+        There are currently{" "}
+        <strong className="text-cloud-white">{summary.totalStudies}</strong>{" "}
+        registered with a field of study, spanning{" "}
+        <strong className="text-cloud-white">
+          {summary.differentStudiesCount}
+        </strong>{" "}
+        different studies. The most common field of study is{" "}
+        <strong className="text-cloud-white">{summary.mostCommonStudy}</strong>{" "}
+        with{" "}
+        <strong className="text-cloud-white">{summary.mostCommonCount}</strong>{" "}
+        members.
       </p>
 
       {/* Bar chart with scroll and drag */}
@@ -151,9 +163,15 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
                 }}
                 title={`${s.study}: ${s.count}`}
               />
-              <span className="mt-2 truncate text-center text-xs">{s.study}</span>
+              <span className="mt-2 truncate text-center text-xs">
+                {s.study}
+              </span>
               <span className="flex items-center gap-1 text-charcoal-light text-xs">
-                <span className="material-icons" aria-label="person" style={{ fontSize: "1rem"}}>
+                <span
+                  className="material-icons"
+                  aria-label="person"
+                  style={{ fontSize: "1rem" }}
+                >
                   person
                 </span>
                 {s.count}

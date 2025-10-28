@@ -1,5 +1,11 @@
 import { Image } from "./image";
-import { DoubleImage, DoubleImageCollage, LargeImage, LargeQuote, SpanningText } from "./landingPage";
+import {
+  DoubleImage,
+  DoubleImageCollage,
+  LargeImage,
+  LargeQuote,
+  SpanningText,
+} from "./landingPage";
 
 export interface BannerImage {
   _key: string;
@@ -13,8 +19,7 @@ export type ProjectSection =
   | SpanningText
   | DoubleImage
   | DoubleImageCollage
-  | BannerImage
-  ;
+  | BannerImage;
 
 export interface BigProject {
   _key: string;

@@ -55,10 +55,7 @@ export default function InstagramEmbed() {
       >
         Our feed
       </motion.h3>
-      <div
-        id="orbitntnu-juicer-feed"
-        className="mx-auto"
-      />
+      <div id="orbitntnu-juicer-feed" className="mx-auto" />
     </section>
   );
 }

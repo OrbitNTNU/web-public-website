@@ -69,9 +69,8 @@ interface FieldsOfEducationProps {
 }
 
 const FieldsOfEducation = ({ data }: FieldsOfEducationProps) => {
-
   if (!data) return <div>No data available.</div>;
-  
+
   const facultyEntries = Object.entries(data.facultyCounts)
     .filter(([_, count]) => count > 0)
     .map(([label, count]) => ({ label, count }));
@@ -85,9 +84,9 @@ const FieldsOfEducation = ({ data }: FieldsOfEducationProps) => {
   const majorityFaculty =
     facultyEntries.length > 0
       ? facultyEntries.reduce(
-        (max, e) => (e.count > (max?.count ?? -Infinity) ? e : max),
-        facultyEntries[0],
-      )
+          (max, e) => (e.count > (max?.count ?? -Infinity) ? e : max),
+          facultyEntries[0],
+        )
       : undefined;
   const majorityFacultyPercent =
     majorityFaculty && totalFaculty > 0
@@ -99,9 +98,9 @@ const FieldsOfEducation = ({ data }: FieldsOfEducationProps) => {
   const majorityCampus =
     campusEntries.length > 0
       ? campusEntries.reduce(
-        (max, e) => (e.count > (max?.count ?? -Infinity) ? e : max),
-        campusEntries[0],
-      )
+          (max, e) => (e.count > (max?.count ?? -Infinity) ? e : max),
+          campusEntries[0],
+        )
       : undefined;
   const majorityCampusPercent =
     majorityCampus && totalCampus > 0
@@ -111,9 +110,10 @@ const FieldsOfEducation = ({ data }: FieldsOfEducationProps) => {
   return (
     <div className="mx-auto w-full">
       <div className="flex w-full flex-col items-center 2xl:flex-row gap-8 md:gap-12">
-
         <span className="flex-1 ">
-          <h3 className="font-black mb-2 text-cloud-white">Our fields of education</h3>
+          <h3 className="font-black mb-2 text-cloud-white">
+            Our fields of education
+          </h3>
           {majorityFaculty && majorityCampus ? (
             <p className="text-charcoal-light md:max-w-2/3 xl:max-w-full">
               A majority of our members study within the field of{" "}

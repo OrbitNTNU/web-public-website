@@ -84,8 +84,7 @@ export type LandingPageSection =
   | SubOrbitalShowcase
   | InstagramEmbed
   | JoinCardType
-  | ForSponsorsCardType
-  ;
+  | ForSponsorsCardType;
 
 // 🪩 Landing Page Document
 export interface LandingPage {
