@@ -4,12 +4,13 @@ import { Loading } from "@/components/Loading";
 import { SectionRenderer } from "@/components/TeamsPage/Sections/SectionRenderer";
 import { fetchTeamPage } from "@/sanity/queries/teams";
 import { TeamDocument } from "@/sanity/types/teams";
-import { usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const TeamPage = () => {
-  const pathname = usePathname();
-  const teamSlug = pathname.split("/").pop() as string;
+  const params = useParams();
+    const teamSlug = params?.slug?.toString() || "";
+
   const [teamDocument, setTeamDocument] = useState<TeamDocument | null>(null);
 
   useEffect(() => {
