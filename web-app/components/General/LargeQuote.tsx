@@ -10,7 +10,7 @@ export default function LargeQuote({ text }: LargeQuotesProps) {
     const ref = useRef(null);
 
     return (
-        <div className="w-full mx-auto px-4 max-w-7xl">
+        <div className="w-full mx-auto px-4 md:px-12 max-w-[2000px]">
 
             <motion.h2
                 ref={ref}

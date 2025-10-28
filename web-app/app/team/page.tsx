@@ -71,9 +71,9 @@ const Teams = () => {
     useEffect(() => {
         const fetchTeams = async () => {
             try {
-                const response = await fetch('https://lifesupport.orbitntnu.com/api/trpc/teams.getPublicTeamPageInfo');
+                const response = await fetch('/api/teams')
                 if (response.status === 200) {
-                    const teamsData = (await response.json()).result.data.json;
+                    const teamsData = (await response.json()).teams;
                     setTeamsData(teamsData);
                 } else {
                     console.error(`Error: Received status code ${response.status}`);

@@ -77,9 +77,9 @@ const TriImageCollage = ({
       className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden max-w-7xl"
     >
       {title && (
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2">
+        <h3 className="font-black mb-2">
           {title.toUpperCase()}
-        </h1>
+        </h3>
       )}
       {caption && (
         <p className={`text-charcoal-light mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>{caption}</p>

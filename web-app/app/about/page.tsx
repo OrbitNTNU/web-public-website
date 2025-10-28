@@ -12,6 +12,7 @@ import Hero from "../landing/Hero";
 import AboutHero from "@/components/About/AboutHero";
 import ForSponsorsCard from "@/components/General/ForSponsorsCard";
 import JoinCard from "@/components/General/JoinCard";
+import Statistics from "@/components/About/Statistics/Statistics";
 
 const About = () => {
     return (
@@ -28,7 +29,7 @@ const About = () => {
             <div className="h-screen"></div> */}
             {/* <MultiArray /> */}
             {/* <AboutHero /> */}
-            <section className="px-4 md:px-12">
+            <section className="px-4 md:px-12 max-w-7xl mx-auto">
                 <div className="w-full">
                     <span
                         className="text-2xl text-cloud-white md:text-3xl"
@@ -67,10 +68,37 @@ const About = () => {
                 src3="/tests/3.png"
                 alt3="Orbit NTNU outreach event"
             />
-            
+
             {/* <JamesBond /> */}
             <LargeQuote
                 text="Empowering students to reach new heights in space technology and exploration."
+            />
+
+            {/* <ForSponsorsCard /> */}
+            <section className="flex flex-col gap-12">
+                <ImageAndCaption
+                    title="About Orbit NTNU"
+                    caption={"Orbit NTNU is Norway’s largest student organization dedicated to space technology.\n\nFounded in 2018 and based at the Norwegian University of Science and Technology (NTNU), we provide students with hands-on experience in designing, building, and operating small satellites.\n\nOur multidisciplinary teams work on real satellite projects, gaining practical skills that prepare them for careers in the space industry."}
+                    src="/tests/1.png"
+                    alt="Orbit NTNU students working on satellite subsystem"
+                    wideCaption={true}
+                    variant="large-right"
+                    link="/teams"
+                />
+                <ImageAndCaption
+                    title="About Orbit NTNU"
+                    caption={"Orbit NTNU is Norway’s largest student organization dedicated to space technology.\n\nFounded in 2018 and based at the Norwegian University of Science and Technology (NTNU), we provide students with hands-on experience in designing, building, and operating small satellites.\n\nOur multidisciplinary teams work on real satellite projects, gaining practical skills that prepare them for careers in the space industry."}
+                    src="/tests/7.jpg"
+                    alt="Orbit NTNU students working on satellite subsystem"
+                    wideCaption={true}
+                    variant="large-left"
+                    link="/teams"
+                />
+            </section>
+            {/* <JoinCard /> */}
+            <Statistics />
+            <LargeQuote
+                text="Our members define who we are and what we achieve."
             />
             <TriImageCollage
                 variant="large-right"
@@ -81,17 +109,6 @@ const About = () => {
                 src3="/tests/3.png"
                 alt3="Orbit NTNU outreach event"
             />
-            {/* <ForSponsorsCard /> */}
-            <ImageAndCaption
-                title="About Orbit NTNU"
-                caption={"Orbit NTNU is Norway’s largest student organization dedicated to space technology.\n\nFounded in 2018 and based at the Norwegian University of Science and Technology (NTNU), we provide students with hands-on experience in designing, building, and operating small satellites.\n\nOur multidisciplinary teams work on real satellite projects, gaining practical skills that prepare them for careers in the space industry."}
-                src="/tests/1.png"
-                alt="Orbit NTNU students working on satellite subsystem"
-                wideCaption={true}
-                variant="large-right"
-                link="/teams"
-            />
-            {/* <JoinCard /> */}
         </div>
     );
 }

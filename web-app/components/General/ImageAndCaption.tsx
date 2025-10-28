@@ -52,7 +52,7 @@ const ImageAndCaption = ({
 
     return (
         <section
-            className="w-full mx-auto px-4 sm:px-8 max-w-7xl overflow-hidden"
+            className="w-full mx-auto px-4 md:px-12 max-w-7xl overflow-hidden"
             ref={ref}
         >
             <motion.div
@@ -100,7 +100,7 @@ const ImageAndCaption = ({
                         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
                     >
                         {title && (
-                            <h3 className="font-black text-2xl mb-4 tracking-tight">
+                            <h3 className="font-black mb-4 tracking-tight">
                                 {title.toUpperCase()}
                             </h3>
                         )}
