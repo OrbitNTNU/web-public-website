@@ -1,13 +1,8 @@
 import { useMemo } from "react";
+import { MemberDistributionInTeams } from "./Statistics";
 
 interface MemberDistributionProps {
-  data: {
-    totalMembers: number;
-    teamsInfo: {
-      membersInMultipleTeams?: number;
-      roleCounters?: Partial<Record<string, number>>;
-    }[];
-  } | null;
+  data: MemberDistributionInTeams | null;
 }
 
 const MemberDistribution = ({

@@ -18,11 +18,7 @@ const STUDY_COLORS: string[] = [
 
 const PIXELS_PER_PERSON = 20;
 
-interface StudiesProps {
-  data: Record<string, number> | null;
-}
-
-const Studies = ({ data }: StudiesProps) => {
+const Studies = ({ data }: { data: Record<string, number> | null }) => {
   const [studies, setStudies] = useState<StudyData[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showArrow, setShowArrow] = useState(false);

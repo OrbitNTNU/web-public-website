@@ -1,23 +1,9 @@
 import { useMemo } from "react";
-
-type DistributionData = Record<string, number>;
+import { StudyLevelDistributionStatistics } from "./Statistics";
 
 interface StudyLevelDistributionProps {
-  data?: {
-    overall?: DistributionData;
-  };
+  data: StudyLevelDistributionStatistics | null;
 }
-
-const LEVEL_COLORS: string[] = [
-  "text-selfiesat-blue",
-  "text-framsat-blue",
-  "text-selfiesat-light-blue",
-  "text-selfiesat-dark-blue",
-  "text-selfiesat-green",
-  "text-selfiesat-yellow",
-  "text-framsat-red",
-  "text-framsat-pink",
-];
 
 const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
   // Table rows with counts and percentages

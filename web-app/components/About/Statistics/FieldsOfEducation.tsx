@@ -1,3 +1,4 @@
+import { FieldsOfEducationStatistics } from "./Statistics";
 
 const STUDY_COLORS: string[] = [
   "var(--color-selfiesat-blue)",
@@ -64,14 +65,13 @@ const Legend = ({
 );
 
 interface FieldsOfEducationProps {
-  data: {
-    facultyCounts: Record<string, number>;
-    campusCounts: { campus: string; count: number }[];
-  };
+  data: FieldsOfEducationStatistics | null;
 }
 
 const FieldsOfEducation = ({ data }: FieldsOfEducationProps) => {
 
+  if (!data) return <div>No data available.</div>;
+  
   const facultyEntries = Object.entries(data.facultyCounts)
     .filter(([_, count]) => count > 0)
     .map(([label, count]) => ({ label, count }));
