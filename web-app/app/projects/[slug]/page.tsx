@@ -1,50 +1,17 @@
-"use client";
-import { Loading } from "@/components/Loading";
-import { fetchBigProjectBySlug } from "@/sanity/queries/projects";
-import { BigProject } from "@/sanity/types/project";
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import BannerImage from "../../../components/General/BannerImage";
-import { imageBuilder } from "@/sanity/utils/imageBuilder";
+// app/projects/[slug]/page.tsx
+import { getBigProject } from "@/sanity/fetch/SanityFetch";
+import ProjectClientPage from "@/app/projects/ProjectClientPage";
 
-const ProjectPage = () => {
-  const params = useParams();
-  const slug = params?.slug?.toString() || "";
+interface ProjectPageProps {
+  params: { slug: string };
+}
 
-  const [projectPage, setProjectPage] = useState<BigProject | null>(null);
+export default async function ProjectPage({ params }: ProjectPageProps) {
+  const project = await getBigProject(params.slug);
 
-  useEffect(() => {
-    void fetchBigProjectBySlug(slug).then((data) => {
-      setProjectPage(data || null);
-    });
-  }, []);
-
-  if (!projectPage) {
-    return <Loading />;
+  if (!project) {
+    return <div className="">Project not found</div>;
   }
 
-  const isBiosat = projectPage.slug.current === "biosat";
-
-  return (
-    <div className="w-full mx-auto px-4 py-16">
-      {projectPage.sections.map((section) => {
-        switch (section._type) {
-          case "bannerImage":
-            return (
-              <BannerImage
-                key={section._key}
-                backgroundSrc={imageBuilder(section.image.asset._ref)}
-                patchSrc={imageBuilder(projectPage.patch)}
-                colors={projectPage.gradientColors}
-                isBiosat={isBiosat}
-              />
-            );
-          default:
-            return null;
-        }
-      })}
-    </div>
-  );
-};
-
-export default ProjectPage;
+  return <ProjectClientPage project={project} />;
+}
