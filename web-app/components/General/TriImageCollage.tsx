@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import { useRef, useMemo } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 
 interface TriImageCollageProps {
   title?: string;
@@ -16,6 +16,19 @@ interface TriImageCollageProps {
   wideCaption?: boolean;
 }
 
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+      delay: 0.2,
+    },
+  },
+};
 const TriImageCollage = ({
   title,
   caption,
@@ -44,21 +57,36 @@ const TriImageCollage = ({
 
   const { gridClasses, imageLayouts } = useMemo(() => {
     let gridClasses = "relative grid gap-4";
-    let imageLayouts: Array<{ className: string; style?: React.CSSProperties }> = [];
+    let imageLayouts: Array<{
+      className: string;
+      style?: React.CSSProperties;
+    }> = [];
 
     if (variant === "large-left") {
       gridClasses += " md:grid-cols-3 md:grid-rows-2";
       imageLayouts = [
         { className: "md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
-        { className: "md:col-start-2 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:mr-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
-        { className: "absolute hidden md:block md:w-2/5 w-1/2 md:right-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
+        {
+          className:
+            "md:col-start-2 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:mr-12 relative z-20 mt-12 shadow-2xl",
+        }, // lower, tailwind shadow
+        {
+          className:
+            "absolute hidden md:block md:w-2/5 w-1/2 md:right-0 md:bottom-0 z-10 shadow-3xl",
+        }, // top floating, tailwind shadow
       ];
     } else {
       gridClasses += " md:grid-cols-3 md:grid-rows-2";
       imageLayouts = [
-        { className: "md:col-start-1 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:ml-12 relative z-20 mt-12 shadow-2xl" }, // lower, tailwind shadow
+        {
+          className:
+            "md:col-start-1 md:row-start-2 md:col-span-2 md:row-span-1 flex h-2/3 md:ml-12 relative z-20 mt-12 shadow-2xl",
+        }, // lower, tailwind shadow
         { className: "md:col-start-2 md:col-span-2 md:row-span-1 h-full" }, // largest, made longer
-        { className: "absolute hidden md:block md:w-2/5 w-1/2 md:left-0 md:bottom-0 z-10 shadow-3xl" }, // top floating, tailwind shadow
+        {
+          className:
+            "absolute hidden md:block md:w-2/5 w-1/2 md:left-0 md:bottom-0 z-10 shadow-3xl",
+        }, // top floating, tailwind shadow
       ];
     }
 
@@ -77,12 +105,26 @@ const TriImageCollage = ({
       className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden max-w-7xl"
     >
       {title && (
-        <h3 className="font-black mb-2">
-          {title.toUpperCase()}
-        </h3>
+        <motion.h3
+          className="tracking-wider mb-4"
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.7 }}
+        >
+          {title}
+        </motion.h3>
       )}
       {caption && (
-        <p className={`text-charcoal-light mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}>{caption}</p>
+        <motion.p
+          className={`text-charcoal-light mb-6 ${wideCaption ? "max-w-4xl" : "max-w-xl"}`}
+          variants={textVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.7 }}
+        >
+          {caption}
+        </motion.p>
       )}
 
       <div className={gridClasses + " md:relative"}>
@@ -126,7 +168,10 @@ const TriImageCollage = ({
             }
 
             // Lower image with subtle parallax
-            if (index === 1 && variant === "large-left" || index === 0 && variant === "large-right") {
+            if (
+              (index === 1 && variant === "large-left") ||
+              (index === 0 && variant === "large-right")
+            ) {
               return (
                 <motion.div
                   key={index}
@@ -146,7 +191,15 @@ const TriImageCollage = ({
 
             // Largest image (static)
             return (
-              <div key={index} className={layout.className} style={layout.style}>
+              <motion.div
+                key={index}
+                className={layout.className}
+                style={layout.style}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -154,7 +207,7 @@ const TriImageCollage = ({
                   height={600}
                   className="w-full h-full object-cover shadow-lg"
                 />
-              </div>
+              </motion.div>
             );
           })}
         </div>

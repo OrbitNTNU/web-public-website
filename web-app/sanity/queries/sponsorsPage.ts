@@ -1,7 +1,7 @@
-import { client } from "../config"
+import { client } from "../config";
 
 export async function fetchSponsorsPage() {
-    const query = `
+  const query = `
         *[_type == "sponsorsPage"][0]{
             _id,
             title,
@@ -50,6 +50,6 @@ export async function fetchSponsorsPage() {
                 website
             }
         }
-    `
-    return client.fetch(query)
+    `;
+  return client.fetch(query);
 }

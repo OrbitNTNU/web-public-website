@@ -1,4 +1,4 @@
-import { client } from "../config"
+import { client } from "../config";
 
 export async function fetchTeamPage(teamSlug: string) {
   const query = `
@@ -40,8 +40,8 @@ export async function fetchTeamPage(teamSlug: string) {
         }
       }
     }
-  `
-  return client.fetch(query, { teamSlug })
+  `;
+  return client.fetch(query, { teamSlug });
 }
 
 export async function fetchTeamSlug(teamId: number) {
@@ -51,6 +51,6 @@ export async function fetchTeamSlug(teamId: number) {
         current
       }
     }
-  `
-  return client.fetch(query, { teamId })
+  `;
+  return client.fetch(query, { teamId });
 }

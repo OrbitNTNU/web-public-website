@@ -1,11 +1,11 @@
-import DoubleImages from '@/components/General/DoubleImages'
-import LargeImage from '@/components/General/LargeImage'
-import LargeQuote from '@/components/General/LargeQuote'
-import GeneralCollage from '@/components/General/GeneralCollage'
-import ImageAndCaption from '@/components/General/ImageAndCaption'
-import Specifications from '@/components/General/Specifications'
-import TriImageCollage from '@/components/General/TriImageCollage'
-import Image from 'next/image'
+import DoubleImages from "@/components/General/DoubleImages";
+import LargeImage from "@/components/General/LargeImage";
+import LargeQuote from "@/components/General/LargeQuote";
+import GeneralCollage from "@/components/General/GeneralCollage";
+import ImageAndCaption from "@/components/General/ImageAndCaption";
+import Specifications from "@/components/General/Specifications";
+import TriImageCollage from "@/components/General/TriImageCollage";
+import Image from "next/image";
 
 const specs = [
   { label: "Status", value: "Deorbited" },
@@ -21,7 +21,7 @@ const specs = [
   { label: "Baudrate", value: "9600" },
   { label: "Framing", value: "AX.25 G3RUH" },
   { label: "Launch Vehicle", value: "SpaceX Falcon 9" },
-]
+];
 
 const SelfieSatPage = () => {
   return (
@@ -74,9 +74,7 @@ const SelfieSatPage = () => {
         </div>
       </section>
 
-      <LargeQuote
-        text="Norway's first operational student satellite."
-      />
+      <LargeQuote text="Norway's first operational student satellite." />
       <TriImageCollage
         title="SelfieSat in Action"
         caption="SelfieSat successfully captured and transmitted 118 complete space selfies during its mission."
@@ -91,23 +89,23 @@ const SelfieSatPage = () => {
       <Specifications
         title="SelfieSat Specifications"
         specifications={{
-          "Status": "Deorbited",
-          "Weight": "1.8 kg",
-          "Size": "10x10x20 cm",
-          "Orbit": "SSO 540 km",
-          "Cameras": "4",
-          "Power": "1.2 W",
-          "Band": "UHF",
-          "Frequency": "437.5 MHz ± Doppler",
-          "Telemetry": "AX.25",
-          "Modulation": "2-FSK",
-          "Baudrate": "9600",
-          "Framing": "AX.25 G3RUH",
+          Status: "Deorbited",
+          Weight: "1.8 kg",
+          Size: "10x10x20 cm",
+          Orbit: "SSO 540 km",
+          Cameras: "4",
+          Power: "1.2 W",
+          Band: "UHF",
+          Frequency: "437.5 MHz ± Doppler",
+          Telemetry: "AX.25",
+          Modulation: "2-FSK",
+          Baudrate: "9600",
+          Framing: "AX.25 G3RUH",
           "Launch Vehicle": "SpaceX Falcon 9",
-          "Launch Date": "05/05/2022"
+          "Launch Date": "05/05/2022",
         }}
-        graphic='/selfiesat/3.jpg'
-        additionalGraphic='/tests/3.png'
+        graphic="/selfiesat/3.jpg"
+        additionalGraphic="/tests/3.png"
       />
       <GeneralCollage
         title="Mission Highlights"
@@ -132,11 +130,11 @@ const SelfieSatPage = () => {
       <DoubleImages
         src1="/tests/1.png"
         alt1="SelfieSat Image 4"
-        caption1='SelfieSat was designed and built by students at the Norwegian University of Science and Technology (NTNU) as part of the NUTS-3 satellite project.'
+        caption1="SelfieSat was designed and built by students at the Norwegian University of Science and Technology (NTNU) as part of the NUTS-3 satellite project."
         src2="/tests/2.png"
         alt2="SelfieSat Image 5"
-        caption2='SelfieSat was equipped with four cameras to capture stunning images of Earth from space.'
-        variant='half-half-long-right'
+        caption2="SelfieSat was equipped with four cameras to capture stunning images of Earth from space."
+        variant="half-half-long-right"
       />
       <TriImageCollage
         src1="/tests/1.png"
@@ -145,7 +143,7 @@ const SelfieSatPage = () => {
         alt2="SelfieSat Selfie 2"
         src3="/tests/3.png"
         alt3="SelfieSat Selfie 3"
-        title='Mission Overview'
+        title="Mission Overview"
         wideCaption={true}
         variant="large-right"
       />
@@ -159,10 +157,7 @@ const SelfieSatPage = () => {
           link="https://www.ntnu.edu/ie/selfiesat"
           variant="large-right"
         />
-        <LargeImage
-          src="/tests/2.png"
-          alt="SelfieSat in Testing"
-        />
+        <LargeImage src="/tests/2.png" alt="SelfieSat in Testing" />
         <ImageAndCaption
           src="/tests/3.png"
           alt="SelfieSat in Orbit"
@@ -173,9 +168,8 @@ const SelfieSatPage = () => {
           variant="large-left"
         />
       </section>
-
     </>
-  )
-}
+  );
+};
 
-export default SelfieSatPage
+export default SelfieSatPage;

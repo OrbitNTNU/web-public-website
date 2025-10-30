@@ -1,26 +1,25 @@
-'use client'
-import { LandingPageSection } from "@/sanity/types/landingPage"
-import Hero from "@/app/landing/Hero"
-import LargeQuote from "@/components/General/LargeQuote"
-import LargeImage from "@/components/General/LargeImage"
-import SpanningText from "@/components/General/SpanningText"
-import DoubleImages from "@/components/General/DoubleImages"
-import Projects from "@/components/General/Projects"
-import { imageBuilder } from "@/sanity/utils/imageBuilder"
-import { Loading } from "@/components/Loading"
-import SubOrbital from "@/components/General/SubOrbital"
-import InstagramEmbed from "@/components/General/InstagramEmbed"
-import JoinCard from "@/components/General/JoinCard"
-import ForSponsorsCard from "@/components/General/ForSponsorsCard"
+"use client";
+import { LandingPageSection } from "@/sanity/types/landingPage";
+import Hero from "@/app/landing/Hero";
+import LargeQuote from "@/components/General/LargeQuote";
+import LargeImage from "@/components/General/LargeImage";
+import SpanningText from "@/components/General/SpanningText";
+import DoubleImages from "@/components/General/DoubleImages";
+import Projects from "@/components/General/Projects";
+import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import { Loading } from "@/components/Loading";
+import SubOrbital from "@/components/General/SubOrbital";
+import InstagramEmbed from "@/components/General/InstagramEmbed";
+import JoinCard from "@/components/General/JoinCard";
+import ForSponsorsCard from "@/components/General/ForSponsorsCard";
 
 interface LandingPageProps {
-    sections: LandingPageSection[];
+  sections: LandingPageSection[];
 }
 
 export default function LandingPage({ sections }: LandingPageProps) {
-
   if (!sections) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
@@ -29,9 +28,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
       {sections.map((section: LandingPageSection) => {
         switch (section._type) {
           case "largeQuote":
-            return (
-              <LargeQuote key={section._key} text={section.quote} />
-            )
+            return <LargeQuote key={section._key} text={section.quote} />;
 
           case "largeImage":
             return (
@@ -41,15 +38,10 @@ export default function LandingPage({ sections }: LandingPageProps) {
                 alt={"Large Image"}
                 caption={section.caption}
               />
-            )
+            );
 
           case "spanningText":
-            return (
-              <SpanningText
-                key={section._key}
-                text={section.text}
-              />
-            )
+            return <SpanningText key={section._key} text={section.text} />;
 
           case "doubleImage":
             return (
@@ -67,7 +59,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
                 caption2={section.caption2}
                 link2={section.link2}
               />
-            )
+            );
 
           case "doubleImageCollage":
             return (
@@ -89,27 +81,29 @@ export default function LandingPage({ sections }: LandingPageProps) {
                   />
                 ))}
               </section>
-            )
+            );
 
           case "projectsShowcase":
-            return <Projects key={section._key} projects={section.bigProjects} />
+            return (
+              <Projects key={section._key} projects={section.bigProjects} />
+            );
 
           case "subOrbitalShowcase":
-            return <SubOrbital key={section._key} />
+            return <SubOrbital key={section._key} />;
 
           case "instagramEmbed":
-            return <InstagramEmbed key={section._key} />
+            return <InstagramEmbed key={section._key} />;
 
           case "joinCardRef":
-            return <JoinCard key={section._key} data={section.data} />
+            return <JoinCard key={section._key} data={section.data} />;
 
           case "forSponsorsCardRef":
-            return <ForSponsorsCard key={section._key} data={section.data} />
+            return <ForSponsorsCard key={section._key} data={section.data} />;
 
           default:
-            return null
+            return null;
         }
       })}
     </>
-  )
+  );
 }

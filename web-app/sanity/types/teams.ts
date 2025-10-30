@@ -69,7 +69,7 @@ export interface CustomBlock {
   _type: "customBlock";
   body?: (PortableTextBlock | Image | File)[];
 }
-  
+
 export type ContentSection =
   | HeroSection
   | TextSection

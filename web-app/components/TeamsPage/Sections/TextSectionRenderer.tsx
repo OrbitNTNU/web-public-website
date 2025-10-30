@@ -2,7 +2,7 @@ import { type TextSection } from "@/sanity/types/teams";
 import { PortableText } from "@portabletext/react";
 
 interface TextSectionProps {
-  content: TextSection
+  content: TextSection;
 }
 
 const TextSectionRenderer = ({ content }: TextSectionProps) => (
@@ -14,11 +14,21 @@ const TextSectionRenderer = ({ content }: TextSectionProps) => (
         block: {
           h2: ({ children }) => <h2 className="my-4">{children}</h2>,
           h3: ({ children }) => <h3 className="my-4">{children}</h3>,
-          normal: ({ children }) => <p className="my-2 text-muted">{children}</p>,
+          normal: ({ children }) => (
+            <p className="my-2 text-muted">{children}</p>
+          ),
         },
         list: {
-          bullet: ({ children }) => <ul className="w-full md:w-2/3 list-disc list-inside ml-4 my-4 text-muted">{children}</ul>,
-          number: ({ children }) => <ol className="w-full md:w-2/3 list-decimal list-inside ml-4 my-4 text-muted">{children}</ol>,
+          bullet: ({ children }) => (
+            <ul className="w-full md:w-2/3 list-disc list-inside ml-4 my-4 text-muted">
+              {children}
+            </ul>
+          ),
+          number: ({ children }) => (
+            <ol className="w-full md:w-2/3 list-decimal list-inside ml-4 my-4 text-muted">
+              {children}
+            </ol>
+          ),
         },
         listItem: {
           bullet: ({ children }) => <li className="ml-4 mb-2">{children}</li>,
