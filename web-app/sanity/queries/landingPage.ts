@@ -1,7 +1,5 @@
-import { client } from "../config";
-
-export async function fetchLandingPage() {
-  const query = `
+import { defineQuery } from "groq";
+export const LANDING_PAGE_QUERY = defineQuery(`
     *[_type == "landingPage"][0]{
       _id,
       title,
@@ -93,6 +91,5 @@ export async function fetchLandingPage() {
         }
       },
     }
-  `;
-  return client.fetch(query);
-}
+  `
+)

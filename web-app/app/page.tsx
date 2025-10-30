@@ -1,8 +1,8 @@
 import LandingPage from "@/components/pages/LandingPage";
-import { fetchLandingPage } from "@/sanity/queries/landingPage";
+import {getLandingPage} from "@/sanity/fetch/SanityFetch";
 
 export default async function Home() {
-  const data = await fetchLandingPage(); 
+  const data = await getLandingPage();
 
-  return <LandingPage sections={data.sections} />;
+  return <LandingPage sections={data?.sections ?? []} />;
 }

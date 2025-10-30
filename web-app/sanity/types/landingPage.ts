@@ -89,8 +89,8 @@ export type LandingPageSection =
 
 // 🪩 Landing Page Document
 export interface LandingPage {
-  _type: "landingPage";
-  _id: string;
-  title: string;
-  sections: LandingPageSection[];
+  _type?: "landingPage";
+  _id?: string;
+  title?: string;
+  sections?: LandingPageSection[];
 }
