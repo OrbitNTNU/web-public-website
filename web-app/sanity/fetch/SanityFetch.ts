@@ -1,8 +1,11 @@
-import {SponsorsPage} from "@/sanity/types/sponsorsPage"
+import {sanityFetch} from "@/sanity/live/live";
 
 import {LANDING_PAGE_QUERY} from "@/sanity/queries/landingPage";
 import {ALL_BIG_PROJECTS_QUERY, BIG_PROJECT_BY_SLUG_QUERY} from "@/sanity/queries/projects";
 import {SPONSORS_PAGE_QUERY} from "@/sanity/queries/sponsorsPage";
+import {BigProject} from "@/sanity/types/project";
+import {SponsorsPage} from "@/sanity/types/sponsorsPage"
+import {LandingPage} from "@/sanity/types/landingPage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
