@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'imageSection',
@@ -6,8 +6,8 @@ export default defineType({
   type: 'object',
   fields: [
     defineField({
-      name: 'caption', 
-      type: 'string', 
+      name: 'caption',
+      type: 'string',
       title: 'Caption',
       validation: (Rule) => Rule.max(200),
     }),

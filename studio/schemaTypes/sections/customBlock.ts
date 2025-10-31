@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'customBlock',
@@ -9,11 +9,7 @@ export default defineType({
       name: 'body',
       title: 'Custom Rich Content',
       type: 'array',
-      of: [
-        {type: 'block'},
-        {type: 'image', options: {hotspot: true}},
-        {type: 'file'},
-      ],
+      of: [{type: 'block'}, {type: 'image', options: {hotspot: true}}, {type: 'file'}],
     }),
   ],
 })

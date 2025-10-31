@@ -1,4 +1,4 @@
-import { defineType, defineField } from 'sanity'
+import {defineType, defineField} from 'sanity'
 
 export default defineType({
   name: 'doubleImageCollage',
@@ -9,7 +9,7 @@ export default defineType({
       name: 'items',
       title: 'Double Image Items',
       type: 'array',
-      of: [{ type: 'doubleImage' }],
+      of: [{type: 'doubleImage'}],
       validation: (Rule) => Rule.required().min(1),
     }),
   ],
@@ -18,7 +18,7 @@ export default defineType({
       title: 'title',
       items: 'items',
     },
-    prepare({ title, items }) {
+    prepare({title, items}) {
       const count = items ? items.length : 0
       return {
         title: title || `Double Image Collage`,

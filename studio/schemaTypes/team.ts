@@ -43,7 +43,7 @@ export default defineType({
       description: 'Auto-generated based on selected team',
       options: {
         source: (doc) => {
-          const names = (doc.team as string[] || [])
+          const names = ((doc.team as string[]) || [])
             .map((id: string) => teamNames.find((team) => team.id === id)?.name)
             .filter(Boolean)
           return names.join('-')
