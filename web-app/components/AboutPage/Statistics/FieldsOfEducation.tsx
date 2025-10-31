@@ -53,12 +53,12 @@ const Legend = ({
 }) => (
   <div className="flex flex-wrap gap-4 md:flex-col justify-center md:gap-2">
     {entries.map((entry, idx) => (
-      <div key={entry.label} className="flex items-center gap-2 text-xs">
+      <div key={entry.label} className="flex items-center gap-2">
         <span
           className="inline-block h-4 w-4 rounded"
           style={{ backgroundColor: STUDY_COLORS[idx % STUDY_COLORS.length] }}
         />
-        <span className="text-charcoal-light">{entry.label}</span>
+        <small className="text-charcoal-light">{entry.label}</small>
       </div>
     ))}
   </div>

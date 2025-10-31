@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { StudyLevelDistributionStatistics } from "./Statistics";
+import { motion } from "framer-motion";
 
 interface StudyLevelDistributionProps {
   data: StudyLevelDistributionStatistics | null;
@@ -41,9 +42,30 @@ const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
 
   return (
     <div className="mx-auto flex w-full flex-col">
-      <h3 className="font-black mb-2">Study Level Distribution</h3>
+      <motion.h3
+        className="font-black mb-2"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "tween",
+          stiffness: 200,
+        }}
+      >
+        Study Level Distribution
+      </motion.h3>
       {summary && (
-        <p className="mb-6 text-charcoal-light leading-relaxed md:max-w-2/3">
+        <motion.p
+          className="mb-6 text-charcoal-light leading-relaxed md:max-w-2/3"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{
+            type: "tween",
+            stiffness: 200,
+            delay: 0.2,
+          }}
+        >
           Out of{" "}
           <strong className="text-cloud-white">{summary.allMembers}</strong>{" "}
           members, there are{" "}
@@ -59,7 +81,7 @@ const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
             {summary.mostCommonCount}
           </strong>{" "}
           members.
-        </p>
+        </motion.p>
       )}
 
       {/* Horizontal scroll table */}

@@ -82,7 +82,8 @@ const ListView = ({
     }, {});
 
   return (
-    <table className="min-w-full border-collapse mb-40 px-4 md:px-12 w-full">
+    <section className="mb-40 px-4 md:px-12 w-full">
+    <table>
       <thead>
         <tr>
           <th className="px-4 py-2 text-left text-charcoal-light border-b border-charcoal-light">
@@ -158,7 +159,7 @@ const ListView = ({
 
                       return filteredMembers.map(
                         (member: Member, index: number) => (
-                          <span
+                          <small
                             key={index}
                             className={`cursor-pointer hover:text-cloud-white transition-all duration-300 ease-in-out
                                                     ${
@@ -182,19 +183,19 @@ const ListView = ({
                               const idx = lowerName.indexOf(lowerSearch);
                               if (idx === -1) return member.name;
                               return (
-                                <span className="whitespace-nowrap group transition-all ease-in-out hover:text-cloud-white">
+                                <small className="whitespace-nowrap group transition-all ease-in-out hover:text-cloud-white">
                                   {member.name.slice(0, idx)}
-                                  <span className="text-berry-blast duration-300 group-hover:text-cloud-white text-sm">
+                                  <small className="text-berry-blast duration-300 group-hover:text-cloud-white">
                                     {member.name.slice(
                                       idx,
                                       idx + searchTerm.length,
                                     )}
-                                  </span>
+                                  </small>
                                   {member.name.slice(idx + searchTerm.length)}
-                                </span>
+                                </small>
                               );
                             })()}
-                          </span>
+                          </small>
                         ),
                       );
                     })()}
@@ -205,6 +206,7 @@ const ListView = ({
         )}
       </tbody>
     </table>
+    </section>
   );
 };
 

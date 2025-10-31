@@ -24,20 +24,20 @@ export const Footer = () => {
         <p className="material-icons" style={{ fontSize: "3rem" }}>
           keyboard_arrow_up
         </p>
-        <p className="text-sm">Go back to the top of the page</p>
+        <small>Go back to the top of the page</small>
       </div>
-      <footer className="bg-moonlight text-cloud-white py-12">
-        <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+      <footer className="bg-moonlight text-cloud-white py-12  mx-auto px-4 md:px-12">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo + Info */}
-          <div className="text-center md:text-left">
-            <h2 className="text-xl font-semibold mb-1">Orbit NTNU</h2>
-            <p className="text-sm">contact@orbitntnu.com</p>
-            <p className="text-sm">O.S Bragstad Plass 2B, Elektro D</p>
-            <p className="text-sm">7034, Trondheim</p>
+          <div className="text-center md:text-left flex flex-col">
+            <h3 className="font-semibold mb-1">Orbit NTNU</h3>
+            <small>contact@orbitntnu.com</small>
+            <small>O.S Bragstad Plass 2B, Elektro D</small>
+            <small>7034, Trondheim</small>
           </div>
 
           {/* Navigation Links */}
-          <ul className="flex flex-wrap justify-center gap-6 text-sm">
+          <ul className="flex flex-wrap justify-center gap-6">
             {pages.map((link) => (
               <li key={link.title}>
                 <Link

@@ -60,8 +60,8 @@ const GridView = ({
 
           return (
             <div key={groupName}>
-              <motion.h2
-                className="text-xl font-bold mb-4 flex items-center gap-2 text-cloud-white"
+              <motion.h3
+                className="font-bold mb-4 flex items-center gap-2 text-cloud-white"
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -72,7 +72,7 @@ const GridView = ({
                   style={{ backgroundColor: `var(--${color})` }}
                 ></span>
                 {groupName.split("_").join(" ")}
-              </motion.h2>
+              </motion.h3>
               <motion.div
                 className="w-full h-auto columns-1 md:columns-2 2xl:columns-3 gap-8"
                 initial="hidden"

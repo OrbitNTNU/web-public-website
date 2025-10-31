@@ -1,6 +1,7 @@
 "use client";
+import FeaturedArticle from "@/components/ArticlesPage/FeaturedArticle";
+import RegularArticle from "@/components/ArticlesPage/RegularArticle";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -102,8 +103,6 @@ function useIsMobile() {
 }
 
 const ArticlesOverviewPage = () => {
-  const router = useRouter();
-
   const isMobile = useIsMobile();
 
   return (
@@ -112,59 +111,11 @@ const ArticlesOverviewPage = () => {
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, 1)
         .map((article) => (
-          <div
+          <FeaturedArticle
             key={article.id}
-            className="flex flex-col md:flex-row h-auto md:h-auto"
-          >
-            {/* Text section */}
-            <motion.div
-              className="w-full md:w-1/3 flex flex-col justify-center my-auto px-0 py-6 md:p-6"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                type: "tween",
-                stiffness: 200,
-                delay: isMobile ? 0 : 0.4,
-                duration: 0.5,
-              }}
-            >
-              <time className="text-charcoal-light" dateTime={article.date}>
-                {article.date} (Latest Article)
-              </time>
-              <h2 className="mb-2">{article.title}</h2>
-              <p className="text-charcoal-light flex-1">{article.summary}</p>
-            </motion.div>
-
-            {/* Image section with aspect ratio controlling height */}
-            <motion.div
-              className="md:w-2/3 w-full relative flex-shrink-0"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                type: "tween",
-                stiffness: 200,
-                delay: isMobile ? 0 : 0.2,
-                duration: 0.5,
-              }}
-            >
-              <div
-                className="w-full pb-[75%] relative overflow-hidden"
-                onClick={() => void router.push(`${article.link}`)}
-              >
-                {" "}
-                {/* 4:3 aspect ratio */}
-                <Image
-                  src={article.imageUrl}
-                  alt={article.title}
-                  className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-400 hover:scale-102"
-                  fill
-                  priority
-                />
-              </div>
-            </motion.div>
-          </div>
+            article={article}
+            isMobile={isMobile}
+          />
         ))}
       <section>
         <motion.h3
@@ -186,43 +137,11 @@ const ArticlesOverviewPage = () => {
             )
             .slice(1, mockArticles.length)
             .map((article) => (
-              <motion.div
+              <RegularArticle
                 key={article.id}
-                className="flex flex-col group cursor-pointer mb-8"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{
-                  type: "tween",
-                  stiffness: 200,
-                  delay: isMobile ? 0 : 0.2, // 🚀 no delay on mobile
-                  duration: 0.4,
-                }}
-                onClick={() => void router.push(`${article.link}`)}
-              >
-                <div className="w-full aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={article.imageUrl}
-                    alt={article.title}
-                    className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105 aspect-[4/3]"
-                    width={400}
-                    height={300}
-                    priority
-                  />
-                </div>
-                <div className="flex flex-col flex-1 mt-4">
-                  <time
-                    className="text-sm text-charcoal-light"
-                    dateTime={article.date}
-                  >
-                    {article.date}
-                  </time>
-                  <h3 className="mb-2">{article.title}</h3>
-                  <p className="text-charcoal-light flex-1">
-                    {article.summary}
-                  </p>
-                </div>
-              </motion.div>
+                article={article}
+                isMobile={isMobile}
+              />
             ))}
         </div>
       </section>

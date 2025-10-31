@@ -4,17 +4,17 @@ import { getSlug, groupColors, Team } from "../../../app/team/page";
 import MemberCard from "../../MemberCard";
 import { useRouter } from "next/navigation";
 
-interface MemberViewProps {
+interface TraditionalViewProps {
   teamsData: Team[];
   searchTerm: string;
   selectedFilters: { [key: string]: string[] };
 }
 
-const MemberView = ({
+const TraditionalView = ({
   teamsData,
   searchTerm,
   selectedFilters,
-}: MemberViewProps) => {
+}: TraditionalViewProps) => {
   const router = useRouter();
 
   const filteredMembers = teamsData
@@ -116,7 +116,15 @@ const MemberView = ({
                 </span>
               </motion.h2>
             </motion.div>
-
+            <motion.p
+                className="text-charcoal-light mb-12 max-w-3xl"
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
+            >
+                {team.description}
+            </motion.p>
             <motion.div
               className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8"
               initial="hidden"
@@ -175,4 +183,4 @@ const MemberView = ({
   );
 };
 
-export default MemberView;
+export default TraditionalView;

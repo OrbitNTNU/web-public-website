@@ -34,10 +34,10 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-screen z-50 py-4 px-4 md:px-8 flex justify-between items-center pb-8">
       <div
-        className="absolute inset-0 w-full h-[200px] pointer-events-none z-[-1]"
+        className="absolute inset-0 w-full h-[150px] pointer-events-none z-[-1]"
         style={{
           background:
-            "linear-gradient(to bottom, var(--color-charcoal) 0%, rgba(0,0,0,0) 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
         }}
       />
       <motion.div

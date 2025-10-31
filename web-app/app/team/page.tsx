@@ -5,6 +5,7 @@ import TeamsControls from "../../components/TeamsPage/TeamsControls";
 import SearchFilters from "../../components/TeamsPage/SearchFilters";
 import GridView from "../../components/TeamsPage/Views/GridView";
 import ListView from "../../components/TeamsPage/Views/ListView";
+import TraditionalView from "../../components/TeamsPage/Views/TraditionalView";
 import MemberView from "../../components/TeamsPage/Views/MembersView";
 import { Loading } from "../../components/Loading";
 import { fetchTeamSlug } from "@/sanity/queries/teams";
@@ -56,8 +57,8 @@ const Teams = () => {
   const [activeTeam, setActiveTeam] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [viewMode, setViewMode] = useState<
-    "grid" | "list" | "members" | "gallery"
-  >("members");
+    "grid" | "list" | "members" | "gallery" | "traditional"
+  >("traditional");
   const [openDropdowns, setOpenDropdowns] = useState<boolean[]>(
     Array(filters.length).fill(false),
   );
@@ -94,55 +95,65 @@ const Teams = () => {
     return <div className="text-cloud-white">No team data available.</div>;
 
   return (
-    <div className="w-full relative max-w-[2000px] mx-auto my-40 flex flex-col">
+    <div className="w-full relative max-w-[2000px] mx-auto my-20 md:my-40 flex flex-col">
       {/* Star pattern background */}
       <Header
         title="Teams and Members"
         subtitle="Our teams are the heartbeat of Orbit. Each one brings together diverse skills, perspectives, and passions to push ideas into reality."
       />
-      <TeamsControls
-        viewMode={viewMode}
-        setViewMode={setViewMode}
-        setSearchTerm={setSearchTerm}
-      />
-      <SearchFilters
-        teamsData={teamsData}
-        filters={filters}
-        openDropdowns={openDropdowns}
-        setOpenDropdowns={setOpenDropdowns}
-        selectedFilters={selectedFilters}
-        setSelectedFilters={setSelectedFilters}
-      />
-      {viewMode === "grid" && (
-        <GridView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
+      <section className="w-full gap-20 flex flex-col pb-20">
+        <TeamsControls
+          viewMode={viewMode}
+          setViewMode={setViewMode}
+          setSearchTerm={setSearchTerm}
         />
-      )}
-      {viewMode === "list" && (
-        <ListView
+        <SearchFilters
           teamsData={teamsData}
-          searchTerm={searchTerm}
+          filters={filters}
+          openDropdowns={openDropdowns}
+          setOpenDropdowns={setOpenDropdowns}
           selectedFilters={selectedFilters}
-          setActiveTeam={setActiveTeam}
-          activeTeam={activeTeam}
+          setSelectedFilters={setSelectedFilters}
         />
-      )}
-      {viewMode === "members" && (
-        <MemberView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
-        />
-      )}
-      {viewMode === "gallery" && (
-        <GalleryView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
-        />
-      )}
+      </section>
+
+        {viewMode === "grid" && (
+          <GridView
+            teamsData={teamsData}
+            searchTerm={searchTerm}
+            selectedFilters={selectedFilters}
+          />
+        )}
+        {viewMode === "list" && (
+          <ListView
+            teamsData={teamsData}
+            searchTerm={searchTerm}
+            selectedFilters={selectedFilters}
+            setActiveTeam={setActiveTeam}
+            activeTeam={activeTeam}
+          />
+        )}
+        {viewMode === "members" && (
+          <MemberView
+            teamsData={teamsData}
+            searchTerm={searchTerm}
+            selectedFilters={selectedFilters}
+          />
+        )}
+        {viewMode === "traditional" && (
+          <TraditionalView
+            teamsData={teamsData}
+            searchTerm={searchTerm}
+            selectedFilters={selectedFilters}
+          />
+        )}
+        {viewMode === "gallery" && (
+          <GalleryView
+            teamsData={teamsData}
+            searchTerm={searchTerm}
+            selectedFilters={selectedFilters}
+          />
+        )}
     </div>
   );
 };

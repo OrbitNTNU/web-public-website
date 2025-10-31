@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
 
 interface TeamsControlsProps {
-  viewMode: "grid" | "list" | "members" | "gallery";
-  setViewMode: (mode: "grid" | "list" | "members" | "gallery") => void;
+  viewMode: "grid" | "list" | "members" | "gallery" | "traditional";
+  setViewMode: (mode: "grid" | "list" | "members" | "gallery" | "traditional") => void;
   setSearchTerm: (term: string) => void;
 }
 
 const controls = [
+  {
+    key: "traditional",
+    icon: "dashboard",
+    label: "Traditional",
+    hideOnSmallScreens: false,
+  },
   {
     key: "members",
     icon: "people",
@@ -17,19 +22,19 @@ const controls = [
   {
     key: "grid",
     icon: "grid_view",
-    label: "Team grid",
+    label: "Teams",
     hideOnSmallScreens: false,
-  },
-  {
-    key: "list",
-    icon: "list",
-    label: "List View",
-    hideOnSmallScreens: true,
   },
   {
     key: "gallery",
     icon: "photo_library",
     label: "Gallery",
+    hideOnSmallScreens: true,
+  },
+  {
+    key: "list",
+    icon: "list",
+    label: "List View",
     hideOnSmallScreens: true,
   },
 ] as const;
@@ -40,7 +45,7 @@ const TeamsControls = ({
   setSearchTerm,
 }: TeamsControlsProps) => {
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between mb-8 px-4 md:px-12">
+    <section className="flex flex-col lg:flex-row items-center justify-between px-4 md:px-12">
       <div className="items-left w-auto flex flex-row space-x-8">
         {controls.map((control) => (
           <motion.button
@@ -61,11 +66,11 @@ const TeamsControls = ({
             >
               {control.icon}
             </span>
-            <span>{control.label}</span>
+            <small>{control.label}</small>
           </motion.button>
         ))}
       </div>
-      <div className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0">
+       <div className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0">
         <input
           type="text"
           placeholder="Search"

@@ -34,10 +34,10 @@ const SDGsMobile = () => {
               />
             </div>
             <div className="text-center sm:text-left">
-              <h3 className="text-lg md:text-xl font-semibold mb-2">
+              <h3 className="mb-2">
                 {sdg.title}
               </h3>
-              <p className="text-sm md:text-base text-charcoal-light">
+              <p className="text-charcoal-light">
                 {sdg.description}
               </p>
             </div>
