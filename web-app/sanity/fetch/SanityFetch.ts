@@ -2,7 +2,7 @@ import {LandingPage} from "@/sanity/types/landingPage";
 import {LANDING_PAGE_QUERY} from "@/sanity/queries/landingPage";
 import {sanityFetch} from "@/sanity/live/live";
 import {BigProject} from "@/sanity/types/project";
-import {BIG_PROJECT_BY_SLUG_QUERY} from "@/sanity/queries/projects";
+import {ALL_BIG_PROJECTS_QUERY, BIG_PROJECT_BY_SLUG_QUERY} from "@/sanity/queries/projects";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -25,5 +25,18 @@ export const getBigProject = async (slug: string): Promise<BigProject | null> =>
     } catch (e) {
         console.error("Error fetching big project:", e);
         return null;
+    }
+};
+
+// ALL BIG PROJECTS
+export const getAllBigProjects = async (): Promise<BigProject[]> => {
+    try {
+        const { data } = await sanityFetch({
+            query: ALL_BIG_PROJECTS_QUERY,
+        });
+        return (data as BigProject[]) ?? [];
+    } catch (e) {
+        console.error("Error fetching all big projects:", e);
+        return [];
     }
 };
