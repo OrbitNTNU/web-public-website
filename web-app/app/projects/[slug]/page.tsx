@@ -1,4 +1,3 @@
-// app/projects/[slug]/page.tsx
 import { getBigProject } from "@/sanity/fetch/SanityFetch";
 import ProjectClientPage from "@/app/projects/ProjectClientPage";
 import {Metadata} from "next";
