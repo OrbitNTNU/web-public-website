@@ -1,55 +1,52 @@
-import { client } from "../config";
+import { defineQuery } from "groq";
 
-export async function fetchSponsorsPage() {
-  const query = `
-        *[_type == "sponsorsPage"][0]{
-            _id,
-            title,
-            caption,
-            "mainSponsors": mainSponsors[]{
-                _key,
-                name,
-                logo{..., asset->},
-                website,
-                description[],
-                imageWithUs{..., asset->}
-            },
-            "platinumSponsors": platinumSponsors[]{
-                _key,
-                name,
-                logo{..., asset->},
-                website,
-                description[],
-                imageWithUs{..., asset->}
-            },
-            "goldSponsors": goldSponsors[]{
-                _key,
-                name,
-                logo{..., asset->},
-                website,
-                description[],
-                imageWithUs{..., asset->}
-            },
-            "silverSponsors": silverSponsors[]{
-                _key,
-                name,
-                logo{..., asset->},
-                website,
-                description[]
-            },
-            "bronzeSponsors": bronzeSponsors[]{
-                _key,
-                name,
-                logo{..., asset->},
-                website
-            },
-            "partners": partners[]{
-                _key,
-                name,
-                logo{..., asset->},
-                website
-            }
-        }
-    `;
-  return client.fetch(query);
-}
+export const SPONSORS_PAGE_QUERY = defineQuery(`
+  *[_type == "sponsorsPage"][0]{
+    _id,
+    title,
+    caption,
+    "mainSponsors": mainSponsors[] {
+      _key,
+      name,
+      logo { ..., asset-> },
+      website,
+      description[],
+      imageWithUs { ..., asset-> }
+    },
+    "platinumSponsors": platinumSponsors[] {
+      _key,
+      name,
+      logo { ..., asset-> },
+      website,
+      description[],
+      imageWithUs { ..., asset-> }
+    },
+    "goldSponsors": goldSponsors[] {
+      _key,
+      name,
+      logo { ..., asset-> },
+      website,
+      description[],
+      imageWithUs { ..., asset-> }
+    },
+    "silverSponsors": silverSponsors[] {
+      _key,
+      name,
+      logo { ..., asset-> },
+      website,
+      description[]
+    },
+    "bronzeSponsors": bronzeSponsors[] {
+      _key,
+      name,
+      logo { ..., asset-> },
+      website
+    },
+    "partners": partners[] {
+      _key,
+      name,
+      logo { ..., asset-> },
+      website
+    }
+  }
+`);

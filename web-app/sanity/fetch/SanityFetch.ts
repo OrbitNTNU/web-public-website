@@ -1,8 +1,12 @@
-import {LandingPage} from "@/sanity/types/landingPage";
-import {LANDING_PAGE_QUERY} from "@/sanity/queries/landingPage";
 import {sanityFetch} from "@/sanity/live/live";
+
+import {LandingPage} from "@/sanity/types/landingPage";
 import {BigProject} from "@/sanity/types/project";
+import {SponsorsPage} from "@/sanity/types/sponsorsPage"
+
+import {LANDING_PAGE_QUERY} from "@/sanity/queries/landingPage";
 import {ALL_BIG_PROJECTS_QUERY, BIG_PROJECT_BY_SLUG_QUERY} from "@/sanity/queries/projects";
+import {SPONSORS_PAGE_QUERY} from "@/sanity/queries/sponsorsPage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -29,7 +33,7 @@ export const getBigProject = async (slug: string): Promise<BigProject | null> =>
 };
 
 // ALL BIG PROJECTS
-export const getAllBigProjects = async (): Promise<BigProject[]> => {
+export const getAllBigProjects = async (): Promise<BigProject[] | null> => {
     try {
         const { data } = await sanityFetch({
             query: ALL_BIG_PROJECTS_QUERY,
@@ -40,3 +44,17 @@ export const getAllBigProjects = async (): Promise<BigProject[]> => {
         return [];
     }
 };
+
+// SPONSOR PAGE
+export const getSponsorPage = async (): Promise<SponsorsPage | null> => {
+    try{
+        const { data } = await sanityFetch({
+            query: SPONSORS_PAGE_QUERY,
+        });
+        return (data as SponsorsPage) ?? null;
+    }catch (e) {
+        console.error("Error fetching sponsor page:", e);
+        return null;
+    }
+
+}
