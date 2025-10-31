@@ -2,13 +2,14 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     return [
-        { url: "https://orbitntnu.com", lastModified: new Date() },
-        { url: "https://orbitntnu.com/about", lastModified: new Date() },
-        { url: "https://orbitntnu.com/projects", lastModified: new Date() },
-        { url: "https://orbitntnu.com/sponsors", lastModified: new Date() },
-        { url: "https://orbitntnu.com/contact", lastModified: new Date() },
-        { url: "https://orbitntnu.com/team", lastModified: new Date() },
-        { url: "https://orbitntnu.com/articles", lastModified: new Date() },
-        { url: "https://orbitntnu.com/join", lastModified: new Date() }
+        { url: "https://web-public-website.vercel.app/", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/about", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/projects", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/sponsors", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/contact", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/team", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/articles", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/join", lastModified: new Date() },
+        { url: "https://web-public-website.vercel.app/partners", lastModified: new Date() }
     ];
 }
