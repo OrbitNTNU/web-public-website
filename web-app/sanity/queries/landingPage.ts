@@ -91,5 +91,4 @@ export const LANDING_PAGE_QUERY = defineQuery(`
         }
       },
     }
-  `
-)
+  `);

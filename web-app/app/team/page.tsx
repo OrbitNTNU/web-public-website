@@ -117,43 +117,43 @@ const Teams = () => {
         />
       </section>
 
-        {viewMode === "grid" && (
-          <GridView
-            teamsData={teamsData}
-            searchTerm={searchTerm}
-            selectedFilters={selectedFilters}
-          />
-        )}
-        {viewMode === "list" && (
-          <ListView
-            teamsData={teamsData}
-            searchTerm={searchTerm}
-            selectedFilters={selectedFilters}
-            setActiveTeam={setActiveTeam}
-            activeTeam={activeTeam}
-          />
-        )}
-        {viewMode === "members" && (
-          <MemberView
-            teamsData={teamsData}
-            searchTerm={searchTerm}
-            selectedFilters={selectedFilters}
-          />
-        )}
-        {viewMode === "traditional" && (
-          <TraditionalView
-            teamsData={teamsData}
-            searchTerm={searchTerm}
-            selectedFilters={selectedFilters}
-          />
-        )}
-        {viewMode === "gallery" && (
-          <GalleryView
-            teamsData={teamsData}
-            searchTerm={searchTerm}
-            selectedFilters={selectedFilters}
-          />
-        )}
+      {viewMode === "grid" && (
+        <GridView
+          teamsData={teamsData}
+          searchTerm={searchTerm}
+          selectedFilters={selectedFilters}
+        />
+      )}
+      {viewMode === "list" && (
+        <ListView
+          teamsData={teamsData}
+          searchTerm={searchTerm}
+          selectedFilters={selectedFilters}
+          setActiveTeam={setActiveTeam}
+          activeTeam={activeTeam}
+        />
+      )}
+      {viewMode === "members" && (
+        <MemberView
+          teamsData={teamsData}
+          searchTerm={searchTerm}
+          selectedFilters={selectedFilters}
+        />
+      )}
+      {viewMode === "traditional" && (
+        <TraditionalView
+          teamsData={teamsData}
+          searchTerm={searchTerm}
+          selectedFilters={selectedFilters}
+        />
+      )}
+      {viewMode === "gallery" && (
+        <GalleryView
+          teamsData={teamsData}
+          searchTerm={searchTerm}
+          selectedFilters={selectedFilters}
+        />
+      )}
     </div>
   );
 };

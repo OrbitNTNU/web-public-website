@@ -60,7 +60,7 @@ const MemberDistribution = ({ data }: MemberDistributionProps) => {
       </motion.h3>
 
       {/* Intro text */}
-      <motion.p 
+      <motion.p
         className="mb-8 max-w-3xl text-charcoal-light md:mr-auto md:text-left md:max-w-2/3"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -68,7 +68,7 @@ const MemberDistribution = ({ data }: MemberDistributionProps) => {
         transition={{
           type: "tween",
           stiffness: 200,
-        }}        
+        }}
       >
         Orbit currently has{" "}
         <strong className="text-cloud-white">

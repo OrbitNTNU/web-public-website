@@ -83,85 +83,85 @@ const ListView = ({
 
   return (
     <section className="mb-40 px-4 md:px-12 w-full">
-    <table>
-      <thead>
-        <tr>
-          <th className="px-4 py-2 text-left text-charcoal-light border-b border-charcoal-light">
-            Group
-          </th>
-          <th className="px-4 py-2 text-left text-charcoal-light border-b border-charcoal-light">
-            Team
-          </th>
-          <th className="px-4 py-2 text-charcoal-light border-b border-charcoal-light text-right">
-            Members
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {Object.entries(filteredGroups).length === 0 ? (
+      <table>
+        <thead>
           <tr>
-            <td
-              colSpan={3}
-              className="px-4 py-8 text-center text-charcoal-light"
-            >
-              No results found.
-            </td>
+            <th className="px-4 py-2 text-left text-charcoal-light border-b border-charcoal-light">
+              Group
+            </th>
+            <th className="px-4 py-2 text-left text-charcoal-light border-b border-charcoal-light">
+              Team
+            </th>
+            <th className="px-4 py-2 text-charcoal-light border-b border-charcoal-light text-right">
+              Members
+            </th>
           </tr>
-        ) : (
-          Object.entries(filteredGroups)
-            .sort(([groupA], [groupB]) => {
-              if (groupA === "MENTORS" && groupB !== "MENTORS") return 1;
-              if (groupB === "MENTORS" && groupA !== "MENTORS") return -1;
-              return groupA.localeCompare(groupB);
-            })
-            .map(([groupName, teams]: [string, Team[]]) => (
-              <tr key={groupName}>
-                <td className="w-[240px] px-2 py-4 border-b border-charcoal-light text-cloud-white font-semibold align-top">
-                  <button className="w-full text-left cursor-pointer focus:outline-none flex flex-row gap-2 items-center">
-                    <span
-                      className="block w-4 h-4 rounded-full mr-2"
-                      style={{
-                        backgroundColor: `var(--${groupColors[groupName]})`,
-                      }}
-                    ></span>
-                    {groupName.split("_").join(" ")}
-                  </button>
-                </td>
-                <td className="w-[240px] px-2 py-4 border-charcoal-light border-b text-cloud-white align-top">
-                  <div className="flex flex-col">
-                    {teams.map((team: Team) => (
-                      <button
-                        key={team.teamID}
-                        className="w-full text-left px-2 py-1 font-medium focus:outline-none text-cloud-white hover:text-pink-blast transition-colors duration-150 cursor-pointer items-center flex"
-                        onMouseEnter={() => setActiveTeam(team.teamID)}
-                        onMouseLeave={() => setActiveTeam(null)}
-                        onClick={() => {
-                          const slugPromise = getSlug(team.teamID);
-                          slugPromise.then((slug) => {
-                            void router.push(`/team/${slug}`);
-                          });
+        </thead>
+        <tbody>
+          {Object.entries(filteredGroups).length === 0 ? (
+            <tr>
+              <td
+                colSpan={3}
+                className="px-4 py-8 text-center text-charcoal-light"
+              >
+                No results found.
+              </td>
+            </tr>
+          ) : (
+            Object.entries(filteredGroups)
+              .sort(([groupA], [groupB]) => {
+                if (groupA === "MENTORS" && groupB !== "MENTORS") return 1;
+                if (groupB === "MENTORS" && groupA !== "MENTORS") return -1;
+                return groupA.localeCompare(groupB);
+              })
+              .map(([groupName, teams]: [string, Team[]]) => (
+                <tr key={groupName}>
+                  <td className="w-[240px] px-2 py-4 border-b border-charcoal-light text-cloud-white font-semibold align-top">
+                    <button className="w-full text-left cursor-pointer focus:outline-none flex flex-row gap-2 items-center">
+                      <span
+                        className="block w-4 h-4 rounded-full mr-2"
+                        style={{
+                          backgroundColor: `var(--${groupColors[groupName]})`,
                         }}
-                      >
-                        {team.teamName}
-                        <span className="material-icons">chevron_right</span>
-                      </button>
-                    ))}
-                  </div>
-                </td>
-                <td className="px-2 py-4 border-charcoal-light border-b text-charcoal-light">
-                  <div className="flex flex-wrap gap-x-2 gap-y-2">
-                    {(() => {
-                      const filteredMembers: Member[] = teams
-                        .flatMap((team: Team) => team.members)
-                        .sort((a: Member, b: Member) =>
-                          a.name.localeCompare(b.name),
-                        );
+                      ></span>
+                      {groupName.split("_").join(" ")}
+                    </button>
+                  </td>
+                  <td className="w-[240px] px-2 py-4 border-charcoal-light border-b text-cloud-white align-top">
+                    <div className="flex flex-col">
+                      {teams.map((team: Team) => (
+                        <button
+                          key={team.teamID}
+                          className="w-full text-left px-2 py-1 font-medium focus:outline-none text-cloud-white hover:text-pink-blast transition-colors duration-150 cursor-pointer items-center flex"
+                          onMouseEnter={() => setActiveTeam(team.teamID)}
+                          onMouseLeave={() => setActiveTeam(null)}
+                          onClick={() => {
+                            const slugPromise = getSlug(team.teamID);
+                            slugPromise.then((slug) => {
+                              void router.push(`/team/${slug}`);
+                            });
+                          }}
+                        >
+                          {team.teamName}
+                          <span className="material-icons">chevron_right</span>
+                        </button>
+                      ))}
+                    </div>
+                  </td>
+                  <td className="px-2 py-4 border-charcoal-light border-b text-charcoal-light">
+                    <div className="flex flex-wrap gap-x-2 gap-y-2">
+                      {(() => {
+                        const filteredMembers: Member[] = teams
+                          .flatMap((team: Team) => team.members)
+                          .sort((a: Member, b: Member) =>
+                            a.name.localeCompare(b.name),
+                          );
 
-                      return filteredMembers.map(
-                        (member: Member, index: number) => (
-                          <small
-                            key={index}
-                            className={`cursor-pointer hover:text-cloud-white transition-all duration-300 ease-in-out
+                        return filteredMembers.map(
+                          (member: Member, index: number) => (
+                            <small
+                              key={index}
+                              className={`cursor-pointer hover:text-cloud-white transition-all duration-300 ease-in-out
                                                     ${
                                                       activeTeam &&
                                                       teams.some(
@@ -175,37 +175,37 @@ const ListView = ({
                                                         ? "text-emerald-fizz"
                                                         : "font-normal text-charcoal-light"
                                                     }`}
-                          >
-                            {(() => {
-                              if (!searchTerm) return member.name;
-                              const lowerName = member.name.toLowerCase();
-                              const lowerSearch = searchTerm.toLowerCase();
-                              const idx = lowerName.indexOf(lowerSearch);
-                              if (idx === -1) return member.name;
-                              return (
-                                <small className="whitespace-nowrap group transition-all ease-in-out hover:text-cloud-white">
-                                  {member.name.slice(0, idx)}
-                                  <small className="text-berry-blast duration-300 group-hover:text-cloud-white">
-                                    {member.name.slice(
-                                      idx,
-                                      idx + searchTerm.length,
-                                    )}
+                            >
+                              {(() => {
+                                if (!searchTerm) return member.name;
+                                const lowerName = member.name.toLowerCase();
+                                const lowerSearch = searchTerm.toLowerCase();
+                                const idx = lowerName.indexOf(lowerSearch);
+                                if (idx === -1) return member.name;
+                                return (
+                                  <small className="whitespace-nowrap group transition-all ease-in-out hover:text-cloud-white">
+                                    {member.name.slice(0, idx)}
+                                    <small className="text-berry-blast duration-300 group-hover:text-cloud-white">
+                                      {member.name.slice(
+                                        idx,
+                                        idx + searchTerm.length,
+                                      )}
+                                    </small>
+                                    {member.name.slice(idx + searchTerm.length)}
                                   </small>
-                                  {member.name.slice(idx + searchTerm.length)}
-                                </small>
-                              );
-                            })()}
-                          </small>
-                        ),
-                      );
-                    })()}
-                  </div>
-                </td>
-              </tr>
-            ))
-        )}
-      </tbody>
-    </table>
+                                );
+                              })()}
+                            </small>
+                          ),
+                        );
+                      })()}
+                    </div>
+                  </td>
+                </tr>
+              ))
+          )}
+        </tbody>
+      </table>
     </section>
   );
 };

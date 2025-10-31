@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaLinkedin } from "react-icons/fa"
+import { FaLinkedin } from "react-icons/fa";
 import { FaSquareEnvelope, FaSquarePhone } from "react-icons/fa6";
 
 interface MemberCardProps {
@@ -112,8 +112,9 @@ const MemberCard = ({
             )}
             {mentor && (
               <div
-                className={`absolute right-0 top-0 z-30 bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${!image ? "border-r-2 border-t-2 border-charcoal-light" : ""
-                  }`}
+                className={`absolute right-0 top-0 z-30 bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${
+                  !image ? "border-r-2 border-t-2 border-charcoal-light" : ""
+                }`}
               >
                 Mentor
               </div>
@@ -127,9 +128,7 @@ const MemberCard = ({
           >
             {memberName && <p className="truncate">{memberName}</p>}
             {position && (
-              <small className="truncate text-charcoal-light">
-                {position}
-              </small>
+              <small className="truncate text-charcoal-light">{position}</small>
             )}
             <section className="flex flex-row items-center gap-2 text-charcoal-light text-sm mt-2">
               {mail && (
@@ -152,7 +151,11 @@ const MemberCard = ({
               )}
               {linkedin && (
                 <a
-                  href={linkedin.startsWith("http") ? linkedin : `https://${linkedin}`}
+                  href={
+                    linkedin.startsWith("http")
+                      ? linkedin
+                      : `https://${linkedin}`
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:text-berry-blast transition-colors"

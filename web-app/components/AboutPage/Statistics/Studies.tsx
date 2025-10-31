@@ -118,7 +118,7 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
 
   return (
     <div className="relative mx-auto flex w-full flex-col md:items-end">
-      <motion.h3 
+      <motion.h3
         className="font-black mb-2"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -132,7 +132,7 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
         Our Fields of Study
       </motion.h3>
 
-      <motion.p 
+      <motion.p
         className="mb-8 max-w-3xl text-charcoal-light md:ml-auto md:text-right md:max-w-2/3"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -198,7 +198,6 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
               <small className="mt-2 truncate text-center text-xs">
                 {s.study}
               </small>
-              
             </div>
           );
         })}

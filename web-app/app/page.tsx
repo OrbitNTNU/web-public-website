@@ -1,5 +1,5 @@
 import LandingPage from "@/components/pages/LandingPage";
-import {getLandingPage} from "@/sanity/fetch/SanityFetch";
+import { getLandingPage } from "@/sanity/fetch/SanityFetch";
 
 export default async function Home() {
   const data = await getLandingPage();
