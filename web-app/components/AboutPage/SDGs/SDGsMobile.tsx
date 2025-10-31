@@ -34,12 +34,8 @@ const SDGsMobile = () => {
               />
             </div>
             <div className="text-center sm:text-left">
-              <h3 className="mb-2">
-                {sdg.title}
-              </h3>
-              <p className="text-charcoal-light">
-                {sdg.description}
-              </p>
+              <h3 className="mb-2">{sdg.title}</h3>
+              <p className="text-charcoal-light">{sdg.description}</p>
             </div>
           </motion.div>
         ))}

@@ -1,7 +1,3 @@
-import {sanityFetch} from "@/sanity/live/live";
-
-import {LandingPage} from "@/sanity/types/landingPage";
-import {BigProject} from "@/sanity/types/project";
 import {SponsorsPage} from "@/sanity/types/sponsorsPage"
 
 import {LANDING_PAGE_QUERY} from "@/sanity/queries/landingPage";

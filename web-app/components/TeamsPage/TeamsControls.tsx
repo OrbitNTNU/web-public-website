@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 
 interface TeamsControlsProps {
   viewMode: "grid" | "list" | "members" | "gallery" | "traditional";
-  setViewMode: (mode: "grid" | "list" | "members" | "gallery" | "traditional") => void;
+  setViewMode: (
+    mode: "grid" | "list" | "members" | "gallery" | "traditional",
+  ) => void;
   setSearchTerm: (term: string) => void;
 }
 
@@ -70,7 +72,7 @@ const TeamsControls = ({
           </motion.button>
         ))}
       </div>
-       <div className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0">
+      <div className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0">
         <input
           type="text"
           placeholder="Search"

@@ -164,7 +164,7 @@ const MemberView = ({
                       position={member.title}
                       phoneNumber={member.phoneNumber}
                       linkedin={member.linkedin}
-                    mail={member.mail}
+                      mail={member.mail}
                     />
                   </motion.div>
                 ))}

@@ -69,9 +69,10 @@ const GalleryView = ({
             <MemberCard
               image={member.image}
               memberName={member.name}
-              bio={member.mail}
+              position={member.title}
               phoneNumber={member.phoneNumber}
               linkedin={member.linkedin}
+              mail={member.mail}
             />
           </motion.div>
         ))}
