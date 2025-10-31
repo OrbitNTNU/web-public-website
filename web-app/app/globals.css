@@ -125,7 +125,10 @@
   }
   p,
   span {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+  }
+  small {
+    font-size: 0.7rem;
   }
 
   @media (min-width: 640px) {
@@ -140,7 +143,10 @@
     }
     p,
     span {
-      font-size: 1rem;
+      font-size: 0.9rem;
+    }
+    small {
+      font-size: 0.8rem;
     }
   }
 
@@ -156,7 +162,10 @@
     }
     p,
     span {
-      font-size: 1.2rem;
+      font-size: 1.0rem;
+    }
+    small {
+      font-size: 0.9rem;
     }
   }
 }

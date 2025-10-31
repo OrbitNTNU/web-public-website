@@ -47,8 +47,8 @@ const LargeImage = ({ src, alt, caption }: LargeImageProps) => {
 
       {/* Caption */}
       {caption && (
-        <h3 className="absolute bottom-6 left-8 md:left-16 text-white font-black italic drop-shadow-md text-lg md:text-xl">
-          {caption.toUpperCase()}
+        <h3 className="absolute bottom-6 left-8 md:left-16 text-cloud-white font-black italic drop-shadow-md">
+          {caption}
         </h3>
       )}
     </div>

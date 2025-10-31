@@ -84,16 +84,16 @@ export default function SubOrbital() {
                   />
                 ) : (
                   <div className="w-32 md:w-48 h-32 md:h-48 bg-charcoal flex items-center justify-center rounded-full shadow-md border-cloud-white border shadow-charcoal group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500">
-                    <span className="text-cloud-white text-sm text-center">
+                    <small className="text-cloud-white text-center">
                       No Patch
-                    </span>
+                    </small>
                   </div>
                 )}
               </div>
-              <h3 className="font-black text-center text-sm md:text-base">
+              <span className="text-center font-black">
                 {proj.name.toUpperCase()}
-              </h3>
-              <p className="italic text-center text-xs md:text-sm">
+              </span>
+              <p className="italic text-center text-charcoal-light">
                 {proj.year}
               </p>
             </motion.div>

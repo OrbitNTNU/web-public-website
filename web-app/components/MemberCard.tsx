@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { groupColors } from "../app/team/page";
+import { FaLinkedin, FaPhoneAlt, FaEnvelope, FaPhoneSlash } from "react-icons/fa"
+import { FaPhoneFlip, FaSquareEnvelope, FaSquarePhone } from "react-icons/fa6";
 
 interface MemberCardProps {
   image?: string;
   phoneNumber?: string;
-  bio?: string;
-  additionalInformation?: string;
+  position?: string;
   memberID?: number;
   memberName?: string;
   isClickable?: boolean;
@@ -13,7 +13,7 @@ interface MemberCardProps {
   skeleton?: boolean;
   mentor?: boolean;
   skeletonType?: "default" | "small";
-  teamGroup?: string;
+  mail?: string;
 }
 
 const SkeletonLoader = ({
@@ -39,16 +39,17 @@ const SkeletonLoader = ({
     </div>
   </span>
 );
+
 const MemberCard = ({
   image,
   phoneNumber,
-  bio,
-  additionalInformation,
+  position,
   memberName,
   skeleton = false,
   skeletonType = "default",
   mentor = false,
-  teamGroup,
+  linkedin,
+  mail,
 }: MemberCardProps) => {
   if (skeleton) {
     return <SkeletonLoader skeletonType={skeletonType} />;
@@ -111,39 +112,56 @@ const MemberCard = ({
             )}
             {mentor && (
               <div
-                className={`absolute right-0 top-0 z-30 bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${
-                  !image ? "border-r-2 border-t-2 border-charcoal-light" : ""
-                }`}
+                className={`absolute right-0 top-0 z-30 bg-pinkBlast px-4 py-1 text-moonlight transition duration-300 ${!image ? "border-r-2 border-t-2 border-charcoal-light" : ""
+                  }`}
               >
                 Mentor
               </div>
             )}
-            {additionalInformation && (
-              <div
-                className="absolute bottom-0 left-0 z-30 w-full bg-sky-mint py-1 text-center text-moonlight"
-                style={{
-                  backgroundColor: teamGroup
-                    ? `var(--${groupColors[teamGroup]})`
-                    : "var(--color-sky-mint)",
-                }}
-              >
-                {additionalInformation}
-              </div>
-            )}
           </span>
         </div>
-        {(memberName ?? bio ?? phoneNumber) && (
+        {(memberName ?? phoneNumber ?? position ?? linkedin) && (
           <span
             className="items-left mt-2 flex w-full flex-col text-left"
             style={{ maxWidth: "100%" }}
           >
-            {memberName && <h5 className="truncate">{memberName}</h5>}
-            {bio && <span className="truncate text-sm text-muted">{bio}</span>}
-            {phoneNumber && (
-              <span className="truncate text-sm text-charcoal-light">
-                {phoneNumber}
-              </span>
+            {memberName && <p className="truncate">{memberName}</p>}
+            {position && (
+              <small className="truncate text-charcoal-light">
+                {position}
+              </small>
             )}
+            <section className="flex flex-row items-center gap-2 text-charcoal-light text-sm mt-2">
+              {mail && (
+                <a
+                  href={`mailto:${mail}`}
+                  className="flex items-center gap-1 hover:text-berry-blast transition-colors"
+                  aria-label="Send email"
+                >
+                  <FaSquareEnvelope className="text-xl" />
+                </a>
+              )}
+              {phoneNumber && (
+                <a
+                  href={`tel:${phoneNumber}`}
+                  className="flex items-center gap-1 hover:text-berry-blast transition-colors"
+                  aria-label="Call phone number"
+                >
+                  <FaSquarePhone className="text-xl" />
+                </a>
+              )}
+              {linkedin && (
+                <a
+                  href={linkedin.startsWith("http") ? linkedin : `https://${linkedin}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 hover:text-berry-blast transition-colors"
+                  aria-label="LinkedIn profile"
+                >
+                  <FaLinkedin className="text-xl" />
+                </a>
+              )}
+            </section>
           </span>
         )}
       </div>

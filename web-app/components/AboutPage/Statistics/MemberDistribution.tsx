@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { MemberDistributionInTeams } from "./Statistics";
+import { motion } from "framer-motion";
 
 interface MemberDistributionProps {
   data: MemberDistributionInTeams | null;
@@ -44,12 +45,31 @@ const MemberDistribution = ({ data }: MemberDistributionProps) => {
 
   return (
     <div className="relative mx-auto flex w-full flex-col items-start">
-      <h3 className="mb-4 md:text-center font-black">
+      <motion.h3
+        className="mb-4 md:text-center font-black"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "tween",
+          stiffness: 200,
+          delay: 0.2,
+        }}
+      >
         Membership Distribution
-      </h3>
+      </motion.h3>
 
       {/* Intro text */}
-      <p className="mb-8 max-w-3xl text-charcoal-light md:mr-auto md:text-left md:max-w-2/3">
+      <motion.p 
+        className="mb-8 max-w-3xl text-charcoal-light md:mr-auto md:text-left md:max-w-2/3"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "tween",
+          stiffness: 200,
+        }}        
+      >
         Orbit currently has{" "}
         <strong className="text-cloud-white">
           {summary.roleTotals.LEADER +
@@ -82,7 +102,7 @@ const MemberDistribution = ({ data }: MemberDistributionProps) => {
         benefits from the contributions of{" "}
         <strong className="text-cloud-white">{summary.totalMembers}</strong>{" "}
         dedicated individuals.
-      </p>
+      </motion.p>
     </div>
   );
 };

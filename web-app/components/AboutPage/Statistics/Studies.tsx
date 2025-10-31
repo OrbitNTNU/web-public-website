@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState, useRef, useMemo } from "react";
 
 interface StudyData {
@@ -117,9 +118,30 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
 
   return (
     <div className="relative mx-auto flex w-full flex-col md:items-end">
-      <h3 className="font-black mb-2">Our Fields of Study</h3>
+      <motion.h3 
+        className="font-black mb-2"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "tween",
+          stiffness: 200,
+          delay: 0.2,
+        }}
+      >
+        Our Fields of Study
+      </motion.h3>
 
-      <p className="mb-8 max-w-3xl text-charcoal-light md:ml-auto md:text-right md:max-w-2/3">
+      <motion.p 
+        className="mb-8 max-w-3xl text-charcoal-light md:ml-auto md:text-right md:max-w-2/3"
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "tween",
+          stiffness: 200,
+        }}
+      >
         There are currently{" "}
         <strong className="text-cloud-white">{summary.totalStudies}</strong>{" "}
         registered with a field of study, spanning{" "}
@@ -131,7 +153,7 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
         with{" "}
         <strong className="text-cloud-white">{summary.mostCommonCount}</strong>{" "}
         members.
-      </p>
+      </motion.p>
 
       {/* Bar chart with scroll and drag */}
       <div
@@ -154,6 +176,16 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
               className="flex flex-col items-center cursor-pointer"
               onClick={() => handleClick(s.study.toLowerCase())}
             >
+              <small className="flex items-center gap-1 text-charcoal-light">
+                <small
+                  className="material-icons"
+                  aria-label="person"
+                  style={{ fontSize: "1rem" }}
+                >
+                  person
+                </small>
+                {s.count}
+              </small>
               <div
                 className={`transition-all duration-200 ${STUDY_COLORS[idx % STUDY_COLORS.length]} rounded-lg`}
                 style={{
@@ -163,19 +195,10 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
                 }}
                 title={`${s.study}: ${s.count}`}
               />
-              <span className="mt-2 truncate text-center text-xs">
+              <small className="mt-2 truncate text-center text-xs">
                 {s.study}
-              </span>
-              <span className="flex items-center gap-1 text-charcoal-light text-xs">
-                <span
-                  className="material-icons"
-                  aria-label="person"
-                  style={{ fontSize: "1rem" }}
-                >
-                  person
-                </span>
-                {s.count}
-              </span>
+              </small>
+              
             </div>
           );
         })}

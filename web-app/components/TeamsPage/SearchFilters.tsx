@@ -19,7 +19,7 @@ const SearchFilters = ({
   setSelectedFilters,
 }: SearchFiltersProps) => {
   return (
-    <section className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-x-32 my-20 px-4 md:px-12">
+    <section className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-x-32 px-4 md:px-12">
       {filters.map((filter, idx) => {
         const options =
           filter === "Team"
@@ -141,9 +141,9 @@ const SearchFilters = ({
                   .map((option) => (
                     <li
                       key={option}
-                      className="flex items-left text-charcoal-light text-sm"
+                      className="flex items-left text-charcoal-light"
                     >
-                      &bull; {option}
+                      <small>&bull; {option}</small>
                     </li>
                   ))}
               </ul>

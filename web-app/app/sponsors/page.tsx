@@ -146,7 +146,7 @@ export default function SponsorPage() {
   };
 
   return (
-    <div className="w-full relative max-w-[2000px] mx-auto gap-20 md:gap-40 my-40 flex flex-col">
+    <div className="w-full relative max-w-[2000px] mx-auto gap-20 md:gap-40 my-20 md:my-40 flex flex-col">
       <Header title={sponsorsPage.title} subtitle={sponsorsPage.caption} />
       {renderTierSection("Main Sponsors", sponsorsPage.mainSponsors, "main")}
       {renderTierSection(
