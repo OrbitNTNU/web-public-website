@@ -21,7 +21,7 @@ const PlatinumSponsors = ({ sponsors }: PlatinumSponsorsProps) => {
         {sponsors.map((sponsor) => (
           <div
             key={sponsor._key}
-            className="w-full md:w-1/3 justify-start items-center flex flex-col gap-8 p-8"
+            className="w-full md:w-1/3 justify-start items-center flex flex-col gap-8 px-0 py-8 md:p-8"
           >
             <Image
               src={imageBuilder(sponsor.logo)}

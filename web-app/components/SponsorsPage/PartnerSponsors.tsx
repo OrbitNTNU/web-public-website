@@ -20,7 +20,7 @@ const PartnerSponsors = ({ sponsors }: PartnerSponsorsProps) => {
         {sponsors.map((sponsor) => (
           <div
             key={sponsor._key}
-            className="w-full md:w-1/5 justify-start items-center flex flex-col gap-8 p-4"
+            className="w-full md:w-1/5 justify-start items-center flex flex-col gap-8 px-0 py-4 md:p-4"
           >
             <Image
               src={imageBuilder(sponsor.logo)}
