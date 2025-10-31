@@ -7,9 +7,9 @@ export default async function SponsorPage() {
   const sponsors = await getSponsorPage();
   if (!sponsors) {
     return (
-        <div>
-          <h1>404: Sponsors page not found</h1>
-        </div>
+      <div>
+        <h1>404: Sponsors page not found</h1>
+      </div>
     );
   }
 

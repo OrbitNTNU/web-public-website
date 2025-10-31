@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import {defineType, defineField} from 'sanity'
 
 export default defineType({
   name: 'instagramEmbed',
@@ -19,7 +19,7 @@ export default defineType({
       return {
         title: 'Instagram Embed',
         subtitle: 'Placeholder for Instagram embed',
-      };
+      }
     },
   },
-});
+})

@@ -49,12 +49,12 @@ export default defineType({
       title: 'Sections',
       type: 'array',
       of: [
-        { type: 'largeQuote' },
-        { type: 'largeImage' },
-        { type: 'spanningText' },
-        { type: 'doubleImage' },
-        { type: 'doubleImageCollage'},
-        { type: 'bannerImage'}
+        {type: 'largeQuote'},
+        {type: 'largeImage'},
+        {type: 'spanningText'},
+        {type: 'doubleImage'},
+        {type: 'doubleImageCollage'},
+        {type: 'bannerImage'},
       ],
     }),
   ],

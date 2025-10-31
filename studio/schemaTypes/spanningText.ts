@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity"
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'spanningText',
@@ -14,12 +14,12 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { title: 'text' },
-    prepare({ title }) {
+    select: {title: 'text'},
+    prepare({title}) {
       return {
         title: 'Spanning Text',
         subtitle: title?.length > 80 ? title.slice(0, 80) + '…' : title,
-      };
+      }
     },
   },
-});
+})

@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import {defineType, defineField} from 'sanity'
 
 export default defineType({
   name: 'bannerImage',
@@ -16,11 +16,11 @@ export default defineType({
     select: {
       image: 'image',
     },
-    prepare({ image }) {
+    prepare({image}) {
       return {
         title: 'Banner Image',
         media: image,
-      };
+      }
     },
   },
 })

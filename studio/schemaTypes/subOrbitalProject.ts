@@ -12,12 +12,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-        name: 'patch',
-        title: 'Patch',
-        type: 'image',
-        options: {
-          hotspot: true, // allows focal point selection
-        },
+      name: 'patch',
+      title: 'Patch',
+      type: 'image',
+      options: {
+        hotspot: true, // allows focal point selection
+      },
     }),
     defineField({
       name: 'slug',

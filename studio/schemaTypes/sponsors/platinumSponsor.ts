@@ -12,11 +12,11 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
-        name: 'description',
-        title: 'Description',
-        type: 'array',
-        of: [{type: 'block'}],
-        validation: (Rule) => Rule.required(),
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of: [{type: 'block'}],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'logo',
@@ -28,12 +28,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
-        name: 'imageWithUs',
-        title: 'Image With Us',
-        type: 'image',
-        options: {
-          hotspot: true,
-        },
+      name: 'imageWithUs',
+      title: 'Image With Us',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     },
     {
       name: 'website',

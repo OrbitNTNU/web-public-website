@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'landingPage',
-  title: 'Landing Page',
+  name: 'aboutPage',
+  title: 'About Page',
   type: 'document',
   fields: [
     defineField({
@@ -24,24 +24,6 @@ export default defineType({
         {type: 'projectsShowcase'},
         {type: 'instagramEmbed'},
         {type: 'subOrbitalShowcase'},
-        {
-          type: 'reference',
-          name: 'joinCardRef',
-          title: 'Join Card Section',
-          to: [{type: 'joinCard'}],
-          options: {
-            disableNew: true,
-          },
-        },
-        {
-          type: 'reference',
-          name: 'forSponsorsCardRef',
-          title: 'For Sponsors Section',
-          to: [{type: 'forSponsorsCard'}],
-          options: {
-            disableNew: true,
-          },
-        },
       ],
     }),
   ],
