@@ -1,6 +1,5 @@
 "use client";
 
-import Header from "@/components/General/Header";
 import { SponsorsPage } from "@/sanity/types/sponsorsPage";
 import MainSponsors from "@/components/SponsorsPage/MainSponsors";
 import PlatinumSponsors from "@/components/SponsorsPage/PlatinumSponsors";

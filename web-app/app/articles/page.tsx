@@ -2,7 +2,6 @@
 import FeaturedArticle from "@/components/ArticlesPage/FeaturedArticle";
 import RegularArticle from "@/components/ArticlesPage/RegularArticle";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const mockArticles = [

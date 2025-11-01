@@ -1,6 +1,7 @@
 import { getSponsorPage } from "@/sanity/fetch/SanityFetch";
 import SponsorClientPage from "./SponsorClientPage";
 import {Metadata} from "next";
+import {Loading} from "@/components/Loading";
 
 export const metadata: Metadata = {
     title: "Heartfelt Thanks to Our Sponsors",
@@ -80,9 +81,7 @@ export default async function SponsorPage() {
   const sponsors = await getSponsorPage();
   if (!sponsors) {
     return (
-      <div>
-        <h1>404: Sponsors page not found</h1>
-      </div>
+     <Loading/>
     );
   }
 
