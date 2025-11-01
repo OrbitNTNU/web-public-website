@@ -4,7 +4,7 @@ import {Loading} from "@/components/Loading";
 import type {Metadata} from "next";
 
 export const metadata: Metadata = {
-  title: "THIS IS US | SAY HI:-)",
+  title: "This is us | Say hi:-)",
   description:
       "",
 
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   category: "Nonprofit",
 
   openGraph: {
-    title: "THIS IS US | SAY HI:-)",
+    title: "This is us | Say hi:-)",
     description:
         "",
     url: "https://orbitntnu.com/",
