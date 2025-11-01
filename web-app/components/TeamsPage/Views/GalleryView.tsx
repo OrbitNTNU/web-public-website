@@ -1,7 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import MemberCard from "../../MemberCard";
-import { Team } from "@/app/team/page";
+import {Team} from "@/components/TeamsPage/lib/teams";
+
+
 
 interface GalleryViewProps {
   teamsData: Team[];

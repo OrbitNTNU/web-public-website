@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { groupColors, Team, Member, getSlug } from "../../../app/team/page";
+import {getSlug, groupColors, Member, Team} from "@/components/TeamsPage/lib/teams";
 
 interface ListViewProps {
   teamsData: Team[];

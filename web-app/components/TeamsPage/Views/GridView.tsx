@@ -1,6 +1,7 @@
-'use client";';
+"use client"
+import {getSlug, groupColors, Team} from "@/components/TeamsPage/lib/teams";
 import { motion } from "framer-motion";
-import { getSlug, groupColors, Team } from "../../../app/team/page";
+
 import { useRouter } from "next/navigation";
 
 interface GridViewProps {
