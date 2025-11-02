@@ -1,88 +1,72 @@
 import { getBigProject } from "@/sanity/fetch/SanityFetch";
 import ProjectClientPage from "@/app/projects/ProjectClientPage";
-import {Metadata} from "next";
-export const metadata: Metadata = {
-  title: "Selfiesat | Framsat | Framsat 1.5 | Biosat",
-  description:
-      "",
-
-  keywords: [
-    "selfiesat",
-    "framsat",
-    "biosat",
-    "nextsat",
-    "sub-orbital",
-    "ORBIT",
-  ],
-
-  authors: [{ name: "ORBITNTNU", url: "https://orbitntnu.com" }],
-  creator: "ORBIT - WEB",
-  publisher: "ORBIT",
-  category: "Nonprofit",
-
-  openGraph: {
-    title: "",
-    description:
-        "",
-    url: "https://orbitntnu.com/sponsors",
-    siteName: "ORBITNTNU",
-    locale: "en_US",
-    type: "website",
-    images: [
-      {
-        url: "",
-        width: 1200,
-        height: 630,
-        alt: "",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "",
-    description:
-        "",
-    creator: "@YourTwitterHandle",
-    site: "@YourTwitterHandle",
-    images: ["https://yoursite.com/og/sponsors-og-image.jpg"],
-  },
-  alternates: {
-    canonical: "https://yoursite.com/sponsors",
-    languages: {
-      "en-US": "https://yoursite.com/sponsors",
-    },
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
-};
 
 interface ProjectPageProps {
   params: { slug: string };
+}
+
+export async function generateMetadata(
+    { params }: ProjectPageProps
+): Promise<{
+  twitter: { creator: string; site: string; images: (typeof Image | string)[]; description: string; title: string; card: string };
+  description: string;
+  title: string;
+  openGraph: {
+    images: { width: number; alt: string; url: typeof Image | string; height: number }[];
+    description: string;
+    siteName: string;
+    title: string;
+    locale: string;
+    type: string;
+    url: string
+  };
+  alternates: { languages: { "en-US": string }; canonical: string }
+}> {
+  const project = await getBigProject(params.slug);
+
+  const projectTitle = project?.title || params.slug;
+
+  const url = `https://orbitntnu.com/projects/${params.slug}`;
+
+  return {
+    title: `${projectTitle} | ORBIT NTNU`,
+    description: "",
+    openGraph: {
+      title: `${projectTitle} | ORBIT NTNU`,
+      description: "",
+      url,
+      siteName: "ORBIT NTNU",
+      locale: "en_US",
+      type: "website",
+      images: [
+        {
+          url: project?.image.asset._ref || "https://web-public-website.vercel.app/selfiesat/1.JPG",
+          width: 1200,
+          height: 630,
+          alt: projectTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${projectTitle} | ORBIT NTNU`,
+      description: "",
+      creator: "@ORBITNTNU",
+      site: "@ORBITNTNU",
+      images: [project?.image.asset._ref || "https://web-public-website.vercel.app/selfiesat/1.JPG"],
+    },
+    alternates: {
+      canonical: url,
+      languages: { "en-US": url },
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const project = await getBigProject(params.slug);
 
   if (!project) {
-    return <div className="">Project not found</div>;
+    return <div className="text-cloud-white">Project not found</div>;
   }
 
   return <ProjectClientPage project={project} />;
