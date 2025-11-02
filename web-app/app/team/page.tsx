@@ -77,7 +77,9 @@ export const revalidate = 300; //5 minutter
 export default async function TeamsPage() {
   const teamsData = await getTeamsData();
   if(!teamsData){
+    return(
     <Loading/>
+    )
   }
 
   return <TeamsClientPage initialTeamsData={teamsData} />;

@@ -1,11 +1,20 @@
 export async function getTeamsData() {
-    const response = await fetch(
-        "https://lifesupport.orbitntnu.com/api/trpc/teams.getPublicTeamPageInfo",
-        { next: { revalidate: 60 } }
-    );
+    try {
+        const res = await fetch(
+            "https://lifesupport.orbitntnu.com/api/trpc/teams.getPublicTeamPageInfo",
+            { next: { revalidate: 300 } }
+        );
 
-    if (!response.ok) throw new Error(`Upstream error: ${response.status}`);
+        if (!res.ok) {
+            console.error("Upstream error:", res.status);
+            return null;
+        }
 
-    const data = await response.json();
-    return data.result?.data?.json ?? [];
+        const data = await res.json();
+        const teams = data.result?.data?.json ?? [];
+        return JSON.parse(JSON.stringify(teams));
+    } catch (err) {
+        console.error("Failed to fetch teams:", err);
+        return null;
+    }
 }
