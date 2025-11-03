@@ -1,10 +1,9 @@
 import { getBigProject } from "@/sanity/fetch/SanityFetch";
 import ProjectClientPage from "@/app/projects/ProjectClientPage";
-import {Metadata} from "next";
+import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Selfiesat | Framsat | Framsat 1.5 | Biosat",
-  description:
-      "",
+  description: "",
 
   keywords: [
     "selfiesat",
@@ -22,8 +21,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "",
-    description:
-        "",
+    description: "",
     url: "https://orbitntnu.com/sponsors",
     siteName: "ORBITNTNU",
     locale: "en_US",
@@ -40,8 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "",
-    description:
-        "",
+    description: "",
     creator: "@YourTwitterHandle",
     site: "@YourTwitterHandle",
     images: ["https://yoursite.com/og/sponsors-og-image.jpg"],

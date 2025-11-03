@@ -1,12 +1,11 @@
 import TeamsClientPage from "@/app/team/TeamsClientPage";
-import {getTeamsData} from "@/components/TeamsPage/lib/getTeamsData";
-import {Loading} from "@/components/Loading";
-import type {Metadata} from "next";
+import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
+import { Loading } from "@/components/Loading";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "This is us | Say hi:-)",
-  description:
-      "",
+  description: "",
 
   keywords: [
     "Electronics",
@@ -25,8 +24,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "This is us | Say hi:-)",
-    description:
-        "",
+    description: "",
     url: "https://orbitntnu.com/",
     siteName: "ORBIT NTNU",
     locale: "en_US",
@@ -44,8 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ORBIT NTNU",
-    description:
-        "",
+    description: "",
     creator: "@ORBITNTNU",
     site: "@ORBITNTNU",
     images: ["https://orbitntnu.com/orbitbig.jpg"],
@@ -76,10 +73,8 @@ export const revalidate = 300; //5 minutter
 
 export default async function TeamsPage() {
   const teamsData = await getTeamsData();
-  if(!teamsData){
-    return(
-    <Loading/>
-    )
+  if (!teamsData) {
+    return <Loading />;
   }
 
   return <TeamsClientPage initialTeamsData={teamsData} />;

@@ -5,7 +5,7 @@ import {
   LargeImage,
   LargeQuote,
   SpanningText,
-} from "./landingPage";
+} from "./pages/landingPage";
 
 export interface BannerImage {
   _key: string;

@@ -1,5 +1,5 @@
-"use client"
-import {getSlug, groupColors, Team} from "@/components/TeamsPage/lib/teams";
+"use client";
+import { getSlug, groupColors, Team } from "@/components/TeamsPage/lib/teams";
 import { motion } from "framer-motion";
 
 import { useRouter } from "next/navigation";

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import {getSlug, groupColors, Team} from "@/components/TeamsPage/lib/teams";
+import { getSlug, groupColors, Team } from "@/components/TeamsPage/lib/teams";
 import MemberCard from "../../MemberCard";
 import { useRouter } from "next/navigation";
 

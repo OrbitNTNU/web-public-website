@@ -1,6 +1,6 @@
 "use client";
-import { LandingPageSection } from "@/sanity/types/landingPage";
-import Hero from "@/app/landing/Hero";
+import { LandingPageSection } from "@/sanity/types/pages/landingPage";
+import Hero from "@/components/LandingPage/Hero";
 import LargeQuote from "@/components/General/LargeQuote";
 import LargeImage from "@/components/General/LargeImage";
 import SpanningText from "@/components/General/SpanningText";

@@ -8,7 +8,9 @@ import {
 import { SPONSORS_PAGE_QUERY } from "@/sanity/queries/sponsorsPage";
 import { BigProject } from "@/sanity/types/project";
 import { SponsorsPage } from "@/sanity/types/sponsorsPage";
-import { LandingPage } from "@/sanity/types/landingPage";
+import { LandingPage } from "@/sanity/types/pages/landingPage";
+import { AboutPage } from "../types/pages/aboutPage";
+import { ABOUT_PAGE_QUERY } from "../queries/aboutPage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -20,6 +22,18 @@ export const getLandingPage = async (): Promise<LandingPage | null> => {
     return null;
   }
 };
+
+//ABOUT PAGE
+export const getAboutPage = async (): Promise<AboutPage | null> => {
+  try {
+    const { data } = await sanityFetch({ query: ABOUT_PAGE_QUERY });
+    return (data as AboutPage) ?? null;
+  } catch (e) {
+    console.error("Error fetching about page:", e);
+    return null;
+  }
+};
+
 //BIG PROJECT
 export const getBigProject = async (
   slug: string,
