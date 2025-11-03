@@ -1,4 +1,5 @@
 import SDGsDesktop from "./SDGsDesktop";
+import SDGsDesktopSmall from "./SDGsDesktopSmall";
 import SDGsMobile from "./SDGsMobile";
 
 export const sdgs = [
@@ -58,7 +59,10 @@ const SDGs = () => {
       <section className="hidden 2xl:flex">
         <SDGsDesktop />
       </section>
-      <section className="2xl:hidden">
+      <section className="hidden lg:flex 2xl:hidden">
+        <SDGsDesktopSmall />
+      </section>
+      <section className="lg:hidden">
         <SDGsMobile />
       </section>
     </>
