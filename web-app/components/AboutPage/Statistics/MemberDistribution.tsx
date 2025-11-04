@@ -46,7 +46,7 @@ const MemberDistribution = ({ data }: MemberDistributionProps) => {
   return (
     <div className="relative mx-auto flex w-full flex-col items-start">
       <motion.h3
-        className="mb-4 md:text-center font-black"
+        className="mb-4 md:text-center"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
