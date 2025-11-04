@@ -2,7 +2,7 @@ type ImageBuilderOptions = {
   width?: number;
   height?: number;
   fit?: "clip" | "crop" | "fill" | "fillmax" | "max" | "scale" | "min";
-  format?: "webp" | "jpg" | "png" | "avif" | false;
+  format?: "webp" | "jpg" | "png" | false;
   quality?: number;
 };
 
@@ -24,15 +24,21 @@ export const imageBuilder = (
       typeof source !== "string" && source.asset?.url
           ? source.asset.url
           : undefined;
+
   const applyParams = (url: URL) => {
-    if (opts.width) url.searchParams.set("w", String(opts.width));
+    const width = opts.width ?? 1600; // baseline max width (prevents huge images)
+    const quality = opts.quality ?? 70;
+    const format = opts.format ?? "webp";
+
+    url.searchParams.set("w", String(width));
     if (opts.height) url.searchParams.set("h", String(opts.height));
     if (opts.fit) url.searchParams.set("fit", opts.fit);
 
-    if (opts.format !== false) { //Webp supremacy, kvalitet er satt på 70 der mulig. Industri standard.
-      url.searchParams.set("fm", opts.format ?? "webp");
-      url.searchParams.set("q", String(opts.quality ?? 70));
+    if (format !== false) {
+      url.searchParams.set("fm", format);
+      url.searchParams.set("q", String(quality));
     }
+
     return url.toString();
   };
 
