@@ -2,7 +2,8 @@ type ImageBuilderOptions = {
   width?: number;
   height?: number;
   fit?: "clip" | "crop" | "fill" | "fillmax" | "max" | "scale" | "min";
-  format?: "webp" | "jpg" | "png" | false;
+  format?: "webp" | "jpg" | "png" | "avif" | false;
+  quality?: number;
 };
 
 export const imageBuilder = (
@@ -23,7 +24,6 @@ export const imageBuilder = (
       typeof source !== "string" && source.asset?.url
           ? source.asset.url
           : undefined;
-
   const applyParams = (url: URL) => {
     if (opts.width) url.searchParams.set("w", String(opts.width));
     if (opts.height) url.searchParams.set("h", String(opts.height));
@@ -31,6 +31,7 @@ export const imageBuilder = (
 
     if (opts.format !== false) {
       url.searchParams.set("fm", opts.format ?? "webp");
+      url.searchParams.set("q", String(opts.quality ?? 70));
     }
 
     return url.toString();
@@ -49,6 +50,7 @@ export const imageBuilder = (
     console.warn("Invalid Sanity image reference:", ref);
     return "";
   }
+
   const parts = ref.split("-");
   const id = parts[1];
   const dimensions = parts[2];
