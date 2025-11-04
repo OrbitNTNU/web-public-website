@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   category: "Nonprofit",
 
   openGraph: {
-    title: "About Orbit NTNU",
+    title: "How Students Send a Satellite into Space!",
     description:
       "We are ORBIT NTNU, a student-driven satellite organization at the Norwegian University of Science and Technology (NTNU).",
     url: "https://orbitntnu.com/about",
