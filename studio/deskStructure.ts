@@ -65,7 +65,6 @@ export const deskStructure = (S: StructureBuilder) =>
                                         .title('Articles from 2026')
                                         .filter('_type == "article" && dateTime(publishedAt)[0..3] == "2026"'),
                                 ),
-
                             S.listItem()
                                 .title('2025')
                                 .child(
@@ -84,7 +83,6 @@ export const deskStructure = (S: StructureBuilder) =>
                                 ),
                         ]),
                 ),
-
             S.divider().title('Shared Components'),
 
             S.listItem()

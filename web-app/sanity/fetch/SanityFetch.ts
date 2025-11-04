@@ -11,6 +11,8 @@ import { SponsorsPage } from "@/sanity/types/sponsorsPage";
 import { LandingPage } from "@/sanity/types/pages/landingPage";
 import { AboutPage } from "../types/pages/aboutPage";
 import { ABOUT_PAGE_QUERY } from "../queries/aboutPage";
+import {ARTICLE_PAGE_QUERY} from "@/sanity/queries/articlePage";
+import {Article} from "@/sanity/types/pages/articlePage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -33,6 +35,23 @@ export const getAboutPage = async (): Promise<AboutPage | null> => {
     return null;
   }
 };
+
+//ARTICLE SLUG PAGE
+
+export const getArticle = async (slug: string): Promise<Article | null> => {
+  try {
+    const { data } = await sanityFetch({
+      query: ARTICLE_PAGE_QUERY,
+      params: { slug },
+    });
+
+    return (data as Article) ?? null;
+  } catch (e) {
+    console.error(`Error fetching article (${slug}):`, e);
+    return null;
+  }
+};
+
 
 //BIG PROJECT
 export const getBigProject = async (
