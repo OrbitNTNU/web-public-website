@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   category: "Nonprofit",
 
   openGraph: {
-    title: "",
+    title: "Satellite, Slagord!",
     description: "",
     url: "https://orbitntnu.com/sponsors",
     siteName: "ORBITNTNU",
