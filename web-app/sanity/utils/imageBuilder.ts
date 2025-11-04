@@ -33,7 +33,6 @@ export const imageBuilder = (
       url.searchParams.set("fm", opts.format ?? "webp");
       url.searchParams.set("q", String(opts.quality ?? 70));
     }
-
     return url.toString();
   };
 
