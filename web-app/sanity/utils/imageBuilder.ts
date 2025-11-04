@@ -26,14 +26,14 @@ export const imageBuilder = (
           : undefined;
 
   const applyParams = (url: URL) => {
-    const width = opts.width ?? 1600; // baseline max width (prevents huge images)
+    const width = opts.width ?? 1380;
+    const height = opts.height ?? undefined;
     const quality = opts.quality ?? 70;
     const format = opts.format ?? "webp";
 
     url.searchParams.set("w", String(width));
-    if (opts.height) url.searchParams.set("h", String(opts.height));
+    if (height) url.searchParams.set("h", String(height));
     if (opts.fit) url.searchParams.set("fit", opts.fit);
-
     if (format !== false) {
       url.searchParams.set("fm", format);
       url.searchParams.set("q", String(quality));
