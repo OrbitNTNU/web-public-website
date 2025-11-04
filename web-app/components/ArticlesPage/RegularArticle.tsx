@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import type { Article } from "@/sanity/types/pages/articlePage";
+import { imageBuilder } from "@/sanity/utils/imageBuilder";
 
 interface RegularArticleProps {
   article: Article;
@@ -11,7 +12,7 @@ interface RegularArticleProps {
 
 const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
   const router = useRouter();
-  const imageUrl = article.mainImage?.asset?.url ?? "/placeholder.jpg";
+  const imageUrl = imageBuilder(article.mainImage) ?? "/placeholder.jpg";
 
   return (
     <motion.div
