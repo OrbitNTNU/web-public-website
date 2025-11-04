@@ -10,6 +10,8 @@ import { ProjectsShowcase } from "../components/ProjectsShowcase";
 import { InstagramEmbed } from "../components/InstagramEmbed";
 import { SubOrbitalShowcase } from "../components/SubOrbitalShowcase";
 
+// TODO AUGUST FJERN SUBORBITALSHOWCASE, PROJECTSHOWCASE, OG INSTAGRAM EMBED HVIS DE IKKE SKAL BRUGES PÅ ARTIKELSIDER
+
 export type ArticlePageSection =
   | LargeQuote
   | LargeImage
