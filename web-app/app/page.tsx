@@ -3,7 +3,7 @@ import { getLandingPage } from "@/sanity/fetch/SanityFetch";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ORBIT NTNU | YOUR SPACE JOURNEY STARTS HERE",
+  title: "Your Space Journey Starts Here",
   description: "",
 
   keywords: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   category: "Nonprofit",
 
   openGraph: {
-    title: "ORBIT NTNU | YOUR SPACE JOURNEY STARTS HERE",
+    title: "Your Space Journey Starts Here",
     description: "",
     url: "https://orbitntnu.com/",
     siteName: "ORBIT NTNU",
