@@ -44,7 +44,7 @@ export default function Projects({ projects }: ProjectsProps) {
           >
             {/* Background image */}
             <Image
-              src={imageBuilder(project.image)}
+              src={imageBuilder(project.image.asset._ref)}
               alt={project.title + " background"}
               className="object-cover w-full h-72 md:h-128 group-hover:scale-110 transition-all duration-500 brightness-75 group-hover:brightness-100"
               width={400}
