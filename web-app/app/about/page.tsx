@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "How Students Send a Satellite into Space?",
+  title: "How Students Send a Satellite into Space",
   description:
     "We are ORBIT NTNU, a student-driven satellite organization at the Norwegian University of Science and Technology (NTNU).",
   keywords: [
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     title: "About Orbit NTNU",
     description:
       "We are ORBIT NTNU, a student-driven satellite organization at the Norwegian University of Science and Technology (NTNU).",
-    url: "https://orbitntnu.com/sponsors",
+    url: "https://orbitntnu.com/about",
     siteName: "ORBITNTNU",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "",
+        url: "https://web-public-website.vercel.app/orbitluv.png",
         width: 1200,
         height: 630,
         alt: "About Orbit NTNU",

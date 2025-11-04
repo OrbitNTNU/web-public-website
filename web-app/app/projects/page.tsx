@@ -2,7 +2,7 @@ import { getAllBigProjects } from "@/sanity/fetch/SanityFetch";
 import ProjectsOverviewClient from "@/app/projects/ProjectPage";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Selfiesat | Framsat | Framsat 1.5 | Biosat",
+  title: "Satellite, Slagord",
   description: "",
 
   keywords: [
