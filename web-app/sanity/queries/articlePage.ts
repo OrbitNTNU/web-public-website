@@ -4,6 +4,7 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
   *[_type == "article" && slug.current == $slug][0]{
     _id,
     title,
+    teaser,
     slug,
     mainImage,
     publishedAt,
@@ -98,6 +99,7 @@ export const ALL_ARTICLES_QUERY = defineQuery(`
     _id,
     _type,
     title,
+    teaser,
     slug,
     mainImage,
     publishedAt

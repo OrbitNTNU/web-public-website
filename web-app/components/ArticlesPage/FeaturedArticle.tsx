@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import type { Article } from "@/sanity/types/pages/articlePage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import { PortableText } from "next-sanity";
 
 interface FeaturedArticleProps {
   article: Article;
@@ -29,10 +30,84 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
           duration: 0.5,
         }}
       >
-        <time className="text-charcoal-light" dateTime={article.publishedAt}>
-          {new Date(article.publishedAt).toLocaleDateString()} (Latest Article)
-        </time>
+        <span className="text-charcoal-light">
+          {new Date(article.publishedAt).toLocaleDateString(
+            "no-NO",
+            { year: "numeric", month: "long", day: "numeric" }
+          )} (Latest Article)
+        </span>
         <h2 className="mb-2">{article.title}</h2>
+        <div className="text-charcoal-light flex flex-col gap-2">
+        <PortableText
+          value={article.teaser}
+          components={{
+            block: {
+              normal: ({ children }) => (
+                <p className="text-charcoal-light">{children}</p>
+              ),
+              h1: ({ children }) => <h1>{children}</h1>,
+              h2: ({ children }) => <h2>{children}</h2>,
+              h3: ({ children }) => <h3>{children}</h3>,
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 border-charcoal-light pl-4 itali text-slate my-4">
+                  {children}
+                </blockquote>
+              ),
+              code: ({ children }) => (
+                <pre className="bg-gray-100 text-sm p-3 rounded-md overflow-x-auto my-3">
+                  <code>{children}</code>
+                </pre>
+              ),
+            },
+            list: {
+              bullet: ({ children }) => (
+                <ul className="list-disc list-inside ml-4 mb-2 text-charcoal-light">
+                  {children}
+                </ul>
+              ),
+              number: ({ children }) => (
+                <ol className="list-decimal list-inside ml-4 mb-2 text-charcoal-light">
+                  {children}
+                </ol>
+              ),
+            },
+            marks: {
+              strong: ({ children }) => (
+                <strong className="font-semibold text-cloud-white">
+                  {children}
+                </strong>
+              ),
+              em: ({ children }) => (
+                <em className="italic text-cloud-white">{children}</em>
+              ),
+              code: ({ children }) => (
+                <code className="bg-gray-200 rounded px-1 py-0.5 text-sm">
+                  {children}
+                </code>
+              ),
+              link: ({ value, children }) => {
+                const target = (value?.href || "").startsWith("http")
+                  ? "_blank"
+                  : undefined;
+                return (
+                  <a
+                    href={value?.href}
+                    target={target}
+                    rel={
+                      target === "_blank"
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    className="text-blue-600 hover:underline"
+                  >
+                    {children}
+                  </a>
+                );
+              },
+            },
+          }}
+        />
+        </div>
       </motion.div>
 
       {/* Image section */}

@@ -12,6 +12,12 @@ export default defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
+            name: 'teaser',
+            title: 'Teaser',
+            type: 'array',
+            of: [{ type: 'block' }],
+        }),
+        defineField({
             name: 'slug',
             title: 'Slug',
             type: 'slug',

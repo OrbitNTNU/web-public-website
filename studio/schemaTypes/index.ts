@@ -33,6 +33,7 @@ import aboutPage from './pages/aboutPage'
 import triImageCollage from './triImageCollage'
 import singleImageCollage from './singleImageCollage'
 import imageAndCaption from './imageAndCaption'
+import article from './article/article'
 
 export const schemaTypes = [
   team,
@@ -70,4 +71,5 @@ export const schemaTypes = [
   triImageCollage,
   singleImageCollage,
   imageAndCaption,
+  article
 ]

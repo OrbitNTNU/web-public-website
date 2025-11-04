@@ -9,6 +9,7 @@ import { TriImageCollage } from "../components/TriImageCollage";
 import { ProjectsShowcase } from "../components/ProjectsShowcase";
 import { InstagramEmbed } from "../components/InstagramEmbed";
 import { SubOrbitalShowcase } from "../components/SubOrbitalShowcase";
+import { PortableTextBlock } from "next-sanity";
 
 // TODO AUGUST FJERN SUBORBITALSHOWCASE, PROJECTSHOWCASE, OG INSTAGRAM EMBED HVIS DE IKKE SKAL BRUGES PÅ ARTIKELSIDER
 
@@ -37,5 +38,6 @@ export interface Article {
     alt?: string;
   };
   publishedAt: string;
+  teaser: PortableTextBlock[];
   sections: ArticlePageSection[];
 }

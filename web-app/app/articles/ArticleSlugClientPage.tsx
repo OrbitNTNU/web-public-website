@@ -23,9 +23,9 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
     return (
         <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-40 flex flex-col gap-20">
             <span className="flex flex-row gap-2 group cursor-pointer" onClick={() => router.push('/articles')}>
-                 <span className="material-icons text-3xl transition-transform duration-200 group-hover:-translate-x-2">
+                <span className="material-icons text-3xl transition-transform duration-200 group-hover:-translate-x-2">
                     chevron_left
-                  </span>
+                </span>
                 <span>Go back to articles</span>
             </span>
             <div className="flex flex-col gap-4">
@@ -41,13 +41,13 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                <Image
-                    src={imageBuilder(article.mainImage)}
-                    alt={article.mainImage.alt || "Article Main Image"}
-                    width={1600}
-                    height={900}
-                    className="w-full h-auto"
-                />
+                    <Image
+                        src={imageBuilder(article.mainImage)}
+                        alt={article.mainImage.alt || "Article Main Image"}
+                        width={1600}
+                        height={900}
+                        className="w-full h-auto"
+                    />
                 </motion.div>
                 <motion.span
                     initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,10 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="text-charcoal-light"
                 >
-                    {"Published at " + new Date(article.publishedAt).toLocaleDateString()}
+                    {"Published on " + new Date(article.publishedAt).toLocaleDateString(
+                        "no-NO",
+                        { year: "numeric", month: "long", day: "numeric" }
+                    )}
                 </motion.span>
             </div>
             {article.sections.map((section) => {
