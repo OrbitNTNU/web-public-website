@@ -92,3 +92,14 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
     }
   }
 `);
+
+export const ALL_ARTICLES_QUERY = defineQuery(`
+  *[_type == "article"] | order(publishedAt desc) {
+    _id,
+    _type,
+    title,
+    slug,
+    mainImage,
+    publishedAt
+  }
+`);

@@ -11,7 +11,7 @@ import { SponsorsPage } from "@/sanity/types/sponsorsPage";
 import { LandingPage } from "@/sanity/types/pages/landingPage";
 import { AboutPage } from "../types/pages/aboutPage";
 import { ABOUT_PAGE_QUERY } from "../queries/aboutPage";
-import {ARTICLE_PAGE_QUERY} from "@/sanity/queries/articlePage";
+import {ALL_ARTICLES_QUERY, ARTICLE_PAGE_QUERY} from "@/sanity/queries/articlePage";
 import {Article} from "@/sanity/types/pages/articlePage";
 
 //LANDING PAGE
@@ -49,6 +49,18 @@ export const getArticle = async (slug: string): Promise<Article | null> => {
   } catch (e) {
     console.error(`Error fetching article (${slug}):`, e);
     return null;
+  }
+};
+//ALLOFEM
+export const getAllArticles = async (): Promise<Article[]> => {
+  try {
+    const { data } = await sanityFetch({
+      query: ALL_ARTICLES_QUERY,
+    });
+    return (data as Article[]) ?? [];
+  } catch (e) {
+    console.error("Error fetching all articles:", e);
+    return [];
   }
 };
 
