@@ -27,6 +27,7 @@ import partnerSponsor from './sponsors/partnerSponsor'
 import instagramEmbed from './instagramEmbed'
 import joinCard from './joinCard'
 import forSponsorsCard from './forSponsorsCard'
+import article from "./article/article";
 
 export const schemaTypes = [
   team,
@@ -58,4 +59,5 @@ export const schemaTypes = [
   instagramEmbed,
   joinCard,
   forSponsorsCard,
+    article,
 ]
