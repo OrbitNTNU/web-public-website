@@ -27,7 +27,12 @@ import partnerSponsor from './sponsors/partnerSponsor'
 import instagramEmbed from './instagramEmbed'
 import joinCard from './joinCard'
 import forSponsorsCard from './forSponsorsCard'
-import article from "./article/article";
+import statistics from './statistics'
+import sdgSection from './sdgSection'
+import aboutPage from './pages/aboutPage'
+import triImageCollage from './triImageCollage'
+import singleImageCollage from './singleImageCollage'
+import imageAndCaption from './imageAndCaption'
 
 export const schemaTypes = [
   team,
@@ -59,5 +64,10 @@ export const schemaTypes = [
   instagramEmbed,
   joinCard,
   forSponsorsCard,
-    article,
+  statistics,
+  sdgSection,
+  aboutPage,
+  triImageCollage,
+  singleImageCollage,
+  imageAndCaption,
 ]
