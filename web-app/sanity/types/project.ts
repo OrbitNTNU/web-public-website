@@ -1,11 +1,9 @@
+import { DoubleImage } from "./components/DoubleImage";
+import { DoubleImageCollage } from "./components/DoubleImageCollage";
+import { LargeImage } from "./components/LargeImage";
+import { LargeQuote } from "./components/LargeQuote";
+import { SpanningText } from "./components/SpanningText";
 import { Image } from "./image";
-import {
-  DoubleImage,
-  DoubleImageCollage,
-  LargeImage,
-  LargeQuote,
-  SpanningText,
-} from "./landingPage";
 
 export interface BannerImage {
   _key: string;

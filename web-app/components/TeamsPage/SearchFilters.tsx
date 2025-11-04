@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { Team} from "@/components/TeamsPage/lib/teams";
+import { Team } from "@/components/TeamsPage/lib/teams";
 
 interface SearchFiltersProps {
   teamsData: Team[];

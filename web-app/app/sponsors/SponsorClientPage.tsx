@@ -14,7 +14,6 @@ export default function SponsorClientPage({
 }: {
   sponsorsPage: SponsorsPage;
 }) {
-
   const mainSponsors = sponsorsPage.mainSponsors || [];
   const platinumSponsors = sponsorsPage.platinumSponsors || [];
   const goldSponsors = sponsorsPage.goldSponsors || [];
@@ -33,27 +32,13 @@ export default function SponsorClientPage({
 
   return (
     <div className="w-full relative max-w-[1600px] mx-auto gap-20 md:gap-40 my-20 md:my-40 flex flex-col">
-      {mainSponsors && (
-        <MainSponsors sponsors={mainSponsors} />
-      )}
-      {platinumSponsors && (
-        <PlatinumSponsors sponsors={platinumSponsors} />
-      )}
-      {goldSponsors && (
-        <GoldSponsors sponsors={goldSponsors} />
-      )}
-      {silverSponsors && (
-        <SilverSponsors sponsors={silverSponsors} />
-      )}
-      {bronzeSponsors && (
-        <BronzeSponsors sponsors={bronzeSponsors} />
-      )}
-      {partnerSponsors && (
-        <PartnerSponsors sponsors={partnerSponsors} />
-      )}
-      <AllThanks
-        sponsors={ allSponsors }
-      />
+      {mainSponsors && <MainSponsors sponsors={mainSponsors} />}
+      {platinumSponsors && <PlatinumSponsors sponsors={platinumSponsors} />}
+      {goldSponsors && <GoldSponsors sponsors={goldSponsors} />}
+      {silverSponsors && <SilverSponsors sponsors={silverSponsors} />}
+      {bronzeSponsors && <BronzeSponsors sponsors={bronzeSponsors} />}
+      {partnerSponsors && <PartnerSponsors sponsors={partnerSponsors} />}
+      <AllThanks sponsors={allSponsors} />
     </div>
   );
 }

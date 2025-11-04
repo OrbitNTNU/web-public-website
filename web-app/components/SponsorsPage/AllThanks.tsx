@@ -39,7 +39,7 @@ const AllThanks = ({ sponsors }: AllThanksProps) => {
       >
         Thank you
         <p className="text-charcoal-light">
-            For all your support and dedication to helping us succeed.
+          For all your support and dedication to helping us succeed.
         </p>
       </motion.h1>
       <motion.div
@@ -89,4 +89,3 @@ const AllThanks = ({ sponsors }: AllThanksProps) => {
 };
 
 export default AllThanks;
-
