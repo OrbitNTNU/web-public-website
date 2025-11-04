@@ -126,10 +126,10 @@ function StarBackground() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="antialiased relative bg-charcoal overflow-x-hidden">
+      <body className="relative flex flex-col mx-auto min-h-screen pb-20 md:pb-40 gap-20 md:gap-40 z-10">
         <Navbar />
         <StarBackground />
-          {children}
+        {children}
         <Footer />
       </body>
     </html>
