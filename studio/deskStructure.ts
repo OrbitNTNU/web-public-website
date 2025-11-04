@@ -11,11 +11,17 @@ export const deskStructure = (S: StructureBuilder) =>
                 .icon(MdHome)
                 .child(S.document().schemaType('landingPage').documentId('landingPage')),
 
-            // Sponsors Page
-            S.listItem()
-                .title('Sponsors Page')
-                .icon(MdHome)
-                .child(S.document().schemaType('sponsorsPage').documentId('sponsorsPage')),
+      // About Page
+      S.listItem()
+        .title('About Page')
+        .icon(MdHome)
+        .child(S.document().schemaType('aboutPage').documentId('aboutPage')),
+
+      // Sponsors Page
+      S.listItem()
+        .title('Sponsors Page')
+        .icon(MdHome)
+        .child(S.document().schemaType('sponsorsPage').documentId('sponsorsPage')),
 
             S.divider().title('General Information'),
 
