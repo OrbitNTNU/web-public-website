@@ -4,7 +4,7 @@ import { Loading } from "@/components/Loading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "This is us | Say hi:-)",
+  title: "This is us!",
   description: "",
 
   keywords: [

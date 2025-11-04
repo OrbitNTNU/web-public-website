@@ -3,7 +3,7 @@ import { getLandingPage } from "@/sanity/fetch/SanityFetch";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Your Space Journey Starts Here",
+  title: "Your Space Journey Starts Here!",
   description: "",
 
   keywords: [

@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { Loading } from "@/components/Loading";
 
 export const metadata: Metadata = {
-  title: "Heartfelt Thanks to Our Sponsors",
+  title: "Heartfelt Thanks to Our Sponsors!",
   description:
     "A heartfelt thank you to all our incredible sponsors for their generous support and partnership in helping us achieve our mission.",
 
