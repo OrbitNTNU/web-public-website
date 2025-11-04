@@ -83,7 +83,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 function StarBackground() {
   const stars = useMemo(() => {
     return Array.from({ length: 200 }).map((_, i) => {
@@ -117,13 +116,17 @@ function StarBackground() {
                 opacity: star.opacity,
               }}
             />
-          )
+          ),
       )}
     </div>
   );
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body className="relative flex flex-col mx-auto min-h-screen pb-20 md:pb-40 gap-20 md:gap-40 z-10">

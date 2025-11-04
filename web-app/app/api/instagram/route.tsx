@@ -14,7 +14,7 @@ export async function GET() {
     console.error("Error fetching Behold feed:", error);
     return NextResponse.json(
       { error: "Failed to fetch Behold feed" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

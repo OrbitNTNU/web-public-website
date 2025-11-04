@@ -7,23 +7,23 @@ type ImageBuilderOptions = {
 };
 
 export const imageBuilder = (
-    source?:
-        | string
-        | { asset?: { _ref?: string; _id?: string; url?: string | null } }
-        | null,
-    opts: ImageBuilderOptions = {},
+  source?:
+    | string
+    | { asset?: { _ref?: string; _id?: string; url?: string | null } }
+    | null,
+  opts: ImageBuilderOptions = {},
 ): string => {
   if (!source) return "";
 
   const ref: string | undefined =
-      typeof source === "string"
-          ? source
-          : source.asset?._ref || source.asset?._id || undefined;
+    typeof source === "string"
+      ? source
+      : source.asset?._ref || source.asset?._id || undefined;
 
   const directUrl =
-      typeof source !== "string" && source.asset?.url
-          ? source.asset.url
-          : undefined;
+    typeof source !== "string" && source.asset?.url
+      ? source.asset.url
+      : undefined;
 
   const applyParams = (url: URL) => {
     const width = opts.width ?? 1380;
@@ -71,7 +71,7 @@ export const imageBuilder = (
   }
 
   const url = new URL(
-      `https://cdn.sanity.io/images/${projectId}/${dataset}/${filename}`,
+    `https://cdn.sanity.io/images/${projectId}/${dataset}/${filename}`,
   );
 
   return applyParams(url);

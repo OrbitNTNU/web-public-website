@@ -1,4 +1,3 @@
-
 export interface InstagramProfile {
   username: string;
   biography: string;
@@ -13,7 +12,7 @@ export interface InstagramPost {
   id: string;
   timestamp: string;
   permalink: string;
-  mediaType: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
+  mediaType: "IMAGE" | "VIDEO" | "CAROUSEL_ALBUM";
   mediaUrl: string;
   sizes: MediaSizes;
   caption: string;
@@ -27,7 +26,7 @@ export interface InstagramPost {
 
 export interface InstagramPostChild {
   id: string;
-  mediaType: 'IMAGE' | 'VIDEO';
+  mediaType: "IMAGE" | "VIDEO";
   mediaUrl: string;
   sizes: MediaSizes;
   colorPalette: ColorPalette;

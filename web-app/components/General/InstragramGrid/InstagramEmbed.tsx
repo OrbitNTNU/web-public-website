@@ -5,14 +5,19 @@ import { Loading } from "../../Loading";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa6";
 import VideoPlayer from "./VideoPlayer";
-import { InstagramPost, InstagramPostChild, InstagramProfile } from "./InstragramTypes";
-
+import {
+  InstagramPost,
+  InstagramPostChild,
+  InstagramProfile,
+} from "./InstragramTypes";
 
 export default function InstagramEmbed() {
   const [loading, setLoading] = useState(true);
   const [response, setResponse] = useState<InstagramProfile | null>(null);
   const [visiblePosts, setVisiblePosts] = useState<InstagramPost[]>([]);
-  const [carouselIndices, setCarouselIndices] = useState<Record<string, number>>({});
+  const [carouselIndices, setCarouselIndices] = useState<
+    Record<string, number>
+  >({});
 
   useEffect(() => {
     const fetchStatistics = async () => {
@@ -100,10 +105,13 @@ export default function InstagramEmbed() {
           )}
         </div>
       );
-
     };
 
-    if (post.mediaType === "CAROUSEL_ALBUM" && post.children && post.children.length > 0) {
+    if (
+      post.mediaType === "CAROUSEL_ALBUM" &&
+      post.children &&
+      post.children.length > 0
+    ) {
       const childrenLength = post.children.length;
       const index = carouselIndices[post.id] || 0;
       const child = post.children[index];
@@ -130,7 +138,6 @@ export default function InstagramEmbed() {
           )}
         </div>
       );
-
     } else {
       return renderMedia(post);
     }
@@ -173,7 +180,13 @@ export default function InstagramEmbed() {
                 <span className="text-charcoal-light text-sm">
                   {new Date(post.timestamp).toLocaleDateString()}
                 </span>
-                <FaInstagram className="text-pink-500" />
+                <a
+                  className="text-pink-500 hover:scale-110 transition-transform duration-200 cursor-pointer"
+                  href={post.permalink}
+                  target="_blank"
+                >
+                  <FaInstagram />
+                </a>
               </div>
 
               {renderPostMedia(post)}
@@ -187,7 +200,9 @@ export default function InstagramEmbed() {
           ))}
         </div>
       ) : (
-        <p className="px-4 md:px-12 max-w-[2000px] mx-auto">Failed to load Instagram feed.</p>
+        <p className="px-4 md:px-12 max-w-[2000px] mx-auto">
+          Failed to load Instagram feed.
+        </p>
       )}
     </section>
   );

@@ -2,7 +2,6 @@ import { getAboutPage } from "@/sanity/fetch/SanityFetch";
 import AboutClientPage from "./AboutClientPage";
 import { Metadata } from "next";
 
-
 export const metadata: Metadata = {
   title: "How Students Send a Satellite into Space!",
   description:
