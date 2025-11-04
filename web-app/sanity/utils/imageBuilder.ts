@@ -29,7 +29,7 @@ export const imageBuilder = (
     if (opts.height) url.searchParams.set("h", String(opts.height));
     if (opts.fit) url.searchParams.set("fit", opts.fit);
 
-    if (opts.format !== false) {
+    if (opts.format !== false) { //Webp supremacy, kvalitet er satt på 70 der mulig. Industri standard.
       url.searchParams.set("fm", opts.format ?? "webp");
       url.searchParams.set("q", String(opts.quality ?? 70));
     }
