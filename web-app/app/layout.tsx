@@ -4,7 +4,7 @@ import Navbar from "@/components/General/Layout/Navbar";
 import { Footer } from "@/components/General/Layout/Footer";
 
 export const metadata: Metadata = {
-  title: "ORBIT NTNU | Your Space Journey Starts Here",
+  title: "Your Space Journey Starts Here!",
   description:
     "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
 
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "ORBIT NTNU | Your Space Journey Starts Here",
+    title: "Your Space Journey Starts Here!",
     description:
       "Follow ORBIT NTNU — Norway’s leading student space organization. Explore our missions and projects.",
     creator: "@ORBITNTNU",
