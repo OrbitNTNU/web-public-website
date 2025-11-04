@@ -8,7 +8,9 @@ import SpanningText from "@/components/General/SpanningText";
 import TriImageCollage from "@/components/General/TriImageCollage";
 import { Article } from "@/sanity/types/pages/articlePage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 
 interface ArticleSlugClientPageProps {
@@ -16,10 +18,29 @@ interface ArticleSlugClientPageProps {
 }
 
 const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
+    const router = useRouter();
+
     return (
         <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-40 flex flex-col gap-20">
+            <span className="flex flex-row gap-2 group cursor-pointer" onClick={() => router.push('/articles')}>
+                 <span className="material-icons text-3xl transition-transform duration-200 group-hover:-translate-x-2">
+                    chevron_left
+                  </span>
+                <span>Go back to articles</span>
+            </span>
             <div className="flex flex-col gap-4">
-                <h1>{article.title}</h1>
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    {article.title}
+                </motion.h1>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
                 <Image
                     src={imageBuilder(article.mainImage)}
                     alt={article.mainImage.alt || "Article Main Image"}
@@ -27,7 +48,15 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
                     height={900}
                     className="w-full h-auto"
                 />
-                <span className="text-charcoal-light">{"Published at " + new Date(article.publishedAt).toLocaleDateString()}</span>
+                </motion.div>
+                <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="text-charcoal-light"
+                >
+                    {"Published at " + new Date(article.publishedAt).toLocaleDateString()}
+                </motion.span>
             </div>
             {article.sections.map((section) => {
                 switch (section._type) {
