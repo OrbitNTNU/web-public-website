@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "How does student send a satellite to space?",
+  title: "How does students send a satellite to space?",
   description:
     "We are ORBIT NTNU, a student-driven satellite organization at the Norwegian University of Science and Technology (NTNU).",
   keywords: [
