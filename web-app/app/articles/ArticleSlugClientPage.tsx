@@ -8,6 +8,7 @@ import SpanningText from "@/components/General/SpanningText";
 import TriImageCollage from "@/components/General/TriImageCollage";
 import { Article } from "@/sanity/types/pages/articlePage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import Image from "next/image";
 
 
 interface ArticleSlugClientPageProps {
@@ -17,7 +18,17 @@ interface ArticleSlugClientPageProps {
 const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
     return (
         <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-40 flex flex-col gap-20">
-            <h1>{article.title}</h1>
+            <div className="flex flex-col gap-4">
+                <h1>{article.title}</h1>
+                <Image
+                    src={imageBuilder(article.mainImage)}
+                    alt={article.mainImage.alt || "Article Main Image"}
+                    width={1600}
+                    height={900}
+                    className="w-full h-auto"
+                />
+                <span className="text-charcoal-light">{"Published at " + new Date(article.publishedAt).toLocaleDateString()}</span>
+            </div>
             {article.sections.map((section) => {
                 switch (section._type) {
                     case "largeQuote":
