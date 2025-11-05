@@ -48,7 +48,7 @@ const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
           )}
         </small>
         <h3 className="mb-2">{article.title}</h3>
-        <div className="text-charcoal-light flex flex-col gap-2">
+        <div className="text-charcoal-light flex flex-col gap-2 mb-4 md:mb-0">
           <PortableText
             value={article.teaser}
             components={{

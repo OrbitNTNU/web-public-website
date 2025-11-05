@@ -101,7 +101,7 @@ function StarBackground() {
   }, []); // runs only once per mount
 
   return (
-    <div className="absolute inset-0 pointer-events-none max-w-screen overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none max-w-screen h-full overflow-hidden">
       {stars.map(
         (star) =>
           star && (
@@ -132,9 +132,9 @@ export default function RootLayout({
       <body>
         <Navbar />
         <div className="relative flex flex-col mx-auto min-h-screen pb-20 md:pb-40 gap-20 md:gap-40 z-10">
+          <StarBackground />
           {children}
         </div>
-        <StarBackground />
         <Footer />
       </body>
     </html>

@@ -30,7 +30,7 @@ const ArticlesClientPage = ({ articles }: ArticlesClientPageProps) => {
   );
 
   return (
-    <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-40 flex flex-col gap-20">
+    <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-32 md:my-40 flex flex-col gap-20">
       {/* Featured article */}
       {sorted.slice(0, 1).map((article) => (
         <FeaturedArticle

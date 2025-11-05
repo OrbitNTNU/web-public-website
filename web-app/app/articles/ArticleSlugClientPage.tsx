@@ -21,7 +21,8 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
     const router = useRouter();
 
     return (
-        <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-40 flex flex-col gap-20">
+        <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-32 md:my-40 flex flex-col gap-20">
+            <div className="flex flex-col gap-8">
             <span className="flex flex-row gap-2 group cursor-pointer" onClick={() => router.push('/articles')}>
                 <span className="material-icons text-3xl transition-transform duration-200 group-hover:-translate-x-2">
                     chevron_left
@@ -60,6 +61,7 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
                         { year: "numeric", month: "long", day: "numeric" }
                     )}
                 </motion.span>
+            </div>
             </div>
             {article.sections.map((section) => {
                 switch (section._type) {
