@@ -6,10 +6,9 @@ import { DoubleImage } from "../components/DoubleImage";
 import { DoubleImageCollage } from "../components/DoubleImageCollage";
 import { SingleImageCollage } from "../components/SingleImageCollage";
 import { TriImageCollage } from "../components/TriImageCollage";
-import { ProjectsShowcase } from "../components/ProjectsShowcase";
-import { InstagramEmbed } from "../components/InstagramEmbed";
-import { SubOrbitalShowcase } from "../components/SubOrbitalShowcase";
 import { PortableTextBlock } from "next-sanity";
+import { ImageAndCaption } from "../components/ImageAndCaption";
+import { TextHeavy } from "../components/TextHeavy";
 
 // TODO AUGUST FJERN SUBORBITALSHOWCASE, PROJECTSHOWCASE, OG INSTAGRAM EMBED HVIS DE IKKE SKAL BRUGES PÅ ARTIKELSIDER
 
@@ -21,9 +20,9 @@ export type ArticlePageSection =
   | DoubleImageCollage
   | SingleImageCollage
   | TriImageCollage
-  | ProjectsShowcase
-  | InstagramEmbed
-  | SubOrbitalShowcase;
+  | ImageAndCaption
+  | TextHeavy;
+  
 
 export interface Article {
   _type: "article";

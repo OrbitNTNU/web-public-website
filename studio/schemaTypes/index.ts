@@ -34,6 +34,7 @@ import triImageCollage from './triImageCollage'
 import singleImageCollage from './singleImageCollage'
 import imageAndCaption from './imageAndCaption'
 import article from './article/article'
+import textHeavy from './textHeavy'
 
 export const schemaTypes = [
   team,
@@ -71,5 +72,6 @@ export const schemaTypes = [
   triImageCollage,
   singleImageCollage,
   imageAndCaption,
-  article
+  article,
+  textHeavy,
 ]
