@@ -42,10 +42,11 @@ const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
 
       <div className="flex flex-col flex-1 mt-4">
         <small className="text-charcoal-light">
-          {new Date(article.publishedAt).toLocaleDateString(
-            "no-NO",
-            { year: "numeric", month: "long", day: "numeric" }
-          )}
+          {new Date(article.publishedAt).toLocaleDateString("en-UK", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
         </small>
         <h3 className="mb-2">{article.title}</h3>
         <div className="text-charcoal-light flex flex-col gap-2 mb-4 md:mb-0">
@@ -105,9 +106,7 @@ const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
                       href={value?.href}
                       target={target}
                       rel={
-                        target === "_blank"
-                          ? "noopener noreferrer"
-                          : undefined
+                        target === "_blank" ? "noopener noreferrer" : undefined
                       }
                       className="text-blue-600 hover:underline"
                     >

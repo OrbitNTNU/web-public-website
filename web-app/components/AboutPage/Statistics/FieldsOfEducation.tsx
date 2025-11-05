@@ -111,9 +111,7 @@ const FieldsOfEducation = ({ data }: FieldsOfEducationProps) => {
     <div className="mx-auto w-full">
       <div className="flex w-full flex-col items-center 2xl:flex-row gap-8 md:gap-12">
         <span className="flex-1 ">
-          <h3 className="mb-2 text-cloud-white">
-            Our fields of education
-          </h3>
+          <h3 className="mb-2 text-cloud-white">Our fields of education</h3>
           {majorityFaculty && majorityCampus ? (
             <p className="text-charcoal-light md:max-w-2/3 xl:max-w-full">
               A majority of our members study within the field of{" "}

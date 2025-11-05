@@ -1,6 +1,5 @@
 import { PortableText, PortableTextBlock } from "next-sanity";
 
-
 interface TextHeavyProps {
   content: PortableTextBlock[];
 }
@@ -18,21 +17,9 @@ const TextHeavy: React.FC<TextHeavyProps> = ({ content }) => {
                 <p className="text-charcoal-light my-4">{children}</p>
               ),
               break: () => <div className="h-8" />,
-              h1: ({ children }) => (
-                <h1 className="mt-12 mb-6">
-                  {children}
-                </h1>
-              ),
-              h2: ({ children }) => (
-                <h2 className="mt-10 mb-4">
-                  {children}
-                </h2>
-              ),
-              h3: ({ children }) => (
-                <h3 className="mt-8 mb-3">
-                  {children}
-                </h3>
-              ),
+              h1: ({ children }) => <h1 className="mt-12 mb-6">{children}</h1>,
+              h2: ({ children }) => <h2 className="mt-10 mb-4">{children}</h2>,
+              h3: ({ children }) => <h3 className="mt-8 mb-3">{children}</h3>,
               blockquote: ({ children }) => (
                 <blockquote className="border-l-4 border-charcoal-light pl-4 italic text-slate my-6">
                   {children}
@@ -79,9 +66,7 @@ const TextHeavy: React.FC<TextHeavyProps> = ({ content }) => {
                     href={value?.href}
                     target={target}
                     rel={
-                      target === "_blank"
-                        ? "noopener noreferrer"
-                        : undefined
+                      target === "_blank" ? "noopener noreferrer" : undefined
                     }
                     className="text-blue-500 hover:text-blue-400 hover:underline transition-colors"
                   >

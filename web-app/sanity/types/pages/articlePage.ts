@@ -22,7 +22,6 @@ export type ArticlePageSection =
   | TriImageCollage
   | ImageAndCaption
   | TextHeavy;
-  
 
 export interface Article {
   _type: "article";

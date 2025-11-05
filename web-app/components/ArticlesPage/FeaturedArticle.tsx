@@ -31,10 +31,12 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
         }}
       >
         <span className="text-charcoal-light">
-          {new Date(article.publishedAt).toLocaleDateString(
-            "no-NO",
-            { year: "numeric", month: "long", day: "numeric" }
-          )} (Latest Article)
+          {new Date(article.publishedAt).toLocaleDateString("en-UK", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}{" "}
+          (Latest Article)
         </span>
         <h2 className="mb-2">{article.title}</h2>
         <div className="text-charcoal-light flex flex-col gap-2 mb-4 md:mb-0">
@@ -94,9 +96,7 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
                       href={value?.href}
                       target={target}
                       rel={
-                        target === "_blank"
-                          ? "noopener noreferrer"
-                          : undefined
+                        target === "_blank" ? "noopener noreferrer" : undefined
                       }
                       className="text-blue-600 hover:underline"
                     >
@@ -109,11 +109,15 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
           />
           <a>
             <button
-              onClick={() => void router.push(`/articles/${article.slug.current}`)}
+              onClick={() =>
+                void router.push(`/articles/${article.slug.current}`)
+              }
               className="mt-4 text-cloud-white rounded-md transition-colors duration-200 flex flex-row gap-2 cursor-pointer group"
             >
               Read Full Article
-              <span className="material-icons group-hover:translate-x-2 transition duration-300">arrow_forward</span>
+              <span className="material-icons group-hover:translate-x-2 transition duration-300">
+                arrow_forward
+              </span>
             </button>
           </a>
         </div>
