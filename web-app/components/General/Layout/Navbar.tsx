@@ -53,7 +53,9 @@ export default function Navbar() {
       <motion.div>
         <div className="hidden md:flex gap-8">
           {navItems.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive = 
+              pathname === "/" ? pathname === item.href 
+              : pathname.split("/")[1].includes(item.href.split("/")[1]) && item.href !== "/";
             return (
               <motion.div
                 key={item.label}
