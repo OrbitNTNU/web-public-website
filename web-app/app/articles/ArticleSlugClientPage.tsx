@@ -21,47 +21,47 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
     const router = useRouter();
 
     return (
-        <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-32 md:my-40 flex flex-col gap-20">
+        <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-32 md:my-40 flex flex-col gap-8 md:gap-20">
             <div className="flex flex-col gap-8">
-            <span className="flex flex-row gap-2 group cursor-pointer" onClick={() => router.push('/articles')}>
-                <span className="material-icons text-3xl transition-transform duration-200 group-hover:-translate-x-2">
-                    chevron_left
+                <span className="flex flex-row gap-2 group cursor-pointer items-center" onClick={() => router.push('/articles')}>
+                    <span className="material-icons text-3xl transition-transform duration-200 group-hover:-translate-x-2">
+                        chevron_left
+                    </span>
+                    <span>Go back to articles</span>
                 </span>
-                <span>Go back to articles</span>
-            </span>
-            <div className="flex flex-col gap-4">
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    {article.title}
-                </motion.h1>
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    <Image
-                        src={imageBuilder(article.mainImage)}
-                        alt={article.mainImage.alt || "Article Main Image"}
-                        width={1600}
-                        height={900}
-                        className="w-full h-auto"
-                    />
-                </motion.div>
-                <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-charcoal-light"
-                >
-                    {"Published on " + new Date(article.publishedAt).toLocaleDateString(
-                        "no-NO",
-                        { year: "numeric", month: "long", day: "numeric" }
-                    )}
-                </motion.span>
-            </div>
+                <div className="flex flex-col gap-4">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        {article.title}
+                    </motion.h1>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <Image
+                            src={imageBuilder(article.mainImage)}
+                            alt={article.mainImage.alt || "Article Main Image"}
+                            width={1600}
+                            height={900}
+                            className="w-full h-auto"
+                        />
+                    </motion.div>
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="text-charcoal-light"
+                    >
+                        {"Published on " + new Date(article.publishedAt).toLocaleDateString(
+                            "no-NO",
+                            { year: "numeric", month: "long", day: "numeric" }
+                        )}
+                    </motion.span>
+                </div>
             </div>
             {article.sections.map((section) => {
                 switch (section._type) {

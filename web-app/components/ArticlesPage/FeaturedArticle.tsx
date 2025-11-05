@@ -107,6 +107,15 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
               },
             }}
           />
+          <a>
+            <button
+              onClick={() => void router.push(`/articles/${article.slug.current}`)}
+              className="mt-4 text-cloud-white rounded-md transition-colors duration-200 flex flex-row gap-2 cursor-pointer group"
+            >
+              Read Full Article
+              <span className="material-icons group-hover:translate-x-2 transition duration-300">arrow_forward</span>
+            </button>
+          </a>
         </div>
       </motion.div>
 
