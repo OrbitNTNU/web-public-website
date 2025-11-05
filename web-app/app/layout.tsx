@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/General/Layout/Navbar";
 import { Footer } from "@/components/General/Layout/Footer";
 import { useMemo } from "react";
+import { NavbarProvider } from "@/components/General/Layout/NavbarContext";
 
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here!",
@@ -130,12 +131,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <div className="relative flex flex-col mx-auto min-h-screen pb-20 md:pb-40 gap-20 md:gap-40 z-10">
-          <StarBackground />
-          {children}
-        </div>
-        <Footer />
+        <NavbarProvider>
+          <Navbar />
+          <div className="relative flex flex-col mx-auto min-h-screen pb-20 md:pb-40 gap-20 md:gap-40 z-10">
+            <StarBackground />
+            {children}
+          </div>
+          <Footer />
+        </NavbarProvider>
       </body>
     </html>
   );

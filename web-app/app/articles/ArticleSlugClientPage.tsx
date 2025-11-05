@@ -5,6 +5,7 @@ import DoubleImages from "@/components/General/DoubleImages";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
 import LargeImage from "@/components/General/LargeImage";
 import LargeQuote from "@/components/General/LargeQuote";
+import { useNavbar } from "@/components/General/Layout/NavbarContext";
 import SpanningText from "@/components/General/SpanningText";
 import TriImageCollage from "@/components/General/TriImageCollage";
 import { Article } from "@/sanity/types/pages/articlePage";
@@ -12,6 +13,7 @@ import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 interface ArticleSlugClientPageProps {
   article: Article;
@@ -19,6 +21,18 @@ interface ArticleSlugClientPageProps {
 
 const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
   const router = useRouter();
+  const { setInfo, resetInfo } = useNavbar();
+
+  useEffect(() => {
+    // Set the navbar info based on the article
+    setInfo({
+      baseHref: "/articles",
+      detailedLocation: article?.title,
+    });
+
+    // Reset navbar info when leaving
+    return () => resetInfo();
+  }, [article]);
 
   return (
     <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-32 md:my-40 flex flex-col gap-8">
@@ -70,7 +84,7 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
         </div>
       </div>
       <section className="max-w-7xl mx-auto flex flex-col gap-40 mt-20">
-        {article.sections.map((section) => {
+        {article.sections?.map((section) => {
           switch (section._type) {
             case "largeQuote":
               return <LargeQuote key={section._key} text={section.quote} />;

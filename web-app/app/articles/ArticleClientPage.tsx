@@ -41,7 +41,7 @@ const ArticlesClientPage = ({ articles }: ArticlesClientPageProps) => {
       ))}
 
       {/* All other articles */}
-      {sorted.length > 2 && (
+      {sorted.length > 1 && (
         <section>
           <motion.h3
             initial={{ opacity: 0, x: -50 }}
