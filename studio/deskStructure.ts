@@ -64,21 +64,21 @@ export const deskStructure = (S: StructureBuilder) =>
                 .title('All Articles')
                 .child(S.documentTypeList('article').title('All Articles')),
               S.divider(),
-              S.listItem()
-                .title('2026')
-                .child(
-                  S.documentTypeList('article')
-                    .title('Articles from 2026')
-                    .filter('_type == "article" && dateTime(publishedAt)[0..3] == "2026"'),
-                ),
-              S.listItem()
-                .title('2025')
-                .child(
-                  S.documentTypeList('article')
-                    .title('Articles from 2025')
-                    .filter('_type == "article" && dateTime(publishedAt)[0..3] == "2025"'),
-                ),
-              // Drafts
+                S.listItem()
+                    .title('2026')
+                    .child(
+                        S.documentTypeList('article')
+                            .title('Articles from 2026')
+                            .filter(`_type == "article" && publishedAt match "^2026"`)
+                    ),
+                S.listItem()
+                    .title('2025')
+                    .child(
+                        S.documentTypeList('article')
+                            .title('Articles from 2025')
+                            .filter(`_type == "article" && publishedAt match "^2025"`)
+                    ),
+                // Drafts
               S.divider(),
               S.listItem()
                 .title('Drafts')
