@@ -21,7 +21,7 @@ const ProjectsOverviewClient = ({ projects }: ProjectsOverviewClientProps) => {
         subtitle=" - Pushing the boundaries of student-led space innovation. Our projects range from Selfie-taking CubeSats to high-altitude suborbital flights, each designed and built by our passionate members."
       />
       <Projects projects={projects} />
-      <SubOrbital />
+      <SubOrbital  projects={projects}/>
       <section className="flex flex-col gap-12">
         <DoubleImages
           variant="two-third-one-third"

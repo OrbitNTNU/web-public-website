@@ -32,7 +32,7 @@ const ProjectClientPage = ({ project }: ProjectClientPageProps) => {
 
   return (
     <div className="w-full mx-auto px-4 py-16">
-      {project.sections.map((section) => {
+      {project?.sections?.map((section) => {
         switch (section._type) {
           case "bannerImage":
             return (
@@ -40,7 +40,7 @@ const ProjectClientPage = ({ project }: ProjectClientPageProps) => {
                 key={section._key}
                 backgroundSrc={imageBuilder(section.image.asset._ref)}
                 patchSrc={imageBuilder(project.patch)}
-                colors={project.gradientColors}
+                colors={project.gradientColors ?? []}
                 isBiosat={isBiosat}
               />
             );
