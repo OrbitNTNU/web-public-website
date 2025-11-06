@@ -94,7 +94,7 @@ export default function RootLayout({
       <body>
         <NavbarProvider>
           <Navbar />
-          <div className="relative flex flex-col mx-auto min-h-screen pb-20 md:pb-40 gap-20 md:gap-40 z-10">
+          <div className="relative flex flex-col mx-auto min-h-screen gap-20 md:gap-40 z-10">
             <StarBackground />
             {children}
           </div>

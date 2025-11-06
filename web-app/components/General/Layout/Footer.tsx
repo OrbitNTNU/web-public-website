@@ -18,7 +18,7 @@ export const Footer = () => {
   return (
     <>
       <button
-        className="w-full mx-auto flex flex-col items-center mb-8"
+        className="w-full mx-auto flex flex-col items-center mb-8 pt-20 md:pt-40 "
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <p className="material-icons" style={{ fontSize: "3rem" }}>

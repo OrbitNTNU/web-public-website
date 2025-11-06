@@ -11,12 +11,34 @@ import TriImageCollage from "@/components/General/TriImageCollage";
 import { Loading } from "@/components/Loading";
 import { AboutPageSection } from "@/sanity/types/pages/aboutPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function AboutClientPage({
   sections,
 }: {
   sections: AboutPageSection[];
 }) {
+  const [typedKeys, setTypedKeys] = useState<string>("");
+  const router = useRouter();
+
+  // Easter egg: type "stars" to go to /about/stars
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      setTypedKeys((prev) => (prev + e.key).slice(-5)); // only keep last 5 keys
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [router]);
+
+  useEffect(() => {
+    // Reset typed keys after 5 seconds of inactivity
+    if (typedKeys.toLowerCase() === "stars") {
+          router.push("/about/our-stars");
+        }
+  }, [typedKeys]);
+
   if (!sections) {
     return <Loading />;
   }
