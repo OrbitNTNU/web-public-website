@@ -29,7 +29,7 @@ const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
       }}
     >
       <Link
-        className="w-full aspect-[4/3] overflow-hidden"
+        className="w-full aspect-[4/3] overflow-hidden z-20"
         href={`/articles/${article.slug.current}`}
       >
         <Image
