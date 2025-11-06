@@ -82,10 +82,6 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
     };
   }, [filteredStudies, mostCommon]);
 
-  const handleClick = (studyCode: string) => {
-    window.open(`https://www.ntnu.no/studier/${studyCode}`, "_blank");
-  };
-
   // --- DRAG SCROLL LOGIC ---
   const handleMouseDown = (e: React.MouseEvent) => {
     const el = scrollRef.current;
@@ -174,7 +170,6 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
             <div
               key={s.study}
               className="flex flex-col items-center cursor-pointer"
-              onClick={() => handleClick(s.study.toLowerCase())}
             >
               <small className="flex items-center gap-1 text-charcoal-light">
                 <small
@@ -186,13 +181,16 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
                 </small>
                 {s.count}
               </small>
-              <div
+              <a
                 className={`transition-all duration-200 ${STUDY_COLORS[idx % STUDY_COLORS.length]} rounded-lg`}
                 style={{
                   height: `${barHeight}px`,
                   width: "40px",
                   minHeight: "2px",
                 }}
+                href={`https://www.ntnu.no/studier/${s.study.toLowerCase()}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 title={`${s.study}: ${s.count}`}
               />
               <small className="mt-2 truncate text-center text-xs">

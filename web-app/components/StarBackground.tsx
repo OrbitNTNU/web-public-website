@@ -6,7 +6,6 @@ async function getMembers() {
     const res = await fetch("/api/members");
     if (!res.ok) throw new Error("Failed to fetch members");
     const json = await res.json();
-    console.log("Total members:", json.totalMembers);
     return json.totalMembers || 0;
   } catch (err) {
     console.error(err);

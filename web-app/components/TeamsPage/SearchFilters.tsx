@@ -104,6 +104,7 @@ const SearchFilters = ({
                                                         ? "bg-cloud-white border-cloud-white text-cloud-white"
                                                         : "bg-transparent"
                                                     }`}
+                      tabIndex={0}
                       onKeyDown={(e) => {
                         if (e.key === " " || e.key === "Enter") {
                           setSelectedFilters((prev) => {

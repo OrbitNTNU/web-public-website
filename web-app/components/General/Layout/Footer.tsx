@@ -17,15 +17,15 @@ export const Footer = () => {
 
   return (
     <>
-      <div
-        className="cursor-pointer flex flex-col items-center mb-8"
+      <button
+        className="w-full mx-auto flex flex-col items-center mb-8"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <p className="material-icons" style={{ fontSize: "3rem" }}>
           keyboard_arrow_up
         </p>
         <small>Go back to the top of the page</small>
-      </div>
+      </button>
       <footer className="bg-moonlight text-cloud-white py-12  mx-auto px-4 md:px-12">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo + Info */}

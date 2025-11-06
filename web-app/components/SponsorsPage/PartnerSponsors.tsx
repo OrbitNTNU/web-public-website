@@ -1,18 +1,13 @@
 import { PartnerSponsor } from "@/sanity/types/sponsorsPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import Image from "next/image";
+import Link from "next/link";
 
 interface PartnerSponsorsProps {
   sponsors: PartnerSponsor[];
 }
 
 const PartnerSponsors = ({ sponsors }: PartnerSponsorsProps) => {
-  const handleClick = (url: string | undefined) => {
-    if (url) {
-      window.open(url, "_blank");
-    }
-  };
-
   return (
     <div className="flex items-center flex-col gap-20">
       <h1>{`Partner` + (sponsors.length > 1 ? "s" : "")}</h1>
@@ -22,14 +17,19 @@ const PartnerSponsors = ({ sponsors }: PartnerSponsorsProps) => {
             key={sponsor._key}
             className="w-full md:w-1/5 justify-start items-center flex flex-col gap-8 px-0 py-4 md:p-4"
           >
-            <Image
-              src={imageBuilder(sponsor.logo)}
-              alt={`${sponsor.name} logo`}
-              width={400}
-              height={600}
-              className="aspect-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => handleClick(sponsor.website)}
-            />
+            <Link
+              href={sponsor.website || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={imageBuilder(sponsor.logo)}
+                alt={`${sponsor.name} logo`}
+                width={400}
+                height={600}
+                className="aspect-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+              />
+            </Link>
           </div>
         ))}
       </section>
