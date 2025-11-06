@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/General/Layout/Navbar";
 import { Footer } from "@/components/General/Layout/Footer";
-import { useMemo } from "react";
 import { NavbarProvider } from "@/components/General/Layout/NavbarContext";
+import StarBackground from "@/components/StarBackground";
 
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here!",
@@ -83,45 +83,6 @@ export const metadata: Metadata = {
     apple: "/faviconTest/test_charcoal_with_yellow.svg",
   },
 };
-
-function StarBackground() {
-  const stars = useMemo(() => {
-    return Array.from({ length: 200 }).map((_, i) => {
-      const size = Math.random() * 4 + 1;
-      const topPercent = Math.random() * 100;
-      const opacity = Math.max(0, 1 - topPercent / 90);
-      if (opacity <= 0) return null;
-      return {
-        id: i,
-        size,
-        top: `${topPercent}%`,
-        left: `${Math.random() * 100}%`,
-        opacity,
-      };
-    });
-  }, []); // runs only once per mount
-
-  return (
-    <div className="absolute inset-0 pointer-events-none max-w-screen h-full overflow-hidden">
-      {stars.map(
-        (star) =>
-          star && (
-            <div
-              key={star.id}
-              className="bg-cloud-white rounded-full absolute"
-              style={{
-                width: `${star.size}px`,
-                height: `${star.size}px`,
-                top: star.top,
-                left: star.left,
-                opacity: star.opacity,
-              }}
-            />
-          ),
-      )}
-    </div>
-  );
-}
 
 export default function RootLayout({
   children,
