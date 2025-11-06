@@ -1,6 +1,7 @@
 import {getBigProject, getSubOrbitalProject} from "@/sanity/fetch/SanityFetch";
 import ProjectClientPage from "@/app/projects/ProjectClientPage";
 import { Metadata } from "next";
+import {Loading} from "@/components/Loading";
 export const metadata: Metadata = {
   title: "Selfiesat | Framsat | Framsat 1.5 | Biosat",
   description: "",
@@ -77,13 +78,14 @@ interface ProjectPageProps {
 
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const BigProject = await getBigProject(params.slug);
-  const SubOrbitalProject = await getSubOrbitalProject(params.slug);
+  const { slug } = params;
+  const BigProject = await getBigProject(slug);
+  const SubOrbitalProject = await getSubOrbitalProject(slug);
 
   const project = BigProject ?? SubOrbitalProject;
 
   if (!project) {
-    return <div className="text-center py-32">Project not found</div>;
+    return <Loading/>;
   }
 
   return <ProjectClientPage project={project} />;
