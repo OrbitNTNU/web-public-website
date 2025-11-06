@@ -55,7 +55,6 @@ export default defineType({
                 {type: 'doubleImageCollage'},
                 {type: 'projectsShowcase'},
                 {type: 'instagramEmbed'},
-                {type: 'subOrbitalShowcase'},
             ],
         }),
     ],

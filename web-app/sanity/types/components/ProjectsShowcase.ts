@@ -1,8 +1,10 @@
-import { BigProject } from "../project";
+import {BigProject, SubOrbitalProject} from "../project";
+
 
 export interface ProjectsShowcase {
   _key: string;
   _type: "projectsShowcase";
   title: string;
-  bigProjects: BigProject[];
+  projectType: "bigProject" | "subOrbitalProject";
+  projects: (BigProject | SubOrbitalProject)[];
 }

@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import GradientSelector from '../components/GradientSelector'
 
 export default defineType({
   name: 'subOrbitalProject',
@@ -12,31 +13,56 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'teaser',
+      title: 'Teaser',
+      type: 'string',
+    }),
+    defineField({
       name: 'patch',
       title: 'Patch',
       type: 'image',
-      options: {
-        hotspot: true, // allows focal point selection
-      },
+      options: {hotspot: true},
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {
-        source: 'title',
-        maxLength: 96,
-      },
+      options: {source: 'title', maxLength: 96},
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'launchYear',
-      title: 'Launch Year',
-      type: 'number',
-      validation: (Rule) =>
-        Rule.required()
-          .min(2000)
-          .max(new Date().getFullYear() + 5),
+      name: 'publishedAt',
+      title: 'Published At',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'gradientColors',
+      title: 'Gradient Colors',
+      type: 'array',
+      of: [{type: 'string'}],
+      components: {input: GradientSelector},
+    }),
+    defineField({
+      name: 'image',
+      title: 'Main Image',
+      type: 'image',
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [
+        {type: 'largeQuote'},
+        {type: 'largeImage'},
+        {type: 'spanningText'},
+        {type: 'doubleImage'},
+        {type: 'doubleImageCollage'},
+        {type: 'bannerImage'},
+      ],
     }),
   ],
 })

@@ -5,9 +5,8 @@ import { DoubleImageCollage } from "../components/DoubleImageCollage";
 import { InstagramEmbed } from "../components/InstagramEmbed";
 import { LargeImage } from "../components/LargeImage";
 import { LargeQuote } from "../components/LargeQuote";
-import { ProjectsShowcase } from "../components/ProjectsShowcase";
+import {ProjectsShowcase} from "../components/ProjectsShowcase";
 import { SpanningText } from "../components/SpanningText";
-import { SubOrbitalShowcase } from "../components/SubOrbitalShowcase";
 import { ForSponsorsCardType } from "../forSponsorsCard";
 import { JoinCardType } from "../joinCard";
 
@@ -18,7 +17,6 @@ export type LandingPageSection =
   | DoubleImage
   | DoubleImageCollage
   | ProjectsShowcase
-  | SubOrbitalShowcase
   | InstagramEmbed
   | JoinCardType
   | ForSponsorsCardType;

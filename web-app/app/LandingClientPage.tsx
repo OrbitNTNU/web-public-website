@@ -101,15 +101,14 @@ export default function LandingPage({ sections }: LandingPageProps) {
                   </section>
               );
 
-            case "projectsShowcase":
-              return (
-                  <Projects key={section._key} projects={section.bigProjects} />
-              );
+              case "projectsShowcase":
+                  if (!(section.projectType === "subOrbitalProject")) {
+                      return <Projects key={section._key} projects={section.projects} />;
+                  }
+                  return <SubOrbital key={section._key} projects={section.projects} />;
 
-            case "subOrbitalShowcase":
-              return <SubOrbital key={section._key} />;
 
-            case "instagramEmbed":
+              case "instagramEmbed":
               return <InstagramEmbed key={section._key} />;
 
             case "joinCardRef":
