@@ -21,7 +21,6 @@ interface ArticleSlugClientPageProps {
 }
 
 const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
-  const router = useRouter();
   const { setInfo, resetInfo } = useNavbar();
 
   useEffect(() => {

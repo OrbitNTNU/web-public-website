@@ -4,6 +4,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Team, Member } from "@/app/team/TeamsClientPage";
 import { motion } from "framer-motion";
 import MemberCard from "@/components/MemberCard";
+import { useNavbar } from "@/components/General/Layout/NavbarContext";
 
 interface StarProps {
     x: number;
@@ -17,6 +18,7 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
     const [stars, setStars] = useState<StarProps[]>([]);
     const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
     const [hoveredStarIndex, setHoveredStarIndex] = useState<number | null>(null);
+    const { setInfo, resetInfo } = useNavbar();
 
     useEffect(() => {
         const allMembersWithTeam = teamsData.flatMap(team =>
@@ -39,6 +41,17 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
         setStars(generatedStars);
     }, [teamsData]);
 
+
+    useEffect(() => {
+        // Set the navbar info based on the article
+        setInfo({
+            baseHref: "/about",
+            detailedLocation: "Our Stars",
+        });
+
+        // Reset navbar info when leaving
+        return () => resetInfo();
+    }, [teamsData]);
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
