@@ -11,8 +11,11 @@ import { SponsorsPage } from "@/sanity/types/sponsorsPage";
 import { LandingPage } from "@/sanity/types/pages/landingPage";
 import { AboutPage } from "../types/pages/aboutPage";
 import { ABOUT_PAGE_QUERY } from "../queries/aboutPage";
-import {ALL_ARTICLES_QUERY, ARTICLE_PAGE_QUERY} from "@/sanity/queries/articlePage";
-import {Article} from "@/sanity/types/pages/articlePage";
+import {
+  ALL_ARTICLES_QUERY,
+  ARTICLE_PAGE_QUERY,
+} from "@/sanity/queries/articlePage";
+import { Article } from "@/sanity/types/pages/articlePage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {

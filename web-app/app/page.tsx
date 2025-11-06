@@ -71,7 +71,5 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const data = await getLandingPage();
-  return (
-    <LandingPage sections={data?.sections ?? []} />
-  );
+  return <LandingPage sections={data?.sections ?? []} />;
 }

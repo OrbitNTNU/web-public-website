@@ -43,7 +43,7 @@ const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
   return (
     <div className="mx-auto flex w-full flex-col">
       <motion.h3
-        className="font-black mb-2"
+        className="mb-2"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -103,7 +103,7 @@ const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
           <tbody>
             {overallWithPercentage
               .sort((a, b) => b.count - a.count)
-              .map(({ level, count, percentage }, idx) => (
+              .map(({ level, count, percentage }) => (
                 <tr key={level} className="border-t border-slate">
                   <td className="py-2">{level}</td>
                   <td className="py-2 text-center text-charcoal-light">

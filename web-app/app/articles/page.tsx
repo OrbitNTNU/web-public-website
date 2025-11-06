@@ -1,11 +1,11 @@
-import {Loading} from "@/components/Loading";
-import {getAllArticles} from "@/sanity/fetch/SanityFetch";
+import { Loading } from "@/components/Loading";
+import { getAllArticles } from "@/sanity/fetch/SanityFetch";
 import ArticleClientPage from "@/app/articles/ArticleClientPage";
 
 export default async function ArticlesPage() {
   const articles = await getAllArticles();
-  if(!articles) {
-    return(<Loading/>)
+  if (!articles) {
+    return <Loading />;
   }
 
   return <ArticleClientPage articles={articles} />;

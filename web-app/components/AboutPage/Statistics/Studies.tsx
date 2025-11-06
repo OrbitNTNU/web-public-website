@@ -119,7 +119,7 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
   return (
     <div className="relative mx-auto flex w-full flex-col md:items-end">
       <motion.h3
-        className="font-black mb-2"
+        className="mb-2"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.3 }}

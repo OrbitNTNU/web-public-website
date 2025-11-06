@@ -4,6 +4,7 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
   *[_type == "article" && slug.current == $slug][0]{
     _id,
     title,
+    teaser,
     slug,
     mainImage,
     publishedAt,
@@ -53,6 +54,16 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
           link2
         }
       },
+      _type == "imageAndCaption" => {
+         _type,
+          src,
+          alt,
+          title,
+          caption,
+          wideCaption,
+          link,
+          variant
+      },
       _type == "singleImageCollage" => {
         _type,
         items[] {
@@ -79,15 +90,9 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
         variant,
         wideCaption
       },
-      _type == "projectsShowcase" => {
-        _type
-      },
-      _type == "instagramEmbed" => {
+      _type == "textHeavy" => {
         _type,
-        embedUrl
-      },
-      _type == "subOrbitalShowcase" => {
-        _type
+        content
       }
     }
   }
@@ -98,6 +103,7 @@ export const ALL_ARTICLES_QUERY = defineQuery(`
     _id,
     _type,
     title,
+    teaser,
     slug,
     mainImage,
     publishedAt

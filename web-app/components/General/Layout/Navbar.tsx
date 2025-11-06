@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { useNavbar } from "./NavbarContext";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -17,6 +18,10 @@ const navItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+
+  const { info } = useNavbar();
+  const baseHref = info?.baseHref || "/";
+  const detailedLocation = info?.detailedLocation || "";
 
   useEffect(() => {
     setMounted(true);
@@ -54,13 +59,16 @@ export default function Navbar() {
         <div className="hidden md:flex gap-8">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
+
             return (
               <motion.div
                 key={item.label}
-                onClick={() => navigate(item.href)}
-                className="cursor-pointer relative inline-block group"
+                className="relative inline-block group"
               >
-                <p className="text-cloud-white font-medium no-underline uppercase tracking-wider transition-colors duration-200 text-sm">
+                <p
+                  className="cursor-pointer text-cloud-white font-medium no-underline uppercase tracking-wider transition-colors duration-200 text-sm"
+                  onClick={() => navigate(item.href)}
+                >
                   {item.label}
                 </p>
 
@@ -70,6 +78,23 @@ export default function Navbar() {
                     className={`absolute left-0 bottom-0 h-[2px] bg-cloud-white rounded origin-left transition-all duration-300 ease-out
                                         ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
                   />
+                )}
+                {detailedLocation && baseHref === item.href && (
+                  <motion.div
+                    className="fixed flex justify-end items-end text-charcoal-light -translate-x-[calc(100%-40px)]"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <span className="flex items-center gap-1">
+                      <span className="mt-2 underline underline-offset-4">
+                        {detailedLocation}
+                      </span>
+                      <span className="material-icons text-base translate-y-[1px]">
+                        subdirectory_arrow_left
+                      </span>
+                    </span>
+                  </motion.div>
                 )}
               </motion.div>
             );
