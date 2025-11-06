@@ -25,22 +25,17 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
             team.members.map(member => ({ member, team })) // pair each member with their team
         );
 
-        const starCount = 150;
-
-        const generatedStars: StarProps[] = Array.from({ length: starCount }, () => {
-            const { member, team } = allMembersWithTeam[Math.floor(Math.random() * allMembersWithTeam.length)];
-            return {
-                x: Math.random() * (window.innerWidth - 40),
-                y: Math.random() * 3000,
-                size: Math.random() * 4 + 2,
-                member,
-                team, // include team
-            };
-        });
+        // One star per member
+        const generatedStars: StarProps[] = allMembersWithTeam.map(({ member, team }) => ({
+            x: Math.random() * (window.innerWidth - 40),
+            y: Math.random() * 3000,
+            size: Math.random() * 4 + 2,
+            member,
+            team, // include team
+        }));
 
         setStars(generatedStars);
     }, [teamsData]);
-
 
     useEffect(() => {
         // Set the navbar info based on the article
@@ -70,7 +65,7 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
             const dx = star.x - mousePos.x;
             const dy = star.y - mousePos.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance <= 50) {
+            if (distance <= 20) {
                 foundIndex = idx;
             }
         });
@@ -119,7 +114,10 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.2 }}
                             >
-                                <div
+                                <motion.div
+                                    initial={{ opacity: 0, filter: 'blur(10px)' }}
+                                    animate={{ opacity: 1, filter: 'blur(0px)' }}
+                                    transition={{ duration: 0.3 }}
                                     className="w-[200px]"
                                     style={{
                                         transform: tooltipSide === 'left'
@@ -132,7 +130,7 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
                                         position={star.member.title}
                                         memberName={star.member.name}
                                     />
-                                </div>
+                                </motion.div>
                             </motion.div>
                         )}
                     </Fragment>
