@@ -1,4 +1,4 @@
-import { getBigProject } from "@/sanity/fetch/SanityFetch";
+import {getBigProject, getSubOrbitalProject} from "@/sanity/fetch/SanityFetch";
 import ProjectClientPage from "@/app/projects/ProjectClientPage";
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -75,11 +75,15 @@ interface ProjectPageProps {
   params: { slug: string };
 }
 
+
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const project = await getBigProject(params.slug);
+  const BigProject = await getBigProject(params.slug);
+  const SubOrbitalProject = await getSubOrbitalProject(params.slug);
+
+  const project = BigProject ?? SubOrbitalProject;
 
   if (!project) {
-    return <div className="">Project not found</div>;
+    return <div className="text-center py-32">Project not found</div>;
   }
 
   return <ProjectClientPage project={project} />;

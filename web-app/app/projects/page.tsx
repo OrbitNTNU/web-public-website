@@ -1,4 +1,4 @@
-import { getAllBigProjects } from "@/sanity/fetch/SanityFetch";
+import {getAllBigProjects, getAllSubOrbitalProjects} from "@/sanity/fetch/SanityFetch";
 import ProjectsOverviewClient from "@/app/projects/ProjectPage";
 import { Metadata } from "next";
 export const metadata: Metadata = {
@@ -70,8 +70,11 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 };
-export default async function ProjectsPage() {
-  const projects = await getAllBigProjects();
 
-  return <ProjectsOverviewClient projects={projects} />;
+export default async function ProjectsPage() {
+  const BigProjects = await getAllBigProjects();
+  const SubOrbitalProjects = await getAllSubOrbitalProjects();
+
+  return <ProjectsOverviewClient BigProjects={BigProjects ?? []} SubOrbitalProjects={SubOrbitalProjects} />;
 }
+

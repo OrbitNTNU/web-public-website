@@ -8,19 +8,15 @@ import DoubleImages from "@/components/General/DoubleImages";
 import Header from "@/components/General/Header";
 
 interface ProjectsOverviewClientProps {
-    projects: (BigProject | SubOrbitalProject)[];
+    BigProjects: BigProject[];
+    SubOrbitalProjects: SubOrbitalProject[];
 }
 
-const ProjectsOverviewClient = ({ projects }: ProjectsOverviewClientProps) => {
-    if (!projects) return <Loading />;
-
-    const bigProjects = projects.filter(
-        (p) => p._type !== "subOrbitalProject"
-    ) as BigProject[];
-
-    const subOrbitalProjects = projects.filter(
-        (p) => p._type === "subOrbitalProject"
-    ) as SubOrbitalProject[];
+export default function ProjectsOverviewClient({
+                                                   BigProjects,
+                                                   SubOrbitalProjects,
+                                               }: ProjectsOverviewClientProps) {
+    if (!BigProjects && !SubOrbitalProjects) return <Loading />;
 
     return (
         <div className="w-full relative max-w-[2000px] mx-auto gap-20 md:gap-40 my-40 flex flex-col">
@@ -30,11 +26,8 @@ const ProjectsOverviewClient = ({ projects }: ProjectsOverviewClientProps) => {
         Our projects range from Selfie-taking CubeSats to high-altitude suborbital flights."
             />
 
-            {/* Always show big projects first */}
-            {bigProjects.length > 0 && <Projects projects={bigProjects} />}
-
-            {/* SubOrbital always below */}
-            {subOrbitalProjects.length > 0 && <SubOrbital projects={subOrbitalProjects} />}
+            {BigProjects.length > 0 && <Projects projects={BigProjects} />}
+            {SubOrbitalProjects.length > 0 && <SubOrbital projects={SubOrbitalProjects} />}
 
             <section className="flex flex-col gap-12">
                 <DoubleImages
@@ -48,6 +41,7 @@ const ProjectsOverviewClient = ({ projects }: ProjectsOverviewClientProps) => {
                     title2="Inspiring the Next Generation"
                     caption2="We believe in the power of inspiration..."
                 />
+
                 <DoubleImages
                     variant="one-third-two-third"
                     src1="/tests/1.png"
@@ -62,6 +56,4 @@ const ProjectsOverviewClient = ({ projects }: ProjectsOverviewClientProps) => {
             </section>
         </div>
     );
-};
-
-export default ProjectsOverviewClient;
+}
