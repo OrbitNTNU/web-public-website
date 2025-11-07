@@ -13,7 +13,7 @@ export default function Hero() {
       </video>
 
       {/* Arrow Down */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer flex">
+      <div className="absolute bottom-10 w-full items-center justify-center animate-bounce flex">
         <p className="material-icons" style={{ fontSize: "3rem" }}>
           keyboard_arrow_down
         </p>

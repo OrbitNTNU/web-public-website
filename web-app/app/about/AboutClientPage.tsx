@@ -112,6 +112,7 @@ export default function AboutClientPage({
                     title={item.title}
                     caption={item.caption}
                     variant={item.variant}
+                    link={item.link}
                   />
                 ))}
               </section>

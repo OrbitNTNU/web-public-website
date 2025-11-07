@@ -8,16 +8,12 @@ import {
 
 interface ListViewProps {
   teamsData: Team[];
-  searchTerm: string;
-  selectedFilters: { [key: string]: string[] };
   setActiveTeam: (teamID: number | null) => void;
   activeTeam: number | null;
 }
 
 const ListView = ({
   teamsData,
-  searchTerm,
-  selectedFilters,
   setActiveTeam,
   activeTeam,
 }: ListViewProps) => {
@@ -31,19 +27,8 @@ const ListView = ({
     groupedTeams[team.group].push(team);
   });
 
-  const teamsWithSearch = teamsData
-    .filter(
-      (team) =>
-        team.teamName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        team.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        team.members.some((member) =>
-          member.name.toLowerCase().includes(searchTerm.toLowerCase()),
-        ),
-    )
-    .map((team) => team);
-
   const groupsWithSearch = Array.from(
-    new Set(teamsWithSearch.map((team) => team.group)),
+    new Set(teamsData.map((team) => team.group)),
   );
 
   const filteredGroups = groupsWithSearch
@@ -51,33 +36,10 @@ const ListView = ({
     .reduce((acc: { [key: string]: Team[] }, groupName: string) => {
       const teamsInGroup = teamsData.filter((team) => team.group === groupName);
       const filteredTeams: Team[] = teamsInGroup
-        .map((team: Team) => {
-          const filteredMembers = team.members.filter(
-            (member: Member) =>
-              (member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                team.teamName
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase())) &&
-              (selectedFilters["Position"]?.length
-                ? selectedFilters["Position"].includes(member.privilege)
-                : true),
-          );
-          return filteredMembers.length > 0
-            ? { ...team, members: filteredMembers }
-            : null;
-        })
         .filter((team): team is Team => team !== null)
         .filter(
           (team: Team) =>
-            groupsWithSearch.includes(team.group) &&
-            (selectedFilters["Group"]?.length
-              ? selectedFilters["Group"].includes(
-                  team.group.split("_").join(" "),
-                )
-              : true) &&
-            (selectedFilters["Team"]?.length
-              ? selectedFilters["Team"].includes(team.teamName)
-              : true),
+            groupsWithSearch.includes(team.group)
         )
         .sort((a: Team, b: Team) => a.teamName.localeCompare(b.teamName));
       if (filteredTeams.length > 0) {
@@ -182,21 +144,9 @@ const ListView = ({
                                                     }`}
                             >
                               {(() => {
-                                if (!searchTerm) return member.name;
-                                const lowerName = member.name.toLowerCase();
-                                const lowerSearch = searchTerm.toLowerCase();
-                                const idx = lowerName.indexOf(lowerSearch);
-                                if (idx === -1) return member.name;
                                 return (
                                   <small className="whitespace-nowrap group transition-all ease-in-out hover:text-cloud-white">
-                                    {member.name.slice(0, idx)}
-                                    <small className="text-berry-blast duration-300 group-hover:text-cloud-white">
-                                      {member.name.slice(
-                                        idx,
-                                        idx + searchTerm.length,
-                                      )}
-                                    </small>
-                                    {member.name.slice(idx + searchTerm.length)}
+                                    {member.name}
                                   </small>
                                 );
                               })()}

@@ -76,12 +76,29 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
     return (
         <div className="relative w-screen min-h-[3000px] bg-charcoal">
             <section className="w-full max-w-5xl items-center text-center mx-auto my-20 px-4 md:px-12 flex flex-col gap-4 pt-20 md:pt-40">
-                <h1>Explore Our Stars</h1>
-                <span>Hover over the stars to learn more about our team members making a difference.</span>
-                <section className="flex flex-row gap-2 text-pink-blast">
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    Explore Our Stars
+                </motion.h1>
+                <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2  }}
+                >
+                    Hover over the stars to learn more about our team members making a difference.
+                </motion.span>
+                <motion.section 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4  }}
+                    className="flex flex-row gap-2 text-pink-blast"
+                >
                     <span className="material-icons">favorite</span>&nbsp;
                     <span>You are the heart and soul of Orbit</span>
-                </section>
+                </motion.section>
             </section>
 
             {stars.map((star, idx) => {

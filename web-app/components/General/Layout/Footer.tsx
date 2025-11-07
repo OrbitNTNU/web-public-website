@@ -62,7 +62,7 @@ export const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://www.youtube.com/@orbitntnu"
+              href="https://www.youtube.com/@orbitntnu4393"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"

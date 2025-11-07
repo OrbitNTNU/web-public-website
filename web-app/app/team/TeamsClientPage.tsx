@@ -1,15 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TeamsControls from "@/components/TeamsPage/TeamsControls";
-import SearchFilters from "@/components/TeamsPage/SearchFilters";
-import GridView from "@/components/TeamsPage/Views/GridView";
 import ListView from "@/components/TeamsPage/Views/ListView";
 import TraditionalView from "@/components/TeamsPage/Views/TraditionalView";
-import MemberView from "@/components/TeamsPage/Views/MembersView";
 import GalleryView from "@/components/TeamsPage/Views/GalleryView";
 import Header from "@/components/General/Header";
 import { Loading } from "@/components/Loading";
+import TeamSelector from "@/components/TeamsPage/TeamSelector";
 
 export interface Member {
   name: string;
@@ -30,8 +28,6 @@ export interface Team {
   members: Member[];
 }
 
-const filters = ["Group", "Team", "Position"];
-
 export default function TeamsClientPage({
   initialTeamsData,
 }: {
@@ -42,21 +38,28 @@ export default function TeamsClientPage({
   const [activeTeam, setActiveTeam] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [viewMode, setViewMode] = useState<
-    "grid" | "list" | "members" | "gallery" | "traditional"
+    "list" | "gallery" | "traditional"
   >("traditional");
-  const [openDropdowns, setOpenDropdowns] = useState<boolean[]>(
-    Array(filters.length).fill(false),
-  );
-  const [selectedFilters, setSelectedFilters] = useState<
-    Record<string, string[]>
-  >({});
+  const [selectedTeamID, setSelectedTeamID] = useState<number>(1);
 
+  
+  useEffect(() => {
+    if(searchTerm !== "") {
+      setViewMode("gallery");
+    }
+    if(viewMode !== "gallery") {
+      setSearchTerm("");
+    }
+    
+  }, [searchTerm, viewMode]);
+  
   if (loading) return <Loading />;
+  
   if (!teamsData)
     return <div className="text-cloud-white">No team data available.</div>;
-
+  
   return (
-    <div className="w-full relative max-w-[2000px] mx-auto my-20 md:my-40 flex flex-col">
+    <div className="w-full relative max-w-[2000px] mx-auto py-20 md:py-40 flex flex-col bg-charcoal">
       <Header
         title="Teams and Members"
         subtitle="Our teams are the heartbeat of Orbit. Each one brings together diverse skills, perspectives, and passions to push ideas into reality."
@@ -66,53 +69,33 @@ export default function TeamsClientPage({
         <TeamsControls
           viewMode={viewMode}
           setViewMode={setViewMode}
+          searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />
-        <SearchFilters
-          teamsData={teamsData}
-          filters={filters}
-          openDropdowns={openDropdowns}
-          setOpenDropdowns={setOpenDropdowns}
-          selectedFilters={selectedFilters}
-          setSelectedFilters={setSelectedFilters}
-        />
+        {viewMode === "traditional" && (
+          <TeamSelector
+            teamsData={teamsData}
+            selectedTeamID={selectedTeamID}
+            setSelectedTeamID={setSelectedTeamID}
+          />
+        )}
       </section>
-
-      {viewMode === "grid" && (
-        <GridView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
-        />
-      )}
-      {viewMode === "list" && (
-        <ListView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
-          setActiveTeam={setActiveTeam}
-          activeTeam={activeTeam}
-        />
-      )}
-      {viewMode === "members" && (
-        <MemberView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
-        />
-      )}
       {viewMode === "traditional" && (
         <TraditionalView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
+          team={teamsData.find((team) => team.teamID === selectedTeamID)!}
         />
       )}
       {viewMode === "gallery" && (
         <GalleryView
           teamsData={teamsData}
           searchTerm={searchTerm}
-          selectedFilters={selectedFilters}
+        />
+      )}
+      {viewMode === "list" && (
+        <ListView
+          teamsData={teamsData}
+          setActiveTeam={setActiveTeam}
+          activeTeam={activeTeam}
         />
       )}
     </div>

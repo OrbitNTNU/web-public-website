@@ -69,14 +69,14 @@ const ImageAndCaption = ({
           transition={{ type: "spring", stiffness: 50, damping: 20 }}
         >
           {link ? (
-            <Link href={link} target="_blank" rel="noopener noreferrer">
+            <Link href={link} rel="noopener noreferrer">
               <motion.div style={{ y }}>
                 <Image
                   src={src}
                   alt={alt}
                   width={width}
                   height={height}
-                  className="w-full h-auto shadow-lg hover:opacity-90 transition-opacity duration-300"
+                  className="w-full h-auto shadow-lg hover:opacity-90 transition duration-300 hover:scale-105"
                 />
               </motion.div>
             </Link>

@@ -6,55 +6,23 @@ import MemberCard from "../../MemberCard";
 import { useRouter } from "next/navigation";
 
 interface TraditionalViewProps {
-  teamsData: Team[];
-  searchTerm: string;
-  selectedFilters: { [key: string]: string[] };
+  team: Team;
 }
 
 const TraditionalView = ({
-  teamsData,
-  searchTerm,
-  selectedFilters,
+  team,
 }: TraditionalViewProps) => {
   const router = useRouter();
 
-  const filteredMembers = teamsData
-    .flatMap((team) =>
-      team.members.map((member) => ({
-        ...member,
-        teamName: team.teamName,
-        group: team.group,
-        teamDescription: team.description,
-      })),
-    )
-    .filter((member) => {
-      const matchesGroupFilter = selectedFilters["Group"]?.length
-        ? selectedFilters["Group"].includes(member.group.split("_").join(" "))
-        : true;
+  const filteredMembers = team.members.map((member) => ({
+    ...member,
+    teamName: team.teamName,
+    group: team.group,
+    teamDescription: team.description,
+  }));
 
-      const matchesTeamFilter = selectedFilters["Team"]?.length
-        ? selectedFilters["Team"].includes(member.teamName)
-        : true;
-
-      const matchesPositionFilter = selectedFilters["Position"]?.length
-        ? selectedFilters["Position"].includes(member.privilege)
-        : true;
-
-      return matchesGroupFilter && matchesTeamFilter && matchesPositionFilter;
-    });
-
-  const searchedAndFiltered = filteredMembers.filter((member) => {
-    const term = searchTerm.toLowerCase();
-    return (
-      member.name.toLowerCase().includes(term) ||
-      member.title?.toLowerCase().includes(term) ||
-      member.teamName?.toLowerCase().includes(term) ||
-      member.mail?.toLowerCase().includes(term)
-    );
-  });
-
-  const membersByTeam = searchedAndFiltered.reduce<
-    Record<string, typeof searchedAndFiltered>
+  const membersByTeam = filteredMembers.reduce<
+    Record<string, typeof filteredMembers>
   >((acc, member) => {
     if (!acc[member.teamName]) acc[member.teamName] = [];
     if (!acc[member.teamName].some((m) => m.name === member.name)) {
@@ -63,7 +31,7 @@ const TraditionalView = ({
     return acc;
   }, {});
 
-  const teamsToRender = teamsData.filter(
+  const teamsToRender = [team].filter(
     (team) => membersByTeam[team.teamName]?.length,
   );
 
