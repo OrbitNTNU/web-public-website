@@ -16,9 +16,11 @@ export const Footer = () => {
   ];
 
   return (
-    <>
+    <footer
+        className="w-full flex flex-col items-center bg-charcoal pt-20 md:pt-40"
+    >
       <button
-        className="w-full mx-auto flex flex-col items-center mb-8 pt-20 md:pt-40 "
+        className="flex flex-col items-center mb-8 cursor-pointer"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <p className="material-icons" style={{ fontSize: "3rem" }}>
@@ -26,7 +28,7 @@ export const Footer = () => {
         </p>
         <small>Go back to the top of the page</small>
       </button>
-      <footer className="bg-moonlight text-cloud-white py-12  mx-auto px-4 md:px-12">
+      <section className="w-full bg-moonlight text-cloud-white py-12  mx-auto px-4 md:px-12">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo + Info */}
           <div className="text-center md:text-left flex flex-col">
@@ -95,7 +97,7 @@ export const Footer = () => {
         <p className="text-center text-charcoal-light mt-8">
           &copy; {year} Orbit NTNU. All rights reserved.
         </p>
-      </footer>
-    </>
+      </section>
+    </footer>
   );
 };
