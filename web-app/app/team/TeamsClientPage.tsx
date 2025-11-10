@@ -42,22 +42,25 @@ export default function TeamsClientPage({
   >("traditional");
   const [selectedTeamID, setSelectedTeamID] = useState<number>(1);
 
-  
   useEffect(() => {
-    if(searchTerm !== "") {
+    if (searchTerm !== "") {
       setViewMode("gallery");
     }
-    if(viewMode !== "gallery") {
+    if (viewMode !== "gallery") {
       setSearchTerm("");
     }
-    
+
   }, [searchTerm, viewMode]);
   
   if (loading) return <Loading />;
+
+  const handleTeamChange = (teamID: number) => {
+    setSelectedTeamID(teamID);
+  };
   
   if (!teamsData)
     return <div className="text-cloud-white">No team data available.</div>;
-  
+
   return (
     <div className="w-full relative max-w-[2000px] mx-auto py-20 md:py-40 flex flex-col bg-charcoal">
       <Header
@@ -76,7 +79,7 @@ export default function TeamsClientPage({
           <TeamSelector
             teamsData={teamsData}
             selectedTeamID={selectedTeamID}
-            setSelectedTeamID={setSelectedTeamID}
+            handleTeamChange={handleTeamChange}
           />
         )}
       </section>

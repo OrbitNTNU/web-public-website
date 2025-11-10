@@ -42,29 +42,14 @@ const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
 
   return (
     <div className="mx-auto flex w-full flex-col">
-      <motion.h3
+      <h3
         className="mb-2"
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{
-          type: "tween",
-          stiffness: 200,
-        }}
       >
         Study Level Distribution
-      </motion.h3>
+      </h3>
       {summary && (
-        <motion.p
+        <p
           className="mb-6 text-charcoal-light leading-relaxed md:max-w-2/3"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            type: "tween",
-            stiffness: 200,
-            delay: 0.2,
-          }}
         >
           Out of{" "}
           <strong className="text-cloud-white">{summary.allMembers}</strong>{" "}
@@ -81,7 +66,7 @@ const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
             {summary.mostCommonCount}
           </strong>{" "}
           members.
-        </motion.p>
+        </p>
       )}
 
       {/* Horizontal scroll table */}

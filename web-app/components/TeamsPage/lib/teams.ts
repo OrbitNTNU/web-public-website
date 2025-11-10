@@ -19,18 +19,6 @@ export interface Team {
   members: Member[];
 }
 
-export const groupColors: Record<string, string> = {
-  IT: "color-orange-sherbert",
-  TECHNICAL: "color-emerald-fizz",
-  ADMINISTRATIVE: "color-sky-mint",
-  MENTORS: "color-laser-lemon",
-  DAILY_OPERATIONS: "color-pink-blast",
-  FINANCIAL: "color-yellow-400",
-  MARKETING_AND_EVENT: "color-purple-400",
-  SUPPORT: "color-blue-400",
-  default: "color-emerald-fizz",
-};
-
 // Safe for server or client
 export const getSlug = async (teamID: number): Promise<string> => {
   const data = await fetchTeamSlug(teamID);

@@ -1,7 +1,6 @@
 import { useRouter } from "next/navigation";
 import {
   getSlug,
-  groupColors,
   Member,
   Team,
 } from "@/components/TeamsPage/lib/teams";
@@ -84,13 +83,7 @@ const ListView = ({
               .map(([groupName, teams]: [string, Team[]]) => (
                 <tr key={groupName}>
                   <td className="w-[240px] px-2 py-4 border-b border-charcoal-light text-cloud-white font-semibold align-top">
-                    <button className="w-full text-left cursor-pointer focus:outline-none flex flex-row gap-2 items-center">
-                      <span
-                        className="block w-4 h-4 rounded-full mr-2"
-                        style={{
-                          backgroundColor: `var(--${groupColors[groupName]})`,
-                        }}
-                      ></span>
+                    <button className="w-full text-left cursor-pointer focus:outline-none">
                       {groupName.split("_").join(" ")}
                     </button>
                   </td>

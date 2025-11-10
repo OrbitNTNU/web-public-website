@@ -3,13 +3,13 @@ import { Team } from "@/components/TeamsPage/lib/teams";
 interface TeamSelectorProps {
   teamsData: Team[];
   selectedTeamID: number;
-  setSelectedTeamID: React.Dispatch<React.SetStateAction<number>>;
+  handleTeamChange: (teamID: number) => void;
 }
 
 const TeamSelector = ({
   teamsData,
   selectedTeamID,
-  setSelectedTeamID,
+  handleTeamChange,
 }: TeamSelectorProps) => {
 
   const sortedTeams = teamsData.sort((a, b) =>
@@ -26,13 +26,7 @@ const TeamSelector = ({
               : "text-charcoal-light"
             }`}
           onClick={() => {
-            setSelectedTeamID((prev) => {
-              if (prev === team.teamID) {
-                return -1;
-              } else {
-                return team.teamID;
-              }
-            });
+            handleTeamChange(team.teamID);
           }}
         >
           <span
