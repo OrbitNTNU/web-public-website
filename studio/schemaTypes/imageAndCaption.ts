@@ -1,4 +1,3 @@
-// schemas/imageAndCaption.js
 export default {
   name: 'imageAndCaption',
   title: 'Image and Caption',

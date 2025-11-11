@@ -15,7 +15,6 @@ import textSection from './sections/textSection'
 import videoSection from './sections/videoSection'
 import spanningText from './spanningText'
 import subOrbitalProject from './subOrbitalProject'
-import subOrbitalShowcase from './subOrbitalShowcase'
 import team from './team'
 import sponsorsPage from './pages/sponsorsPage'
 import mainSponsor from './sponsors/mainSponsor'
@@ -35,6 +34,14 @@ import singleImageCollage from './singleImageCollage'
 import imageAndCaption from './imageAndCaption'
 import article from './article/article'
 import textHeavy from './textHeavy'
+import flowingTriImageCollage from "./team/flowingTriImageCollage";
+import teamPage from "./pages/teamPage";
+import doubleImageWide from "./team/doubleImageWide";
+import doubleImageNoHeader from "./team/doubleImageNoHeader";
+import articleReference from "./article/articleReference";
+import gallery from "./team/gallery";
+import links from "./utils/links";
+import membersSection from "./team/membersSection";
 
 export const schemaTypes = [
   team,
@@ -73,4 +80,12 @@ export const schemaTypes = [
   imageAndCaption,
   article,
   textHeavy,
+    flowingTriImageCollage,
+    teamPage,
+    doubleImageWide,
+    doubleImageNoHeader,
+    articleReference,
+    gallery,
+    links,
+    membersSection,
 ]
