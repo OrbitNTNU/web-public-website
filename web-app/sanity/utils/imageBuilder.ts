@@ -26,9 +26,9 @@ export const imageBuilder = (
       : undefined;
 
   const applyParams = (url: URL) => {
-    const width = opts.width ?? 1380;
+    const width = opts.width ?? 1920;
     const height = opts.height ?? undefined;
-    const quality = opts.quality ?? 70;
+    const quality = opts.quality ?? 90;
     const format = opts.format ?? "webp";
 
     url.searchParams.set("w", String(width));
