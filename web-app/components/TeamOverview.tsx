@@ -172,7 +172,7 @@ const TeamOverview = () => {
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.4 }}
-                                    className="flex flex-col w-1/2 -translate-y-60"
+                                    className="flex flex-col w-2/3 -translate-y-60"
                                 >
                                     <h2 className="mb-4">{team.teamName}</h2>
                                     <p className="mb-4 text-charcoal-light">
