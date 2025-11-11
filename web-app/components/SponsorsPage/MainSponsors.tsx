@@ -2,6 +2,7 @@ import { MainSponsor } from "@/sanity/types/sponsorsPage";
 import Image from "next/image";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { PortableText } from "next-sanity";
+import Link from "next/link";
 
 interface MainSponsorsProps {
   sponsors: MainSponsor[];
@@ -21,16 +22,21 @@ const MainSponsors = ({ sponsors }: MainSponsorsProps) => {
         {sponsors.map((sponsor) => (
           <div
             key={sponsor._key}
-            className="w-full md:w-1/2 justify-center items-center flex flex-col md:flex-row gap-8 px-0 py-4 md:p-4"
+            className="w-full sm:w-1/2 justify-center items-center flex flex-col lg:flex-row gap-8 px-0 py-4 md:p-4"
           >
-            <Image
-              src={imageBuilder(sponsor.logo)}
-              alt={`${sponsor.name} logo`}
-              width={400}
-              height={600}
-              className="h-[400px] w-auto aspect-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => handleClick(sponsor.website)}
-            />
+            <Link
+              href={sponsor.website || "#"}
+              target="_blank"
+              rel="noopener noreferrer w-full"
+            >
+              <Image
+                src={imageBuilder(sponsor.logo)}
+                alt={`${sponsor.name} logo`}
+                width={400}
+                height={600}
+                className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+              />
+            </Link>
             <section className="flex flex-col gap-4">
               <h2>{sponsor.name}</h2>
               <PortableText

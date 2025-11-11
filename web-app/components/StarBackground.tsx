@@ -6,7 +6,6 @@ async function getMembers() {
     const res = await fetch("/api/members");
     if (!res.ok) throw new Error("Failed to fetch members");
     const json = await res.json();
-    console.log("Total members:", json.totalMembers);
     return json.totalMembers || 0;
   } catch (err) {
     console.error(err);
@@ -28,11 +27,14 @@ export default function StarBackground() {
     return Array.from({ length: memberCount }).map((_, i) => {
       const size = Math.random() * 4 + 1;
       const topPercent = Math.random() * 100;
+      const opacity = Math.max(1 - topPercent / 100, 0.6);
+
       return {
         id: i,
         size,
         top: `${topPercent}%`,
         left: `${Math.random() * 100}%`,
+        opacity: opacity,
       };
     });
   }, [memberCount]);
@@ -52,6 +54,7 @@ export default function StarBackground() {
                 height: `${star.size}px`,
                 top: star.top,
                 left: star.left,
+                opacity: star.opacity,
               }}
             />
           ),

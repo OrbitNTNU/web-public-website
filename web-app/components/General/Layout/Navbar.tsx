@@ -1,9 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useNavbar } from "./NavbarContext";
+import Link from "next/link";
+import NavbarItem from "./NavbarItem";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -18,14 +20,45 @@ const navItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [logoClicked, setLogoClicked] = useState<number>(0);
+  const [resetTimer, setResetTimer] = useState<NodeJS.Timeout | null>(null);
+  const [animateLogoFall, setAnimateLogoFall] = useState(false);
+  const [isLogoHidden, setIsLogoHidden] = useState(false);
+
+  const detailRef = useRef<HTMLDivElement>(null);
+  const [detailWidth, setDetailWidth] = useState(0);
 
   const { info } = useNavbar();
   const baseHref = info?.baseHref || "/";
   const detailedLocation = info?.detailedLocation || "";
 
+  useLayoutEffect(() => {
+    if (detailRef.current) {
+      setDetailWidth(detailRef.current.offsetWidth + 16); // +16 for gap/margin
+    } else {
+      setDetailWidth(0);
+    }
+  }, [detailedLocation]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const fell = localStorage.getItem("logoFell") === "true";
+      setIsLogoHidden(fell);
+    }
+  }, []);
+
+  // Measure the width of the detailed item when shown
+  useLayoutEffect(() => {
+    if (detailRef.current) {
+      setDetailWidth(detailRef.current.offsetWidth + 16); // +16 for gap/margin
+    } else {
+      setDetailWidth(0);
+    }
+  }, [detailedLocation]);
 
   const router = useRouter();
 
@@ -35,6 +68,27 @@ export default function Navbar() {
   };
 
   const pathname = usePathname();
+
+  const handleLogoFall = () => {
+    localStorage.setItem("logoFell", "true");
+    setAnimateLogoFall(true);
+  };
+
+  const handleClick = () => {
+    setLogoClicked((prev) => prev + 1);
+
+    if (logoClicked === 25) {
+      handleLogoFall();
+    }
+
+    if (resetTimer) clearTimeout(resetTimer);
+
+    const newTimer = setTimeout(() => {
+      setLogoClicked(0);
+    }, 1500);
+
+    setResetTimer(newTimer);
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-screen z-50 py-4 px-4 md:px-8 flex justify-between items-center pb-8">
@@ -47,56 +101,63 @@ export default function Navbar() {
       />
       <motion.div
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, type: "spring" }}
-        className="font-bold text-lg tracking-wider text-white select-none cursor-pointer z-10"
-        onClick={() => navigate("/")}
+        animate={
+          animateLogoFall
+            ? {
+              y: 800, // falls off screen
+              rotate: 720, // spins as it falls
+              opacity: 0,
+            }
+            : {
+              opacity: 1,
+              y: 0,
+              rotate:
+                logoClicked > 10
+                  ? Math.sin(logoClicked / 2) * Math.min(logoClicked / 2, 20)
+                  : 0,
+              x:
+                logoClicked > 10
+                  ? Math.sin(logoClicked * 4) * Math.min(logoClicked / 2, 15)
+                  : 0,
+            }
+        }
+        transition={{
+          duration: animateLogoFall ? 1.8 : 0.2,
+          type: animateLogoFall ? "tween" : "spring",
+          ease: animateLogoFall ? "easeIn" : undefined,
+          stiffness: 200,
+          damping: 10,
+        }}
+        onClick={() => (pathname !== "/" ? navigate("/") : handleClick())}
+        className="cursor-pointer select-none z-10"
       >
-        <Image src="/logo.png" alt="Logo" width={100} height={100} />
+        {!isLogoHidden && (
+          <Image src="/logo.png" alt="Logo" width={100} height={100} />
+        )}
       </motion.div>
 
       <motion.div>
         <div className="hidden md:flex gap-8">
-          {navItems.map((item) => {
+          {navItems.map((item, index) => {
             const isActive = pathname === item.href;
+            const isBaseWithDetail = Boolean(detailedLocation && baseHref === item.href);
+            const activeIndex = navItems.findIndex(
+              (nav) => nav.href === baseHref,
+            );
 
             return (
-              <motion.div
+              <NavbarItem
                 key={item.label}
-                className="relative inline-block group"
-              >
-                <p
-                  className="cursor-pointer text-cloud-white font-medium no-underline uppercase tracking-wider transition-colors duration-200 text-sm"
-                  onClick={() => navigate(item.href)}
-                >
-                  {item.label}
-                </p>
-
-                {/* Animated underline */}
-                {mounted && (
-                  <span
-                    className={`absolute left-0 bottom-0 h-[2px] bg-cloud-white rounded origin-left transition-all duration-300 ease-out
-                                        ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
-                  />
-                )}
-                {detailedLocation && baseHref === item.href && (
-                  <motion.div
-                    className="fixed flex justify-end items-end text-charcoal-light -translate-x-[calc(100%-40px)]"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <span className="flex items-center gap-1">
-                      <span className="mt-2 underline underline-offset-4">
-                        {detailedLocation}
-                      </span>
-                      <span className="material-icons text-base translate-y-[1px]">
-                        subdirectory_arrow_left
-                      </span>
-                    </span>
-                  </motion.div>
-                )}
-              </motion.div>
+                item={item}
+                index={index}
+                activeIndex={activeIndex}
+                detailedLocation={detailedLocation}
+                isBaseWithDetail={isBaseWithDetail}
+                isActive={isActive}
+                mounted={mounted}
+                detailWidth={detailWidth}
+                detailRef={detailRef}
+              />
             );
           })}
         </div>

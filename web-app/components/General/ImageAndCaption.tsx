@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 interface ImageAndCaptionProps {
   src: string;
@@ -65,28 +66,31 @@ const ImageAndCaption = ({
         {/* Parallax Image */}
         <motion.div
           className={`flex-shrink-0 relative overflow-hidden ${imageWidthClass[variant]}`}
-          style={{ y }}
           transition={{ type: "spring", stiffness: 50, damping: 20 }}
         >
           {link ? (
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            <Link href={link} rel="noopener noreferrer">
+              <motion.div style={{ y }}>
+                <Image
+                  src={src}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  className="w-full h-auto shadow-lg hover:opacity-90 transition duration-300 hover:scale-105"
+                />
+              </motion.div>
+            </Link>
+          ) : (
+            <motion.div style={{ y }}>
               <Image
                 src={src}
                 alt={alt}
                 width={width}
                 height={height}
-                className="w-full h-auto shadow-lg hover:opacity-90 transition-opacity duration-300"
+                className="w-full h-auto shadow-lg scale-150"
+                style={{ transformOrigin: "top center" }}
               />
-            </a>
-          ) : (
-            <Image
-              src={src}
-              alt={alt}
-              width={width}
-              height={height}
-              className="w-full h-auto shadow-lg scale-150"
-              style={{ transformOrigin: "top center" }}
-            />
+            </motion.div>
           )}
         </motion.div>
 

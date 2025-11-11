@@ -5,6 +5,7 @@ import Image from "next/image";
 import type { Article } from "@/sanity/types/pages/articlePage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { PortableText } from "next-sanity";
+import Link from "next/link";
 
 interface RegularArticleProps {
   article: Article;
@@ -12,12 +13,11 @@ interface RegularArticleProps {
 }
 
 const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
-  const router = useRouter();
   const imageUrl = imageBuilder(article.mainImage) ?? "/placeholder.jpg";
 
   return (
     <motion.div
-      className="flex flex-col group cursor-pointer mb-8"
+      className="flex flex-col group mb-8"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
@@ -27,9 +27,11 @@ const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
         delay: isMobile ? 0 : 0.2,
         duration: 0.4,
       }}
-      onClick={() => void router.push(`/articles/${article.slug.current}`)}
     >
-      <div className="w-full aspect-[4/3] overflow-hidden">
+      <Link
+        className="w-full aspect-[4/3] overflow-hidden z-20"
+        href={`/articles/${article.slug.current}`}
+      >
         <Image
           src={imageUrl}
           alt={article.mainImage?.alt ?? article.title}
@@ -38,7 +40,7 @@ const RegularArticle = ({ article, isMobile }: RegularArticleProps) => {
           height={300}
           priority
         />
-      </div>
+      </Link>
 
       <div className="flex flex-col flex-1 mt-4">
         <small className="text-charcoal-light">

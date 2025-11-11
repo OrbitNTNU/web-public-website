@@ -12,6 +12,7 @@ import { Article } from "@/sanity/types/pages/articlePage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -20,7 +21,6 @@ interface ArticleSlugClientPageProps {
 }
 
 const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
-  const router = useRouter();
   const { setInfo, resetInfo } = useNavbar();
 
   useEffect(() => {
@@ -37,15 +37,15 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
   return (
     <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-32 md:my-40 flex flex-col gap-8">
       <div className="flex flex-col gap-8">
-        <span
+        <Link
           className="flex flex-row gap-2 group cursor-pointer items-center"
-          onClick={() => router.push("/articles")}
+          href="/articles"
         >
           <span className="material-icons text-3xl transition-transform duration-200 group-hover:-translate-x-2">
             chevron_left
           </span>
           <span>Go back to articles</span>
-        </span>
+        </Link>
         <div className="flex flex-col gap-4">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

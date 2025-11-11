@@ -2,18 +2,13 @@ import { GoldSponsor } from "@/sanity/types/sponsorsPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import Link from "next/link";
 
 interface GoldSponsorsProps {
   sponsors: GoldSponsor[];
 }
 
 const GoldSponsors = ({ sponsors }: GoldSponsorsProps) => {
-  const handleClick = (url: string | undefined) => {
-    if (url) {
-      window.open(url, "_blank");
-    }
-  };
-
   return (
     <div className="flex items-center flex-col gap-20">
       <h1>{`Gold sponsor` + (sponsors.length > 1 ? "s" : "")}</h1>
@@ -23,14 +18,19 @@ const GoldSponsors = ({ sponsors }: GoldSponsorsProps) => {
             key={sponsor._key}
             className="w-full md:w-1/3 justify-start items-center flex flex-col gap-8 px-0 py-8 md:p-8"
           >
-            <Image
-              src={imageBuilder(sponsor.logo)}
-              alt={`${sponsor.name} logo`}
-              width={400}
-              height={600}
-              className="aspect-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
-              onClick={() => handleClick(sponsor.website)}
-            />
+            <Link
+              href={sponsor.website || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={imageBuilder(sponsor.logo)}
+                alt={`${sponsor.name} logo`}
+                width={400}
+                height={600}
+                className="aspect-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+              />
+            </Link>
             <section className="flex flex-col gap-4">
               <h2>{sponsor.name}</h2>
               <PortableText

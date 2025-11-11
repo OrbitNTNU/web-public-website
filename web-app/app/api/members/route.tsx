@@ -7,16 +7,13 @@ export async function GET() {
         "https://lifesupport.orbitntnu.com/api/trpc/statistics.getMemberDistributionInTeams",
     };
 
-    const [memberResp] =  await Promise.all([
-        fetch(urls.memberDistributionInTeams),
-      ]);
+    const [memberResp] = await Promise.all([
+      fetch(urls.memberDistributionInTeams),
+    ]);
 
     if (!memberResp.ok) throw new Error("Failed fetching member distribution");
 
-    const [memberData] =
-      await Promise.all([
-        memberResp.json(),
-      ]);
+    const [memberData] = await Promise.all([memberResp.json()]);
 
     const data = {
       totalMembers: memberData.result?.data?.json.totalMembers ?? 0,

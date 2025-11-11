@@ -82,10 +82,6 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
     };
   }, [filteredStudies, mostCommon]);
 
-  const handleClick = (studyCode: string) => {
-    window.open(`https://www.ntnu.no/studier/${studyCode}`, "_blank");
-  };
-
   // --- DRAG SCROLL LOGIC ---
   const handleMouseDown = (e: React.MouseEvent) => {
     const el = scrollRef.current;
@@ -118,29 +114,14 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
 
   return (
     <div className="relative mx-auto flex w-full flex-col md:items-end">
-      <motion.h3
+      <h3
         className="mb-2"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{
-          type: "tween",
-          stiffness: 200,
-          delay: 0.2,
-        }}
       >
         Our Fields of Study
-      </motion.h3>
+      </h3>
 
-      <motion.p
+      <p
         className="mb-8 max-w-3xl text-charcoal-light md:ml-auto md:text-right md:max-w-2/3"
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{
-          type: "tween",
-          stiffness: 200,
-        }}
       >
         There are currently{" "}
         <strong className="text-cloud-white">{summary.totalStudies}</strong>{" "}
@@ -153,7 +134,7 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
         with{" "}
         <strong className="text-cloud-white">{summary.mostCommonCount}</strong>{" "}
         members.
-      </motion.p>
+      </p>
 
       {/* Bar chart with scroll and drag */}
       <div
@@ -174,7 +155,6 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
             <div
               key={s.study}
               className="flex flex-col items-center cursor-pointer"
-              onClick={() => handleClick(s.study.toLowerCase())}
             >
               <small className="flex items-center gap-1 text-charcoal-light">
                 <small
@@ -186,13 +166,16 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
                 </small>
                 {s.count}
               </small>
-              <div
+              <a
                 className={`transition-all duration-200 ${STUDY_COLORS[idx % STUDY_COLORS.length]} rounded-lg`}
                 style={{
                   height: `${barHeight}px`,
                   width: "40px",
                   minHeight: "2px",
                 }}
+                href={`https://www.ntnu.no/studier/${s.study.toLowerCase()}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 title={`${s.study}: ${s.count}`}
               />
               <small className="mt-2 truncate text-center text-xs">

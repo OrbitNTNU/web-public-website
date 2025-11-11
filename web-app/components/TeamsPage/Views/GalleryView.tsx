@@ -3,49 +3,52 @@
 import { motion } from "framer-motion";
 import MemberCard from "../../MemberCard";
 import { Team } from "@/components/TeamsPage/lib/teams";
+import { useEffect, useMemo, useState } from "react";
 
 interface GalleryViewProps {
   teamsData: Team[];
   searchTerm: string;
-  selectedFilters: { [key: string]: string[] };
 }
 
 const GalleryView = ({
   teamsData,
   searchTerm,
-  selectedFilters,
 }: GalleryViewProps) => {
-  const filteredMembers = teamsData
-    .flatMap((team) =>
-      team.members.map((member) => ({
-        ...member,
-        teamName: team.teamName,
-        group: team.group,
-        teamDescription: team.description,
-      })),
-    )
-    .filter((member) => {
-      const matchesGroupFilter = selectedFilters["Group"]?.length
-        ? selectedFilters["Group"].includes(member.group.split("_").join(" "))
-        : true;
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
 
-      const matchesTeamFilter = selectedFilters["Team"]?.length
-        ? selectedFilters["Team"].includes(member.teamName)
-        : true;
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 300);
 
-      const matchesPositionFilter = selectedFilters["Position"]?.length
-        ? selectedFilters["Position"].includes(member.privilege)
-        : true;
+    return () => clearTimeout(handler);
+  }, [searchTerm]);
 
-      return matchesGroupFilter && matchesTeamFilter && matchesPositionFilter;
-    });
+  // Precompute flattened member list
+  const filteredMembers = useMemo(
+    () =>
+      teamsData.flatMap((team) =>
+        team.members.map((member) => ({
+          ...member,
+          teamName: team.teamName,
+          group: team.group,
+          teamDescription: team.description,
+        })),
+      ),
+    [teamsData],
+  );
 
-  const searchedAndFiltered = filteredMembers.filter(
-    (member) =>
-      member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      member.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      member.teamName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      member.mail?.toLowerCase().includes(searchTerm.toLowerCase()),
+  // Only filter when debounced term updates
+  const searchedAndFiltered = useMemo(
+    () =>
+      filteredMembers.filter(
+        (member) =>
+          member.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+          member.title?.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+          member.teamName?.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+          member.mail?.toLowerCase().includes(debouncedSearchTerm.toLowerCase()),
+      ),
+    [filteredMembers, debouncedSearchTerm],
   );
 
   return (

@@ -16,17 +16,19 @@ export const Footer = () => {
   ];
 
   return (
-    <>
-      <div
-        className="cursor-pointer flex flex-col items-center mb-8"
+    <footer
+        className="w-full flex flex-col items-center bg-charcoal pt-20 md:pt-40"
+    >
+      <button
+        className="flex flex-col items-center mb-8 cursor-pointer"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <p className="material-icons" style={{ fontSize: "3rem" }}>
           keyboard_arrow_up
         </p>
         <small>Go back to the top of the page</small>
-      </div>
-      <footer className="bg-moonlight text-cloud-white py-12  mx-auto px-4 md:px-12">
+      </button>
+      <section className="w-full bg-moonlight text-cloud-white py-12  mx-auto px-4 md:px-12">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo + Info */}
           <div className="text-center md:text-left flex flex-col">
@@ -62,7 +64,7 @@ export const Footer = () => {
               <FaInstagram />
             </a>
             <a
-              href="https://www.youtube.com/@orbitntnu"
+              href="https://www.youtube.com/@orbitntnu4393"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
@@ -95,7 +97,7 @@ export const Footer = () => {
         <p className="text-center text-charcoal-light mt-8">
           &copy; {year} Orbit NTNU. All rights reserved.
         </p>
-      </footer>
-    </>
+      </section>
+    </footer>
   );
 };
