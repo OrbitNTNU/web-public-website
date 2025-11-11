@@ -144,7 +144,7 @@ export default function InstagramEmbed() {
   };
 
   return (
-    <section className="py-16">
+    <section className="pt-16 pb-16 lg:pb-32">
       <motion.h3
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}

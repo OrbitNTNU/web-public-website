@@ -3,6 +3,12 @@ export interface Team {
   name: string
 }
 
+export interface TeamWithDescription {
+  id: string
+  name: string
+  description: string 
+}
+
 export async function getTeamNames(): Promise<Team[]> {
   try {
     const res: Response = await fetch(

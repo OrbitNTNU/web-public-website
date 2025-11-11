@@ -12,6 +12,7 @@ import SubOrbital from "@/components/General/SubOrbital";
 import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
 import JoinCard from "@/components/General/JoinCard";
 import ForSponsorsCard from "@/components/General/ForSponsorsCard";
+import TeamOverview from "@/components/TeamOverview";
 
 interface LandingPageProps {
   sections: LandingPageSection[];
@@ -101,18 +102,17 @@ export default function LandingPage({ sections }: LandingPageProps) {
               </section>
             );
 
-              case "projectsShowcase":
-                  if (!(section.projectType === "subOrbitalProject")) {
-                      return <Projects key={section._key} projects={section.projects} />;
-                  }
-                  return <SubOrbital key={section._key} projects={section.projects} />;
+          case "projectsShowcase":
+            if (!(section.projectType === "subOrbitalProject")) {
+              return <Projects key={section._key} projects={section.projects} />;
+            }
+            return <SubOrbital key={section._key} projects={section.projects} />;
 
-
-              case "instagramEmbed":
-              return <InstagramEmbed key={section._key} />;
+          case "instagramEmbed":
+            return <InstagramEmbed key={section._key} />;
 
           case "joinCardRef":
-            return <JoinCard key={section._key} data={section.data} />;
+            return <TeamOverview key={section._key} />;
 
           case "forSponsorsCardRef":
             return <ForSponsorsCard key={section._key} data={section.data} />;
