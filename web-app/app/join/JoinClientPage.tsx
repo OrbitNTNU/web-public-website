@@ -32,19 +32,12 @@ const JoinClientPage = ({ content }: JoinClientPageProps) => {
     return (
         <section
             ref={sectionRef}
-            className="w-full mx-auto px-4 md:px-12 max-w-[1600px] md:flex-row my-32 md:my-40 flex flex-col gap-8 md:gap-20"
+            className="w-full mx-auto px-4 md:px-12 max-w-[1600px] md:flex-row my-32 md:my-40 flex flex-col gap-8 md:gap-40"
         >
             <div
-                className="w-full xl:w-2/5 h-auto relative"
+                className="w-full xl:w-2/5 h-full relative items-center justify-center m-auto"
             >
-                <h1 className="mb-4">
-                    {content.title}
-                </h1>
-
-                <span className="flex whitespace-pre-wrap mb-10 md:mb-20 text-charcoal-light leading-relaxed">
-                    {content.text}
-                </span>
-                <section className="flex flex-col gap-4">
+                <section className="flex flex-col gap-8">
                     {content.buttons.map((button, index) => (
                         <Link
                             key={index}
@@ -68,7 +61,7 @@ const JoinClientPage = ({ content }: JoinClientPageProps) => {
                     return (
                         <motion.div
                             key={index}
-                            className={`relative break-inside-avoid rounded-2xl overflow-hidden ${index === 1 || index === 3 ? "mt-4" : ""
+                            className={`relative break-inside-avoid overflow-hidden ${index === 1 || index === 3 ? "mt-4" : ""
                                 }`}
                             style={{
                                 height:
