@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef } from "react";
 
-interface DoubleImagesProps {
+interface DoubleImageWideProps {
   src1: string;
   alt1: string;
   title1?: string;
@@ -16,14 +16,14 @@ interface DoubleImagesProps {
   caption2?: string;
   link2?: string;
   variant?:
-    | "half-half"
-    | "one-third-two-third"
-    | "two-third-one-third"
-    | "half-half-long-left"
-    | "half-half-long-right";
+  | "half-half"
+  | "one-third-two-third"
+  | "two-third-one-third"
+  | "half-half-long-left"
+  | "half-half-long-right";
 }
 
-const getGridCols = (variant: DoubleImagesProps["variant"]) => {
+const getGridCols = (variant: DoubleImageWideProps["variant"]) => {
   switch (variant) {
     case "one-third-two-third":
       return "grid-cols-1 md:grid-cols-3";
@@ -37,7 +37,7 @@ const getGridCols = (variant: DoubleImagesProps["variant"]) => {
   }
 };
 
-const getColSpan = (variant: DoubleImagesProps["variant"], index: number) => {
+const getColSpan = (variant: DoubleImageWideProps["variant"], index: number) => {
   if (variant === "one-third-two-third") {
     return index === 0 ? "col-span-1" : "md:col-span-2";
   }
@@ -47,7 +47,7 @@ const getColSpan = (variant: DoubleImagesProps["variant"], index: number) => {
   return "";
 };
 
-const getRowSpan = (variant: DoubleImagesProps["variant"], index: number) => {
+const getRowSpan = (variant: DoubleImageWideProps["variant"], index: number) => {
   if (variant === "half-half-long-left" && index === 0) {
     return "md:row-span-2";
   }
@@ -58,7 +58,7 @@ const getRowSpan = (variant: DoubleImagesProps["variant"], index: number) => {
 };
 
 const getImageAspect = (
-  variant: DoubleImagesProps["variant"],
+  variant: DoubleImageWideProps["variant"],
   index: number,
 ) => {
   if (variant === "half-half-long-left" && index === 0) {
@@ -98,7 +98,7 @@ const textVariants: Variants = {
   },
 };
 
-const DoubleImages = ({
+const DoubleImageWide = ({
   src1,
   alt1,
   title1,
@@ -110,14 +110,14 @@ const DoubleImages = ({
   caption2,
   link2,
   variant = "half-half",
-}: DoubleImagesProps) => {
+}: DoubleImageWideProps) => {
   const gridCols = getGridCols(variant);
 
   // Generate random delays for each image (between 0.15 and 0.35 seconds)
   const delay1 = 0.15 * Math.random();
   const delay2 = 0.21 * Math.random();
 
-  const isLarge = (variant: DoubleImagesProps["variant"], index: number) =>
+  const isLarge = (variant: DoubleImageWideProps["variant"], index: number) =>
     (variant === "one-third-two-third" && index === 1) ||
     (variant === "two-third-one-third" && index === 0);
 
@@ -173,7 +173,7 @@ const DoubleImages = ({
 
   return (
     <div
-      className={`w-full px-4 md:px-12 mx-auto grid ${gridCols} gap-8 md:auto-rows-fr max-w-7xl`}
+      className={`w-full mx-auto grid ${gridCols} gap-8 md:auto-rows-fr`}
     >
       <motion.div
         className={`relative ${getColSpan(variant, 0)} ${getRowSpan(variant, 0)}`}
@@ -243,4 +243,4 @@ const DoubleImages = ({
   );
 };
 
-export default DoubleImages;
+export default DoubleImageWide;

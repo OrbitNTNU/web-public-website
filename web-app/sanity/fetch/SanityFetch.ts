@@ -165,9 +165,9 @@ export const getTeamPageForMagnus = async (): Promise<TeamPage | null> => {
   try {
     const { data } = await sanityFetch({
       query: `
-        *[_type == "teamPage"][0]{
+        *[_type == "teamPage"][1]{
           _id,
-          teams,
+          team,
           sections[] {
             ...,
 

@@ -1,5 +1,4 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import type { Article } from "@/sanity/types/pages/articlePage";

@@ -20,7 +20,7 @@ export default defineType({
         input: TeamsSelector,
       },
       validation: (Rule) =>
-        Rule.unique().custom(async (teams, context) => {
+        Rule.warning().custom(async (teams, context) => {
           if (!teams || teams.length === 0) return true
 
           const client = context.getClient({ apiVersion: '2023-01-01' })
