@@ -22,23 +22,6 @@ export interface DoubleImage {
   link2?: string;
 }
 
-// Used inside doubleImageWide (doubleImageNoHeader schema)
-export interface DoubleImageNoHeader {
-  _key: string;
-  _type: "doubleImageNoHeader";
-  variant?: string;
-  image1: Image;
-  alt1?: string;
-  title1?: string;
-  caption1?: string;
-  link1?: string;
-  image2: Image;
-  alt2?: string;
-  title2?: string;
-  caption2?: string;
-  link2?: string;
-}
-
 // Used inside singleImageCollage
 export interface ImageAndCaption {
   _key: string;
@@ -79,7 +62,17 @@ export interface DoubleImageCollageSection {
 export interface DoubleImageWideSection {
   _key: string;
   _type: "doubleImageWide";
-  items: DoubleImageNoHeader[];
+  variant?: string;
+  image1: Image;
+  alt1?: string;
+  title1?: string;
+  caption1?: string;
+  link1?: string;
+  image2: Image;
+  alt2?: string;
+  title2?: string;
+  caption2?: string;
+  link2?: string;
 }
 
 export interface SingleImageCollageSection {

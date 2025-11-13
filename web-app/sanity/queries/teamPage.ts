@@ -54,25 +54,22 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         }
       },
 
-      _type == "doubleImageWide" => {
-        _key,
-        _type,
-        items[]{
-          _key,
-          _type,
-          variant,
-          image1{asset->},
-          alt1,
-          title1,
-          caption1,
-          link1,
-          image2{asset->},
-          alt2,
-          title2,
-          caption2,
-          link2
-        }
-      },
+        _type == "doubleImageWide" => {
+    _key,
+    _type,
+    variant,
+    image1{asset->},
+    alt1,
+    title1,
+    caption1,
+    link1,
+    image2{asset->},
+    alt2,
+    title2,
+    caption2,
+    link2
+  },
+
 
       _type == "singleImageCollage" => {
         _key,

@@ -36,7 +36,6 @@ import textHeavy from './textHeavy'
 import flowingTriImageCollage from "./team/flowingTriImageCollage";
 import teamPage from "./pages/teamPage";
 import doubleImageWide from "./team/doubleImageWide";
-import doubleImageNoHeader from "./team/doubleImageNoHeader";
 import articleReference from "./article/articleReference";
 import gallery from "./team/gallery";
 import links from "./utils/links";
@@ -81,7 +80,6 @@ export const schemaTypes = [
     flowingTriImageCollage,
     teamPage,
     doubleImageWide,
-    doubleImageNoHeader,
     articleReference,
     gallery,
     links,
