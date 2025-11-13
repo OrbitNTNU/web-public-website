@@ -17,7 +17,7 @@ import {
 } from "@/sanity/queries/articlePage";
 import { Article } from "@/sanity/types/pages/articlePage";
 import {TeamPage} from "@/sanity/types/pages/teamsPage";
-import {TEAM_LIST_QUERY, TEAM_PAGE_QUERY} from "@/sanity/queries/teamPage";
+import {TEAM_PAGE_QUERY} from "@/sanity/queries/teamPage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -144,33 +144,18 @@ export const getSponsorPage = async (): Promise<SponsorsPage | null> => {
     return null;
   }
 };
-// TEAM PAGE TEASER
-export const getTeamList = async (): Promise<
-    Pick<TeamPage, "_id" | "title" | "description" | "slug">[]
-> => {
-  try {
-    const { data } = await sanityFetch({ query: TEAM_LIST_QUERY });
 
-    return (data as Pick<
-        TeamPage,
-        "_id" | "title" | "description" | "slug"
-    >[]) ?? [];
-  } catch (err) {
-    console.error("Error fetching team list:", err);
-    return [];
-  }
-};
 //TEAM PAGE FULL PAGE
-export const getTeamPage = async (slug: string): Promise<TeamPage | null> => {
+export const getTeamPage = async (teamId: number): Promise<TeamPage | null> => {
   try {
     const { data } = await sanityFetch({
       query: TEAM_PAGE_QUERY,
-      params: { slug },
+      params: { teamId },
     });
 
     return (data as TeamPage) ?? null;
   } catch (err) {
-    console.error(`Error fetching team page (${slug}):`, err);
+    console.error(`Error fetching team page (${teamId}):`, err);
     return null;
   }
 };

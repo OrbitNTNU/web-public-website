@@ -1,4 +1,4 @@
-import { fetchTeamSlug } from "@/sanity/queries/teams";
+import { fetchTeamSlug } from "@/sanity/fetch/SanityFetch";
 
 export interface Member {
   name: string;
@@ -21,6 +21,5 @@ export interface Team {
 
 // Safe for server or client
 export const getSlug = async (teamID: number): Promise<string> => {
-  const data = await fetchTeamSlug(teamID);
-  return data?.slug?.current || "";
+  return "web";
 };

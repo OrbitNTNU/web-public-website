@@ -15,7 +15,6 @@ import textSection from './sections/textSection'
 import videoSection from './sections/videoSection'
 import spanningText from './spanningText'
 import subOrbitalProject from './subOrbitalProject'
-import team from './team'
 import sponsorsPage from './pages/sponsorsPage'
 import mainSponsor from './sponsors/mainSponsor'
 import platinumSponsor from './sponsors/platinumSponsor'
@@ -44,7 +43,6 @@ import links from "./utils/links";
 import membersSection from "./team/membersSection";
 
 export const schemaTypes = [
-  team,
   ctaSection,
   customBlock,
   gallerySection,

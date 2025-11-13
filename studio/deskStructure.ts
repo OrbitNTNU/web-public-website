@@ -30,10 +30,6 @@ export const deskStructure = (S: StructureBuilder) =>
                 .title('Teams Page')
                 .icon(MdGroups)
                 .child(S.document().schemaType('teamPage').documentId('teamPage')),
-            S.listItem()
-                .title('Teams')
-                .icon(MdGroups)
-                .child(S.documentTypeList('team').title('All Teams')),
 
             // Projects
             S.listItem()

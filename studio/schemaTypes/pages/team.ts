@@ -1,6 +1,6 @@
 import {defineType, defineField} from 'sanity'
-import TeamsSelector from '../components/TeamsSelector'
-import {getTeamNames} from '../utils/teamNames'
+import TeamsSelector from '../../components/TeamsSelector'
+import {getTeamNames} from '../../utils/teamNames'
 
 const teamNames = await getTeamNames()
 
@@ -59,18 +59,20 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'content',
-      title: 'Page Content',
-      description: 'Build a custom page with sections (text, media, layouts, etc.)',
+      name: 'sections',
+      title: 'Sections',
       type: 'array',
       of: [
-        {type: 'heroSection'},
-        {type: 'textSection'},
-        {type: 'imageSection'},
-        {type: 'videoSection'},
-        {type: 'gallerySection'},
-        {type: 'ctaSection'},
-        {type: 'customBlock'},
+        {type: 'membersSection'},
+        {type: 'largeQuote'},
+        {type: 'largeImage'},
+        {type: 'doubleImageCollage'},
+        {type: 'doubleImageWide'},
+        {type: 'singleImageCollage'},
+        {type: 'triImageCollage'},
+        {type: 'flowingTriImageCollage'},
+        {type: 'articleReference'},
+        {type: 'gallery'},
       ],
     }),
   ],

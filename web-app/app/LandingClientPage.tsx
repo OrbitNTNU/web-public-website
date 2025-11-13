@@ -10,7 +10,6 @@ import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { Loading } from "@/components/Loading";
 import SubOrbital from "@/components/General/SubOrbital";
 import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
-import JoinCard from "@/components/General/JoinCard";
 import ForSponsorsCard from "@/components/General/ForSponsorsCard";
 import TeamOverview from "@/components/TeamOverview";
 

@@ -10,30 +10,23 @@ export const TEAM_LIST_QUERY = defineQuery(`
 `);
 
 export const TEAM_PAGE_QUERY = defineQuery(`
-  *[_type == "teamPage" && slug.current == $slug]{
+  *[_type == "teamPage" && $teamId in team][0]{
     _id,
-    title,
-    description,
-    "slug": slug.current,
-
+    teams,
     sections[]{
-      _key,
-      _type,
+      ...,
 
-      /* MEMBERS SECTION */
       _type == "membersSection" => {
         _key,
         _type
       },
 
-      /* LARGE QUOTE */
       _type == "largeQuote" => {
         _key,
         _type,
         quote
       },
 
-      /* LARGE IMAGE */
       _type == "largeImage" => {
         _key,
         _type,
@@ -41,7 +34,6 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         caption
       },
 
-      /* DOUBLE IMAGE COLLAGE */
       _type == "doubleImageCollage" => {
         _key,
         _type,
@@ -62,7 +54,6 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         }
       },
 
-      /* DOUBLE IMAGE WIDE */
       _type == "doubleImageWide" => {
         _key,
         _type,
@@ -83,7 +74,6 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         }
       },
 
-      /* SINGLE IMAGE COLLAGE */
       _type == "singleImageCollage" => {
         _key,
         _type,
@@ -100,7 +90,6 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         }
       },
 
-      /* TRI IMAGE COLLAGE */
       _type == "triImageCollage" => {
         _key,
         _type,
@@ -116,7 +105,6 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         wideCaption
       },
 
-      /* FLOWING TRI IMAGE COLLAGE */
       _type == "flowingTriImageCollage" => {
         _key,
         _type,
@@ -136,7 +124,6 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         }
       },
 
-      /* ARTICLE REFERENCE */
       _type == "articleReference" => {
         _key,
         _type,
@@ -148,7 +135,6 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         }
       },
 
-      /* GALLERY */
       _type == "gallery" => {
         _key,
         _type,
