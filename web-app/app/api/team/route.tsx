@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
+import {getTeamsSlug} from "@/components/TeamsPage/lib/getTeamsSlug";
 
 const slugify = (name: string) =>
     name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
 export async function GET() {
     try {
-        const teams = await getTeamsData();
+        const teams = await getTeamsSlug();
 
         if (!teams) {
             return NextResponse.json({ error: "No teams found" }, { status: 404 });

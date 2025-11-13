@@ -3,6 +3,7 @@ import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
 import { getTeamPage } from "@/sanity/fetch/SanityFetch";
 import { Loading } from "@/components/Loading";
 import TeamSlugClientPage from "@/app/team/TeamSlugClientPage";
+import {getTeamsSlug} from "@/components/TeamsPage/lib/getTeamsSlug";
 
 
 interface TeamPageProps {
@@ -12,7 +13,7 @@ interface TeamPageProps {
 export default async function TeamPage({ params }: TeamPageProps) {
   const { slug } = params;
 
-  const teams = await getTeamsData();
+  const teams = await getTeamsSlug();
   if (!teams) return notFound();
 
   //  Slugify and match
