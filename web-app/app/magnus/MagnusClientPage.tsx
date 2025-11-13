@@ -3,11 +3,11 @@
 import React from "react";
 import { TeamPage } from "@/sanity/types/pages/teamsPage";
 
-interface TeamSlugClientPageProps {
-    teamDocument: TeamPage;
+interface MagnusClientPageProps {
+    magnusDocument: TeamPage;
 }
 
-export default function MagnusClientPage({ teamDocument }: TeamSlugClientPageProps) {
+export default function MagnusClientPage({ magnusDocument }: MagnusClientPageProps) {
     return (
         <></>
     );
