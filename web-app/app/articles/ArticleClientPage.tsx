@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Article } from "@/sanity/types/pages/articlePage";
 
-function useIsMobile() {
+export function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);

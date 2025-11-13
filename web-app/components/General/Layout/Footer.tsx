@@ -18,7 +18,7 @@ export const Footer = () => {
   return (
     <footer
         className="w-full flex flex-col items-center bg-charcoal pt-20 md:pt-40"
-    >
+    > 
       <button
         className="flex flex-col items-center mb-8 cursor-pointer"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
