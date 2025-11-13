@@ -17,5 +17,5 @@ export default async function TeamPage({ params }: TeamPageProps) {
     const teamId = teamDocument.team;
     console.log("Team ID:", teamId);
 
-    return <MagnusClientPage teamDocument={teamDocument} />;
+    return <MagnusClientPage   magnusDocument={teamDocument}/>;
 }
