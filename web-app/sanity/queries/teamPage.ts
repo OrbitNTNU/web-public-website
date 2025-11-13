@@ -12,8 +12,8 @@ export const TEAM_LIST_QUERY = defineQuery(`
 export const TEAM_PAGE_QUERY = defineQuery(`
   *[_type == "teamPage" && $teamId in team][0]{
     _id,
-    teams,
-    sections[]{
+    team,
+    sections[] {
       ...,
 
       _type == "membersSection" => {
@@ -37,7 +37,7 @@ export const TEAM_PAGE_QUERY = defineQuery(`
       _type == "doubleImageCollage" => {
         _key,
         _type,
-        items[]{
+        items[] {
           _key,
           _type,
           variant,
@@ -54,27 +54,26 @@ export const TEAM_PAGE_QUERY = defineQuery(`
         }
       },
 
-        _type == "doubleImageWide" => {
-    _key,
-    _type,
-    variant,
-    image1{asset->},
-    alt1,
-    title1,
-    caption1,
-    link1,
-    image2{asset->},
-    alt2,
-    title2,
-    caption2,
-    link2
-  },
-
+      _type == "doubleImageWide" => {
+        _key,
+        _type,
+        variant,
+        image1{asset->},
+        alt1,
+        title1,
+        caption1,
+        link1,
+        image2{asset->},
+        alt2,
+        title2,
+        caption2,
+        link2
+      },
 
       _type == "singleImageCollage" => {
         _key,
         _type,
-        items[]{
+        items[] {
           _key,
           _type,
           src{asset->},
@@ -105,7 +104,7 @@ export const TEAM_PAGE_QUERY = defineQuery(`
       _type == "flowingTriImageCollage" => {
         _key,
         _type,
-        items[]{
+        items[] {
           _key,
           _type,
           title,
@@ -135,7 +134,7 @@ export const TEAM_PAGE_QUERY = defineQuery(`
       _type == "gallery" => {
         _key,
         _type,
-        images[]{
+        images[] {
           image{asset->},
           alt,
           tagline,
@@ -145,4 +144,3 @@ export const TEAM_PAGE_QUERY = defineQuery(`
     }
   }
 `);
-
