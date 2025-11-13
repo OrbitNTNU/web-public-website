@@ -1,6 +1,6 @@
 import { Loading } from "@/components/Loading";
 import TeamSlugClientPage from "../TeamSlugClientPage";
-import { getTeamPage } from "@/sanity/fetch/SanityFetch";
+import {getTeamPage, getTeamPageForMagnus} from "@/sanity/fetch/SanityFetch";
 
 interface TeamPageProps {
   params: { slug: string };
@@ -8,7 +8,7 @@ interface TeamPageProps {
 
 export default async function TeamPage(props: TeamPageProps) {
   const { slug } = props.params;
-  const teamDocument = await getTeamPage(slug);
+  const teamDocument = await getTeamPageForMagnus();
 
   if (!teamDocument) {
     return <Loading />;

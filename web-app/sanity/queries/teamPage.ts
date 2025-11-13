@@ -148,3 +148,4 @@ export const TEAM_PAGE_QUERY = defineQuery(`
     }
   }
 `);
+

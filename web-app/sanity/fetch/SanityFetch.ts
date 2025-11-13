@@ -159,3 +159,69 @@ export const getTeamPage = async (teamId: number): Promise<TeamPage | null> => {
     return null;
   }
 };
+
+// TEAM PAGE TIL MIN KJÆRE
+export const getTeamPageForMagnus = async (): Promise<TeamPage | null> => {
+  try {
+    const { data } = await sanityFetch({
+      query: `
+        *[_type == "teamPage"][0]{
+          _id,
+          teams,
+          sections[] {
+            ...,
+            _type == "membersSection" => {
+              _key,
+              _type
+            },
+            _type == "largeQuote" => {
+              _key,
+              _type,
+              quote
+            },
+            _type == "largeImage" => {
+              _key,
+              _type,
+              image{asset->},
+              caption
+            },
+            _type == "doubleImageCollage" => {
+              _key,
+              _type,
+              items[] {
+                _key,
+                _type,
+                variant,
+                image1{asset->},
+                alt1,
+                title1,
+                caption1,
+                link1,
+                image2{asset->},
+                alt2,
+                title2,
+                caption2,
+                link2
+              }
+            },
+            _type == "gallery" => {
+              _key,
+              _type,
+              images[] {
+                image{asset->},
+                alt,
+                tagline,
+                link
+              }
+            }
+          }
+        }
+      `,
+    });
+
+    return (data as TeamPage) ?? null;
+  } catch (err) {
+    console.error("Error fetching first team page (Magnus):", err);
+    return null;
+  }
+};
