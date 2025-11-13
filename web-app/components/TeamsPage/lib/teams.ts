@@ -19,7 +19,6 @@ export interface Team {
   members: Member[];
 }
 
-// Safe for server or client
 export const getSlug = async (teamID: number): Promise<string> => {
   return "web";
 };

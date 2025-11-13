@@ -1,20 +1,30 @@
+import { notFound } from "next/navigation";
+import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
+import { getTeamPage } from "@/sanity/fetch/SanityFetch";
 import { Loading } from "@/components/Loading";
-import TeamSlugClientPage from "../TeamSlugClientPage";
-import {getTeamPage, getTeamPageForMagnus} from "@/sanity/fetch/SanityFetch";
+import TeamSlugClientPage from "@/app/team/TeamSlugClientPage";
+
 
 interface TeamPageProps {
   params: { slug: string };
 }
 
-export default async function TeamPage(props: TeamPageProps) {
-  const { slug } = props.params;
-  const teamDocument = await getTeamPageForMagnus();
+export default async function TeamPage({ params }: TeamPageProps) {
+  const { slug } = params;
 
-  if (!teamDocument) {
-    return <Loading />;
-  }
+  const teams = await getTeamsData();
+  if (!teams) return notFound();
 
-  const teamId = teamDocument.team;
-  console.log("Team ID:", teamId);
+  //  Slugify and match
+  const slugify = (name: string) =>
+      name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+
+  const matchedTeam = teams.find((t: { teamName: string; }) => slugify(t.teamName) === slug);
+  if (!matchedTeam) return notFound();
+
+  // Fetch corresponding Sanity page
+  const teamDocument = await getTeamPage(matchedTeam.teamID);
+  if (!teamDocument) return <Loading />;
+
   return <TeamSlugClientPage teamDocument={teamDocument} />;
 }
