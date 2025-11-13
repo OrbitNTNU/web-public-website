@@ -4,14 +4,11 @@ export interface Team {
     group: string;
 }
 
-// This interface represents the raw API structure
+
 interface RawTeam {
     teamID: number;
     teamName: string;
     group: string;
-    // if you know the API includes more fields, list them here
-    // description?: string;
-    // members?: unknown[];
 }
 
 export async function getTeamsSlug(): Promise<Team[] | null> {
