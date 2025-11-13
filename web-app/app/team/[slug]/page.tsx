@@ -1,10 +1,7 @@
-import { notFound } from "next/navigation";
-import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
-import { getTeamPage } from "@/sanity/fetch/SanityFetch";
 import { Loading } from "@/components/Loading";
-import TeamSlugClientPage from "@/app/team/TeamSlugClientPage";
-import {getTeamsSlug} from "@/components/TeamsPage/lib/getTeamsSlug";
-
+import TeamSlugClientPage from "../TeamSlugClientPage";
+import { getTeamPage } from "@/sanity/fetch/SanityFetch";
+import { getTeamsSlug } from "@/components/TeamsPage/lib/getTeamsSlug";
 
 interface TeamPageProps {
   params: { slug: string };
@@ -13,19 +10,41 @@ interface TeamPageProps {
 export default async function TeamPage({ params }: TeamPageProps) {
   const { slug } = params;
 
+  const toSlug = (name: string) =>
+      name
+          .toLowerCase()
+          .replace(/&/g, "and")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+
   const teams = await getTeamsSlug();
-  if (!teams) return notFound();
+  if (!teams) {
+    console.error("No team data from Orbit API");
+    return <Loading />;
+  }
 
-  //  Slugify and match
-  const slugify = (name: string) =>
-      name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+  const matchedTeam = teams.find(
+      (team) => toSlug(team.teamName) === slug.toLowerCase()
+  );
 
-  const matchedTeam = teams.find((t: { teamName: string; }) => slugify(t.teamName) === slug);
-  if (!matchedTeam) return notFound();
+  if (!matchedTeam) {
+    console.error(`No team found for slug: ${slug}`);
+    return <Loading />;
+  }
 
-  // Fetch corresponding Sanity page
   const teamDocument = await getTeamPage(matchedTeam.teamID);
-  if (!teamDocument) return <Loading />;
+
+  if (!teamDocument) {
+    console.error(`No Sanity page found for teamID ${matchedTeam.teamID}`);
+    return <Loading />;
+  }
+
+  console.log(
+      "Resolved:",
+      matchedTeam.teamName,
+      "teamID:",
+      matchedTeam.teamID
+  );
 
   return <TeamSlugClientPage teamDocument={teamDocument} />;
 }
