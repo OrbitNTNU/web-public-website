@@ -164,7 +164,7 @@ const TeamOverview = () => {
                 <div className="flex-1 sticky h-screen flex items-center text-left"
                     style={{ top: verticalHeight }}
                 >
-                    {teams.map(
+                    {teams.sort((a, b) => a.teamName.localeCompare(b.teamName)).map(
                         (team, idx) =>
                             idx === activeIndex && (
                                 <motion.section

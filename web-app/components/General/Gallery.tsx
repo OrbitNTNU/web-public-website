@@ -42,7 +42,6 @@ export const GalleryComponent = ({ images }: GalleryProps) => {
                             <motion.div
                                 key={img.alt + colIndex}
                                 className="relative w-full cursor-pointer overflow-hidden"
-                                layout
                                 onHoverStart={() => {
                                     setHoveredRowIndex(rowIndex);
                                     setHoveredColIndex(colIndex);
@@ -51,16 +50,18 @@ export const GalleryComponent = ({ images }: GalleryProps) => {
                                     setHoveredRowIndex(null);
                                     setHoveredColIndex(null);
                                 }}
-                                style={{
-                                    gridColumn: `span ${span}`,
-                                }}
+                                layout
+                                style={{ gridColumn: `span ${span}` }}
+                                transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
                             >
                                 <div className="relative w-full h-[400px] overflow-hidden">
                                     <motion.div
                                         className="absolute top-0 left-1/2 -translate-x-1/2 h-full"
+                                        initial={{ width: "200%" }} // zoomed-in initially
                                         animate={{
-                                            width: isHovered ? "100%" : "200%", // zoomed-in initially, expands to container
+                                            width: isHovered ? "100%" : "200%",
                                         }}
+                                        transition={{ duration: 0.5, ease: "easeOut" }}
                                     >
                                         <Image
                                             src={imageBuilder(img.image)}
@@ -72,7 +73,6 @@ export const GalleryComponent = ({ images }: GalleryProps) => {
                                         />
                                     </motion.div>
                                 </div>
-
 
                                 {img.tagline && (
                                     <motion.p
