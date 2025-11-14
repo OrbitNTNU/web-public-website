@@ -123,7 +123,7 @@ export default function AboutClientPage({
               <LargeImage
                 key={section._key}
                 src={imageBuilder(section.image)}
-                alt={"Large Image"}
+                alt={section.alt}
                 caption={section.caption}
               />
             );

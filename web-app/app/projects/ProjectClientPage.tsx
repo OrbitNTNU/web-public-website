@@ -51,7 +51,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                   <LargeImage
                       key={section._key}
                       src={imageBuilder(section.image)}
-                      alt={"Large Image"}
+                      alt={section.alt}
                       caption={section.caption}
                   />
               );

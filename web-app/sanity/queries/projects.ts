@@ -30,6 +30,7 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
       _type == "largeImage" => {
         _type,
         image,
+        alt,
         caption
       },
       _type == "spanningText" => {

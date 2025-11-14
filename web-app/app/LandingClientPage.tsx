@@ -37,7 +37,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
                   format: "webp",
                   quality: 70,
                 })}
-                alt="Large Image"
+                alt={section.alt}
                 caption={section.caption}
               />
             );
