@@ -180,7 +180,7 @@ const TeamOverview = () => {
                                     </p>
                                     <Link
                                         className="flex items-center gap-2 group"
-                                        href={`/teams/${slugs[team.teamID] || ""}`}
+                                        href={`/team/${slugs[team.teamID] || ""}`}
                                     >
                                         <span>Read about {team.teamName}</span>
                                         <span className="material-icons text-3xl transition-transform duration-200 group-hover:translate-x-2">

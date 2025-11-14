@@ -39,41 +39,39 @@ export const GalleryComponent = ({ images }: GalleryProps) => {
                         }
 
                         return (
-                         <motion.div
-  key={img.alt + colIndex}
-  className="relative w-full cursor-pointer overflow-hidden"
-  layout
-  onHoverStart={() => {
-    setHoveredRowIndex(rowIndex);
-    setHoveredColIndex(colIndex);
-  }}
-  onHoverEnd={() => {
-    setHoveredRowIndex(null);
-    setHoveredColIndex(null);
-  }}
-  style={{
-    gridColumn: `span ${span}`,
-  }}
-  transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }} // match container timing
->
-  <div className="relative w-full h-[400px] overflow-hidden">
-    <motion.div
-      className="absolute top-0 left-1/2 -translate-x-1/2 h-full"
-      animate={{
-        width: isHovered ? "100%" : "200%", // zoomed-in initially, expands to container
-      }}
-      transition={{ type: "tween", duration: 0.4, ease: "easeInOut" }} // match layout
-    >
-      <Image
-        src={imageBuilder(img.image)}
-        alt={img.alt}
-        className="h-full object-cover w-full"
-        priority
-        width={800}
-        height={600}
-      />
-    </motion.div>
-  </div>
+                            <motion.div
+                                key={img.alt + colIndex}
+                                className="relative w-full cursor-pointer overflow-hidden"
+                                layout
+                                onHoverStart={() => {
+                                    setHoveredRowIndex(rowIndex);
+                                    setHoveredColIndex(colIndex);
+                                }}
+                                onHoverEnd={() => {
+                                    setHoveredRowIndex(null);
+                                    setHoveredColIndex(null);
+                                }}
+                                style={{
+                                    gridColumn: `span ${span}`,
+                                }}
+                            >
+                                <div className="relative w-full h-[400px] overflow-hidden">
+                                    <motion.div
+                                        className="absolute top-0 left-1/2 -translate-x-1/2 h-full"
+                                        animate={{
+                                            width: isHovered ? "100%" : "200%", // zoomed-in initially, expands to container
+                                        }}
+                                    >
+                                        <Image
+                                            src={imageBuilder(img.image)}
+                                            alt={img.alt}
+                                            className="h-full object-cover w-full"
+                                            priority
+                                            width={800}
+                                            height={600}
+                                        />
+                                    </motion.div>
+                                </div>
 
 
                                 {img.tagline && (

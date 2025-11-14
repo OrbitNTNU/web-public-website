@@ -1,7 +1,8 @@
 import { Loading } from "@/components/Loading";
 import TeamSlugClientPage from "../TeamSlugClientPage";
 import { getTeamPage } from "@/sanity/fetch/SanityFetch";
-import { getTeamsSlug } from "@/components/TeamsPage/lib/getTeamsSlug";
+import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
+import { Team } from "../TeamsClientPage";
 
 interface TeamPageProps {
   params: { slug: string };
@@ -17,7 +18,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
           .replace(/[^a-z0-9]+/g, "-")
           .replace(/^-+|-+$/g, "");
 
-  const teams = await getTeamsSlug();
+  const teams = await getTeamsData() as Team[];
   if (!teams) {
     console.error("No team data from Orbit API");
     return <Loading />;
@@ -46,5 +47,5 @@ export default async function TeamPage({ params }: TeamPageProps) {
       matchedTeam.teamID
   );
 
-  return <TeamSlugClientPage teamDocument={teamDocument} />;
+  return <TeamSlugClientPage teamDocument={teamDocument} team={matchedTeam}/>;
 }
