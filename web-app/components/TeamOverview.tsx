@@ -226,7 +226,7 @@ const TeamOverview = () => {
             >
                 {/* Left column */}
                 <div className="flex flex-col gap-2 w-1/2 md:w-1/4">
-                    {teams.map((team) => (
+                    {teams.sort((a, b) => a.teamName.localeCompare(b.teamName)).map((team) => (
                         <Link
                             key={team.teamID}
                             href={`/teams/${slugs[team.teamID] || ""}`}
