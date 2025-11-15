@@ -4,9 +4,10 @@ import { useRef } from "react";
 
 interface LargeQuotesProps {
   text: string;
+  author: string;
 }
 
-export default function LargeQuote({ text }: LargeQuotesProps) {
+export default function LargeQuote({ text, author }: LargeQuotesProps) {
   const ref = useRef(null);
 
   return (
@@ -25,6 +26,19 @@ export default function LargeQuote({ text }: LargeQuotesProps) {
       >
         {text}
       </motion.h2>
+      <motion.p 
+        className="text-xl md:text-2xl lg:text-4xl text-center mx-auto"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{
+          type: "tween",
+          stiffness: 200,
+          delay: 0.4,
+        }}
+      >
+        {author}
+      </motion.p>
     </div>
   );
 }

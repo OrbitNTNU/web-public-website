@@ -12,7 +12,8 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
       ...,
       _type == "largeQuote" => {
         _type,
-        quote
+        quote,
+        author
       },
       _type == "largeImage" => {
         _type,

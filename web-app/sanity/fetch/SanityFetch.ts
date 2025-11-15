@@ -179,7 +179,8 @@ export const getTeamPageForMagnus = async (): Promise<TeamPage | null> => {
             _type == "largeQuote" => {
               _key,
               _type,
-              quote
+              quote,
+              author
             },
 
             _type == "largeImage" => {
