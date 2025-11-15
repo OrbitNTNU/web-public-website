@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MemberCard from "../../MemberCard";
+import MemberCard from "../../General/MemberCard";
 import { Team } from "@/components/TeamsPage/lib/teams";
 import { useEffect, useMemo, useState } from "react";
 

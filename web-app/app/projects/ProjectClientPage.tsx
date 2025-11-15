@@ -3,7 +3,7 @@
 import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import BannerImage from "@/components/General/BannerImage";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import { useNavbar } from "@/components/General/Layout/NavbarContext";
 import { useEffect } from "react";
 import LargeImage from "@/components/General/LargeImage";

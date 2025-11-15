@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Loading } from "../../Loading";
+import { Loading } from "../../General/Layout/Loading";
 import FieldsOfEducation from "./FieldsOfEducation";
 import StudyLevelDistribution from "./StudyLevelDistribution";
 import Studies from "./Studies";

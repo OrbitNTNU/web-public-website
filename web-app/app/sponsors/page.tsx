@@ -1,7 +1,7 @@
 import { getSponsorPage } from "@/sanity/fetch/SanityFetch";
 import SponsorClientPage from "./SponsorClientPage";
 import { Metadata } from "next";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 
 export const metadata: Metadata = {
   title: "Heartfelt Thanks to Our Sponsors!",

@@ -2,8 +2,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Loading } from "./Loading";
-import { getSlug } from "./TeamsPage/lib/teams";
+import { Loading } from "./Layout/Loading";
+import { getSlug } from "../TeamsPage/lib/teams";
 
 interface Team {
     teamID: number;
@@ -83,10 +83,10 @@ const TeamOverview = () => {
     const verticalHeight = "20vh";
 
     return (
-        <section className="px-4 md:px-12 w-full mx-auto">
+        <section className="hidden lg:block px-4 md:px-12 w-full mx-auto">
             <div
                 ref={containerRef}
-                className="hidden lg:flex relative "
+                className="flex relative "
                 style={{
                     height: `${totalItems * 100 * scrollSpeed + 100}vh`, // add buffer at end
                 }}
@@ -219,72 +219,6 @@ const TeamOverview = () => {
                         </motion.section>
 
                     )}
-                </div>
-            </div>
-            <div
-                className="flex relative lg:hidden"
-            >
-                {/* Left column */}
-                <div className="flex flex-col gap-2 w-1/2 md:w-1/4">
-                    {teams.sort((a, b) => a.teamName.localeCompare(b.teamName)).map((team) => (
-                        <Link
-                            key={team.teamID}
-                            href={`/teams/${slugs[team.teamID] || ""}`}
-                            className="text-charcoal-light flex items-center"
-                        >
-                            <span>{team.teamName}</span>
-                        </Link>
-                    ))}
-
-                    {/* CTA indicator */}
-                    <span
-                        className="text-cloud-white font-bold flex flex-row gap-2 items-center"
-                        onClick={() => {
-                            if (!containerRef.current) return;
-
-                            const container = containerRef.current;
-                            const viewportHeight = window.innerHeight;
-                            const chunkHeight = viewportHeight * scrollSpeed;
-
-                            const targetScroll =
-                                container.offsetTop +
-                                (teams.length + 1) * chunkHeight -
-                                viewportHeight / 3;
-
-                            window.scrollTo({ top: targetScroll, behavior: "smooth" });
-                        }}
-                    >
-                        <span className="material-icons">chevron_right</span>
-                        Join Us
-                    </span>
-                </div>
-
-                {/* Right column */}
-                <div className="flex-1 sticky flex items-center text-left">
-                    {/* CTA Screen */}
-                    <section
-                        key="cta"
-                        className="flex flex-col justify-center text-right w-full"
-                    >
-                        <h1
-                            className="mb-6 leading-[1.1] text-cloud-white"
-                            style={{ fontSize: 
-                                window.innerWidth < 400 ? "3rem" : "5rem"
-                             }}
-                        >
-                            Where will you be?
-                        </h1>
-
-                        <Link
-                            href="/join"
-                            className="flex items-center justify-end gap-2 group text-charcoal-light hover:text-cloud-white transition-colors"
-                        >
-                            <span>Become a part of our team</span>
-                            <span className="material-icons text-3xl transition-transform duration-200 group-hover:translate-x-2">
-                                chevron_right
-                            </span>
-                        </Link>
-                    </section>
                 </div>
             </div>
         </section>

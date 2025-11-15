@@ -8,7 +8,7 @@ import LargeQuote from "@/components/General/LargeQuote";
 import LargeImage from "@/components/General/LargeImage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import DoubleImages from "@/components/General/DoubleImages";
-import MemberCard from "@/components/MemberCard";
+import MemberCard from "@/components/General/MemberCard";
 import RegularArticle from "@/components/ArticlesPage/RegularArticle";
 import { useIsMobile } from "../articles/ArticleClientPage";
 import DoubleImageWide from "@/components/General/DoubleImageWide";

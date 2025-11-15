@@ -90,10 +90,6 @@ export const deskStructure = (S: StructureBuilder) =>
             S.divider().title('Shared Components'),
 
             S.listItem()
-                .title('Join Card')
-                .child(S.document().schemaType('joinCard').documentId('singleton-joinCard')),
-
-            S.listItem()
                 .title('For Sponsors Card')
                 .child(S.document().schemaType('forSponsorsCard').documentId('singleton-forSponsorsCard')),
 

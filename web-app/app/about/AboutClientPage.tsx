@@ -8,7 +8,7 @@ import LargeImage from "@/components/General/LargeImage";
 import LargeQuote from "@/components/General/LargeQuote";
 import SpanningText from "@/components/General/SpanningText";
 import TriImageCollage from "@/components/General/TriImageCollage";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import { AboutPageSection } from "@/sanity/types/pages/aboutPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { useRouter } from "next/navigation";
@@ -44,7 +44,7 @@ export default function AboutClientPage({
   }
 
   return (
-    <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-40 my-40 flex flex-col">
+    <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-60 my-40 flex flex-col">
       {sections.map((section: AboutPageSection) => {
         switch (section._type) {
           case "largeQuote":

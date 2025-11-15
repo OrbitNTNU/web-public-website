@@ -1,4 +1,4 @@
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import TeamSlugClientPage from "../TeamSlugClientPage";
 import { getTeamPage } from "@/sanity/fetch/SanityFetch";
 import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";

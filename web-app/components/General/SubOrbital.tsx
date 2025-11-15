@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 
 interface ProjectsProps {
     projects: (BigProject | SubOrbitalProject)[];

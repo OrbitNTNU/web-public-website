@@ -3,12 +3,12 @@
 import { DoubleImage } from "../components/DoubleImage";
 import { DoubleImageCollage } from "../components/DoubleImageCollage";
 import { InstagramEmbed } from "../components/InstagramEmbed";
+import { JoinCard } from "../components/JoinCard";
 import { LargeImage } from "../components/LargeImage";
 import { LargeQuote } from "../components/LargeQuote";
 import {ProjectsShowcase} from "../components/ProjectsShowcase";
 import { SpanningText } from "../components/SpanningText";
 import { ForSponsorsCardType } from "../forSponsorsCard";
-import { JoinCardType } from "../joinCard";
 
 export type LandingPageSection =
   | LargeQuote
@@ -18,7 +18,7 @@ export type LandingPageSection =
   | DoubleImageCollage
   | ProjectsShowcase
   | InstagramEmbed
-  | JoinCardType
+  | JoinCard
   | ForSponsorsCardType;
 
 // 🪩 Landing Page Document

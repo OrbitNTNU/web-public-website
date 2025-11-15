@@ -6,7 +6,7 @@ import ListView from "@/components/TeamsPage/Views/ListView";
 import TraditionalView from "@/components/TeamsPage/Views/TraditionalView";
 import GalleryView from "@/components/TeamsPage/Views/GalleryView";
 import Header from "@/components/General/Header";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import TeamSelector from "@/components/TeamsPage/TeamSelector";
 
 export interface Member {

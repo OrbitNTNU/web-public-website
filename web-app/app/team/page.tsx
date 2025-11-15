@@ -1,6 +1,6 @@
 import TeamsClientPage from "@/app/team/TeamsClientPage";
 import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

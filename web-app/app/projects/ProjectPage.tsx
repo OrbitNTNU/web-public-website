@@ -1,6 +1,6 @@
 "use client";
 
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
 import Projects from "@/components/General/Projects";
 import SubOrbital from "@/components/General/SubOrbital";

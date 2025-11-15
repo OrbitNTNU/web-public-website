@@ -68,16 +68,12 @@ export const LANDING_PAGE_QUERY = defineQuery(`
         }
       },
 
-      _type == "joinCardRef" => {
+      _type == "joinCard" => {
         _type,
-        "data": *[_type=="joinCard" && _id=="singleton-joinCard"][0]{
-          title,
-          intro,
-          disciplines[]{title, icon, desc, color},
-          benefits[]{title, icon, desc, color},
-          ctaText,
-          ctaUrl
-        }
+      },
+
+      _type == "instagramEmbed" => {
+        _type,
       },
 
       _type == "forSponsorsCardRef" => {
@@ -85,13 +81,6 @@ export const LANDING_PAGE_QUERY = defineQuery(`
         "data": *[_type=="forSponsorsCard" && _id=="singleton-forSponsorsCard"][0]{
           title,
           intro,
-          ctaButtons[] {
-            text,
-            url,
-            color,
-            hoverColor,
-            textColor
-          }
         }
       }
     }

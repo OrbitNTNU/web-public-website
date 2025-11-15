@@ -3,7 +3,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Team, Member } from "@/app/team/TeamsClientPage";
 import { motion } from "framer-motion";
-import MemberCard from "@/components/MemberCard";
+import MemberCard from "@/components/General/MemberCard";
 import { useNavbar } from "@/components/General/Layout/NavbarContext";
 
 interface StarProps {

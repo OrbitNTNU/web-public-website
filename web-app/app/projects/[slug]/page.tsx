@@ -1,7 +1,7 @@
 import {getBigProject, getSubOrbitalProject} from "@/sanity/fetch/SanityFetch";
 import ProjectClientPage from "@/app/projects/ProjectClientPage";
 import { Metadata } from "next";
-import {Loading} from "@/components/Loading";
+import {Loading} from "@/components/General/Layout/Loading";
 export const metadata: Metadata = {
   title: "Selfiesat | Framsat | Framsat 1.5 | Biosat",
   description: "",

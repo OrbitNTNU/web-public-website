@@ -1,5 +1,5 @@
 
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import { getAllArticles } from "@/sanity/fetch/SanityFetch";
 import JoinClientPage from "./JoinClientPage";
 

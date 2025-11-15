@@ -23,13 +23,7 @@ export default defineType({
         { type: 'doubleImageCollage' },
         { type: 'projectsShowcase' },
         { type: 'instagramEmbed' },
-        {
-          type: 'reference',
-          name: 'joinCardRef',
-          title: 'Join Card Section',
-          to: [{ type: 'joinCard' }],
-          options: { disableNew: true },
-        },
+        { type: 'joinCard' },
         {
           type: 'reference',
           name: 'forSponsorsCardRef',
