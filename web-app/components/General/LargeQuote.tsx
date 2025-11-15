@@ -26,8 +26,8 @@ export default function LargeQuote({ text, author }: LargeQuotesProps) {
       >
         {text}
       </motion.h2>
-      <motion.p 
-        className="text-xl md:text-2xl lg:text-4xl text-center mx-auto"
+      <motion.p
+        className="text-center mx-auto mt-4 text-charcoal-light"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}

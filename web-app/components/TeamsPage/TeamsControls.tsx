@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 
 interface TeamsControlsProps {
   viewMode: "list" | "gallery" | "traditional";
-  setViewMode: (
-    mode: "list" | "gallery" | "traditional",
-  ) => void;
+  setViewMode: (mode: "list" | "gallery" | "traditional") => void;
   searchTerm: string;
   setSearchTerm: (term: string) => void;
 }

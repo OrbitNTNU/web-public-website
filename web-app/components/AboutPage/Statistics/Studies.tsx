@@ -114,15 +114,9 @@ const Studies = ({ data }: { data: Record<string, number> | null }) => {
 
   return (
     <div className="relative mx-auto flex w-full flex-col md:items-end">
-      <h3
-        className="mb-2"
-      >
-        Our Fields of Study
-      </h3>
+      <h3 className="mb-2">Our Fields of Study</h3>
 
-      <p
-        className="mb-8 max-w-3xl text-charcoal-light md:ml-auto md:text-right md:max-w-2/3"
-      >
+      <p className="mb-8 max-w-3xl text-charcoal-light md:ml-auto md:text-right md:max-w-2/3">
         There are currently{" "}
         <strong className="text-cloud-white">{summary.totalStudies}</strong>{" "}
         registered with a field of study, spanning{" "}

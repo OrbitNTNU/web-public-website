@@ -33,13 +33,13 @@ import singleImageCollage from './singleImageCollage'
 import imageAndCaption from './imageAndCaption'
 import article from './article/article'
 import textHeavy from './textHeavy'
-import flowingTriImageCollage from "./team/flowingTriImageCollage";
-import teamPage from "./pages/teamPage";
-import doubleImageWide from "./team/doubleImageWide";
-import articleReference from "./article/articleReference";
-import gallery from "./team/gallery";
-import links from "./utils/links";
-import membersSection from "./team/membersSection";
+import flowingTriImageCollage from './team/flowingTriImageCollage'
+import teamPage from './pages/teamPage'
+import doubleImageWide from './team/doubleImageWide'
+import articleReference from './article/articleReference'
+import gallery from './team/gallery'
+import links from './utils/links'
+import membersSection from './team/membersSection'
 
 export const schemaTypes = [
   ctaSection,
@@ -77,11 +77,11 @@ export const schemaTypes = [
   imageAndCaption,
   article,
   textHeavy,
-    flowingTriImageCollage,
-    teamPage,
-    doubleImageWide,
-    articleReference,
-    gallery,
-    links,
-    membersSection,
+  flowingTriImageCollage,
+  teamPage,
+  doubleImageWide,
+  articleReference,
+  gallery,
+  links,
+  membersSection,
 ]

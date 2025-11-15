@@ -104,22 +104,22 @@ export default function Navbar() {
         animate={
           animateLogoFall
             ? {
-              y: 800, // falls off screen
-              rotate: 720, // spins as it falls
-              opacity: 0,
-            }
+                y: 800, // falls off screen
+                rotate: 720, // spins as it falls
+                opacity: 0,
+              }
             : {
-              opacity: 1,
-              y: 0,
-              rotate:
-                logoClicked > 10
-                  ? Math.sin(logoClicked / 2) * Math.min(logoClicked / 2, 20)
-                  : 0,
-              x:
-                logoClicked > 10
-                  ? Math.sin(logoClicked * 4) * Math.min(logoClicked / 2, 15)
-                  : 0,
-            }
+                opacity: 1,
+                y: 0,
+                rotate:
+                  logoClicked > 10
+                    ? Math.sin(logoClicked / 2) * Math.min(logoClicked / 2, 20)
+                    : 0,
+                x:
+                  logoClicked > 10
+                    ? Math.sin(logoClicked * 4) * Math.min(logoClicked / 2, 15)
+                    : 0,
+              }
         }
         transition={{
           duration: animateLogoFall ? 1.8 : 0.2,
@@ -140,7 +140,9 @@ export default function Navbar() {
         <div className="hidden md:flex gap-8">
           {navItems.map((item, index) => {
             const isActive = pathname === item.href;
-            const isBaseWithDetail = Boolean(detailedLocation && baseHref === item.href);
+            const isBaseWithDetail = Boolean(
+              detailedLocation && baseHref === item.href,
+            );
             const activeIndex = navItems.findIndex(
               (nav) => nav.href === baseHref,
             );

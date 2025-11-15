@@ -12,20 +12,20 @@ export default async function TeamPage({ params }: TeamPageProps) {
   const { slug } = params;
 
   const toSlug = (name: string) =>
-      name
-          .toLowerCase()
-          .replace(/&/g, "and")
-          .replace(/[^a-z0-9]+/g, "-")
-          .replace(/^-+|-+$/g, "");
+    name
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
-  const teams = await getTeamsData() as Team[];
+  const teams = (await getTeamsData()) as Team[];
   if (!teams) {
     console.error("No team data from Orbit API");
     return <Loading />;
   }
 
   const matchedTeam = teams.find(
-      (team) => toSlug(team.teamName) === slug.toLowerCase()
+    (team) => toSlug(team.teamName) === slug.toLowerCase(),
   );
 
   if (!matchedTeam) {
@@ -40,12 +40,7 @@ export default async function TeamPage({ params }: TeamPageProps) {
     return <Loading />;
   }
 
-  console.log(
-      "Resolved:",
-      matchedTeam.teamName,
-      "teamID:",
-      matchedTeam.teamID
-  );
+  console.log("Resolved:", matchedTeam.teamName, "teamID:", matchedTeam.teamID);
 
-  return <TeamSlugClientPage teamDocument={teamDocument} team={matchedTeam}/>;
+  return <TeamSlugClientPage teamDocument={teamDocument} team={matchedTeam} />;
 }

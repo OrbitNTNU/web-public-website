@@ -9,9 +9,7 @@ interface TraditionalViewProps {
   team: Team;
 }
 
-const TraditionalView = ({
-  team,
-}: TraditionalViewProps) => {
+const TraditionalView = ({ team }: TraditionalViewProps) => {
   const router = useRouter();
 
   return (

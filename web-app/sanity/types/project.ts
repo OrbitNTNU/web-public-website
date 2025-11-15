@@ -12,12 +12,12 @@ export interface BannerImage {
 }
 
 export type ProjectSection =
-    | LargeQuote
-    | LargeImage
-    | SpanningText
-    | DoubleImage
-    | DoubleImageCollage
-    | BannerImage;
+  | LargeQuote
+  | LargeImage
+  | SpanningText
+  | DoubleImage
+  | DoubleImageCollage
+  | BannerImage;
 
 export interface BaseProject {
   _key: string;

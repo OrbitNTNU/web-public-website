@@ -42,15 +42,9 @@ const StudyLevelDistribution = ({ data }: StudyLevelDistributionProps) => {
 
   return (
     <div className="mx-auto flex w-full flex-col">
-      <h3
-        className="mb-2"
-      >
-        Study Level Distribution
-      </h3>
+      <h3 className="mb-2">Study Level Distribution</h3>
       {summary && (
-        <p
-          className="mb-6 text-charcoal-light leading-relaxed md:max-w-2/3"
-        >
+        <p className="mb-6 text-charcoal-light leading-relaxed md:max-w-2/3">
           Out of{" "}
           <strong className="text-cloud-white">{summary.allMembers}</strong>{" "}
           members, there are{" "}

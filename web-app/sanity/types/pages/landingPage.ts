@@ -6,7 +6,7 @@ import { InstagramEmbed } from "../components/InstagramEmbed";
 import { JoinCard } from "../components/JoinCard";
 import { LargeImage } from "../components/LargeImage";
 import { LargeQuote } from "../components/LargeQuote";
-import {ProjectsShowcase} from "../components/ProjectsShowcase";
+import { ProjectsShowcase } from "../components/ProjectsShowcase";
 import { SpanningText } from "../components/SpanningText";
 import { ForSponsorsCardType } from "../forSponsorsCard";
 

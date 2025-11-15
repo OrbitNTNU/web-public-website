@@ -28,7 +28,6 @@ const ForSponsorsCard = ({ data }: ForSponsorsCardProps) => {
           {data.intro}
         </motion.p>
       </div>
-
     </section>
   );
 };

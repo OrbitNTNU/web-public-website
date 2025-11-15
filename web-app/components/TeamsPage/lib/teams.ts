@@ -20,11 +20,11 @@ export interface Team {
 }
 
 const toSlug = (name: string) =>
-    name
-        .toLowerCase()
-        .replace(/&/g, "and")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
+  name
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 export const getSlug = async (teamID: number): Promise<string> => {
   try {

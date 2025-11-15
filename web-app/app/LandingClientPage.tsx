@@ -26,7 +26,13 @@ export default function LandingPage({ sections }: LandingPageProps) {
       {sections.map((section) => {
         switch (section._type) {
           case "largeQuote":
-            return <LargeQuote key={section._key} text={section.quote} />;
+            return (
+              <LargeQuote
+                key={section._key}
+                text={section.quote}
+                author={section.author}
+              />
+            );
 
           case "largeImage":
             return (
@@ -103,9 +109,13 @@ export default function LandingPage({ sections }: LandingPageProps) {
 
           case "projectsShowcase":
             if (!(section.projectType === "subOrbitalProject")) {
-              return <Projects key={section._key} projects={section.projects} />;
+              return (
+                <Projects key={section._key} projects={section.projects} />
+              );
             }
-            return <SubOrbital key={section._key} projects={section.projects} />;
+            return (
+              <SubOrbital key={section._key} projects={section.projects} />
+            );
 
           case "instagramEmbed":
             return <InstagramEmbed key={section._key} />;

@@ -2,11 +2,13 @@ import { sanityFetch } from "@/sanity/live/live";
 
 import { LANDING_PAGE_QUERY } from "@/sanity/queries/landingPage";
 import {
-  ALL_BIG_PROJECTS_QUERY, ALL_SUBORBITAL_PROJECTS_QUERY,
-  BIG_PROJECT_BY_SLUG_QUERY, SUBORBITAL_PROJECT_BY_SLUG_QUERY,
+  ALL_BIG_PROJECTS_QUERY,
+  ALL_SUBORBITAL_PROJECTS_QUERY,
+  BIG_PROJECT_BY_SLUG_QUERY,
+  SUBORBITAL_PROJECT_BY_SLUG_QUERY,
 } from "@/sanity/queries/projects";
 import { SPONSORS_PAGE_QUERY } from "@/sanity/queries/sponsorsPage";
-import {BigProject, SubOrbitalProject} from "@/sanity/types/project";
+import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
 import { SponsorsPage } from "@/sanity/types/sponsorsPage";
 import { LandingPage } from "@/sanity/types/pages/landingPage";
 import { AboutPage } from "../types/pages/aboutPage";
@@ -16,8 +18,8 @@ import {
   ARTICLE_PAGE_QUERY,
 } from "@/sanity/queries/articlePage";
 import { Article } from "@/sanity/types/pages/articlePage";
-import {TeamPage} from "@/sanity/types/pages/teamsPage";
-import {TEAM_PAGE_QUERY} from "@/sanity/queries/teamPage";
+import { TeamPage } from "@/sanity/types/pages/teamsPage";
+import { TEAM_PAGE_QUERY } from "@/sanity/queries/teamPage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -70,7 +72,7 @@ export const getAllArticles = async (): Promise<Article[]> => {
 };
 
 export const getSubOrbitalProject = async (
-    slug: string
+  slug: string,
 ): Promise<SubOrbitalProject | null> => {
   try {
     const { data } = await sanityFetch({
@@ -85,9 +87,8 @@ export const getSubOrbitalProject = async (
   }
 };
 
-
 export const getAllSubOrbitalProjects = async (): Promise<
-    SubOrbitalProject[]
+  SubOrbitalProject[]
 > => {
   try {
     const { data } = await sanityFetch({
@@ -100,8 +101,6 @@ export const getAllSubOrbitalProjects = async (): Promise<
     return [];
   }
 };
-
-
 
 //BIG PROJECT
 export const getBigProject = async (

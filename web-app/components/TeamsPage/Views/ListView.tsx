@@ -1,9 +1,5 @@
 import { useRouter } from "next/navigation";
-import {
-  getSlug,
-  Member,
-  Team,
-} from "@/components/TeamsPage/lib/teams";
+import { getSlug, Member, Team } from "@/components/TeamsPage/lib/teams";
 
 interface ListViewProps {
   teamsData: Team[];
@@ -11,11 +7,7 @@ interface ListViewProps {
   activeTeam: number | null;
 }
 
-const ListView = ({
-  teamsData,
-  setActiveTeam,
-  activeTeam,
-}: ListViewProps) => {
+const ListView = ({ teamsData, setActiveTeam, activeTeam }: ListViewProps) => {
   const router = useRouter();
 
   const groupedTeams: { [key: string]: Team[] } = {};
@@ -36,10 +28,7 @@ const ListView = ({
       const teamsInGroup = teamsData.filter((team) => team.group === groupName);
       const filteredTeams: Team[] = teamsInGroup
         .filter((team): team is Team => team !== null)
-        .filter(
-          (team: Team) =>
-            groupsWithSearch.includes(team.group)
-        )
+        .filter((team: Team) => groupsWithSearch.includes(team.group))
         .sort((a: Team, b: Team) => a.teamName.localeCompare(b.teamName));
       if (filteredTeams.length > 0) {
         acc[groupName] = filteredTeams;

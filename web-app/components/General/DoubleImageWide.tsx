@@ -16,11 +16,11 @@ interface DoubleImageWideProps {
   caption2?: string;
   link2?: string;
   variant?:
-  | "half-half"
-  | "one-third-two-third"
-  | "two-third-one-third"
-  | "half-half-long-left"
-  | "half-half-long-right";
+    | "half-half"
+    | "one-third-two-third"
+    | "two-third-one-third"
+    | "half-half-long-left"
+    | "half-half-long-right";
 }
 
 const getGridCols = (variant: DoubleImageWideProps["variant"]) => {
@@ -37,7 +37,10 @@ const getGridCols = (variant: DoubleImageWideProps["variant"]) => {
   }
 };
 
-const getColSpan = (variant: DoubleImageWideProps["variant"], index: number) => {
+const getColSpan = (
+  variant: DoubleImageWideProps["variant"],
+  index: number,
+) => {
   if (variant === "one-third-two-third") {
     return index === 0 ? "col-span-1" : "md:col-span-2";
   }
@@ -47,7 +50,10 @@ const getColSpan = (variant: DoubleImageWideProps["variant"], index: number) => 
   return "";
 };
 
-const getRowSpan = (variant: DoubleImageWideProps["variant"], index: number) => {
+const getRowSpan = (
+  variant: DoubleImageWideProps["variant"],
+  index: number,
+) => {
   if (variant === "half-half-long-left" && index === 0) {
     return "md:row-span-2";
   }
@@ -172,9 +178,7 @@ const DoubleImageWide = ({
   };
 
   return (
-    <div
-      className={`w-full mx-auto grid ${gridCols} gap-8 md:auto-rows-fr`}
-    >
+    <div className={`w-full mx-auto grid ${gridCols} gap-8 md:auto-rows-fr`}>
       <motion.div
         className={`relative ${getColSpan(variant, 0)} ${getRowSpan(variant, 0)}`}
         initial="hidden"

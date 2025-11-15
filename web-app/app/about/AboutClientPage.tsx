@@ -35,8 +35,8 @@ export default function AboutClientPage({
   useEffect(() => {
     // Reset typed keys after 5 seconds of inactivity
     if (typedKeys.toLowerCase() === "stars") {
-          router.push("/about/our-stars");
-        }
+      router.push("/about/our-stars");
+    }
   }, [typedKeys]);
 
   if (!sections) {
@@ -48,7 +48,13 @@ export default function AboutClientPage({
       {sections.map((section: AboutPageSection) => {
         switch (section._type) {
           case "largeQuote":
-            return <LargeQuote key={section._key} text={section.quote} />;
+            return (
+              <LargeQuote
+                key={section._key}
+                text={section.quote}
+                author={section.author}
+              />
+            );
           case "triImageCollage":
             return (
               <TriImageCollage
