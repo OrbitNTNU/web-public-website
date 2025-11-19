@@ -27,9 +27,24 @@ export const deskStructure = (S: StructureBuilder) =>
 
             // Teams
             S.listItem()
-                .title('Teams Page')
+                .title('Teams')
                 .icon(MdGroups)
-                .child(S.document().schemaType('teamPage').documentId('teamPage')),
+                .child(
+                    S.list()
+                        .title('Teams')
+                        .items([
+                            S.listItem()
+                                .title('Teams Page Settings')
+                                .child(
+                                    S.document()
+                                        .schemaType('teamPage')
+                                        .documentId('teamPage')
+                                ),
+                            // FIX: team → teamPage
+                            S.documentTypeListItem('teamPage')
+                                .title('All Team Pages'),
+                        ])
+                ),
 
             // Projects
             S.listItem()
