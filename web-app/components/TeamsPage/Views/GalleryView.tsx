@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import MemberCard from "../../MemberCard";
+import MemberCard from "../../General/MemberCard";
 import { Team } from "@/components/TeamsPage/lib/teams";
 import { useEffect, useMemo, useState } from "react";
 
@@ -10,11 +10,8 @@ interface GalleryViewProps {
   searchTerm: string;
 }
 
-const GalleryView = ({
-  teamsData,
-  searchTerm,
-}: GalleryViewProps) => {
-    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
+const GalleryView = ({ teamsData, searchTerm }: GalleryViewProps) => {
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -43,10 +40,18 @@ const GalleryView = ({
     () =>
       filteredMembers.filter(
         (member) =>
-          member.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-          member.title?.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-          member.teamName?.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-          member.mail?.toLowerCase().includes(debouncedSearchTerm.toLowerCase()),
+          member.name
+            .toLowerCase()
+            .includes(debouncedSearchTerm.toLowerCase()) ||
+          member.title
+            ?.toLowerCase()
+            .includes(debouncedSearchTerm.toLowerCase()) ||
+          member.teamName
+            ?.toLowerCase()
+            .includes(debouncedSearchTerm.toLowerCase()) ||
+          member.mail
+            ?.toLowerCase()
+            .includes(debouncedSearchTerm.toLowerCase()),
       ),
     [filteredMembers, debouncedSearchTerm],
   );

@@ -1,5 +1,5 @@
 import { getArticle } from "@/sanity/fetch/SanityFetch";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import ArticleSlugClientPage from "../ArticleSlugClientPage";
 
 interface ArticlePageProps {

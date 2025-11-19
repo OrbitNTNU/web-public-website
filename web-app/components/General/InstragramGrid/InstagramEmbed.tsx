@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Loading } from "../../Loading";
+import { Loading } from "../Layout/Loading";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa6";
 import VideoPlayer from "./VideoPlayer";
@@ -144,7 +144,7 @@ export default function InstagramEmbed() {
   };
 
   return (
-    <section className="pt-16 pb-16 lg:pb-32">
+    <section>
       <motion.h3
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}

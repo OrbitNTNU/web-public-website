@@ -188,7 +188,7 @@ const DoubleImages = ({
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             {title1}
           </motion.h3>
@@ -199,7 +199,7 @@ const DoubleImages = ({
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <p className="text-charcoal-light whitespace-pre-wrap">
               {caption1}
@@ -220,7 +220,7 @@ const DoubleImages = ({
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             {title2}
           </motion.h3>
@@ -231,7 +231,7 @@ const DoubleImages = ({
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <p className="text-charcoal-light whitespace-pre-wrap">
               {caption2}

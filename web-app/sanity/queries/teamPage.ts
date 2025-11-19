@@ -24,7 +24,8 @@ export const TEAM_PAGE_QUERY = defineQuery(`
       _type == "largeQuote" => {
         _key,
         _type,
-        quote
+        quote,
+        author
       },
 
       _type == "largeImage" => {

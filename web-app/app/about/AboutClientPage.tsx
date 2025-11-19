@@ -8,7 +8,7 @@ import LargeImage from "@/components/General/LargeImage";
 import LargeQuote from "@/components/General/LargeQuote";
 import SpanningText from "@/components/General/SpanningText";
 import TriImageCollage from "@/components/General/TriImageCollage";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import { AboutPageSection } from "@/sanity/types/pages/aboutPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { useRouter } from "next/navigation";
@@ -35,8 +35,8 @@ export default function AboutClientPage({
   useEffect(() => {
     // Reset typed keys after 5 seconds of inactivity
     if (typedKeys.toLowerCase() === "stars") {
-          router.push("/about/our-stars");
-        }
+      router.push("/about/our-stars");
+    }
   }, [typedKeys]);
 
   if (!sections) {
@@ -44,11 +44,17 @@ export default function AboutClientPage({
   }
 
   return (
-    <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-40 my-40 flex flex-col">
+    <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-60 my-40 flex flex-col">
       {sections.map((section: AboutPageSection) => {
         switch (section._type) {
           case "largeQuote":
-            return <LargeQuote key={section._key} text={section.quote} />;
+            return (
+              <LargeQuote
+                key={section._key}
+                text={section.quote}
+                author={section.author}
+              />
+            );
           case "triImageCollage":
             return (
               <TriImageCollage
@@ -123,7 +129,7 @@ export default function AboutClientPage({
               <LargeImage
                 key={section._key}
                 src={imageBuilder(section.image)}
-                alt={"Large Image"}
+                alt={section.alt}
                 caption={section.caption}
               />
             );

@@ -22,9 +22,8 @@ export default function NavbarItem({
   isActive,
   mounted,
   detailWidth,
-  detailRef
+  detailRef,
 }: NavbarItemProps) {
-
   return (
     <motion.div
       key={item.label}
@@ -32,7 +31,7 @@ export default function NavbarItem({
       animate={{
         x: detailedLocation && index < activeIndex ? -detailWidth : 0,
       }}
-      transition={{ type:"spring", stiffness: 300, damping: 25 }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
       <Link
         href={item.href}

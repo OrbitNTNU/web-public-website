@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'landingPage',
@@ -16,26 +16,20 @@ export default defineType({
       title: 'Sections',
       type: 'array',
       of: [
-        { type: 'largeQuote' },
-        { type: 'largeImage' },
-        { type: 'spanningText' },
-        { type: 'doubleImage' },
-        { type: 'doubleImageCollage' },
-        { type: 'projectsShowcase' },
-        { type: 'instagramEmbed' },
-        {
-          type: 'reference',
-          name: 'joinCardRef',
-          title: 'Join Card Section',
-          to: [{ type: 'joinCard' }],
-          options: { disableNew: true },
-        },
+        {type: 'largeQuote'},
+        {type: 'largeImage'},
+        {type: 'spanningText'},
+        {type: 'doubleImage'},
+        {type: 'doubleImageCollage'},
+        {type: 'projectsShowcase'},
+        {type: 'instagramEmbed'},
+        {type: 'joinCard'},
         {
           type: 'reference',
           name: 'forSponsorsCardRef',
           title: 'For Sponsors Section',
-          to: [{ type: 'forSponsorsCard' }],
-          options: { disableNew: true },
+          to: [{type: 'forSponsorsCard'}],
+          options: {disableNew: true},
         },
       ],
     }),

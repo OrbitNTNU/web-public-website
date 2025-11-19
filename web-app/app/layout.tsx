@@ -3,7 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/General/Layout/Navbar";
 import { Footer } from "@/components/General/Layout/Footer";
 import { NavbarProvider } from "@/components/General/Layout/NavbarContext";
-import StarBackground from "@/components/StarBackground";
+import StarBackground from "@/components/General/Layout/StarBackground";
 
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here!",
@@ -94,7 +94,7 @@ export default function RootLayout({
       <body>
         <NavbarProvider>
           <Navbar />
-          <div className="relative flex flex-col mx-auto min-h-screen gap-20 md:gap-40 z-10 overflow-x-clip">
+          <div className="relative flex flex-col mx-auto min-h-screen gap-40 md:gap-60 z-10 overflow-x-clip">
             <StarBackground />
             {children}
           </div>

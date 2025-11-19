@@ -45,11 +45,7 @@ const MemberDistribution = ({ data }: MemberDistributionProps) => {
 
   return (
     <div className="relative mx-auto flex w-full flex-col items-start">
-      <h3
-        className="mb-4 md:text-center"
-      >
-        Membership Distribution
-      </h3>
+      <h3 className="mb-4 md:text-center">Membership Distribution</h3>
 
       {/* Intro text */}
       <p className="mb-8 max-w-3xl text-charcoal-light md:mr-auto md:text-left md:max-w-2/3">

@@ -1,6 +1,6 @@
 import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
 import { Team } from "@/app/team/TeamsClientPage";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import StarsView from "../StarsViewClientPage";
 
 export default async function StarsPage() {

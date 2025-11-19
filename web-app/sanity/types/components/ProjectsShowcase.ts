@@ -1,5 +1,4 @@
-import {BigProject, SubOrbitalProject} from "../project";
-
+import { BigProject, SubOrbitalProject } from "../project";
 
 export interface ProjectsShowcase {
   _key: string;

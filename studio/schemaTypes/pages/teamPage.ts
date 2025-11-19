@@ -23,7 +23,7 @@ export default defineType({
         Rule.warning().custom(async (teams, context) => {
           if (!teams || teams.length === 0) return true
 
-          const client = context.getClient({ apiVersion: '2023-01-01' })
+          const client = context.getClient({apiVersion: '2023-01-01'})
           const docId = context.document?._id
 
           // Fetch all other docs that share at least one team ID
@@ -33,7 +33,7 @@ export default defineType({
               title,
               team
             }`,
-            { teams, docId }
+            {teams, docId},
           )
 
           if (existingDocs.length > 0) {
@@ -43,8 +43,7 @@ export default defineType({
               doc.team.forEach((t: number) => {
                 if (teams.includes(t)) {
                   const teamName =
-                    teamNames.find((team) => String(team.id) === String(t))
-                      ?.name || `ID: ${t}`
+                    teamNames.find((team) => String(team.id) === String(t))?.name || `ID: ${t}`
                   overlappingTeams.add(teamName)
                 }
               })

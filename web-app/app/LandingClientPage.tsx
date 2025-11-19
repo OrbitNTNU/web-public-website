@@ -7,11 +7,11 @@ import SpanningText from "@/components/General/SpanningText";
 import DoubleImages from "@/components/General/DoubleImages";
 import Projects from "@/components/General/Projects";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import SubOrbital from "@/components/General/SubOrbital";
 import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
 import ForSponsorsCard from "@/components/General/ForSponsorsCard";
-import TeamOverview from "@/components/TeamOverview";
+import TeamOverview from "@/components/General/TeamOverview";
 
 interface LandingPageProps {
   sections: LandingPageSection[];
@@ -26,7 +26,13 @@ export default function LandingPage({ sections }: LandingPageProps) {
       {sections.map((section) => {
         switch (section._type) {
           case "largeQuote":
-            return <LargeQuote key={section._key} text={section.quote} />;
+            return (
+              <LargeQuote
+                key={section._key}
+                text={section.quote}
+                author={section.author}
+              />
+            );
 
           case "largeImage":
             return (
@@ -37,7 +43,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
                   format: "webp",
                   quality: 70,
                 })}
-                alt="Large Image"
+                alt={section.alt}
                 caption={section.caption}
               />
             );
@@ -103,14 +109,18 @@ export default function LandingPage({ sections }: LandingPageProps) {
 
           case "projectsShowcase":
             if (!(section.projectType === "subOrbitalProject")) {
-              return <Projects key={section._key} projects={section.projects} />;
+              return (
+                <Projects key={section._key} projects={section.projects} />
+              );
             }
-            return <SubOrbital key={section._key} projects={section.projects} />;
+            return (
+              <SubOrbital key={section._key} projects={section.projects} />
+            );
 
           case "instagramEmbed":
             return <InstagramEmbed key={section._key} />;
 
-          case "joinCardRef":
+          case "joinCard":
             return <TeamOverview key={section._key} />;
 
           case "forSponsorsCardRef":

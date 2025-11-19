@@ -12,6 +12,11 @@ export default defineType({
       rows: 3,
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'author',
+      title: 'Author',
+      type: 'string',
+    }),
   ],
   preview: {
     select: {title: 'quote'},

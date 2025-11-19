@@ -87,7 +87,13 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
         {article.sections?.map((section) => {
           switch (section._type) {
             case "largeQuote":
-              return <LargeQuote key={section._key} text={section.quote} />;
+              return (
+                <LargeQuote
+                  key={section._key}
+                  text={section.quote}
+                  author={section.author}
+                />
+              );
 
             case "largeImage":
               return (
@@ -98,7 +104,7 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
                     format: "webp",
                     quality: 70,
                   })}
-                  alt="Large Image"
+                  alt={section.alt}
                   caption={section.caption}
                 />
               );

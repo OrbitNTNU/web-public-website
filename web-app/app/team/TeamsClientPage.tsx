@@ -6,7 +6,7 @@ import ListView from "@/components/TeamsPage/Views/ListView";
 import TraditionalView from "@/components/TeamsPage/Views/TraditionalView";
 import GalleryView from "@/components/TeamsPage/Views/GalleryView";
 import Header from "@/components/General/Header";
-import { Loading } from "@/components/Loading";
+import { Loading } from "@/components/General/Layout/Loading";
 import TeamSelector from "@/components/TeamsPage/TeamSelector";
 
 export interface Member {
@@ -37,9 +37,9 @@ export default function TeamsClientPage({
   const [loading] = useState<boolean>(!initialTeamsData);
   const [activeTeam, setActiveTeam] = useState<number | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [viewMode, setViewMode] = useState<
-    "list" | "gallery" | "traditional"
-  >("traditional");
+  const [viewMode, setViewMode] = useState<"list" | "gallery" | "traditional">(
+    "traditional",
+  );
   const [selectedTeamID, setSelectedTeamID] = useState<number>(1);
 
   useEffect(() => {
@@ -49,15 +49,14 @@ export default function TeamsClientPage({
     if (viewMode !== "gallery") {
       setSearchTerm("");
     }
-
   }, [searchTerm, viewMode]);
-  
+
   if (loading) return <Loading />;
 
   const handleTeamChange = (teamID: number) => {
     setSelectedTeamID(teamID);
   };
-  
+
   if (!teamsData)
     return <div className="text-cloud-white">No team data available.</div>;
 
@@ -89,10 +88,7 @@ export default function TeamsClientPage({
         />
       )}
       {viewMode === "gallery" && (
-        <GalleryView
-          teamsData={teamsData}
-          searchTerm={searchTerm}
-        />
+        <GalleryView teamsData={teamsData} searchTerm={searchTerm} />
       )}
       {viewMode === "list" && (
         <ListView

@@ -15,6 +15,5 @@ export interface ForSponsorsCardType {
   data: {
     title: string;
     intro: string;
-    ctaButtons: SponsorCTA[];
   };
 }

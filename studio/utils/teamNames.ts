@@ -6,7 +6,7 @@ export interface Team {
 export interface TeamWithDescription {
   id: string
   name: string
-  description: string 
+  description: string
 }
 
 export async function getTeamNames(): Promise<Team[]> {

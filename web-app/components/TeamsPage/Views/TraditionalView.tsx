@@ -2,16 +2,14 @@
 
 import { motion } from "framer-motion";
 import { getSlug, Team } from "@/components/TeamsPage/lib/teams";
-import MemberCard from "../../MemberCard";
+import MemberCard from "../../General/MemberCard";
 import { useRouter } from "next/navigation";
 
 interface TraditionalViewProps {
   team: Team;
 }
 
-const TraditionalView = ({
-  team,
-}: TraditionalViewProps) => {
+const TraditionalView = ({ team }: TraditionalViewProps) => {
   const router = useRouter();
 
   return (
@@ -59,8 +57,6 @@ const TraditionalView = ({
         {/* --- Members grid --- */}
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8"
-          initial="hidden"
-          whileInView="visible"
           viewport={{ once: true }}
           variants={{
             hidden: {},
@@ -84,17 +80,9 @@ const TraditionalView = ({
             .map((member, index) => (
               <motion.div
                 key={`${member.name}-${team.teamName}`}
-                variants={{
-                  hidden: { y: 120, opacity: 0 },
-                  visible: {
-                    y: 0,
-                    opacity: 1,
-                    transition: {
-                      duration: 0.6,
-                      delay: index * 0.1,
-                    },
-                  },
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <MemberCard
                   image={member.image ?? ""}
