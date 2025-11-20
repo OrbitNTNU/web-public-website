@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextRequest } from "next/server";
 
-export async function POST(req: NextRequest) {
+async function handler(req: NextRequest) {
     const secret = process.env.REVALIDATION_SECRET;
     const token = req.nextUrl.searchParams.get("secret");
 
@@ -17,4 +17,12 @@ export async function POST(req: NextRequest) {
     revalidatePath("/sponsors");
 
     return Response.json({ ok: true });
+}
+
+export async function GET(req: NextRequest) {
+    return handler(req);
+}
+
+export async function POST(req: NextRequest) {
+    return handler(req);
 }
