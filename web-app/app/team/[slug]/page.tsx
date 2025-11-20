@@ -7,7 +7,7 @@ import { Team } from "../TeamsClientPage";
 interface TeamPageProps {
   params: { slug: string };
 }
-export const revalidate = false;
+export const dynamic = "force-dynamic";
 
 export default async function TeamPage({ params }: TeamPageProps) {
   const { slug } = params;
