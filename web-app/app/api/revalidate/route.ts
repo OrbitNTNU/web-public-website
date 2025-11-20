@@ -10,7 +10,8 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json().catch(() => null);
-    // Hovedsider
+
+    // Always revalidate static pages
     revalidatePath("/");
     revalidatePath("/articles");
     revalidatePath("/projects");
@@ -22,12 +23,13 @@ export async function POST(req: NextRequest) {
         return Response.json({ ok: true });
     }
 
-    const { _type, slug } = body as {
+    const { _type, slug, team } = body as {
         _type?: string;
         slug?: { current?: string };
+        team?: number[];
     };
 
-    // Article pages
+    // Articles
     if (_type === "article" && slug?.current) {
         revalidatePath(`/articles/${slug.current}`);
     }
@@ -37,14 +39,16 @@ export async function POST(req: NextRequest) {
         revalidatePath(`/projects/${slug.current}`);
     }
 
-    // Sub-orbital projects
+    // Sub orbital projects
     if (_type === "subOrbitalProject" && slug?.current) {
         revalidatePath(`/projects/${slug.current}`);
     }
 
-    // Team pages
-    if (_type === "team" && slug?.current) {
-        revalidatePath(`/team/${slug.current}`);
+    // Teams not slug
+    if (_type === "teamPage" && Array.isArray(team)) {
+        team.forEach((id) => {
+            revalidatePath(`/team/${id}`);
+        });
     }
 
     return Response.json({ ok: true });
