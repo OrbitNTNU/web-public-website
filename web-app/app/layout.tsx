@@ -4,7 +4,9 @@ import Navbar from "@/components/General/Layout/Navbar";
 import { Footer } from "@/components/General/Layout/Footer";
 import { NavbarProvider } from "@/components/General/Layout/NavbarContext";
 import StarBackground from "@/components/General/Layout/StarBackground";
+import { SanityLive } from "@/sanity/live/live";
 import VisualEditing from "@/components/Live/VisualEditing";
+
 
 
 export const metadata: Metadata = {
@@ -94,6 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <SanityLive />
       <VisualEditing />
         <NavbarProvider>
           <Navbar />
