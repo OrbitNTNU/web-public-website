@@ -9,6 +9,8 @@ export async function POST(req: NextRequest) {
         return new Response("Invalid token", { status: 401 });
     }
 
+    const body = await req.json().catch(() => null);
+
     revalidatePath("/");
     revalidatePath("/articles");
     revalidatePath("/projects");
@@ -16,5 +18,27 @@ export async function POST(req: NextRequest) {
     revalidatePath("/join");
     revalidatePath("/sponsors");
 
-    return Response.json({ message: "Revalidation successful" });
+    if (!body) {
+        return Response.json({ ok: true });
+    }
+
+    const { _type, slug } = body as {
+        _type?: string;
+        slug?: { current?: string };
+    };
+
+    // Slug revalidation
+    if (_type === "article" && slug?.current) {
+        revalidatePath(`/articles/${slug.current}`);
+    }
+
+    if (_type === "project" && slug?.current) {
+        revalidatePath(`/projects/${slug.current}`);
+    }
+
+    if (_type === "team" && slug?.current) {
+        revalidatePath(`/team/${slug.current}`);
+    }
+
+    return Response.json({ ok: true });
 }
