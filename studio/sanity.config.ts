@@ -23,10 +23,16 @@ export default defineConfig({
 
     visionTool(),
     colorInput(),
+
     presentationTool({
-      previewUrl,
+      previewUrl: {
+        draftMode: {
+          enable: "/api/draft",
+        },
+      },
     }),
   ],
+
 
   schema: {
     types: schemaTypes,
