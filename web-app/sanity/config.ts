@@ -6,6 +6,7 @@ export const client = createClient({
   apiVersion: "2023-01-01",
   useCdn: true,
 });
+
 export function getSanityClient(useDrafts = false) {
   return client.withConfig({
     useCdn: !useDrafts,

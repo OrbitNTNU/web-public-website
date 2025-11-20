@@ -23,11 +23,14 @@ export default defineConfig({
 
     presentationTool({
       previewUrl: {
-        draftMode: {
-          enable: "https://web-public-website.vercel.app/api/draft",
+        origin: "https://web-public-website.vercel.app",
+        preview: "/",
+        previewMode: {
+          enable: "/api/draft",
         },
       },
     }),
+
   ],
 
 
