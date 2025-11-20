@@ -2,7 +2,7 @@ export async function getTeamsData() {
   try {
     const res = await fetch(
       "https://lifesupport.orbitntnu.com/api/trpc/teams.getPublicTeamPageInfo",
-      { next: { revalidate: 300 } },
+      { next: { revalidate: false } },
     );
 
     if (!res.ok) {
