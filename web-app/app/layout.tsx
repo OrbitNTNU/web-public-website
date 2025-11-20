@@ -4,7 +4,8 @@ import Navbar from "@/components/General/Layout/Navbar";
 import { Footer } from "@/components/General/Layout/Footer";
 import { NavbarProvider } from "@/components/General/Layout/NavbarContext";
 import StarBackground from "@/components/General/Layout/StarBackground";
-import {VisualEditing} from "@/components/Live/VisualEditing";
+import VisualEditing from "@/components/Live/VisualEditing";
+
 
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here!",
