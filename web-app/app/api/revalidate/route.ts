@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json().catch(() => null);
-
+    // Hovedsider
     revalidatePath("/");
     revalidatePath("/articles");
     revalidatePath("/projects");
@@ -27,15 +27,22 @@ export async function POST(req: NextRequest) {
         slug?: { current?: string };
     };
 
-    // Slug revalidation
+    // Article pages
     if (_type === "article" && slug?.current) {
         revalidatePath(`/articles/${slug.current}`);
     }
 
-    if (_type === "project" && slug?.current) {
+    // Big projects
+    if (_type === "bigProject" && slug?.current) {
         revalidatePath(`/projects/${slug.current}`);
     }
 
+    // Sub-orbital projects
+    if (_type === "subOrbitalProject" && slug?.current) {
+        revalidatePath(`/projects/${slug.current}`);
+    }
+
+    // Team pages
     if (_type === "team" && slug?.current) {
         revalidatePath(`/team/${slug.current}`);
     }
