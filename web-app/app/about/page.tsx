@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
   },
 };
-
+export const revalidate = false;
 const AboutPage = async () => {
   const data = await getAboutPage();
   return <AboutClientPage sections={data?.sections ?? []} />;
