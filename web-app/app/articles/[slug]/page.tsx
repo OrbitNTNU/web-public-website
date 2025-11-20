@@ -5,7 +5,7 @@ import ArticleSlugClientPage from "../ArticleSlugClientPage";
 interface ArticlePageProps {
   params: { slug: string };
 }
-
+export const revalidate = false;
 export default async function ArticlePage(props: ArticlePageProps) {
   const params = props.params;
   const article = await getArticle(params.slug);

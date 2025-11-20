@@ -29,6 +29,7 @@ const data = {
   ],
   images: ["/tests/1.png", "/tests/2.png", "/tests/5.jpg", "/tests/6.png"],
 };
+export const revalidate = false;
 export default async function JoinPage() {
   const articles = await getAllArticles();
   if (!articles) {

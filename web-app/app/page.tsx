@@ -1,8 +1,8 @@
 import LandingPage from "@/app/LandingClientPage";
 import { getLandingPage } from "@/sanity/fetch/SanityFetch";
 import type { Metadata } from "next";
-import { Team } from "./team/TeamsClientPage";
 
+export const revalidate = false;
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here!",
   description: "",

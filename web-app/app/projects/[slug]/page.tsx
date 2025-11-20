@@ -78,7 +78,7 @@ export const metadata: Metadata = {
 interface ProjectPageProps {
   params: { slug: string };
 }
-
+export const revalidate = false;
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = params;
   const BigProject = await getBigProject(slug);

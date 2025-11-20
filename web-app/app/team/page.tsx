@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     },
   },
 };
-export const revalidate = 300; //5 minutter
+export const revalidate = false; //never
 
 export default async function TeamsPage() {
   const teamsData = await getTeamsData();

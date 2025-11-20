@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 };
-
+export const revalidate = false;
 export default async function ProjectsPage() {
   const BigProjects = await getAllBigProjects();
   const SubOrbitalProjects = await getAllSubOrbitalProjects();
