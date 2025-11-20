@@ -1,4 +1,4 @@
-import { sanityFetchWithDraft as sanityFetch } from "@/sanity/live/sanityFetchWithDraft";
+
 
 
 import { LANDING_PAGE_QUERY } from "@/sanity/queries/landingPage";
@@ -21,6 +21,7 @@ import {
 import { Article } from "@/sanity/types/pages/articlePage";
 import { TeamPage } from "@/sanity/types/pages/teamsPage";
 import { TEAM_PAGE_QUERY } from "@/sanity/queries/teamPage";
+import {sanityFetch} from "@/sanity/live/live";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {

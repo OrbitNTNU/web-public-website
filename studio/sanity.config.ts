@@ -6,9 +6,6 @@ import { deskStructure } from "./deskStructure";
 import { schemaTypes } from "./schemaTypes";
 import { presentationTool } from "sanity/presentation";
 
-
-const previewUrl ="https://web-public-website.vercel.app/";
-
 export default defineConfig({
   name: "default",
   title: "orbitntnu-web",
