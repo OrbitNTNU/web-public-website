@@ -1,4 +1,5 @@
-import { sanityFetch } from "@/sanity/live/live";
+import { sanityFetchWithDraft as sanityFetch } from "@/sanity/live/sanityFetchWithDraft";
+
 
 import { LANDING_PAGE_QUERY } from "@/sanity/queries/landingPage";
 import {
