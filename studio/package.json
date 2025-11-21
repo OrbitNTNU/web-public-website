@@ -16,10 +16,7 @@
   ],
   "dependencies": {
     "@sanity/color-input": "^4.0.6",
-<<<<<<< Updated upstream
     "@sanity/presentation": "^2.0.0",
-=======
->>>>>>> Stashed changes
     "@sanity/vision": "^4.17.0",
     "react": "^19.1",
     "react-dom": "^19.1",
