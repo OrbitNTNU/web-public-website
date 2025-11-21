@@ -26,7 +26,7 @@ export const GalleryComponent = ({ images }: GalleryProps) => {
   }
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-4 w-full px-4 md:px-12">
       {rows.map((rowImages, rowIndex) => (
         <div key={rowIndex} className="grid grid-cols-6 gap-4 w-full">
           {rowImages.map((img, colIndex) => {

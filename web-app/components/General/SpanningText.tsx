@@ -37,21 +37,19 @@ const SpanningText: React.FC<SpanningTextProps> = ({ text }) => {
   return (
     <div
       ref={containerRef}
-      className="w-screen overflow-hidden whitespace-nowrap select-none relative"
+      className="overflow-hidden whitespace-nowrap select-none relative"
     >
       {/* Left fade */}
       <div
-        className="absolute left-0 top-0 h-full pointer-events-none z-20"
+        className="absolute left-0 top-0 h-full pointer-events-none z-20 w-[5rem] md:w-[20rem]"
         style={{
-          width: "20rem",
           background:
             "linear-gradient(to right, var(--color-charcoal) 0%, rgba(255,255,255,0) 100%)",
         }}
       />
       <div
-        className="absolute right-0 top-0 h-full pointer-events-none z-20"
+        className="absolute right-0 top-0 h-full pointer-events-none z-20 w-[5rem] md:w-[20rem]"
         style={{
-          width: "20rem",
           background:
             "linear-gradient(to left, var(--color-charcoal) 0%, rgba(255,255,255,0) 100%)",
         }}

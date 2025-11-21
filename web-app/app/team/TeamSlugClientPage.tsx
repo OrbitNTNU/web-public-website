@@ -42,9 +42,9 @@ export default function TeamSlugClientPage({
   const isMobile = useIsMobile();
 
   return (
-    <section className="w-full mx-auto my-32 md:my-40 flex flex-col gap-20">
-      <section className="w-full mx-auto px-4 md:px-12 flex flex-col gap-40 md:gap-80">
-        <div className="mx-auto flex flex-col gap-8 w-full">
+    <section className="w-full max-w-[2000px] mx-auto my-32 md:my-40 flex flex-col gap-20">
+      <section className="w-full mx-auto flex flex-col gap-40 md:gap-80">
+        <div className="mx-auto flex flex-col gap-8 w-full px-4 md:px-12">
           <Link
             className="flex flex-row gap-2 group cursor-pointer items-center"
             href="/team"
@@ -55,7 +55,7 @@ export default function TeamSlugClientPage({
             <span>Go back to team</span>
           </Link>
         </div>
-        <div className="flex flex-col gap-4 items-end">
+        <div className="flex flex-col gap-4 md:items-end px-4 md:px-12">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +67,7 @@ export default function TeamSlugClientPage({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-charcoal-light w-full md:w-1/2 text-right"
+            className="text-charcoal-light w-full md:w-1/2 md:text-right"
           >
             {team.description}
           </motion.span>
@@ -76,7 +76,7 @@ export default function TeamSlugClientPage({
           switch (section._type) {
             case "membersSection":
               return (
-                <div className="w-full" key={section._key}>
+                <div className="w-full px-4 md:px-12" key={section._key}>
                   <motion.h3
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}

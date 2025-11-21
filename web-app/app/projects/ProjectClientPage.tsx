@@ -30,13 +30,14 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
 
   if (!project) return <Loading />;
 
+
   return (
-    <div className="w-full mx-auto px-4 py-16">
+    <div className="w-full mx-auto px-4 py-16 gap-20 md:gap-40 flex flex-col">
       {project?.sections?.map((section) => {
         switch (section._type) {
           case "bannerImage":
             return (
-              <div className="h-screen mb-20" key={section._key}>
+              <div className="h-screen" key={section._key}>
                 <BannerImage
                   key={section._key}
                   backgroundSrc={imageBuilder(section.image.asset._ref)}
@@ -69,6 +70,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                 caption2={section.caption2}
                 src2={imageBuilder(section.image2)}
                 alt2={section.alt2 ?? ""}
+                variant={section.variant}
               />
             );
           case "doubleImageCollage":
