@@ -5,6 +5,8 @@ import { colorInput } from "@sanity/color-input";
 import { deskStructure } from "./deskStructure";
 import { schemaTypes } from "./schemaTypes";
 import { presentationTool } from "sanity/presentation";
+import {resolve} from "./resolve";
+
 
 export default defineConfig({
   name: "default",
@@ -24,15 +26,13 @@ export default defineConfig({
     presentationTool({
       previewUrl: {
         origin: "https://web-public-website.vercel.app",
-        preview: "/",
-        previewMode: {
+        draftMode: {
           enable: "/api/draft",
         },
       },
+      resolve,
     }),
-
   ],
-
 
   schema: {
     types: schemaTypes,
