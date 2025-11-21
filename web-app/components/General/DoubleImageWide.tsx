@@ -178,7 +178,7 @@ const DoubleImageWide = ({
   };
 
   return (
-    <div className={`w-full mx-auto grid ${gridCols} gap-8 md:auto-rows-fr`}>
+    <div className={`w-full px-4 md:px-12 mx-auto grid ${gridCols} gap-8 md:auto-rows-fr`}>
       <motion.div
         className={`relative ${getColSpan(variant, 0)} ${getRowSpan(variant, 0)}`}
         initial="hidden"
