@@ -1,10 +1,9 @@
-import { defineEnableDraftMode } from "next-sanity/draft-mode";
-import { getSanityClient } from "@/sanity/config";
+import { draftMode } from "next/headers";
+import { NextResponse } from "next/server";
 
-const handler = defineEnableDraftMode({
-    client: getSanityClient(true),
-});
+export async function GET() {
+    const dm = await draftMode();
+    dm.enable();
 
-export async function GET(req: Request) {
-    return handler.GET(req);
+    return NextResponse.json({ ok: true });
 }
