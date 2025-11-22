@@ -8,6 +8,7 @@ export const { sanityFetch, SanityLive } = defineLive({
   client: getSanityClient(false),
 
 
-  serverToken: false,
-  browserToken: false,
+  serverToken: process.env.PRESENTATION || false,
+  browserToken: process.env.PRESENTATION || false,
+
 });
