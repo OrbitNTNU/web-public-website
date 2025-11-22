@@ -1,7 +1,10 @@
 import { defineQuery } from "groq";
 
 export const ALL_BIG_PROJECTS_QUERY = defineQuery(`
-  *[_type == "bigProject"]{
+  *[
+    _type == "bigProject" &&
+    !(_id in path("drafts.**"))
+  ]{
     _id,
     title,
     teaser,
@@ -13,7 +16,11 @@ export const ALL_BIG_PROJECTS_QUERY = defineQuery(`
 `);
 
 export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
-  *[_type == "bigProject" && slug.current == $slug][0]{
+  *[
+    _type == "bigProject" &&
+    !(_id in path("drafts.**")) &&
+    slug.current == $slug
+  ][0]{
     _id,
     _type,
     title,
@@ -90,7 +97,10 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
 `);
 
 export const ALL_SUBORBITAL_PROJECTS_QUERY = defineQuery(`
-  *[_type == "subOrbitalProject"] | order(publishedAt desc) {
+  *[
+    _type == "subOrbitalProject" &&
+    !(_id in path("drafts.**"))
+  ] | order(publishedAt desc) {
     _id,
     title,
     teaser,
@@ -103,7 +113,11 @@ export const ALL_SUBORBITAL_PROJECTS_QUERY = defineQuery(`
 `);
 
 export const SUBORBITAL_PROJECT_BY_SLUG_QUERY = defineQuery(`
-  *[_type == "subOrbitalProject" && slug.current == $slug][0]{
+  *[
+    _type == "subOrbitalProject" &&
+    !(_id in path("drafts.**")) &&
+    slug.current == $slug
+  ][0]{
     _id,
     _type,
     title,

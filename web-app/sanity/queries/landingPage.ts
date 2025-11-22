@@ -1,7 +1,10 @@
 import { defineQuery } from "groq";
 
 export const LANDING_PAGE_QUERY = defineQuery(`
-  *[_type == "landingPage"][0]{
+  *[
+    _type == "landingPage" &&
+    !(_id in path("drafts.**"))
+  ][0]{
     _id,
     title,
     sections[] {
@@ -79,7 +82,11 @@ export const LANDING_PAGE_QUERY = defineQuery(`
 
       _type == "forSponsorsCardRef" => {
         _type,
-        "data": *[_type=="forSponsorsCard" && _id=="singleton-forSponsorsCard"][0]{
+        "data": *[
+          _type=="forSponsorsCard" &&
+          _id=="singleton-forSponsorsCard" &&
+          !(_id in path("drafts.**"))
+        ][0]{
           title,
           intro,
         }

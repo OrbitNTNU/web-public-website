@@ -1,7 +1,10 @@
 import { defineQuery } from "groq";
 
 export const TEAM_LIST_QUERY = defineQuery(`
-  *[_type == "teamPage"] | order(title asc) {
+  *[
+    _type == "teamPage" &&
+    !(_id in path("drafts.**"))
+  ] | order(title asc) {
     _id,
     title,
     description,
@@ -10,7 +13,11 @@ export const TEAM_LIST_QUERY = defineQuery(`
 `);
 
 export const TEAM_PAGE_QUERY = defineQuery(`
-  *[_type == "teamPage" && $teamId in team][0]{
+  *[
+    _type == "teamPage" &&
+    !(_id in path("drafts.**")) &&
+    $teamId in team
+  ][0]{
     _id,
     team,
     sections[] {

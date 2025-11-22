@@ -1,7 +1,11 @@
 import { defineQuery } from "groq";
 
 export const ARTICLE_PAGE_QUERY = defineQuery(`
-  *[_type == "article" && slug.current == $slug][0]{
+  *[
+    _type == "article" &&
+    !(_id in path("drafts.**")) &&
+    slug.current == $slug
+  ][0]{
     _id,
     title,
     teaser,
@@ -56,14 +60,14 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
         }
       },
       _type == "imageAndCaption" => {
-         _type,
-          src,
-          alt,
-          title,
-          caption,
-          wideCaption,
-          link,
-          variant
+        _type,
+        src,
+        alt,
+        title,
+        caption,
+        wideCaption,
+        link,
+        variant
       },
       _type == "singleImageCollage" => {
         _type,
@@ -100,7 +104,10 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
 `);
 
 export const ALL_ARTICLES_QUERY = defineQuery(`
-  *[_type == "article"] | order(publishedAt desc) {
+  *[
+    _type == "article" &&
+    !(_id in path("drafts.**"))
+  ] | order(publishedAt desc) {
     _id,
     _type,
     title,

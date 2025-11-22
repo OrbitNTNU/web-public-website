@@ -1,7 +1,10 @@
 import { defineQuery } from "groq";
 
 export const SPONSORS_PAGE_QUERY = defineQuery(`
-  *[_type == "sponsorsPage"][0]{
+  *[
+    _type == "sponsorsPage" &&
+    !(_id in path("drafts.**"))
+  ][0]{
     _id,
     title,
     caption,
