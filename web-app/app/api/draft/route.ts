@@ -1,15 +1,18 @@
+// app/api/draft/route.ts
 import { defineEnableDraftMode } from "next-sanity/draft-mode";
-import { client } from "@/sanity/config";
+import { getSanityClient } from "@/sanity/config";
 
-const token = process.env.PRESENTATION!;
+// Client that can see drafts
+const previewClient = getSanityClient(true);
 
 const handler = defineEnableDraftMode({
-    client: client.withConfig({ token }),
+    // This client has token + perspective: "previewDrafts"
+    client: previewClient,
 });
 
 export async function GET(req: Request) {
     try {
-        await client.fetch(`*[_type == "article"][0]._id`);
+        await previewClient.fetch(`*[_type == "article"][0]._id`);
         return handler.GET(req);
     } catch (err) {
         console.error("Draft route error:", err);

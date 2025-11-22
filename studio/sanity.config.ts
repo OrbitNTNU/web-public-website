@@ -1,40 +1,21 @@
-import { defineConfig } from "sanity";
-import { structureTool } from "sanity/structure";
-import { visionTool } from "@sanity/vision";
-import { colorInput } from "@sanity/color-input";
-import { deskStructure } from "./deskStructure";
-import { schemaTypes } from "./schemaTypes";
-import { presentationTool } from "sanity/presentation";
-import {resolve} from "./resolve";
+// sanity/config.ts
+import { createClient } from "@sanity/client";
 
+const projectId = "mt6p5031";
+const dataset = "production";
+const apiVersion = "2024-01-01";
 
-export default defineConfig({
-  name: "default",
-  title: "orbitntnu-web",
+// Base factory: published only or preview with drafts
+export function getSanityClient(preview: boolean = false) {
+  return createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    useCdn: !preview, // CDN for published, direct for preview
+    perspective: preview ? "previewDrafts" : "published",
+    token: preview ? process.env.PRESENTATION : undefined,
+  });
+}
 
-  projectId: "mt6p5031",
-  dataset: "production",
-
-  plugins: [
-    structureTool({
-      structure: deskStructure,
-    }),
-
-    visionTool(),
-    colorInput(),
-
-    presentationTool({
-      previewUrl: {
-        origin: "https://web-public-website.vercel.app",
-        draftMode: {
-          enable: "/api/draft",
-        },
-      },
-      resolve,
-    }),
-  ],
-
-  schema: {
-    types: schemaTypes,
-  },
-});
+// Default client: PRODUCTION, PUBLISHED ONLY
+export const client = getSanityClient(false);
