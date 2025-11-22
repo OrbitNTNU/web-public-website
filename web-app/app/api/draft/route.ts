@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 
 import { defineEnableDraftMode } from "next-sanity/draft-mode";
 import { client } from "@/sanity/config";
