@@ -240,7 +240,7 @@ export default function TeamSlugClientPage({
 
             case "articleReference":
               return (
-                <div key={section._key}>
+                <div key={section._key} className="w-full px-4 md:px-12 mx-auto">
                   <motion.h3
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}

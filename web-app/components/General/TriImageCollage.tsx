@@ -102,7 +102,7 @@ const TriImageCollage = ({
   return (
     <section
       ref={ref}
-      className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden max-w-7xl"
+      className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden"
     >
       {title && (
         <motion.h3
