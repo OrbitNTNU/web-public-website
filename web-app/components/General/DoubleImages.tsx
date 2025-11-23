@@ -71,11 +71,10 @@ const getImageAspect = (
 };
 
 const imageVariants: Variants = {
-  hidden: { opacity: 0, y: 40, filter: "blur(16px)" },
+  hidden: { opacity: 0, y: 40 },
   visible: (custom: number) => ({
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.6,
       ease: "easeOut",
@@ -85,13 +84,12 @@ const imageVariants: Variants = {
 };
 
 const textVariants: Variants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
-      duration: 0.4,
+      duration: 0.3,
       ease: "easeOut",
       delay: 0.2,
     },
@@ -220,7 +218,7 @@ const DoubleImages = ({
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             {title2}
           </motion.h3>
@@ -231,7 +229,7 @@ const DoubleImages = ({
             variants={textVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             <p className="text-charcoal-light whitespace-pre-wrap">
               {caption2}

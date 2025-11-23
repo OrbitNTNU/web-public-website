@@ -13,6 +13,7 @@ import {
 
 export default function InstagramEmbed() {
   const [loading, setLoading] = useState(true);
+  const [inView, setInView] = useState(false);
   const [response, setResponse] = useState<InstagramProfile | null>(null);
   const [visiblePosts, setVisiblePosts] = useState<InstagramPost[]>([]);
   const [carouselIndices, setCarouselIndices] = useState<
@@ -156,7 +157,7 @@ export default function InstagramEmbed() {
       </motion.h3>
 
       {visiblePosts ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4 md:px-12 max-w-[2000px] mx-auto auto-rows-min grid-flow-dense">
+        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4 md:px-12 max-w-[2000px] mx-auto auto-rows-min grid-flow-dense">
           {visiblePosts.map((post, index) => (
             <motion.div
               key={post.id}
@@ -174,7 +175,6 @@ export default function InstagramEmbed() {
               }}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
             >
               <div className="flex justify-between items-center mb-2">
                 <span className="text-charcoal-light text-sm">
@@ -198,7 +198,7 @@ export default function InstagramEmbed() {
               )}
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       ) : (
         <p className="px-4 md:px-12 max-w-[2000px] mx-auto">
           Failed to load Instagram feed.

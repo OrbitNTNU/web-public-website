@@ -26,6 +26,7 @@ export default function LargeQuote({ text, author }: LargeQuotesProps) {
       >
         {text}
       </motion.h2>
+      {author && (
       <motion.p
         className="text-center mx-auto mt-4 text-charcoal-light"
         initial={{ opacity: 0, y: 30 }}
@@ -39,6 +40,7 @@ export default function LargeQuote({ text, author }: LargeQuotesProps) {
       >
         {author}
       </motion.p>
+      )}
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default function AboutClientPage({
   }
 
   return (
-    <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-60 my-40 flex flex-col">
+    <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-40 my-40 flex flex-col">
       {sections.map((section: AboutPageSection) => {
         switch (section._type) {
           case "largeQuote":

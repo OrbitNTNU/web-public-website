@@ -50,7 +50,7 @@ const TeamOverview = () => {
       if (!containerRef.current || teams.length === 0) return;
 
       const container = containerRef.current;
-      const containerTop = container.offsetTop;
+      const containerTop = container.offsetTop + window.innerHeight / 3;
       const scrollY = window.scrollY;
       const viewportHeight = window.innerHeight;
 
@@ -79,22 +79,20 @@ const TeamOverview = () => {
 
   if (!teams.length) return <Loading />;
 
-  const totalItems = teams.length + 3; // extra for CTA
-  const verticalHeight = "20vh";
+  const totalItems = teams.length + 3; 
 
   return (
     <section className="hidden lg:block px-4 md:px-12 w-full mx-auto">
       <div
         ref={containerRef}
-        className="flex relative "
+        className="flex relative"
         style={{
           height: `${totalItems * 100 * scrollSpeed + 100}vh`, // add buffer at end
         }}
       >
         {/* Left column */}
         <div
-          className="flex flex-col gap-4 w-1/2 md:w-1/4 sticky h-screen"
-          style={{ top: verticalHeight }}
+          className="flex flex-col gap-2 2xl:gap-4 w-1/2 md:w-1/4 sticky h-screen justify-center top-0"
         >
           {teams.map((team, idx) => (
             <motion.span
@@ -120,8 +118,7 @@ const TeamOverview = () => {
 
                 const targetScroll =
                   container.offsetTop +
-                  (idx + 1) * chunkHeight -
-                  viewportHeight / 3;
+                  (idx + 1) * chunkHeight
 
                 window.scrollTo({ top: targetScroll, behavior: "smooth" });
               }}
@@ -153,8 +150,7 @@ const TeamOverview = () => {
 
               const targetScroll =
                 container.offsetTop +
-                (teams.length + 1) * chunkHeight -
-                viewportHeight / 3;
+                (teams.length + 1) * chunkHeight;
 
               window.scrollTo({ top: targetScroll, behavior: "smooth" });
             }}
@@ -165,20 +161,20 @@ const TeamOverview = () => {
 
         {/* Right column */}
         <div
-          className="flex-1 sticky h-screen flex items-center text-left"
-          style={{ top: verticalHeight }}
+          className="flex-1 sticky h-screen flex items-center text-left top-0"
         >
           {teams
             .sort((a, b) => a.teamName.localeCompare(b.teamName))
             .map(
               (team, idx) =>
-                idx === activeIndex && (
                   <motion.section
                     key={team.teamID}
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="flex flex-col w-2/3 -translate-y-60"
+                    className={`flex flex-col w-2/3 ${
+                      idx === activeIndex ? "block" : "hidden"
+                    }`}
                   >
                     <h2 className="mb-4">{team.teamName}</h2>
                     <p className="mb-4 text-charcoal-light">
@@ -194,7 +190,6 @@ const TeamOverview = () => {
                       </span>
                     </Link>
                   </motion.section>
-                ),
             )}
 
           {/* CTA Screen */}
@@ -204,7 +199,7 @@ const TeamOverview = () => {
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col justify-center text-right w-full -translate-y-60"
+              className="flex flex-col justify-center text-right w-full"
             >
               <h1
                 className="mb-6 leading-[1.1] text-cloud-white"

@@ -19,7 +19,7 @@ export default function ProjectsOverviewClient({
   if (!BigProjects && !SubOrbitalProjects) return <Loading />;
 
   return (
-    <div className="w-full relative max-w-[2000px] mx-auto gap-20 md:gap-40 my-40 flex flex-col">
+    <div className="w-full relative max-w-[2000px] mx-auto gap-20 md:gap-40 my-24 flex flex-col">
       <Header
         title="Our Projects"
         subtitle=" - Pushing the boundaries of student-led space innovation.

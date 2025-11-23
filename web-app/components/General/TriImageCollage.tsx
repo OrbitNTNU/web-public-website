@@ -17,11 +17,10 @@ interface TriImageCollageProps {
 }
 
 const textVariants: Variants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.4,
       ease: "easeOut",

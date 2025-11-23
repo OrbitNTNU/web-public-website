@@ -31,7 +31,7 @@ const HollowPieChart = ({
 }: {
   entries: { label: string; count: number }[];
 }) => (
-  <div className="relative h-80 w-80">
+  <div className="relative h-64 md:h-80 w-64 md:w-80">
     {/* Pie chart */}
     <div
       className="absolute inset-0 rounded-full"
@@ -41,7 +41,7 @@ const HollowPieChart = ({
     />
     {/* Hollow center */}
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="h-64 w-64 rounded-full bg-charcoal" />
+      <div className="h-48 md:h-64 w-48 md:w-64 rounded-full bg-charcoal" />
     </div>
   </div>
 );
