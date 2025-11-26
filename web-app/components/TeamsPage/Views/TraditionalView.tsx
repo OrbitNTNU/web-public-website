@@ -1,11 +1,9 @@
-"use client";
-
 import { motion } from "framer-motion";
 import { getSlug, Team } from "@/lib/teams";
 import MemberCard from "../../General/MemberCard";
 import { useRouter } from "next/navigation";
 import TeamSelector from "../TeamSelector";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 interface TraditionalViewProps {
   teamsData: Team[];
@@ -13,36 +11,57 @@ interface TraditionalViewProps {
 
 const TraditionalView = ({ teamsData }: TraditionalViewProps) => {
   const [selectedTeamID, setSelectedTeamID] = useState<number>(1);
-
-  const handleTeamChange = (teamID: number) => {
-    setSelectedTeamID(teamID);
-  };
+  const [isSwitching, setIsSwitching] = useState(false);
+  const [relativeScrollOffset, setRelativeScrollOffset] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const router = useRouter();
-
   const team = teamsData.find((team) => team.teamID === selectedTeamID)!;
 
+  const handleTeamChange = (teamID: number) => {
+    if (!containerRef.current) {
+      setSelectedTeamID(teamID);
+      return;
+    }
+
+    const container = containerRef.current;
+    const relativeScroll = window.scrollY - container.offsetTop;
+
+    setRelativeScrollOffset(relativeScroll);
+    setSelectedTeamID(teamID);
+    setIsSwitching(true);
+  };
+
+  useLayoutEffect(() => {
+    if (isSwitching && containerRef.current) {
+      const container = containerRef.current;
+
+      window.scrollTo({
+        top: container.offsetTop + relativeScrollOffset,
+        behavior: "auto",
+      });
+
+      setIsSwitching(false);
+    }
+  }, [selectedTeamID, isSwitching]);
+
   return (
-    <div className="px-4 md:px-12 flex flex-col gap-24">
+    <div ref={containerRef} className="px-4 md:px-12 flex flex-col gap-24">
       <TeamSelector
         teamsData={teamsData}
         selectedTeamID={selectedTeamID}
         handleTeamChange={handleTeamChange}
       />
-      <div key={team.teamName}>
-        <motion.div
-          className="mb-8 w-full md:w-1/2"
-          initial={{ x: 50, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
+
+      <motion.div
+        key={team.teamID}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
+      >
+        <motion.div className="mb-8 w-full md:w-1/2">
           <motion.h2
             className="flex flex-row gap-4 items-center cursor-pointer group"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true, amount: 0.2 }}
             onClick={() => {
               getSlug(team.teamID).then((slug) => {
                 if (slug) void router.push(`/team/${slug}`);
@@ -58,28 +77,11 @@ const TraditionalView = ({ teamsData }: TraditionalViewProps) => {
           </motion.h2>
         </motion.div>
 
-        {/* --- Team description --- */}
-        <motion.p
-          className="text-charcoal-light mb-12 max-w-3xl"
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true, amount: 0.2 }}
-        >
+        <motion.p className="text-charcoal-light mb-12 max-w-3xl">
           {team.description}
         </motion.p>
 
-        {/* --- Members grid --- */}
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.15 },
-            },
-          }}
-        >
+        <motion.div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
           {team.members
             .sort((a, b) => {
               const order: Record<string, number> = {
@@ -90,7 +92,8 @@ const TraditionalView = ({ teamsData }: TraditionalViewProps) => {
               const rankA = order[a.privilege] ?? 99;
               const rankB = order[b.privilege] ?? 99;
               if (rankA !== rankB) return rankA - rankB;
-              if (a.title !== b.title) return a.title.localeCompare(b.title, "en");
+              if (a.title !== b.title)
+                return a.title.localeCompare(b.title, "en");
               return a.name.localeCompare(b.name, "en");
             })
             .map((member, index) => (
@@ -111,7 +114,7 @@ const TraditionalView = ({ teamsData }: TraditionalViewProps) => {
               </motion.div>
             ))}
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 };

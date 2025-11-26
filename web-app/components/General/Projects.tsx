@@ -29,7 +29,7 @@ export default function Projects({ projects }: ProjectsProps) {
         Our flagship projects
       </motion.h3>
 
-      <motion.div 
+      <motion.div
         className="grid gap-4 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         onViewportEnter={() => setInView(true)}
       >

@@ -73,7 +73,12 @@ const AboutPage = async () => {
   const data = await getAboutPage();
   const statistics = await getStatistics();
 
-  return <AboutClientPage sections={data?.sections ?? []} statistics={statistics ?? undefined} />;
+  return (
+    <AboutClientPage
+      sections={data?.sections ?? []}
+      statistics={statistics ?? undefined}
+    />
+  );
 };
 
 export default AboutPage;

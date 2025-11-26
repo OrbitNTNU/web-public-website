@@ -8,7 +8,7 @@ interface ListViewProps {
 
 const ListView = ({ teamsData }: ListViewProps) => {
   const [activeTeam, setActiveTeam] = useState<number | null>(null);
-  
+
   const router = useRouter();
 
   const groupedTeams: { [key: string]: Team[] } = {};

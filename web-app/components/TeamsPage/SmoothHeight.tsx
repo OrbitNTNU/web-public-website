@@ -3,7 +3,11 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-export default function SmoothHeight({ children }: { children: React.ReactNode }) {
+export default function SmoothHeight({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState<number | "auto">("auto");
 

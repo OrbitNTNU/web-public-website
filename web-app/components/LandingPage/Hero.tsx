@@ -8,7 +8,7 @@ export default function Hero() {
         loop
         muted
         playsInline
-        preload="metadata"        // important!
+        preload="metadata" // important!
         style={{ minHeight: "100vh" }}
       >
         Your browser does not support the video tag.

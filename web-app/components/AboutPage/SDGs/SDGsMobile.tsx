@@ -10,7 +10,7 @@ export default function SDGsCarousel() {
   const [maxHeight, setMaxHeight] = useState(0);
 
   useEffect(() => {
-    const heights = sdgs.map(s =>
+    const heights = sdgs.map((s) =>
       (() => {
         const div = document.createElement("div");
         div.style.position = "absolute";
@@ -21,7 +21,7 @@ export default function SDGsCarousel() {
         const h = div.offsetHeight;
         document.body.removeChild(div);
         return h;
-      })()
+      })(),
     );
     setMaxHeight(Math.max(...heights));
   }, []);
@@ -36,7 +36,9 @@ export default function SDGsCarousel() {
 
     children.forEach((child) => {
       const rect = child.getBoundingClientRect();
-      const distance = Math.abs(rect.left + rect.width / 2 - window.innerWidth / 2);
+      const distance = Math.abs(
+        rect.left + rect.width / 2 - window.innerWidth / 2,
+      );
       if (distance < closestDistance) {
         closestDistance = distance;
         closest = child;
@@ -85,7 +87,6 @@ export default function SDGsCarousel() {
       </div>
 
       <div style={{ height: maxHeight }}>
-
         {displayedSdg && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -93,7 +94,9 @@ export default function SDGsCarousel() {
             className="mt-4 text-center px-4 absolute left-0 right-0"
           >
             <h3 className="mb-2">{displayedSdg.title}</h3>
-            <p className="text-charcoal-light max-w-xl mx-auto">{displayedSdg.description}</p>
+            <p className="text-charcoal-light max-w-xl mx-auto">
+              {displayedSdg.description}
+            </p>
           </motion.div>
         )}
       </div>

@@ -31,20 +31,19 @@ const TeamsControls = ({
   searchTerm,
   setSearchTerm,
 }: TeamsControlsProps) => {
-
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (searchTerm !== "") {
       setViewMode("gallery");
     }
-    setSearchTerm(e.target.value.toLowerCase())
-  }
+    setSearchTerm(e.target.value.toLowerCase());
+  };
 
   const handleChangeViewMode = (mode: "list" | "gallery" | "traditional") => {
     setViewMode(mode);
     if (mode !== "gallery") {
       setSearchTerm("");
     }
-  }
+  };
 
   return (
     <section className="hidden md:flex flex-col lg:flex-row items-center justify-between px-4 md:px-12">

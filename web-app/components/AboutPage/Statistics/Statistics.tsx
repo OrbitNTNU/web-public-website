@@ -9,9 +9,8 @@ import { StatisticsResponse } from "@/lib/getStatistics";
 interface StatisticsProps {
   statistics: StatisticsResponse;
 }
-  
-const Statistics = ({ statistics }: StatisticsProps) => {
 
+const Statistics = ({ statistics }: StatisticsProps) => {
   return (
     <div className="flex flex-col gap-20 md:gap-40 w-full mx-auto px-4 md:px-12">
       <MemberDistribution data={statistics.memberDistributionInTeams} />

@@ -68,26 +68,15 @@ export default function TeamsClientPage({
           setSearchTerm={setSearchTerm}
         />
       </section>
-      <section 
-        style={{ minHeight: maxHeight }}
-      >
+      <section style={{ minHeight: maxHeight }}>
         <div ref={contentRef}>
           {viewMode === "traditional" && (
-            <TraditionalView
-              teamsData={teamsData}
-            />
+            <TraditionalView teamsData={teamsData} />
           )}
           {viewMode === "gallery" && (
-            <GalleryView 
-              teamsData={teamsData} 
-              searchTerm={searchTerm} 
-            />
+            <GalleryView teamsData={teamsData} searchTerm={searchTerm} />
           )}
-          {viewMode === "list" && (
-            <ListView
-              teamsData={teamsData}
-            />
-          )}
+          {viewMode === "list" && <ListView teamsData={teamsData} />}
         </div>
       </section>
     </div>

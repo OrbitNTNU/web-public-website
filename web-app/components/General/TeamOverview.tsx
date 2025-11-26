@@ -79,7 +79,7 @@ const TeamOverview = () => {
 
   if (!teams.length) return <Loading />;
 
-  const totalItems = teams.length + 3; 
+  const totalItems = teams.length + 3;
 
   return (
     <section className="hidden lg:block px-4 md:px-12 w-full mx-auto">
@@ -91,9 +91,7 @@ const TeamOverview = () => {
         }}
       >
         {/* Left column */}
-        <div
-          className="flex flex-col gap-2 2xl:gap-4 w-1/2 md:w-1/4 sticky h-screen justify-center top-0"
-        >
+        <div className="flex flex-col gap-2 2xl:gap-4 w-1/2 md:w-1/4 sticky h-screen justify-center top-0">
           {teams.map((team, idx) => (
             <motion.span
               key={team.teamID}
@@ -117,8 +115,7 @@ const TeamOverview = () => {
                 const chunkHeight = viewportHeight * scrollSpeed;
 
                 const targetScroll =
-                  container.offsetTop +
-                  (idx + 1) * chunkHeight
+                  container.offsetTop + (idx + 1) * chunkHeight;
 
                 window.scrollTo({ top: targetScroll, behavior: "smooth" });
               }}
@@ -149,8 +146,7 @@ const TeamOverview = () => {
               const chunkHeight = viewportHeight * scrollSpeed;
 
               const targetScroll =
-                container.offsetTop +
-                (teams.length + 1) * chunkHeight;
+                container.offsetTop + (teams.length + 1) * chunkHeight;
 
               window.scrollTo({ top: targetScroll, behavior: "smooth" });
             }}
@@ -160,37 +156,32 @@ const TeamOverview = () => {
         </div>
 
         {/* Right column */}
-        <div
-          className="flex-1 sticky h-screen flex items-center text-left top-0"
-        >
+        <div className="flex-1 sticky h-screen flex items-center text-left top-0">
           {teams
             .sort((a, b) => a.teamName.localeCompare(b.teamName))
-            .map(
-              (team, idx) =>
-                  <motion.section
-                    key={team.teamID}
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4 }}
-                    className={`flex flex-col w-2/3 ${
-                      idx === activeIndex ? "block" : "hidden"
-                    }`}
-                  >
-                    <h2 className="mb-4">{team.teamName}</h2>
-                    <p className="mb-4 text-charcoal-light">
-                      {team.description}
-                    </p>
-                    <Link
-                      className="flex items-center gap-2 group"
-                      href={`/team/${slugs[team.teamID] || ""}`}
-                    >
-                      <span>Read about {team.teamName}</span>
-                      <span className="material-icons text-3xl transition-transform duration-200 group-hover:translate-x-2">
-                        chevron_right
-                      </span>
-                    </Link>
-                  </motion.section>
-            )}
+            .map((team, idx) => (
+              <motion.section
+                key={team.teamID}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className={`flex flex-col w-2/3 ${
+                  idx === activeIndex ? "block" : "hidden"
+                }`}
+              >
+                <h2 className="mb-4">{team.teamName}</h2>
+                <p className="mb-4 text-charcoal-light">{team.description}</p>
+                <Link
+                  className="flex items-center gap-2 group"
+                  href={`/team/${slugs[team.teamID] || ""}`}
+                >
+                  <span>Read about {team.teamName}</span>
+                  <span className="material-icons text-3xl transition-transform duration-200 group-hover:translate-x-2">
+                    chevron_right
+                  </span>
+                </Link>
+              </motion.section>
+            ))}
 
           {/* CTA Screen */}
           {activeIndex === teams.length && (

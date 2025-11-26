@@ -37,26 +37,27 @@ const GalleryView = ({ teamsData, searchTerm }: GalleryViewProps) => {
 
   const searchedFilteredAndSorted = useMemo(
     () =>
-      filteredMembers.filter(
-        (member) =>
-          member.name
-            .toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()) ||
-          member.title
-            ?.toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()) ||
-          member.teamName
-            ?.toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()) ||
-          member.mail
-            ?.toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()),
-      ).filter(
+      filteredMembers
+        .filter(
+          (member) =>
+            member.name
+              .toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()) ||
+            member.title
+              ?.toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()) ||
+            member.teamName
+              ?.toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()) ||
+            member.mail
+              ?.toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()),
+        )
+        .filter(
           (member, index, self) =>
             index === self.findIndex((m) => m.name === member.name),
         )
-        .sort((a, b) => a.name.localeCompare(b.name, "en"))
-      ,
+        .sort((a, b) => a.name.localeCompare(b.name, "en")),
     [filteredMembers, debouncedSearchTerm],
   );
 
@@ -69,7 +70,7 @@ const GalleryView = ({ teamsData, searchTerm }: GalleryViewProps) => {
             initial={{ opacity: 0, y: 20 }}
             viewport={{
               once: true,
-              amount: 0.2
+              amount: 0.2,
             }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 + Math.random() * 0.6 }}
@@ -83,11 +84,12 @@ const GalleryView = ({ teamsData, searchTerm }: GalleryViewProps) => {
               mail={member.mail ?? ""}
             />
           </motion.div>
-        ))) : (
+        ))
+      ) : (
         <p className="text-center text-charcoal-light italic col-span-full">
           No members found
         </p>
-        )}
+      )}
     </div>
   );
 };
