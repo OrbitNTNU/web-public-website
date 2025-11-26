@@ -1,4 +1,4 @@
-import { Team } from "@/components/TeamsPage/lib/teams";
+import { Team } from "@/lib/getTeamsSlug";
 
 interface TeamSelectorProps {
   teamsData: Team[];

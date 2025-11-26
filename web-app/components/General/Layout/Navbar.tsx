@@ -51,15 +51,6 @@ export default function Navbar() {
     }
   }, []);
 
-  // Measure the width of the detailed item when shown
-  useLayoutEffect(() => {
-    if (detailRef.current) {
-      setDetailWidth(detailRef.current.offsetWidth + 16); // +16 for gap/margin
-    } else {
-      setDetailWidth(0);
-    }
-  }, [detailedLocation]);
-
   const router = useRouter();
 
   const navigate = (path: string) => {
@@ -164,7 +155,6 @@ export default function Navbar() {
           })}
         </div>
       </motion.div>
-      {/* Menu toggle (crisp) */}
       <motion.button
         onClick={() => setOpen((v) => !v)}
         initial={false}
