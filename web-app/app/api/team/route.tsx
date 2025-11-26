@@ -1,5 +1,5 @@
+import { getTeamsSlug } from "@/lib/getTeamsSlug";
 import { NextResponse } from "next/server";
-import { getTeamsSlug } from "@/components/TeamsPage/lib/getTeamsSlug";
 
 const slugify = (name: string) =>
   name
