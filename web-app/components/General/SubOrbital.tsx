@@ -2,13 +2,13 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
+import { SubOrbitalProject } from "@/sanity/types/project";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { Loading } from "@/components/General/Layout/Loading";
 import { useState } from "react";
 
 interface ProjectsProps {
-  projects: (BigProject | SubOrbitalProject)[];
+  projects: SubOrbitalProject[];
 }
 
 export default function SubOrbital({ projects }: ProjectsProps) {
@@ -39,8 +39,7 @@ export default function SubOrbital({ projects }: ProjectsProps) {
         {projects
           .sort(
             (a, b) =>
-              new Date(b.publishedAt).getTime() -
-              new Date(a.publishedAt).getTime(),
+              a.year - b.year,  
           )
           .map((proj, idx) => (
             <motion.div
@@ -77,7 +76,7 @@ export default function SubOrbital({ projects }: ProjectsProps) {
                 {proj.title.toUpperCase()}
               </span>
               <p className="italic text-center text-charcoal-light">
-                {new Date(proj.publishedAt).getFullYear()}
+                {proj.year}
               </p>
             </motion.div>
           ))}

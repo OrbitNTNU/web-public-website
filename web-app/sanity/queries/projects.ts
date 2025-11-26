@@ -108,7 +108,7 @@ export const ALL_SUBORBITAL_PROJECTS_QUERY = defineQuery(`
     slug,
     gradientColors,
     image,
-    publishedAt
+    year
   }
 `);
 

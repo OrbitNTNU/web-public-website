@@ -41,4 +41,5 @@ export interface BigProject extends BaseProject {
 
 export interface SubOrbitalProject extends BaseProject {
   _type: "subOrbitalProject";
+  year: number;
 }
