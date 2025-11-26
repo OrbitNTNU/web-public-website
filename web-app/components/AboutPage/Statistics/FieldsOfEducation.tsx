@@ -1,4 +1,4 @@
-import { FieldsOfEducationStatistics } from "./Statistics";
+import { FieldsOfEducationStatistics } from "@/lib/getStatistics";
 
 const STUDY_COLORS: string[] = [
   "var(--color-selfiesat-blue)",

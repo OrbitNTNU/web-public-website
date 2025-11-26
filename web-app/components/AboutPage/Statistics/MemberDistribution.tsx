@@ -1,6 +1,5 @@
+import { MemberDistributionInTeams } from "@/lib/getStatistics";
 import { useMemo } from "react";
-import { MemberDistributionInTeams } from "./Statistics";
-import { motion } from "framer-motion";
 
 interface MemberDistributionProps {
   data: MemberDistributionInTeams | null;

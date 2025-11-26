@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useEffect, useState, useRef, useMemo } from "react";
 
 interface StudyData {
