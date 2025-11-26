@@ -16,7 +16,7 @@ const TeamSelector = ({
   );
 
   return (
-    <section className="flex flex-wrap gap-4 w-full lg:w-2/3 px-4 md:px-12">
+    <section className="flex flex-wrap gap-4 w-full lg:w-2/3">
       {sortedTeams.map((team) => (
         <label
           key={team.teamName}

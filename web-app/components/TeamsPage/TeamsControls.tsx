@@ -31,6 +31,21 @@ const TeamsControls = ({
   searchTerm,
   setSearchTerm,
 }: TeamsControlsProps) => {
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (searchTerm !== "") {
+      setViewMode("gallery");
+    }
+    setSearchTerm(e.target.value.toLowerCase())
+  }
+
+  const handleChangeViewMode = (mode: "list" | "gallery" | "traditional") => {
+    setViewMode(mode);
+    if (mode !== "gallery") {
+      setSearchTerm("");
+    }
+  }
+
   return (
     <section className="hidden md:flex flex-col lg:flex-row items-center justify-between px-4 md:px-12">
       <div className="flex items-left w-auto flex-row space-x-8">
@@ -41,7 +56,7 @@ const TeamsControls = ({
             className={`cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all
                             ${viewMode === control.key ? "text-cloud-white" : "text-charcoal-light"}
                         `}
-            onClick={() => setViewMode(control.key)}
+            onClick={() => handleChangeViewMode(control.key)}
             initial={{ scale: 1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -61,7 +76,7 @@ const TeamsControls = ({
           type="text"
           placeholder="Search"
           className="border-b w-full lg:w-128 text-left text-xl pb-2 pr-4 bg-transparent text-cloud-white placeholder:text-charcoal-light focus:outline-none"
-          onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
+          onChange={handleSearch}
           value={searchTerm}
         />
         <span className="material-icons">search</span>

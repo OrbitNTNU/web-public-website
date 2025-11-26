@@ -1,8 +1,8 @@
 import { Loading } from "@/components/General/Layout/Loading";
 import TeamSlugClientPage from "../TeamSlugClientPage";
 import { getTeamPage } from "@/sanity/fetch/SanityFetch";
-import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
 import { Team } from "../TeamsClientPage";
+import { getTeamsData } from "@/lib/getTeamsData";
 
 interface TeamPageProps {
   params: { slug: string };

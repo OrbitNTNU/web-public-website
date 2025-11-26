@@ -1,6 +1,30 @@
-import { NextResponse } from "next/server";
+export interface MemberDistributionInTeams {
+  totalMembers: number;
+  teamsInfo: {
+    membersInMultipleTeams?: number;
+    roleCounters?: Partial<Record<string, number>>;
+  }[];
+}
 
-export async function GET() {
+type DistributionData = Record<string, number>;
+
+export interface StudyLevelDistributionStatistics {
+  overall?: DistributionData;
+}
+
+export interface FieldsOfEducationStatistics {
+  facultyCounts: Record<string, number>;
+  campusCounts: { campus: string; count: number }[];
+}
+
+export interface StatisticsResponse {
+  memberDistributionInTeams: MemberDistributionInTeams;
+  studies: Record<string, number>;
+  studyLevelDistribution: StudyLevelDistributionStatistics;
+  programStatistics: FieldsOfEducationStatistics;
+}
+
+export async function getStatistics() {
   try {
     // URLs to fetch
     const urls = {
@@ -47,12 +71,9 @@ export async function GET() {
       programStatistics: programStatsData.result?.data?.json ?? [],
     };
 
-    return NextResponse.json(data);
+    return data;
   } catch (error) {
     console.error("Error fetching statistics:", error);
-    return NextResponse.json(
-      { error: "Failed to fetch statistics" },
-      { status: 500 },
-    );
+    return null;
   }
 }

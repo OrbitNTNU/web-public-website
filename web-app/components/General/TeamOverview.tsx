@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Loading } from "./Layout/Loading";
-import { getSlug } from "../TeamsPage/lib/teams";
+import { getSlug } from "@/lib/teams";
 
 interface Team {
   teamID: number;

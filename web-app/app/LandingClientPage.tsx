@@ -18,6 +18,7 @@ interface LandingPageProps {
 }
 
 export default function LandingPage({ sections }: LandingPageProps) {
+
   if (!sections) return <Loading />;
 
   return (

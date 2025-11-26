@@ -1,19 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { getSlug, Team } from "@/components/TeamsPage/lib/teams";
+import { getSlug, Team } from "@/lib/teams";
 import MemberCard from "../../General/MemberCard";
 import { useRouter } from "next/navigation";
+import TeamSelector from "../TeamSelector";
+import { useState } from "react";
 
 interface TraditionalViewProps {
-  team: Team;
+  teamsData: Team[];
 }
 
-const TraditionalView = ({ team }: TraditionalViewProps) => {
+const TraditionalView = ({ teamsData }: TraditionalViewProps) => {
+  const [selectedTeamID, setSelectedTeamID] = useState<number>(1);
+
+  const handleTeamChange = (teamID: number) => {
+    setSelectedTeamID(teamID);
+  };
+
   const router = useRouter();
 
+  const team = teamsData.find((team) => team.teamID === selectedTeamID)!;
+
   return (
-    <div className="mb-40 space-y-24 px-4 md:px-12" id="team-details">
+    <div className="px-4 md:px-12 flex flex-col gap-24">
+      <TeamSelector
+        teamsData={teamsData}
+        selectedTeamID={selectedTeamID}
+        handleTeamChange={handleTeamChange}
+      />
       <div key={team.teamName}>
         <motion.div
           className="mb-8 w-full md:w-1/2"
@@ -68,13 +83,14 @@ const TraditionalView = ({ team }: TraditionalViewProps) => {
           {team.members
             .sort((a, b) => {
               const order: Record<string, number> = {
-                LEADER: 1,
-                BOARD: 2,
+                BOARD: 1,
+                LEADER: 2,
                 MEMBER: 3,
               };
               const rankA = order[a.privilege] ?? 99;
               const rankB = order[b.privilege] ?? 99;
               if (rankA !== rankB) return rankA - rankB;
+              if (a.title !== b.title) return a.title.localeCompare(b.title, "en");
               return a.name.localeCompare(b.name, "en");
             })
             .map((member, index) => (
