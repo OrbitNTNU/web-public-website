@@ -97,7 +97,9 @@ export default function TeamsClientPage({
         {viewMode === "gallery" && (
           <GalleryView teamsData={teamsData} searchTerm={searchTerm} />
         )}
-        {viewMode === "list" && <ListView teamsData={teamsData} />}
+        {viewMode === "list" && (
+          <ListView teamsData={teamsData} />
+        )}
       </div>
     </div>
   );
