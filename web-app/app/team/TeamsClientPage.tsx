@@ -76,20 +76,17 @@ export default function TeamsClientPage({
     return <div className="text-cloud-white">No team data available.</div>;
 
   return (
-    <div className="w-full relative max-w-[2000px] mx-auto gap-20 my-24 flex flex-col">
+    <div className="w-full relative max-w-[2000px] mx-auto gap-0 md:gap-20 my-24 flex flex-col">
       <Header
         title="Teams and Members"
         subtitle="Our teams are the heartbeat of Orbit. Each one brings together diverse skills, perspectives, and passions to push ideas into reality."
       />
-
-      <section className="w-full gap-20 flex flex-col">
-        <TeamsControls
-          viewMode={viewMode}
-          setViewMode={handleViewChange}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-        />
-      </section>
+      <TeamsControls
+        viewMode={viewMode}
+        setViewMode={handleViewChange}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      />
       <div ref={contentRef}>
         {viewMode === "traditional" && (
           <TraditionalView teamsData={teamsData} />
