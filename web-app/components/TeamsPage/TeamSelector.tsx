@@ -20,7 +20,7 @@ const TeamSelector = ({
       {sortedTeams.map((team) => (
         <label
           key={team.teamName}
-          className={`flex items-center cursor-pointer whitespace-nowrap group hover:text-cloud-white transition-all duration-100 ${
+          className={`flex bg-charcoal items-center cursor-pointer whitespace-nowrap group hover:text-cloud-white transition-all duration-100 ${
             selectedTeamID === team.teamID
               ? "text-cloud-white"
               : "text-charcoal-light"

@@ -47,12 +47,12 @@ const TeamsControls = ({
 
   return (
     <section className="hidden md:flex flex-col lg:flex-row items-center justify-between px-4 md:px-12">
-      <div className="flex items-left w-auto flex-row space-x-8">
+      <div className="flex items-left w-auto flex-row space-x-8 h-12">
         {controls.map((control) => (
           <motion.button
             key={control.key}
             type="button"
-            className={`cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all
+            className={`cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all bg-charcoal
                             ${viewMode === control.key ? "text-cloud-white" : "text-charcoal-light"}
                         `}
             onClick={() => handleChangeViewMode(control.key)}
@@ -70,16 +70,18 @@ const TeamsControls = ({
           </motion.button>
         ))}
       </div>
-      <div className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0">
-        <input
-          type="text"
-          placeholder="Search"
-          className="border-b w-full lg:w-128 text-left text-xl pb-2 pr-4 bg-transparent text-cloud-white placeholder:text-charcoal-light focus:outline-none"
-          onChange={handleSearch}
-          value={searchTerm}
-        />
-        <span className="material-icons">search</span>
-      </div>
+      {viewMode === "gallery" && (
+        <div className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0">
+          <input
+            type="text"
+            placeholder="Search"
+            className="border-b w-full lg:w-128 text-left text-xl pb-2 pr-4 bg-transparent text-cloud-white placeholder:text-charcoal-light focus:outline-none"
+            onChange={handleSearch}
+            value={searchTerm}
+          />
+          <span className="material-icons">search</span>
+        </div>
+      )}
     </section>
   );
 };

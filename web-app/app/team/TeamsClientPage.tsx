@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import TeamsControls from "@/components/TeamsPage/TeamsControls";
 import ListView from "@/components/TeamsPage/Views/ListView";
 import TraditionalView from "@/components/TeamsPage/Views/TraditionalView";
@@ -38,15 +38,37 @@ export default function TeamsClientPage({
   const [viewMode, setViewMode] = useState<"list" | "gallery" | "traditional">(
     "traditional",
   );
-  const [maxHeight, setMaxHeight] = useState<number>(0);
+  const [relativeScrollOffset, setRelativeScrollOffset] = useState<number>(0);
+  const [isSwitching, setIsSwitching] = useState<boolean>(false);
+
   const contentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const el = contentRef.current;
-    if (el) {
-      setMaxHeight((prev) => Math.max(prev, el.scrollHeight));
+  const handleViewChange = (view: "list" | "gallery" | "traditional") => {
+    if (!contentRef.current) {
+      setViewMode(view);
+      return;
     }
-  }, [viewMode, teamsData, searchTerm]);
+
+    const container = contentRef.current;
+    const relativeScroll = window.scrollY - container.offsetTop;
+
+    setRelativeScrollOffset(relativeScroll);
+    setViewMode(view);
+    setIsSwitching(true);
+  };
+
+  useLayoutEffect(() => {
+    if (isSwitching && contentRef.current) {
+      const container = contentRef.current;
+
+      window.scrollTo({
+        top: container.offsetTop + relativeScrollOffset,
+        behavior: "auto",
+      });
+
+      setIsSwitching(false);
+    }
+  }, [viewMode, isSwitching]);
 
   if (loading) return <Loading />;
 
@@ -63,22 +85,20 @@ export default function TeamsClientPage({
       <section className="w-full gap-20 flex flex-col">
         <TeamsControls
           viewMode={viewMode}
-          setViewMode={setViewMode}
+          setViewMode={handleViewChange}
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
         />
       </section>
-      <section style={{ minHeight: maxHeight }}>
-        <div ref={contentRef}>
-          {viewMode === "traditional" && (
-            <TraditionalView teamsData={teamsData} />
-          )}
-          {viewMode === "gallery" && (
-            <GalleryView teamsData={teamsData} searchTerm={searchTerm} />
-          )}
-          {viewMode === "list" && <ListView teamsData={teamsData} />}
-        </div>
-      </section>
+      <div ref={contentRef}>
+        {viewMode === "traditional" && (
+          <TraditionalView teamsData={teamsData} />
+        )}
+        {viewMode === "gallery" && (
+          <GalleryView teamsData={teamsData} searchTerm={searchTerm} />
+        )}
+        {viewMode === "list" && <ListView teamsData={teamsData} />}
+      </div>
     </div>
   );
 }
