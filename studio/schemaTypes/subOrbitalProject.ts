@@ -31,10 +31,10 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published At',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
+      name: 'year',
+      title: 'Year',
+      type: 'number',
+      initialValue: () => new Date().getFullYear(),
       validation: (Rule) => Rule.required(),
     }),
     defineField({

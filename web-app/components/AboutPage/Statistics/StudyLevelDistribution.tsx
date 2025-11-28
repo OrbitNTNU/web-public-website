@@ -1,6 +1,5 @@
+import { StudyLevelDistributionStatistics } from "@/lib/getStatistics";
 import { useMemo } from "react";
-import { StudyLevelDistributionStatistics } from "./Statistics";
-import { motion } from "framer-motion";
 
 interface StudyLevelDistributionProps {
   data: StudyLevelDistributionStatistics | null;

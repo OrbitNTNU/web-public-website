@@ -5,12 +5,14 @@ import { useRouter } from "next/navigation";
 import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { Loading } from "@/components/General/Layout/Loading";
+import { useState } from "react";
 
 interface ProjectsProps {
   projects: (BigProject | SubOrbitalProject)[];
 }
 
 export default function SubOrbital({ projects }: ProjectsProps) {
+  const [inView, setInView] = useState(false);
   const router = useRouter();
 
   if (!projects || projects.length === 0) {
@@ -29,7 +31,8 @@ export default function SubOrbital({ projects }: ProjectsProps) {
         SubOrbital Projects
       </motion.h3>
 
-      <div
+      <motion.div
+        onViewportEnter={() => setInView(true)}
         className="relative w-full overflow-x-auto overflow-y-hidden scrollbar-none py-4 flex gap-6 md:gap-12 px-4 md:px-12"
         style={{ scrollbarWidth: "none" }}
       >
@@ -44,12 +47,11 @@ export default function SubOrbital({ projects }: ProjectsProps) {
               key={proj._id}
               className="flex-shrink-0 cursor-pointer flex flex-col items-center group w-32 md:w-48"
               initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{
                 type: "tween",
                 stiffness: 200,
-                delay: 0.1 * idx,
+                delay: inView ? 0.1 * idx : 0,
               }}
               onClick={() => void router.push(`/projects/${proj.slug.current}`)}
             >
@@ -79,7 +81,7 @@ export default function SubOrbital({ projects }: ProjectsProps) {
               </p>
             </motion.div>
           ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -12,9 +12,9 @@ async function isPreviewRequest(): Promise<boolean> {
 }
 
 export async function sanityFetch<T>({
-                                       query,
-                                       params = {},
-                                     }: SanityFetchArgs): Promise<{ data: T }> {
+  query,
+  params = {},
+}: SanityFetchArgs): Promise<{ data: T }> {
   const isPreview = await isPreviewRequest();
 
   const client = getSanityClient(isPreview);

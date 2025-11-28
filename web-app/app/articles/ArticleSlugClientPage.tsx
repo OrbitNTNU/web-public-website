@@ -35,7 +35,7 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
   }, [article]);
 
   return (
-    <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-32 md:my-40 flex flex-col gap-8">
+    <section className="w-full mx-auto px-4 md:px-12 max-w-[1600px] my-24 flex flex-col gap-8">
       <div className="flex flex-col gap-8">
         <Link
           className="flex flex-row gap-2 group cursor-pointer items-center"

@@ -13,11 +13,14 @@ import { AboutPageSection } from "@/sanity/types/pages/aboutPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { StatisticsResponse } from "@/lib/getStatistics";
 
 export default function AboutClientPage({
   sections,
+  statistics,
 }: {
   sections: AboutPageSection[];
+  statistics: StatisticsResponse | undefined;
 }) {
   const [typedKeys, setTypedKeys] = useState<string>("");
   const router = useRouter();
@@ -39,12 +42,12 @@ export default function AboutClientPage({
     }
   }, [typedKeys]);
 
-  if (!sections) {
+  if (!sections || !statistics) {
     return <Loading />;
   }
 
   return (
-    <div className="w-full relative max-w-7xl mx-auto gap-20 md:gap-60 my-40 flex flex-col">
+    <div className="w-full relative max-w-7xl mx-auto gap-40 my-40 flex flex-col">
       {sections.map((section: AboutPageSection) => {
         switch (section._type) {
           case "largeQuote":
@@ -138,7 +141,7 @@ export default function AboutClientPage({
             return <SpanningText key={section._key} text={section.text} />;
 
           case "statistics":
-            return <Statistics key={section._key} />;
+            return <Statistics key={section._key} statistics={statistics} />;
           case "sdgSection":
             return <SDGs key={section._key} />;
           default:

@@ -7,7 +7,7 @@ interface ArticlePageProps {
 }
 export const revalidate = false;
 export default async function ArticlePage(props: ArticlePageProps) {
-  const params = props.params;
+  const { params } = props;
   const article = await getArticle(params.slug);
 
   if (!article) {

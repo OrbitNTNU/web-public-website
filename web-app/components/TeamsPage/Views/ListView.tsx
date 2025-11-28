@@ -1,13 +1,14 @@
+import { getSlug, Member, Team } from "@/lib/teams";
 import { useRouter } from "next/navigation";
-import { getSlug, Member, Team } from "@/components/TeamsPage/lib/teams";
+import { useState } from "react";
 
 interface ListViewProps {
   teamsData: Team[];
-  setActiveTeam: (teamID: number | null) => void;
-  activeTeam: number | null;
 }
 
-const ListView = ({ teamsData, setActiveTeam, activeTeam }: ListViewProps) => {
+const ListView = ({ teamsData }: ListViewProps) => {
+  const [activeTeam, setActiveTeam] = useState<number | null>(null);
+
   const router = useRouter();
 
   const groupedTeams: { [key: string]: Team[] } = {};
@@ -37,7 +38,7 @@ const ListView = ({ teamsData, setActiveTeam, activeTeam }: ListViewProps) => {
     }, {});
 
   return (
-    <section className="mb-40 px-4 md:px-12 w-full">
+    <section className="px-4 md:px-12 w-full bg-charcoal">
       <table>
         <thead>
           <tr>
@@ -71,17 +72,17 @@ const ListView = ({ teamsData, setActiveTeam, activeTeam }: ListViewProps) => {
               })
               .map(([groupName, teams]: [string, Team[]]) => (
                 <tr key={groupName}>
-                  <td className="w-[240px] px-2 py-4 border-b border-charcoal-light text-cloud-white font-semibold align-top">
+                  <td className="w-[240px] px-4 py-2  border-b border-charcoal-light text-cloud-white align-top">
                     <button className="w-full text-left cursor-pointer focus:outline-none">
                       {groupName.split("_").join(" ")}
                     </button>
                   </td>
-                  <td className="w-[240px] px-2 py-4 border-charcoal-light border-b text-cloud-white align-top">
+                  <td className="w-[240px] px-4 py-2 border-charcoal-light border-b text-cloud-white align-top">
                     <div className="flex flex-col">
                       {teams.map((team: Team) => (
                         <button
                           key={team.teamID}
-                          className="w-full text-left px-2 py-1 font-medium focus:outline-none text-cloud-white hover:text-pink-blast transition-colors duration-150 cursor-pointer items-center flex"
+                          className="w-full text-left px-2 py-1 focus:outline-none text-cloud-white hover:text-pink-blast transition-colors duration-150 cursor-pointer items-center flex"
                           onMouseEnter={() => setActiveTeam(team.teamID)}
                           onMouseLeave={() => setActiveTeam(null)}
                           onClick={() => {

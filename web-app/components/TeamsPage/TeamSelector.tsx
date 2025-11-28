@@ -1,4 +1,4 @@
-import { Team } from "@/components/TeamsPage/lib/teams";
+import { Team } from "@/lib/getTeamsSlug";
 
 interface TeamSelectorProps {
   teamsData: Team[];
@@ -16,11 +16,11 @@ const TeamSelector = ({
   );
 
   return (
-    <section className="flex flex-wrap gap-4 w-full lg:w-2/3 px-4 md:px-12">
+    <section className="flex flex-wrap gap-4 w-full lg:w-2/3">
       {sortedTeams.map((team) => (
         <label
           key={team.teamName}
-          className={`flex items-center cursor-pointer whitespace-nowrap group hover:text-cloud-white transition-all duration-100 ${
+          className={`flex bg-charcoal items-center cursor-pointer whitespace-nowrap group hover:text-cloud-white transition-all duration-100 ${
             selectedTeamID === team.teamID
               ? "text-cloud-white"
               : "text-charcoal-light"

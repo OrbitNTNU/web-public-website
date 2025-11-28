@@ -1,4 +1,4 @@
-import { getTeamsSlug } from "@/components/TeamsPage/lib/getTeamsSlug";
+import { getTeamsSlug } from "./getTeamsSlug";
 
 export interface Member {
   name: string;

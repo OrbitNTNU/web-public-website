@@ -17,11 +17,10 @@ interface TriImageCollageProps {
 }
 
 const textVariants: Variants = {
-  hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.4,
       ease: "easeOut",
@@ -102,7 +101,7 @@ const TriImageCollage = ({
   return (
     <section
       ref={ref}
-      className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden max-w-7xl"
+      className="mx-auto w-full px-4 sm:px-12 relative overflow-hidden"
     >
       {title && (
         <motion.h3

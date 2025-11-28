@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import MemberCard from "../../General/MemberCard";
-import { Team } from "@/components/TeamsPage/lib/teams";
+import { Team } from "@/lib/teams";
 import { useEffect, useMemo, useState } from "react";
 
 interface GalleryViewProps {
@@ -35,41 +35,45 @@ const GalleryView = ({ teamsData, searchTerm }: GalleryViewProps) => {
     [teamsData],
   );
 
-  // Only filter when debounced term updates
-  const searchedAndFiltered = useMemo(
+  const searchedFilteredAndSorted = useMemo(
     () =>
-      filteredMembers.filter(
-        (member) =>
-          member.name
-            .toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()) ||
-          member.title
-            ?.toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()) ||
-          member.teamName
-            ?.toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()) ||
-          member.mail
-            ?.toLowerCase()
-            .includes(debouncedSearchTerm.toLowerCase()),
-      ),
-    [filteredMembers, debouncedSearchTerm],
-  );
-
-  return (
-    <div className="mb-40 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-6 px-4 md:px-12">
-      {searchedAndFiltered
+      filteredMembers
+        .filter(
+          (member) =>
+            member.name
+              .toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()) ||
+            member.title
+              ?.toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()) ||
+            member.teamName
+              ?.toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()) ||
+            member.mail
+              ?.toLowerCase()
+              .includes(debouncedSearchTerm.toLowerCase()),
+        )
         .filter(
           (member, index, self) =>
             index === self.findIndex((m) => m.name === member.name),
         )
-        .sort((a, b) => a.name.localeCompare(b.name, "en"))
-        .map((member) => (
+        .sort((a, b) => a.name.localeCompare(b.name, "en")),
+    [filteredMembers, debouncedSearchTerm],
+  );
+
+  return (
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-6 px-4 md:px-12">
+      {searchedFilteredAndSorted.length > 0 ? (
+        searchedFilteredAndSorted.map((member) => (
           <motion.div
             key={`${member.name}-${member.teamName}`}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
+            viewport={{
+              once: true,
+              amount: 0.2,
+            }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 + Math.random() * 0.6 }}
           >
             <MemberCard
               image={member.image ?? ""}
@@ -80,7 +84,12 @@ const GalleryView = ({ teamsData, searchTerm }: GalleryViewProps) => {
               mail={member.mail ?? ""}
             />
           </motion.div>
-        ))}
+        ))
+      ) : (
+        <p className="text-center text-charcoal-light italic col-span-full">
+          No members found
+        </p>
+      )}
     </div>
   );
 };

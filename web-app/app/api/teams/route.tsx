@@ -1,5 +1,5 @@
+import { getTeamsData } from "@/lib/getTeamsData";
 import { NextResponse } from "next/server";
-import { getTeamsData } from "@/components/TeamsPage/lib/getTeamsData";
 
 export async function GET() {
   try {

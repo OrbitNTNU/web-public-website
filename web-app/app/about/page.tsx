@@ -1,6 +1,7 @@
 import { getAboutPage } from "@/sanity/fetch/SanityFetch";
 import AboutClientPage from "./AboutClientPage";
 import { Metadata } from "next";
+import { getStatistics } from "@/lib/getStatistics";
 
 export const metadata: Metadata = {
   title: "How Students Send a Satellite into Space!",
@@ -70,7 +71,14 @@ export const metadata: Metadata = {
 export const revalidate = false;
 const AboutPage = async () => {
   const data = await getAboutPage();
-  return <AboutClientPage sections={data?.sections ?? []} />;
+  const statistics = await getStatistics();
+
+  return (
+    <AboutClientPage
+      sections={data?.sections ?? []}
+      statistics={statistics ?? undefined}
+    />
+  );
 };
 
 export default AboutPage;
