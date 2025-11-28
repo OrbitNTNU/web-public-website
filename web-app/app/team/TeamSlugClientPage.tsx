@@ -54,23 +54,24 @@ export default function TeamSlugClientPage({
             </span>
             <span>Go back to team</span>
           </Link>
-        </div>
-        <div className="flex flex-col gap-4 md:items-end px-4 md:px-12">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            {team.teamName}
-          </motion.h1>
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-charcoal-light w-full md:w-1/2 md:text-right"
-          >
-            {team.description}
-          </motion.span>
+          <div className="flex flex-col gap-4 md:flex-row mt-20 md:mt-40">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="w-full md:w-1/2"
+            >
+              {team.teamName}
+            </motion.h1>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-charcoal-light w-full md:w-1/2"
+            >
+              {team.description}
+            </motion.span>
+          </div>
         </div>
         {teamDocument.sections?.map((section) => {
           switch (section._type) {

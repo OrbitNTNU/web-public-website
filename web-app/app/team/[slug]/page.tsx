@@ -10,7 +10,7 @@ interface TeamPageProps {
 export const dynamic = "force-dynamic";
 
 export default async function TeamPage({ params }: TeamPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const toSlug = (name: string) =>
     name
@@ -40,8 +40,6 @@ export default async function TeamPage({ params }: TeamPageProps) {
     console.error(`No Sanity page found for teamID ${matchedTeam.teamID}`);
     return <Loading />;
   }
-
-  console.log("Resolved:", matchedTeam.teamName, "teamID:", matchedTeam.teamID);
 
   return <TeamSlugClientPage teamDocument={teamDocument} team={matchedTeam} />;
 }
