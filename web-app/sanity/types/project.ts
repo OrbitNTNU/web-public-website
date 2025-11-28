@@ -27,20 +27,19 @@ export interface BaseProject {
   _key: string;
   _id: string;
   title: string;
-  teaser?: string;
   patch?: Image;
   slug: {
     current: string;
   };
   image: Image;
-  gradientColors?: string[];
   sections?: ProjectSection[];
-  publishedAt: string;
 }
 
 //Herja her ja
 export interface BigProject extends BaseProject {
   _type: "bigProject";
+  teaser: string;
+  gradientColors?: string[];
 }
 
 export interface SubOrbitalProject extends BaseProject {

@@ -68,7 +68,8 @@ export const LANDING_PAGE_QUERY = defineQuery(`
           slug,
           gradientColors,
           image,
-          publishedAt
+          publishedAt,
+          year
         }
       },
 

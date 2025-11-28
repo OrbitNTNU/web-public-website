@@ -100,7 +100,7 @@ export const ALL_SUBORBITAL_PROJECTS_QUERY = defineQuery(`
   *[
     _type == "subOrbitalProject" &&
     !(_id in path("drafts.**"))
-  ] | order(publishedAt desc) {
+  ] | order(year desc) {
     _id,
     title,
     teaser,

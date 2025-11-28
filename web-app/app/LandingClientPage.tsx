@@ -108,14 +108,17 @@ export default function LandingPage({ sections }: LandingPageProps) {
             );
 
           case "projectsShowcase":
-            if (!(section.projectType === "subOrbitalProject")) {
+            if (section.projectType === "bigProject") {
               return (
                 <Projects key={section._key} projects={section.projects} />
               );
             }
-            return (
-              <SubOrbital key={section._key} projects={section.projects} />
-            );
+
+            if (section.projectType === "subOrbitalProject") {
+              return (
+                <SubOrbital key={section._key} projects={section.projects} />
+              );
+            }
 
           case "instagramEmbed":
             return <InstagramEmbed key={section._key} />;

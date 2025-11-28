@@ -42,7 +42,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                   key={section._key}
                   backgroundSrc={imageBuilder(section.image.asset._ref)}
                   patchSrc={imageBuilder(project.patch)}
-                  colors={project.gradientColors ?? []}
+                  colors={project._type === "bigProject" ? project.gradientColors ?? [] : []}
                   isBiosat={isBiosat}
                 />
               </div>

@@ -3,11 +3,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { useRouter } from "next/navigation";
-import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
+import { BigProject } from "@/sanity/types/project";
 import { useState } from "react";
 
 interface ProjectsProps {
-  projects: (BigProject | SubOrbitalProject)[];
+  projects: BigProject[];
 }
 
 export default function Projects({ projects }: ProjectsProps) {

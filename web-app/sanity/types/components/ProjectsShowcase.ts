@@ -1,9 +1,21 @@
 import { BigProject, SubOrbitalProject } from "../project";
 
-export interface ProjectsShowcase {
+export interface BaseProjectsShowcase {
   _key: string;
   _type: "projectsShowcase";
   title: string;
-  projectType: "bigProject" | "subOrbitalProject";
-  projects: (BigProject | SubOrbitalProject)[];
 }
+
+export interface BigProjectsShowcase extends BaseProjectsShowcase {
+  projectType: "bigProject";
+  projects: BigProject[];
+}
+
+export interface SubOrbitalProjectsShowcase extends BaseProjectsShowcase {
+  projectType: "subOrbitalProject";
+  projects: SubOrbitalProject[];
+}
+
+export type ProjectsShowcase =
+  | BigProjectsShowcase
+  | SubOrbitalProjectsShowcase;
