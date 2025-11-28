@@ -10,6 +10,7 @@ import LargeImage from "@/components/General/LargeImage";
 import SpanningText from "@/components/General/SpanningText";
 import DoubleImages from "@/components/General/DoubleImages";
 import LargeQuote from "@/components/General/LargeQuote";
+import ImageAndCaption from "@/components/General/ImageAndCaption";
 
 interface ProjectClientPageProps {
   project: BigProject | SubOrbitalProject;
@@ -101,7 +102,34 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                 author={section.author}
               />
             );
+          case "imageAndCaption":
+              return (
+                <ImageAndCaption
+                  key={section._key}
+                  src={imageBuilder(section.src)}
+                  alt={section.alt}
+                  title={section.title}
+                  caption={section.caption}
+                  wideCaption={section.wideCaption}
+                  variant={section.variant}
+                />
+              );
 
+            case "singleImageCollage":
+              return (
+                <section key={section._key} className="flex flex-col gap-12">
+                  {section.items?.map((item, idx) => (
+                    <ImageAndCaption
+                      key={idx}
+                      src={imageBuilder(item.src)}
+                      alt={item.alt}
+                      title={item.title}
+                      caption={item.caption}
+                      variant={item.variant}
+                    />
+                  ))}
+                </section>
+              );
           default:
             return null;
         }
