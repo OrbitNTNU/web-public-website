@@ -23,21 +23,39 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
   const [hoveredStarIndex, setHoveredStarIndex] = useState<number | null>(null);
   const { setInfo, resetInfo } = useNavbar();
 
+  function hashStringToNumber(str: string, max: number) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash << 5) - hash + str.charCodeAt(i);
+      hash |= 0; // convert to 32-bit int
+    }
+    return Math.abs(hash) % max;
+  }
+
+  function getMemberPosition(seed: string) {
+    return {
+      x: hashStringToNumber(seed, window.innerWidth - 40),
+      y: hashStringToNumber(seed + "_y", 3000),
+    };
+  }
+
   useEffect(() => {
     const allMembersWithTeam = teamsData.flatMap(
       (team) => team.members.map((member) => ({ member, team })), // pair each member with their team
     );
 
     // One star per member
-    const generatedStars: StarProps[] = allMembersWithTeam.map(
-      ({ member, team }) => ({
-        x: Math.random() * (window.innerWidth - 40),
-        y: Math.random() * 3000,
-        size: Math.random() * 4 + 2,
+    const generatedStars: StarProps[] = allMembersWithTeam.map(({ member, team }) => {
+      const { x, y } = getMemberPosition(member.name);
+
+      return {
+        x,
+        y,
+        size: Math.random() * 4 + 2,   // keep random if you want variation
         member,
-        team, // include team
-      }),
-    );
+        team,
+      };
+    });
 
     setStars(generatedStars);
   }, [teamsData]);
