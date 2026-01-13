@@ -19,6 +19,9 @@ import { Article } from "@/sanity/types/pages/articlePage";
 import { TeamPage } from "@/sanity/types/pages/teamsPage";
 import { TEAM_PAGE_QUERY } from "@/sanity/queries/teamPage";
 import { sanityFetch } from "@/sanity/live/live";
+import { JOIN_PAGE_QUERY } from "@/sanity/queries/joinPage";
+import { JoinPage } from "@/sanity/types/pages/joinPage";
+
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -157,6 +160,22 @@ export const getTeamPage = async (teamId: number): Promise<TeamPage | null> => {
     return null;
   }
 };
+
+// JOIN PAGE
+
+export const getJoinPage = async (): Promise<JoinPage | null> => {
+  try {
+    const { data } = await sanityFetch({
+      query: JOIN_PAGE_QUERY,
+    });
+
+    return (data as JoinPage) ?? null;
+  } catch (e) {
+    console.error("Error fetching join page:", e);
+    return null;
+  }
+};
+
 
 // TEAM PAGE — First document only (for Magnus 💙)
 export const getTeamPageForMagnus = async (): Promise<TeamPage | null> => {
