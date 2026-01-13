@@ -1,5 +1,5 @@
 import { Loading } from "@/components/General/Layout/Loading";
-import { getAllArticles } from "@/sanity/fetch/SanityFetch";
+import {getAllArticles, getJoinPage} from "@/sanity/fetch/SanityFetch";
 import JoinClientPage from "./JoinClientPage";
 
 const data = {
@@ -32,6 +32,8 @@ const data = {
 export const revalidate = false;
 export default async function JoinPage() {
   const articles = await getAllArticles();
+  const join = await getJoinPage();
+  console.log(join);
   if (!articles) {
     return <Loading />;
   }
