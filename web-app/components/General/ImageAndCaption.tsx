@@ -5,8 +5,8 @@ import { useRef } from "react";
 import Link from "next/link";
 
 interface ImageAndCaptionProps {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   title?: string;
   caption?: string;
   wideCaption?: boolean;
@@ -64,36 +64,38 @@ const ImageAndCaption = ({
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         {/* Parallax Image */}
-        <motion.div
-          className={`flex-shrink-0 relative overflow-hidden ${imageWidthClass[variant]}`}
-          transition={{ type: "spring", stiffness: 50, damping: 20 }}
-        >
-          {link ? (
-            <Link href={link} rel="noopener noreferrer">
+        {src && alt && (
+          <motion.div
+            className={`flex-shrink-0 relative overflow-hidden ${imageWidthClass[variant]}`}
+            transition={{ type: "spring", stiffness: 50, damping: 20 }}
+          >
+            {link ? (
+              <Link href={link} rel="noopener noreferrer">
+                <motion.div style={{ y }}>
+                  <Image
+                    src={src}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                    className="w-full h-auto shadow-lg hover:opacity-90 transition duration-300 hover:scale-105"
+                  />
+                </motion.div>
+              </Link>
+            ) : (
               <motion.div style={{ y }}>
                 <Image
                   src={src}
                   alt={alt}
                   width={width}
                   height={height}
-                  className="w-full h-auto shadow-lg hover:opacity-90 transition duration-300 hover:scale-105"
+                  className="w-full h-auto shadow-lg scale-150"
+                  style={{ transformOrigin: "top center" }}
                 />
               </motion.div>
-            </Link>
-          ) : (
-            <motion.div style={{ y }}>
-              <Image
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-                className="w-full h-auto shadow-lg scale-150"
-                style={{ transformOrigin: "top center" }}
-              />
-            </motion.div>
-          )}
-        </motion.div>
-
+            )}
+          </motion.div>
+        )}
+        
         {/* Text Content */}
         {(title || caption) && (
           <motion.div

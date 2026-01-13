@@ -187,7 +187,8 @@ export const SUBORBITAL_PROJECT_BY_SLUG_QUERY = defineQuery(`
           slug,
           gradientColors,
           image,
-          publishedAt
+          publishedAt,
+          year
         }
       }
     }

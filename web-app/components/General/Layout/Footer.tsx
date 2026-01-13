@@ -26,10 +26,10 @@ export const Footer = () => {
         </p>
         <small>Go back to the top of the page</small>
       </button>
-      <section className="w-full bg-moonlight text-cloud-white py-12  mx-auto px-4 md:px-12">
-        <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-8">
+      <section className="w-full bg-moonlight text-cloud-white py-12 mx-auto px-4 md:px-12">
+        <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-5 items-center gap-8">
           {/* Logo + Info */}
-          <div className="text-center md:text-left flex flex-col">
+          <div className="text-center md:text-left flex flex-col col-span-1">
             <h3 className="font-semibold mb-1">Orbit NTNU</h3>
             <small>contact@orbitntnu.com</small>
             <small>O.S Bragstad Plass 2B, Elektro D</small>
@@ -37,7 +37,7 @@ export const Footer = () => {
           </div>
 
           {/* Navigation Links */}
-          <ul className="flex flex-wrap justify-center gap-6">
+          <ul className="flex flex-wrap justify-center gap-6 col-span-1 lg:col-span-3">
             {pages.map((link) => (
               <li key={link.title}>
                 <Link
@@ -51,7 +51,7 @@ export const Footer = () => {
           </ul>
 
           {/* Social Icons */}
-          <div className="flex gap-6 text-xl">
+          <div className="flex gap-6 text-xl col-span-1 justify-center md:justify-end">
             <a
               href="https://www.instagram.com/orbitntnu/"
               target="_blank"
