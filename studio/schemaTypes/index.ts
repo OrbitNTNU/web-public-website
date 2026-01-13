@@ -40,6 +40,7 @@ import articleReference from './article/articleReference'
 import gallery from './team/gallery'
 import links from './utils/links'
 import membersSection from './team/membersSection'
+import joinPage from "./pages/joinPage";
 
 export const schemaTypes = [
   ctaSection,
@@ -68,6 +69,7 @@ export const schemaTypes = [
   partnerSponsor,
   instagramEmbed,
   joinCard,
+  joinPage,
   forSponsorsCard,
   statistics,
   sdgSection,
