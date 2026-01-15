@@ -75,7 +75,7 @@ const JoinClientPage = ({ content, joinPage, teamInfo }: JoinClientPageProps) =>
         subtitle="We're always looking for passionate people - apply for a listed role or reach out if your interests fit Orbit NTNU in another way."
       />
       {allGroups.length > 0 && <GroupSelector groups={allGroups} selectedGroups={selectedGroups} handleGroupToggle={handleGroupToggle} />}
-      <div ref={contentRef} className="px-4 md:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center gap-6 sm:gap-y-12">
+      <div ref={contentRef} className="px-4 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center gap-6 sm:gap-y-12">
         {filteredPositions.sort((a, b) => a.header.localeCompare(b.header)).map((position, idx) => (
           <JoinCard key={idx} position={position} link={joinPage.applyLink} />
         ))}

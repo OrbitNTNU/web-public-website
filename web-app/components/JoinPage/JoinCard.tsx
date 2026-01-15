@@ -3,6 +3,7 @@ import { JoinComponent } from "@/sanity/types/pages/joinPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -34,7 +35,7 @@ const JoinCard = ({ position, link }: JoinCardProps) => {
             className="w-full"
         >
             {/* Image */}
-            <div className="relative aspect-[4/3] overflow-hidden cursor-pointer" onClick={() => void router.push(link)}>
+            <div className="relative aspect-[4/3] overflow-hidden cursor-pointer">
                 <Image
                     src={imageBuilder(position.image)}
                     alt={position.header}
@@ -138,13 +139,15 @@ const JoinCard = ({ position, link }: JoinCardProps) => {
                         <span>{expanded ? "Show Less" : "Read More"}</span>
                         <span className="material-icons">{expanded ? "expand_less" : "expand_more"}</span>
                     </button>
-                    <a
+                    <Link
                         href={link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex flex-row gap-2 mt-2 items-center justify-center group cursor-pointer"
                     >
                         <span>Apply here</span>
                         <span className="material-icons group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
-                    </a>
+                    </Link>
                 </span>
             </div>
         </div>

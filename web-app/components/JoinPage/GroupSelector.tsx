@@ -10,7 +10,7 @@ const GroupSelector = ({
     handleGroupToggle,
 }: GroupSelectorProps) => {
     return (
-        <section className="px-4 md:px-8 flex flex-col md:flex-row gap-4 w-full lg:w-2/3 mb-12 md:mb-0">
+        <section className="px-4 md:px-12 flex flex-col md:flex-row gap-4 w-full lg:w-2/3 mb-12 md:mb-0">
             <span>Sort by: </span>
             {groups.sort((a, b) => a.localeCompare(b)).map((group) => (
                 <label
