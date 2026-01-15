@@ -12,19 +12,21 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
     slug,
     mainImage,
     publishedAt,
-     category->{
+    linkType,
+    link {
+      internal->{
+        _type,
+        slug
+      },
+      external
+    },
+
+    category->{
       _id,
       title,
-      color,
-      link {
-        type,
-        internal->{
-          _type,
-          slug
-        },
-        external
-      }
+      color
     },
+
     sections[] {
       ...,
       _type == "largeQuote" => {
@@ -116,6 +118,7 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
   }
 `);
 
+
 export const ALL_ARTICLES_QUERY = defineQuery(`
   *[
     _type == "article" &&
@@ -128,9 +131,19 @@ export const ALL_ARTICLES_QUERY = defineQuery(`
     slug,
     mainImage,
     publishedAt,
+
+    linkType,
+    link {
+      internal->{
+        slug
+      },
+      external
+    },
+
     category->{
       title,
       color
     }
   }
 `);
+

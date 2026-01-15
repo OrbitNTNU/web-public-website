@@ -50,6 +50,40 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'linkType',
+      title: 'Article link type',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Internal', value: 'internal'},
+          {title: 'External', value: 'external'},
+        ],
+        layout: 'radio',
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'link',
+      title: 'Article link',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'internal',
+          title: 'Internal link',
+          type: 'reference',
+          to: [{type: 'article'}],
+          hidden: ({document}) => document?.linkType !== 'internal',
+        }),
+
+        defineField({
+          name: 'external',
+          title: 'External URL',
+          type: 'url',
+          hidden: ({document}) => document?.linkType !== 'external',
+        }),
+      ],
+    }),
+    defineField({
       name: 'category',
       title: 'Category',
       type: 'reference',
@@ -60,6 +94,7 @@ export default defineType({
       name: 'sections',
       title: 'Sections',
       type: 'array',
+      hidden: ({document}) => document?.linkType === 'external',
       of: [
         {type: 'largeQuote'},
         {type: 'largeImage'},
@@ -72,6 +107,7 @@ export default defineType({
         {type: 'textHeavy'},
       ],
     }),
+
   ],
   preview: {
     select: {

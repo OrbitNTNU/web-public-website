@@ -9,6 +9,7 @@ import { PortableTextBlock } from "next-sanity";
 import { ImageAndCaption } from "../components/ImageAndCaption";
 import { TextHeavy } from "../components/TextHeavy";
 import {Category} from "@/sanity/utils/category";
+import {ArticleLink, ArticleLinkType} from "@/sanity/utils/articleLink";
 
 // TODO AUGUST FJERN SUBORBITALSHOWCASE, PROJECTSHOWCASE, OG INSTAGRAM EMBED HVIS DE IKKE SKAL BRUGES PÅ ARTIKELSIDER
 
@@ -38,5 +39,7 @@ export interface Article {
   publishedAt: string;
   teaser: PortableTextBlock[];
   sections: ArticlePageSection[];
+  linkType: ArticleLinkType
+  link?: ArticleLink
   category?: Category
 }

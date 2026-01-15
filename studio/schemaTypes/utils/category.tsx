@@ -45,42 +45,6 @@ export default defineType({
             },
             validation: (Rule) => Rule.required(),
         }),
-
-        defineField({
-            name: 'link',
-            title: 'Category link',
-            type: 'object',
-            fields: [
-                defineField({
-                    name: 'type',
-                    title: 'Link type',
-                    type: 'string',
-                    options: {
-                        list: [
-                            {title: 'Internal', value: 'internal'},
-                            {title: 'External', value: 'external'},
-                        ],
-                        layout: 'radio',
-                    },
-                    validation: (Rule) => Rule.required(),
-                }),
-
-                defineField({
-                    name: 'internal',
-                    title: 'Internal link',
-                    type: 'reference',
-                    to: [{type: 'article'}],
-                    hidden: ({parent}) => parent?.type !== 'internal',
-                }),
-
-                defineField({
-                    name: 'external',
-                    title: 'External URL',
-                    type: 'url',
-                    hidden: ({parent}) => parent?.type !== 'external',
-                }),
-            ],
-        }),
     ],
 
     preview: {
