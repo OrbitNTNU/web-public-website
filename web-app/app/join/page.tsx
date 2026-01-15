@@ -30,13 +30,13 @@ const data = {
   images: ["/tests/1.png", "/tests/2.png", "/tests/5.jpg", "/tests/6.png"],
 };
 export const revalidate = false;
+
 export default async function JoinPage() {
-  const articles = await getAllArticles();
   const join = await getJoinPage();
-  console.log(join);
-  if (!articles) {
+  
+  if (!join) {
     return <Loading />;
   }
 
-  return <JoinClientPage content={data} />;
+  return <JoinClientPage content={data} joinPage={join} />;
 }

@@ -15,8 +15,8 @@ export default function Hero() {
       </video>
 
       {/* Arrow Down */}
-      <div className="absolute bottom-10 w-full items-center justify-center animate-bounce flex">
-        <p className="material-icons" style={{ fontSize: "3rem" }}>
+      <div className="cursor-pointer absolute bottom-10 w-full items-center justify-center animate-bounce flex">
+        <p className="material-icons" style={{ fontSize: "3rem" }} onClick={(e) => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}>
           keyboard_arrow_down
         </p>
       </div>

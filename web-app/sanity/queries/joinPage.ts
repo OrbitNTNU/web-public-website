@@ -17,7 +17,7 @@ export const JOIN_PAGE_QUERY = defineQuery(`
       },
       alt
     },
-
+    applyLink,
     components[]{
       header,
       description,
@@ -32,11 +32,6 @@ export const JOIN_PAGE_QUERY = defineQuery(`
         },
         alt
       },
-
-      button{
-        label,
-        href
-      }
     }
   }
 `);

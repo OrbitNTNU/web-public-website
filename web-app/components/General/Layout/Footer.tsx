@@ -8,11 +8,12 @@ export const Footer = () => {
 
   const pages = [
     { title: "Home", url: "/" },
-    { title: "About", url: "/about" },
-    { title: "Projects", url: "/projects" },
     { title: "Team", url: "/team" },
-    { title: "Contact", url: "/contact" },
+    { title: "About", url: "/about" },
+    { title: "Articles", url: "/articles" },
+    { title: "Projects", url: "/projects" },
     { title: "Sponsors", url: "/sponsors" },
+    { title: "Join us", url: "/join" },
   ];
 
   return (
@@ -44,7 +45,7 @@ export const Footer = () => {
                   href={link.url}
                   className="hover:text-laser-lemon transition-colors"
                 >
-                  {link.title}
+                  {link.title.toUpperCase()}
                 </Link>
               </li>
             ))}

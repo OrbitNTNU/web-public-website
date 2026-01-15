@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import Link from "next/link";
+import { JoinPage } from "@/sanity/types/pages/joinPage";
+import Header from "@/components/General/Header";
+import JoinCard from "./JoinCard";
 
 interface JoinClientPageProps {
   content: {
@@ -16,81 +15,23 @@ interface JoinClientPageProps {
     }[];
     images: string[];
   };
+  joinPage: JoinPage;
 }
 
-const JoinClientPage = ({ content }: JoinClientPageProps) => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"], // when section enters/exits viewport
-  });
-
-  // Subtle parallax effect for images
-  const y1 = useTransform(scrollYProgress, [0, 1], ["-5%", "5%"]);
-  const y2 = useTransform(scrollYProgress, [0, 1], ["5%", "-5%"]);
-
+const JoinClientPage = ({ content, joinPage }: JoinClientPageProps) => {
   return (
-    <section
-      ref={sectionRef}
-      className="w-full mx-auto px-4 md:px-12 max-w-[1600px] md:flex-row my-32 md:my-40 flex flex-col gap-8 md:gap-40"
-    >
-      <div className="w-full xl:w-2/5 h-full relative items-center justify-center m-auto">
-        <section className="flex flex-col gap-8">
-          {content.buttons.map((button, index) => (
-            <Link
-              key={index}
-              className="flex flex-row gap-2 cursor-pointer items-center border bg-charcoal border-charcoal-light hover:border-cloud-white px-4 py-2 rounded-lg w-fit text-cloud-white transition duration-200"
-              href={button.buttonLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="material-icons text-3xl">{button.icon}</span>
-              <span>{button.buttonText}</span>
-            </Link>
-          ))}
-        </section>
+    <div className="w-full relative max-w-[2000px] mx-auto gap-0 md:gap-20 my-24 flex flex-col">
+      <Header
+        title="Join Us and Make a Difference"
+        subtitle="We’re always looking for passionate people - apply for a listed role or reach out if your interests fit Orbit NTNU in another way."
+      />
+      <div className="px-4 md:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-center gap-6 sm:gap-y-12">
+        {joinPage.components.sort((a, b) => a.header.localeCompare(b.header)).map((position, idx) => (
+          <JoinCard key={idx} position={position} link={joinPage.applyLink} />
+        ))}
       </div>
-
-      <div className="w-full xl:w-3/5 h-auto columns-2 gap-4 relative">
-        {content.images.map((image, index) => {
-          const parallaxY = index % 2 === 0 ? y1 : y2;
-          return (
-            <motion.div
-              key={index}
-              className={`relative break-inside-avoid overflow-hidden ${
-                index === 1 || index === 3 ? "mt-4" : ""
-              }`}
-              style={{
-                height:
-                  index === 0 || index === 3
-                    ? "600px"
-                    : index === 1 || index === 2
-                      ? "200px"
-                      : "200px",
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-            >
-              <motion.div style={{ y: parallaxY }} className="absolute inset-0">
-                <Image
-                  src={image}
-                  alt={`Image ${index + 1}`}
-                  fill
-                  className="object-cover scale-110"
-                />
-              </motion.div>
-            </motion.div>
-          );
-        })}
-      </div>
-    </section>
-  );
+    </div>
+  )
 };
 
 export default JoinClientPage;

@@ -34,6 +34,16 @@ export default defineType({
         }),
 
         defineField({
+            name: 'applyLink',
+            title: 'General Apply Link',
+            type: 'url',
+            validation: (Rule) =>
+                Rule.uri({
+                    allowRelative: true,
+                    scheme: ['http', 'https', 'mailto', 'tel'],
+                }),
+        }),
+        defineField({
             name: 'components',
             title: 'Components',
             type: 'array',
@@ -67,35 +77,11 @@ export default defineType({
                         }),
 
                         defineField({
-                            name: 'description',
-                            title: 'Description',
-                            type: 'text',
-                            rows: 3,
-                            validation: (Rule) => Rule.required(),
-                        }),
-
-                        defineField({
-                            name: 'button',
-                            title: 'Button',
-                            type: 'object',
-                            fields: [
-                                defineField({
-                                    name: 'label',
-                                    title: 'Label',
-                                    type: 'string',
-                                    validation: (Rule) => Rule.required(),
-                                }),
-                                defineField({
-                                    name: 'href',
-                                    title: 'Link',
-                                    type: 'url',
-                                    validation: (Rule) =>
-                                        Rule.required().uri({
-                                            allowRelative: true,
-                                            scheme: ['http', 'https', 'mailto', 'tel'],
-                                        }),
-                                }),
-                            ],
+                        name: 'description',
+                        title: 'Description',
+                        type: 'array',
+                        of: [{ type: 'block' }],
+                        validation: (Rule) => Rule.required(),
                         }),
                     ],
                     preview: {
