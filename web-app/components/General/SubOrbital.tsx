@@ -43,7 +43,7 @@ export default function SubOrbital({ projects }: ProjectsProps) {
           .map((proj, idx) => (
             <motion.div
               key={proj._id}
-              className="flex-shrink-0 cursor-pointer flex flex-col items-center group w-32 md:w-48"
+              className="flex-shrink-0 flex flex-col items-center group w-32 md:w-48"
               initial={{ opacity: 0, y: 50 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -51,7 +51,7 @@ export default function SubOrbital({ projects }: ProjectsProps) {
                 stiffness: 200,
                 delay: inView ? 0.1 * idx : 0,
               }}
-              onClick={() => void router.push(`/projects/${proj.slug.current}`)}
+              // onClick={() => void router.push(`/projects/${proj.slug.current}`)}
             >
               <div className="relative w-full flex justify-center mb-4">
                 {proj.patch?.asset?._ref ? (
