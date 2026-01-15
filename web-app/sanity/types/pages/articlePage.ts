@@ -9,7 +9,7 @@ import { PortableTextBlock } from "next-sanity";
 import { ImageAndCaption } from "../components/ImageAndCaption";
 import { TextHeavy } from "../components/TextHeavy";
 import {Category} from "@/sanity/utils/category";
-import {ArticleLink, ArticleLinkType} from "@/sanity/utils/articleLink";
+import { ExternalArticleLink, InternalArticleLink} from "@/sanity/utils/articleLink";
 
 // TODO AUGUST FJERN SUBORBITALSHOWCASE, PROJECTSHOWCASE, OG INSTAGRAM EMBED HVIS DE IKKE SKAL BRUGES PÅ ARTIKELSIDER
 
@@ -24,22 +24,27 @@ export type ArticlePageSection =
   | ImageAndCaption
   | TextHeavy;
 
-export interface Article {
-  _type: "article";
-  _id: string;
-  title: string;
-  slug: { current: string };
+export interface ArticleBase {
+  _type: 'article'
+  _id: string
+
+  title: string
+  slug: { current: string }
+
   mainImage: {
     asset: {
-      _id: string;
-      url: string;
-    };
-    alt?: string;
-  };
-  publishedAt: string;
-  teaser: PortableTextBlock[];
-  sections: ArticlePageSection[];
-  linkType: ArticleLinkType
-  link?: ArticleLink
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
+
+  publishedAt: string
+  teaser: PortableTextBlock[]
+  sections: ArticlePageSection[]
   category?: Category
 }
+
+export type Article =
+    | (ArticleBase & InternalArticleLink)
+    | (ArticleBase & ExternalArticleLink)

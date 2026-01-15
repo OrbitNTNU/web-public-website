@@ -1,9 +1,15 @@
-export type ArticleLinkType = 'internal' | 'external'
-
-export interface ArticleLink {
-    internal?: {
-        _type?: string
-        slug: { current: string }
+export type InternalArticleLink = {
+    linkType: 'internal'
+    link: {
+        internal: {
+            slug: { current: string }
+        }
     }
-    external?: string
+}
+
+export type ExternalArticleLink = {
+    linkType: 'external'
+    link: {
+        external: string
+    }
 }
