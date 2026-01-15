@@ -43,9 +43,9 @@ export const Footer = () => {
               <li key={link.title}>
                 <Link
                   href={link.url}
-                  className="hover:text-laser-lemon transition-colors"
+                  className="hover:text-laser-lemon transition-colors uppercase"
                 >
-                  {link.title.toUpperCase()}
+                  {link.title}
                 </Link>
               </li>
             ))}

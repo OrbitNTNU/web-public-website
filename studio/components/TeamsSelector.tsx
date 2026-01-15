@@ -3,11 +3,8 @@ import {Card, Text, Stack, Spinner, Flex, Label, Radio} from '@sanity/ui'
 import {FormField} from 'sanity'
 import {set, unset} from 'sanity'
 import type {ArrayOfPrimitivesInputProps} from 'sanity'
+import { Team } from '../utils/teamNames'
 
-interface Team {
-  id: string
-  name: string
-}
 
 export default function TeamsSelector(
   props: ArrayOfPrimitivesInputProps<string | number | boolean>,

@@ -21,7 +21,7 @@ export const JOIN_PAGE_QUERY = defineQuery(`
     components[]{
       header,
       description,
-
+      team,
       image{
         asset->{
           _id,

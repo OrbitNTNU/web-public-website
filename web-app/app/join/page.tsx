@@ -1,6 +1,9 @@
 import { Loading } from "@/components/General/Layout/Loading";
-import {getAllArticles, getJoinPage} from "@/sanity/fetch/SanityFetch";
+import {getJoinPage} from "@/sanity/fetch/SanityFetch";
 import JoinClientPage from "./JoinClientPage";
+import { getTeamsData } from "@/lib/getTeamsData";
+import { Team } from "@/lib/getTeamsSlug";
+import { toSlug } from "@/lib/teams";
 
 const data = {
   title: "Join Us!",
@@ -38,5 +41,22 @@ export default async function JoinPage() {
     return <Loading />;
   }
 
-  return <JoinClientPage content={data} joinPage={join} />;
+  const teams = (await getTeamsData()) as Team[];
+    if (!teams) {
+      console.error("No team data from Orbit API");
+      return <Loading />;
+    }
+
+    const allTeamsWithPositions = teams.filter((position => 
+      join.components.some(team => Number(team.team) === position.teamID)
+    ));
+
+  const teamInfo = allTeamsWithPositions.map((team) => ({
+    name: team.teamName,
+    teamID: team.teamID,
+    group: team.group,
+    slug: toSlug(team.teamName),
+  }));
+
+  return <JoinClientPage content={data} joinPage={join} teamInfo={teamInfo} />;
 }

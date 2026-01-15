@@ -19,7 +19,7 @@ export interface Team {
   members: Member[];
 }
 
-const toSlug = (name: string) =>
+export const toSlug = (name: string) =>
   name
     .toLowerCase()
     .replace(/&/g, "and")

@@ -5,6 +5,7 @@ export interface JoinComponent {
     header: string;
     description: PortableTextBlock[];
     image: Image;
+    team: string;
 }
 export interface JoinPage {
     _id: string;

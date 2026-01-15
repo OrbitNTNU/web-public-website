@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import TeamsControls from "@/components/TeamsPage/TeamsControls";
 import ListView from "@/components/TeamsPage/Views/ListView";
 import TraditionalView from "@/components/TeamsPage/Views/TraditionalView";
