@@ -12,6 +12,7 @@ import SubOrbital from "@/components/General/SubOrbital";
 import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
 import ForSponsorsCard from "@/components/General/ForSponsorsCard";
 import TeamOverview from "@/components/General/TeamOverview";
+import GlobeDots from "@/components/General/GlobeDots";
 
 interface LandingPageProps {
   sections: LandingPageSection[];
@@ -23,6 +24,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
   return (
     <>
       <Hero />
+      {/* <GlobeDots /> */}
       {sections.map((section) => {
         switch (section._type) {
           case "largeQuote":
