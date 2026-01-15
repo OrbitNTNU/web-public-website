@@ -1,4 +1,3 @@
-// types/article.ts
 import { LargeQuote } from "../components/LargeQuote";
 import { LargeImage } from "../components/LargeImage";
 import { SpanningText } from "../components/SpanningText";
@@ -9,6 +8,7 @@ import { TriImageCollage } from "../components/TriImageCollage";
 import { PortableTextBlock } from "next-sanity";
 import { ImageAndCaption } from "../components/ImageAndCaption";
 import { TextHeavy } from "../components/TextHeavy";
+import {Category} from "@/sanity/utils/category";
 
 // TODO AUGUST FJERN SUBORBITALSHOWCASE, PROJECTSHOWCASE, OG INSTAGRAM EMBED HVIS DE IKKE SKAL BRUGES PÅ ARTIKELSIDER
 
@@ -38,4 +38,5 @@ export interface Article {
   publishedAt: string;
   teaser: PortableTextBlock[];
   sections: ArticlePageSection[];
+  category?: Category
 }

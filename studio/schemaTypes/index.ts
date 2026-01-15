@@ -41,6 +41,7 @@ import gallery from './team/gallery'
 import links from './utils/links'
 import membersSection from './team/membersSection'
 import joinPage from "./pages/joinPage";
+import category from "./utils/category";
 
 export const schemaTypes = [
   ctaSection,
@@ -86,4 +87,5 @@ export const schemaTypes = [
   gallery,
   links,
   membersSection,
+  category,
 ]
