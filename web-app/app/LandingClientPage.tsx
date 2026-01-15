@@ -24,7 +24,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
   return (
     <>
       <Hero />
-      <GlobeDots />
+      {/* <GlobeDots /> */}
       {sections.map((section) => {
         switch (section._type) {
           case "largeQuote":
