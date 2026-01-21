@@ -1,21 +1,48 @@
 "use client";
 
-import React, { useRef, useEffect, useCallback } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import globePoints from "@/public/globe-points.json";
 
-type GlobePoint = {
+type Point = {
     x: number;
     y: number;
     z: number;
 };
 
-interface GlobeDotsProps {
-    speed?: number;
+const points = globePoints as Point[];
+
+/* ---------- coordinates ---------- */
+
+const TRONDHEIM = {
+    lat: 63.4305,
+    lon: 10.3951,
+};
+
+function latLonToXYZ(lat: number, lon: number) {
+    const phi = (90 - lat) * (Math.PI / 180);
+    const theta = (lon + 180) * (Math.PI / 180);
+
+    return {
+        x: -Math.sin(phi) * Math.cos(theta),
+        y: Math.cos(phi),
+        z: Math.sin(phi) * Math.sin(theta),
+    };
 }
 
-const points = globePoints as GlobePoint[];
+const trondheim = latLonToXYZ(TRONDHEIM.lat, TRONDHEIM.lon);
 
-export default function GlobeDots({ speed = 0.25 }: GlobeDotsProps) {
+/* ---------- satellites ---------- */
+
+const satellites = [
+    { radius: 1.15, speed: 0.6, phase: 0, color: "rgba(0,150,255,0.95)" },   // blue
+    { radius: 1.2, speed: 0.45, phase: Math.PI / 2, color: "rgba(255,215,0,0.95)" }, // yellow
+    { radius: 1.25, speed: 0.35, phase: Math.PI, color: "rgba(0,220,120,0.95)" }, // green
+    { radius: 1.3, speed: 0.25, phase: Math.PI * 1.5, color: "rgba(255,80,80,0.95)" }, // red
+];
+
+/* ---------- component ---------- */
+
+export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const rafRef = useRef<number | null>(null);
 
@@ -41,7 +68,6 @@ export default function GlobeDots({ speed = 0.25 }: GlobeDotsProps) {
             canvas.width = Math.round(w * dpr);
             canvas.height = Math.round(h * dpr);
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
             ctx.clearRect(0, 0, w, h);
 
             const cx = w / 2;
@@ -55,34 +81,75 @@ export default function GlobeDots({ speed = 0.25 }: GlobeDotsProps) {
 
             if (!s.paused) {
                 s.rotationY += speed * dt;
-                s.rotationX += speed * dt * 0.15;
             }
+
 
             const cosY = Math.cos(s.rotationY);
             const sinY = Math.sin(s.rotationY);
             const cosX = Math.cos(s.rotationX);
             const sinX = Math.sin(s.rotationX);
 
-            for (let i = 0; i < points.length; i++) {
-                const p = points[i];
+            /* ---------- globe points ---------- */
 
+            for (const p of points) {
                 const x1 = p.x * cosY - p.z * sinY;
                 const z1 = p.x * sinY + p.z * cosY;
                 const y1 = p.y * cosX - z1 * sinX;
                 const z2 = p.y * sinX + z1 * cosX;
 
-                const fov = 1.6;
-                const perspective = fov / (fov + z2);
-
+                const perspective = 1.6 / (1.6 + z2);
                 const sx = cx + x1 * radius * perspective;
                 const sy = cy + y1 * radius * perspective;
 
-                const size = Math.max(0.25, perspective);
-                const alpha = Math.min(1, perspective * 0.25);
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(255,255,255,${Math.min(1, perspective * 0.25)})`;
+                ctx.arc(sx, sy, Math.max(0.25, perspective), 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            /* ---------- trondheim ---------- */
+
+            const blink = 0.3 + 0.7 * Math.sin(time * 0.006);
+
+            const xt = trondheim.x * cosY - trondheim.z * sinY;
+            const zt = trondheim.x * sinY + trondheim.z * cosY;
+            const yt = trondheim.y * cosX - zt * sinX;
+            const zt2 = trondheim.y * sinX + zt * cosX;
+
+            if (zt2 > -0.15) {
+                const p = 1.6 / (1.6 + zt2);
+                const sx = cx + xt * radius * p;
+                const sy = cy + yt * radius * p;
 
                 ctx.beginPath();
-                ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-                ctx.arc(sx, sy, size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255,255,255,${blink})`;
+                ctx.arc(sx, sy, 4.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            /* ---------- satellites ---------- */
+
+            const t = time * 0.001;
+
+            for (const sat of satellites) {
+                const a = t * sat.speed + sat.phase;
+
+                const x = Math.cos(a) * sat.radius;
+                const z = Math.sin(a) * sat.radius;
+                const y = 0.15 * Math.sin(a * 0.7);
+
+                const x1 = x * cosY - z * sinY;
+                const z1 = x * sinY + z * cosY;
+                const y1 = y * cosX - z1 * sinX;
+                const z2 = y * sinX + z1 * cosX;
+
+                const p = 1.6 / (1.6 + z2);
+                const sx = cx + x1 * radius * p;
+                const sy = cy + y1 * radius * p;
+
+                ctx.beginPath();
+                ctx.fillStyle = sat.color;
+                ctx.arc(sx, sy, 2.5, 0, Math.PI * 2);
                 ctx.fill();
             }
 

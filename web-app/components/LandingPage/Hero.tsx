@@ -24,7 +24,7 @@ export default function Hero() {
 
             {/* Globe background (video replacement) */}
             <div className="absolute inset-0">
-                <GlobeDots speed={0.25} />
+                <GlobeDots speed={0.1} />
             </div>
 
             {/* Optional dark overlay for contrast */}
