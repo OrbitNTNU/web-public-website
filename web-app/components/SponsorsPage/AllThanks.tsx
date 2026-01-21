@@ -42,36 +42,13 @@ const AllThanks = ({ sponsors }: AllThanksProps) => {
           For all your support and dedication to helping us succeed.
         </p>
       </motion.h1>
-      <motion.div
+      <div
         className="w-full columns-2 md:columns-3 lg:columns-4 2xl:columns-5 gap-6 [column-fill:_balance]"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.1,
-            },
-          },
-        }}
       >
-        {sponsors.map((sponsor, index) => (
-          <motion.div
+        {sponsors.map((sponsor) => (
+          <div
             key={sponsor._key || sponsor.name}
             className={`mb-6 break-inside-avoid flex justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  duration: 0.6,
-                  delay: index * 0.05,
-                  ease: "easeOut",
-                },
-              },
-            }}
             onClick={() => handleClick(sponsor.website)}
           >
             <Image
@@ -81,9 +58,9 @@ const AllThanks = ({ sponsors }: AllThanksProps) => {
               height={200}
               className="object-contain w-full h-auto"
             />
-          </motion.div>
+          </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 };

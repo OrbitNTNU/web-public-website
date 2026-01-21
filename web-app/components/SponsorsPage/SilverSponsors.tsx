@@ -21,14 +21,14 @@ const SilverSponsors = ({ sponsors }: SilverSponsorsProps) => {
             <Link
               href={sponsor.website || "#"}
               target="_blank"
-              rel="noopener noreferrer"
+              className="h-[120px] flex items-center justify-center"
             >
               <Image
                 src={imageBuilder(sponsor.logo)}
                 alt={`${sponsor.name} logo`}
                 width={400}
                 height={600}
-                className="h-[300px] w-auto aspect-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
               />
             </Link>
             <section className="flex flex-col gap-4">
