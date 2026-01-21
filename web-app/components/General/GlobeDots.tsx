@@ -107,7 +107,7 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
 
                 ctx.beginPath();
                 ctx.fillStyle = `rgba(255,255,255,${Math.min(1, perspective * 0.25)})`;
-                ctx.arc(sx, sy, Math.max(0.25, perspective), 0, Math.PI * 2);
+                ctx.arc(sx, sy, Math.max(0.4, perspective * 1.2), 0, Math.PI * 2);
                 ctx.fill();
             }
 
