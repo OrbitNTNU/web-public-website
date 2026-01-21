@@ -19,17 +19,21 @@ const TRONDHEIM = {
 };
 
 function latLonToXYZ(lat: number, lon: number) {
-    const phi = (90 - lat) * (Math.PI / 180);
-    const theta = (lon + 180) * (Math.PI / 180);
+    const latRad = (-lat * Math.PI) / 180;
+    const lonRad = (lon * Math.PI) / 180;
 
     return {
-        x: -Math.sin(phi) * Math.cos(theta),
-        y: Math.cos(phi),
-        z: Math.sin(phi) * Math.sin(theta),
+        x: Math.cos(latRad) * Math.cos(lonRad),
+        y: Math.sin(latRad),
+        z: Math.cos(latRad) * Math.sin(lonRad),
     };
 }
 
-const trondheim = latLonToXYZ(TRONDHEIM.lat, TRONDHEIM.lon);
+
+const trondheim = latLonToXYZ(
+    TRONDHEIM.lat +11,
+    TRONDHEIM.lon - 48
+);
 
 /* ---------- satellites ---------- */
 
