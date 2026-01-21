@@ -21,6 +21,7 @@ import { TEAM_PAGE_QUERY } from "@/sanity/queries/teamPage";
 import { sanityFetch } from "@/sanity/live/live";
 import { JOIN_PAGE_QUERY } from "@/sanity/queries/joinPage";
 import { JoinPage } from "@/sanity/types/pages/joinPage";
+import {InternalArticle} from "@/sanity/utils/articleLink";
 
 
 //LANDING PAGE
@@ -45,28 +46,31 @@ export const getAboutPage = async (): Promise<AboutPage | null> => {
   }
 };
 
-//ARTICLE SLUG PAGE
-
-export const getArticle = async (slug: string): Promise<Article | null> => {
+// ARTICLE SLUG PAGE (internal only)
+export const getArticle = async (
+    slug: string
+): Promise<InternalArticle | null> => {
   try {
-    const { data } = await sanityFetch({
+    const { data } = await sanityFetch<InternalArticle | null>({
       query: ARTICLE_PAGE_QUERY,
       params: { slug },
     });
 
-    return (data as Article) ?? null;
+    return data;
   } catch (e) {
     console.error(`Error fetching article (${slug}):`, e);
     return null;
   }
 };
-//ALLOFEM
+
+// ALLOFEM (internal + external)
 export const getAllArticles = async (): Promise<Article[]> => {
   try {
-    const { data } = await sanityFetch({
+    const { data } = await sanityFetch<Article[]>({
       query: ALL_ARTICLES_QUERY,
     });
-    return (data as Article[]) ?? [];
+
+    return data;
   } catch (e) {
     console.error("Error fetching all articles:", e);
     return [];

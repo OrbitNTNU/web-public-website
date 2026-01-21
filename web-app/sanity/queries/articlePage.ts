@@ -4,22 +4,17 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
   *[
     _type == "article" &&
     !(_id in path("drafts.**")) &&
+    linkType == "internal" &&
     slug.current == $slug
   ][0]{
     _id,
+    _type,
     title,
     teaser,
     slug,
     mainImage,
     publishedAt,
     linkType,
-    link {
-      internal->{
-        _type,
-        slug
-      },
-      external
-    },
 
     category->{
       _id,
@@ -27,7 +22,7 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
       color
     },
 
-    sections[] {
+    "sections": coalesce(sections, [])[]{
       ...,
       _type == "largeQuote" => {
         _type,
@@ -59,7 +54,7 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
       },
       _type == "doubleImageCollage" => {
         _type,
-        items[] {
+        items[]{
           _type,
           variant,
           image1,
@@ -86,7 +81,7 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
       },
       _type == "singleImageCollage" => {
         _type,
-        items[] {
+        items[]{
           _type,
           src,
           alt,
@@ -118,7 +113,6 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
   }
 `);
 
-
 export const ALL_ARTICLES_QUERY = defineQuery(`
   *[
     _type == "article" &&
@@ -128,17 +122,19 @@ export const ALL_ARTICLES_QUERY = defineQuery(`
     _type,
     title,
     teaser,
-    slug,
-    mainImage,
     publishedAt,
-
+    mainImage,
     linkType,
-    link {
-      internal->{
-        slug
-      },
-      external
-    },
+
+    "slug": select(
+      linkType == "internal" => slug,
+      null
+    ),
+
+    "link": select(
+      linkType == "external" => link.external,
+      null
+    ),
 
     category->{
       title,
@@ -146,4 +142,3 @@ export const ALL_ARTICLES_QUERY = defineQuery(`
     }
   }
 `);
-
