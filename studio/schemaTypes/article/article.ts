@@ -102,14 +102,10 @@ export default defineType({
             if (context.document?.linkType === "external" && !value?.external) {
               return "External URL is required for external articles";
             }
-            if (context.document?.linkType === "internal" && !value?.internal) {
-              return "Internal link is required for internal articles";
-            }
             return true;
           }),
     }),
-
-    defineField({
+  defineField({
       name: "category",
       title: "Category",
       type: "reference",
