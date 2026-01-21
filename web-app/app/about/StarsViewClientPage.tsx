@@ -45,17 +45,19 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
     );
 
     // One star per member
-    const generatedStars: StarProps[] = allMembersWithTeam.map(({ member, team }) => {
-      const { x, y } = getMemberPosition(member.name);
+    const generatedStars: StarProps[] = allMembersWithTeam.map(
+      ({ member, team }) => {
+        const { x, y } = getMemberPosition(member.name);
 
-      return {
-        x,
-        y,
-        size: Math.random() * 4 + 2,   // keep random if you want variation
-        member,
-        team,
-      };
-    });
+        return {
+          x,
+          y,
+          size: Math.random() * 4 + 2, // keep random if you want variation
+          member,
+          team,
+        };
+      },
+    );
 
     setStars(generatedStars);
   }, [teamsData]);

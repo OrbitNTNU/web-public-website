@@ -16,6 +16,4 @@ export interface SubOrbitalProjectsShowcase extends BaseProjectsShowcase {
   projects: SubOrbitalProject[];
 }
 
-export type ProjectsShowcase =
-  | BigProjectsShowcase
-  | SubOrbitalProjectsShowcase;
+export type ProjectsShowcase = BigProjectsShowcase | SubOrbitalProjectsShowcase;

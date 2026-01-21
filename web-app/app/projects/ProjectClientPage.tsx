@@ -42,7 +42,11 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                   key={section._key}
                   backgroundSrc={imageBuilder(section.image.asset._ref)}
                   patchSrc={imageBuilder(project.patch)}
-                  colors={project._type === "bigProject" ? project.gradientColors ?? [] : []}
+                  colors={
+                    project._type === "bigProject"
+                      ? (project.gradientColors ?? [])
+                      : []
+                  }
                   isBiosat={isBiosat}
                 />
               </div>
@@ -103,33 +107,33 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
               />
             );
           case "imageAndCaption":
-              return (
-                <ImageAndCaption
-                  key={section._key}
-                  src={imageBuilder(section.src)}
-                  alt={section.alt}
-                  title={section.title}
-                  caption={section.caption}
-                  wideCaption={section.wideCaption}
-                  variant={section.variant}
-                />
-              );
+            return (
+              <ImageAndCaption
+                key={section._key}
+                src={imageBuilder(section.src)}
+                alt={section.alt}
+                title={section.title}
+                caption={section.caption}
+                wideCaption={section.wideCaption}
+                variant={section.variant}
+              />
+            );
 
-            case "singleImageCollage":
-              return (
-                <section key={section._key} className="flex flex-col gap-12">
-                  {section.items?.map((item, idx) => (
-                    <ImageAndCaption
-                      key={idx}
-                      src={imageBuilder(item.src)}
-                      alt={item.alt}
-                      title={item.title}
-                      caption={item.caption}
-                      variant={item.variant}
-                    />
-                  ))}
-                </section>
-              );
+          case "singleImageCollage":
+            return (
+              <section key={section._key} className="flex flex-col gap-12">
+                {section.items?.map((item, idx) => (
+                  <ImageAndCaption
+                    key={idx}
+                    src={imageBuilder(item.src)}
+                    alt={item.alt}
+                    title={item.title}
+                    caption={item.caption}
+                    variant={item.variant}
+                  />
+                ))}
+              </section>
+            );
           default:
             return null;
         }

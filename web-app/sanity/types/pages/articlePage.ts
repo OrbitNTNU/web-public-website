@@ -9,18 +9,18 @@ import { PortableTextBlock } from "next-sanity";
 import { ImageAndCaption } from "../components/ImageAndCaption";
 import { TextHeavy } from "../components/TextHeavy";
 import { Category } from "@/sanity/utils/category";
-import {ExternalArticle, InternalArticle} from "@/sanity/utils/articleLink";
+import { ExternalArticle, InternalArticle } from "@/sanity/utils/articleLink";
 
 export type ArticlePageSection =
-    | LargeQuote
-    | LargeImage
-    | SpanningText
-    | DoubleImage
-    | DoubleImageCollage
-    | SingleImageCollage
-    | TriImageCollage
-    | ImageAndCaption
-    | TextHeavy;
+  | LargeQuote
+  | LargeImage
+  | SpanningText
+  | DoubleImage
+  | DoubleImageCollage
+  | SingleImageCollage
+  | TriImageCollage
+  | ImageAndCaption
+  | TextHeavy;
 
 export default interface ArticleBaseFields {
   _type: "article";
@@ -37,6 +37,5 @@ export default interface ArticleBaseFields {
   teaser: PortableTextBlock[];
   category?: Category;
 }
-
 
 export type Article = InternalArticle | ExternalArticle;

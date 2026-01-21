@@ -21,8 +21,7 @@ import { TEAM_PAGE_QUERY } from "@/sanity/queries/teamPage";
 import { sanityFetch } from "@/sanity/live/live";
 import { JOIN_PAGE_QUERY } from "@/sanity/queries/joinPage";
 import { JoinPage } from "@/sanity/types/pages/joinPage";
-import {InternalArticle} from "@/sanity/utils/articleLink";
-
+import { InternalArticle } from "@/sanity/utils/articleLink";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -48,7 +47,7 @@ export const getAboutPage = async (): Promise<AboutPage | null> => {
 
 // ARTICLE SLUG PAGE (internal only)
 export const getArticle = async (
-    slug: string
+  slug: string,
 ): Promise<InternalArticle | null> => {
   try {
     const { data } = await sanityFetch<InternalArticle | null>({
@@ -179,7 +178,6 @@ export const getJoinPage = async (): Promise<JoinPage | null> => {
     return null;
   }
 };
-
 
 // TEAM PAGE — First document only (for Magnus 💙)
 export const getTeamPageForMagnus = async (): Promise<TeamPage | null> => {

@@ -37,9 +37,7 @@ export default function SubOrbital({ projects }: ProjectsProps) {
         style={{ scrollbarWidth: "none" }}
       >
         {projects
-          .sort(
-            (a, b) => b.year - a.year
-          )
+          .sort((a, b) => b.year - a.year)
           .map((proj, idx) => (
             <motion.div
               key={proj._id}

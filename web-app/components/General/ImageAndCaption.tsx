@@ -95,7 +95,7 @@ const ImageAndCaption = ({
             )}
           </motion.div>
         )}
-        
+
         {/* Text Content */}
         {(title || caption) && (
           <motion.div
