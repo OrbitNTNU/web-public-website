@@ -53,13 +53,14 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
+      const scale = 4; 
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
 
-      canvas.width = Math.round(w);
-      canvas.height = Math.round(h);
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.clearRect(0, 0, w, h);
+      canvas.width = Math.round(w * scale);
+      canvas.height = Math.round(h * scale);
+
+      ctx.setTransform(scale, 0, 0, scale, 0, 0);
 
       const cx = w / 2;
       const cy = h / 2;
@@ -188,8 +189,9 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       <canvas
         ref={canvasRef}
         className="
-        w-full lg:w-[80vw]
-        h-full lg:h-[80vh]
+        w-[250%]
+        md:w-full
+        h-full
         block
       "
       />
