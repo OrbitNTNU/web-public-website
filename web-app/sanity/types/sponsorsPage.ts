@@ -6,7 +6,7 @@ import { Image } from "./image";
 // Generic sponsor base
 export interface BaseSponsor {
   _key: string;
-  name: string;
+  name?: string;
   logo: Image;
   website?: string;
 }
