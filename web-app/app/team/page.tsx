@@ -69,7 +69,8 @@ export const metadata: Metadata = {
     },
   },
 };
-export const revalidate = false; //never
+export const dynamic = 'force-dynamic'
+
 
 export default async function TeamsPage() {
   const teamsData = await getTeamsData();

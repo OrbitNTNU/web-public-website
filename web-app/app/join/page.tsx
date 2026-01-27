@@ -9,7 +9,8 @@ const data = {
   title: "Join Us!",
   text: "Become a part of ORBIT and embark on an exciting journey in satellite technology. Whether you're a student eager to learn or a professional looking to contribute, we welcome you to join our team. Explore our open positions and find out how you can make a difference with ORBIT.",
 };
-export const revalidate = false;
+export const dynamic = 'force-dynamic'
+
 
 export default async function JoinPage() {
   const join = await getJoinPage();
