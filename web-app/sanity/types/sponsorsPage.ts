@@ -13,7 +13,7 @@ export interface BaseSponsor {
 
 // For sponsors with text content
 export interface RichSponsor extends BaseSponsor {
-  description: PortableTextBlock; // Sanity block content
+  description?: PortableTextBlock; // Sanity block content
   imageWithUs?: Image;
 }
 
