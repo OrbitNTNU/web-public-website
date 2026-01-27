@@ -2,49 +2,43 @@ type ImageBuilderOptions = {
   width?: number;
   height?: number;
   fit?: "clip" | "crop" | "fill" | "fillmax" | "max" | "scale" | "min";
-  format?: "webp" | "jpg" | "png" | false;
+  format?: "webp" | "jpg" | "png";
   quality?: number;
 };
 
 export const imageBuilder = (
-  source?:
-    | string
-    | { asset?: { _ref?: string; _id?: string; url?: string | null } }
-    | null,
-  opts: ImageBuilderOptions = {},
+    source?:
+        | string
+        | { asset?: { _ref?: string; _id?: string; url?: string | null } }
+        | null,
+    opts: ImageBuilderOptions = {},
 ): string => {
   if (!source) return "";
 
-  const ref: string | undefined =
-    typeof source === "string"
-      ? source
-      : source.asset?._ref || source.asset?._id || undefined;
+  const ref =
+      typeof source === "string"
+          ? source
+          : source.asset?._ref || source.asset?._id;
 
   const directUrl =
-    typeof source !== "string" && source.asset?.url
-      ? source.asset.url
-      : undefined;
+      typeof source !== "string" ? source.asset?.url ?? undefined : undefined;
 
   const applyParams = (url: URL) => {
-    const width = opts.width ?? 1920;
-    const height = opts.height ?? undefined;
-    const quality = opts.quality ?? 90;
-    const format = opts.format ?? "webp";
-
-    url.searchParams.set("w", String(width));
-    if (height) url.searchParams.set("h", String(height));
+    // Only apply params if explicitly provided
+    if (opts.width) url.searchParams.set("w", String(opts.width));
+    if (opts.height) url.searchParams.set("h", String(opts.height));
     if (opts.fit) url.searchParams.set("fit", opts.fit);
-    if (format !== false) {
-      url.searchParams.set("fm", format);
-      url.searchParams.set("q", String(quality));
-    }
+    if (opts.format) url.searchParams.set("fm", opts.format);
+    if (opts.quality) url.searchParams.set("q", String(opts.quality));
 
     return url.toString();
   };
 
+  // If Sanity already gives us a direct URL, just return it untouched
   if (directUrl) {
     try {
-      return applyParams(new URL(directUrl));
+      const url = new URL(directUrl);
+      return Object.keys(opts).length ? applyParams(url) : url.toString();
     } catch {
       console.warn("Invalid direct image URL:", directUrl);
       return "";
@@ -56,10 +50,7 @@ export const imageBuilder = (
     return "";
   }
 
-  const parts = ref.split("-");
-  const id = parts[1];
-  const dimensions = parts[2];
-  const format = parts[3];
+  const [, id, dimensions, format] = ref.split("-");
   const filename = `${id}-${dimensions}.${format}`;
 
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -71,8 +62,9 @@ export const imageBuilder = (
   }
 
   const url = new URL(
-    `https://cdn.sanity.io/images/${projectId}/${dataset}/${filename}`,
+      `https://cdn.sanity.io/images/${projectId}/${dataset}/${filename}`,
   );
 
-  return applyParams(url);
+  // Return raw CDN URL unless transforms are requested
+  return Object.keys(opts).length ? applyParams(url) : url.toString();
 };
