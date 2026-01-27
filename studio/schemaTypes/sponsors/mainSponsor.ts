@@ -16,7 +16,6 @@ export default defineType({
       title: 'Description',
       type: 'array',
       of: [{type: 'block'}],
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'logo',
