@@ -40,11 +40,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
             return (
               <LargeImage
                 key={section._key}
-                src={imageBuilder(section.image, {
-                  width: 1600,
-                  format: "webp",
-                  quality: 70,
-                })}
+                src={imageBuilder(section.image)}
                 alt={section.alt}
                 caption={section.caption}
               />
@@ -58,20 +54,12 @@ export default function LandingPage({ sections }: LandingPageProps) {
               <DoubleImages
                 key={section._key}
                 variant={section.variant}
-                src1={imageBuilder(section.image1, {
-                  width: 1200,
-                  format: "webp",
-                  quality: 70,
-                })}
+                src1={imageBuilder(section.image1)}
                 alt1={section.alt1 ?? ""}
                 title1={section.title1}
                 caption1={section.caption1}
                 link1={section.link1}
-                src2={imageBuilder(section.image2, {
-                  width: 1200,
-                  format: "webp",
-                  quality: 70,
-                })}
+                src2={imageBuilder(section.image2)}
                 alt2={section.alt2 ?? ""}
                 title2={section.title2}
                 caption2={section.caption2}
@@ -86,11 +74,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
                   <DoubleImages
                     key={item._key || Math.random().toString()}
                     variant={item.variant}
-                    src1={imageBuilder(item.image1, {
-                      width: 1200,
-                      format: "webp",
-                      quality: 70,
-                    })}
+                    src1={imageBuilder(item.image1)}
                     alt1={item.alt1 ?? ""}
                     title1={item.title1}
                     caption1={item.caption1}
