@@ -34,7 +34,7 @@ const PlatinumSponsors = ({ sponsors }: PlatinumSponsorsProps) => {
             <section className="flex flex-col gap-4">
               <h2>{sponsor.name}</h2>
               <PortableText
-                value={sponsor.description}
+                value={sponsor.description ?? []}
                 components={{
                   block: {
                     normal: ({ children }) => (
