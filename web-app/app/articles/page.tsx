@@ -4,7 +4,6 @@ import ArticleClientPage from "@/app/articles/ArticleClientPage";
 export const revalidate = false;
 export default async function ArticlesPage() {
   const articles = await getAllArticles();
-  console.log(articles);
   if (!articles) {
     return <Loading />;
   }

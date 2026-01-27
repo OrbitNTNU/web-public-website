@@ -37,9 +37,7 @@ function generatePoints(pointCount: number) {
 
 const POINT_COUNT = 5000;
 
-console.log("Generating globe points...");
 const points = generatePoints(POINT_COUNT);
 
 fs.writeFileSync("public/globe-points.json", JSON.stringify(points));
 
-console.log(`Done. Generated ${points.length} land points.`);
