@@ -30,21 +30,34 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
     gradientColors,
     sections[] {
       ...,
+
+      _type == "reference" => @->{
+        _type,
+        title,
+        specifications[] {
+          label,
+          value
+        }
+      },
+
       _type == "largeQuote" => {
         _type,
         quote,
         author
       },
+
       _type == "largeImage" => {
         _type,
         image,
         alt,
         caption
       },
+
       _type == "spanningText" => {
         _type,
         text
       },
+
       _type == "doubleImage" => {
         _type,
         variant,
@@ -59,6 +72,7 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
         caption2,
         link2
       },
+
       _type == "doubleImageCollage" => {
         _type,
         items[] {
@@ -76,6 +90,7 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
           link2
         }
       },
+
       _type == "projectsShowcase" => {
         _type,
         title,
@@ -95,6 +110,7 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
     }
   }
 `);
+
 
 export const ALL_SUBORBITAL_PROJECTS_QUERY = defineQuery(`
   *[

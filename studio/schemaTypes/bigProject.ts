@@ -62,6 +62,11 @@ export default defineType({
         {type: 'doubleImage'},
         {type: 'doubleImageCollage'},
         {type: 'bannerImage'},
+        {
+          type: 'reference',
+          title: 'Specification Section (Reference)',
+          to: [{ type: 'specificationSection' }]
+        }
       ],
     }),
   ],

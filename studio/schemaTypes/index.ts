@@ -42,6 +42,7 @@ import links from './utils/links'
 import membersSection from './team/membersSection'
 import joinPage from "./pages/joinPage";
 import category from "./utils/category";
+import specificationSection from "./sections/specificationSection";
 
 export const schemaTypes = [
   ctaSection,
@@ -88,4 +89,5 @@ export const schemaTypes = [
   links,
   membersSection,
   category,
+  specificationSection,
 ]
