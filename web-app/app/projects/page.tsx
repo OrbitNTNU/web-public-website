@@ -5,7 +5,7 @@ import {
 import ProjectsOverviewClient from "@/app/projects/ProjectPage";
 import { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Satellite, Slagord!",
+  title: "Satellite!",
   description: "",
 
   keywords: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   category: "Nonprofit",
 
   openGraph: {
-    title: "Satellite, Slagord!",
+    title: "Satellite!",
     description: "",
     url: "https://orbitntnu.com/sponsors",
     siteName: "ORBITNTNU",
@@ -44,12 +44,12 @@ export const metadata: Metadata = {
     description: "",
     creator: "@YourTwitterHandle",
     site: "@YourTwitterHandle",
-    images: ["https://yoursite.com/og/sponsors-og-image.jpg"],
+
   },
   alternates: {
-    canonical: "https://yoursite.com/sponsors",
+    canonical: "https://orbitntnu.com/sponsors",
     languages: {
-      "en-US": "https://yoursite.com/sponsors",
+      "en-US": "https://orbitntnu.com/sponsors",
     },
   },
 
