@@ -46,12 +46,11 @@ export const metadata: Metadata = {
       "Discover our amazing sponsors who make our mission possible. We're deeply grateful for their support.",
     creator: "@YourTwitterHandle",
     site: "@YourTwitterHandle",
-    images: ["https://yoursite.com/og/sponsors-og-image.jpg"],
   },
   alternates: {
-    canonical: "https://yoursite.com/sponsors",
+    canonical: "https://orbitntnu.com/sponsors",
     languages: {
-      "en-US": "https://yoursite.com/sponsors",
+      "en-US": "https://orbitntnu.com/sponsors",
     },
   },
 
