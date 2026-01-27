@@ -35,5 +35,5 @@ export default async function JoinPage() {
     slug: toSlug(team.teamName),
   }));
 
-  return <JoinClientPage content={data} joinPage={join} teamInfo={teamInfo} />;
+  return <JoinClientPage joinPage={join} teamInfo={teamInfo} />;
 }

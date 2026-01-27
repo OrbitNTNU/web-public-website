@@ -7,16 +7,6 @@ import GroupSelector from "@/components/JoinPage/GroupSelector";
 import { useRef, useState } from "react";
 
 interface JoinClientPageProps {
-  content: {
-    title: string;
-    text: string;
-    buttons: {
-      buttonLink: string;
-      buttonText: string;
-      icon: string;
-    }[];
-    images: string[];
-  };
   joinPage: JoinPage;
   teamInfo: {
     name: string;
@@ -27,7 +17,6 @@ interface JoinClientPageProps {
 }
 
 const JoinClientPage = ({
-  content,
   joinPage,
   teamInfo,
 }: JoinClientPageProps) => {
