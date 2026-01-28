@@ -7,7 +7,7 @@ interface SponsorHeaderProps {
 
 const SponsorHeader = ({ text, count }: SponsorHeaderProps) => {
   return (
-    <div className="px-4 lg:px-0 flex items-center gap-4 lg:gap-8 w-full">
+    <div className="px-4 2xl:px-0 flex items-center gap-4 lg:gap-8 w-full">
       {/* Left line */}
       <motion.div
         className="flex-1 h-px bg-gray-300 origin-right"
