@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 };
-export const dynamic = 'force-dynamic'
+export const revalidate = 60; // or any number
 
 export default async function ProjectsPage() {
   const BigProjects = await getAllBigProjects();
