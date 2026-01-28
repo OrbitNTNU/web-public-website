@@ -19,6 +19,15 @@ const TRONDHEIM = {
   lon: 10.3951,
 };
 
+const INTRO = {
+  dots: 1200,
+  satellites: 600,
+  trondheim: 400,
+};
+
+const TOTAL_INTRO =
+  INTRO.dots + INTRO.satellites + INTRO.trondheim;
+
 function latLonToXYZ(lat: number, lon: number) {
   const latRad = (-lat * Math.PI) / 180;
   const lonRad = (lon * Math.PI) / 180;
@@ -30,7 +39,7 @@ function latLonToXYZ(lat: number, lon: number) {
   };
 }
 
-const trondheim = latLonToXYZ(TRONDHEIM.lat + 11, TRONDHEIM.lon - 48);
+const trondheim = latLonToXYZ(TRONDHEIM.lat, TRONDHEIM.lon);
 
 /* ---------- component ---------- */
 
@@ -38,11 +47,17 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const rafRef = useRef<number | null>(null);
 
+  const shuffledPoints = useRef(
+    [...points].sort(() => Math.random() - 0.5)
+  );
+
   const stateRef = useRef({
     rotationX: 0,
     rotationY: 0,
     lastTime: 0,
     paused: false,
+    startTime: 0,
+    introDone: false,
   });
 
   const drawFrame = useCallback(
@@ -53,7 +68,7 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
-      const scale = 4; 
+      const scale = 4;
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
 
@@ -64,6 +79,7 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
 
       const cx = w / 2;
       const cy = h / 2;
+
       const radius = Math.min(w, h) * 0.38;
 
       const s = stateRef.current;
@@ -82,7 +98,17 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
 
       /* ---------- globe points ---------- */
 
-      for (const p of points) {
+      if (!s.startTime) s.startTime = time;
+      const introTime = time - s.startTime;
+
+      const dotsProgress = Math.min(introTime / INTRO.dots, 1);
+      const visibleDots = Math.floor(
+        shuffledPoints.current.length * dotsProgress
+      );
+
+      for (let i = 0; i < visibleDots; i++) {
+        const p = shuffledPoints.current[i];
+
         const x1 = p.x * cosY - p.z * sinY;
         const z1 = p.x * sinY + p.z * cosY;
         const y1 = p.y * cosX - z1 * sinX;
@@ -92,9 +118,13 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
         const sx = cx + x1 * radius * perspective;
         const sy = cy + y1 * radius * perspective;
 
+        const birth = i / shuffledPoints.current.length;
+        const spawn = Math.min((dotsProgress - birth) * 8, 1);
+        const r = Math.max(0.2, perspective * 1.2 * spawn);
+
         ctx.beginPath();
         ctx.fillStyle = `rgba(255,255,255,${Math.max(0.7, perspective * 0.25)})`;
-        ctx.arc(sx, sy, Math.max(0.4, perspective * 1.2), 0, Math.PI * 2);
+        ctx.arc(sx, sy, r, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -107,14 +137,22 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       const yt = trondheim.y * cosX - zt * sinX;
       const zt2 = trondheim.y * sinX + zt * cosX;
 
-      if (zt2 > -0.15) {
-        const p = 1.6 / (1.6 + zt2);
-        const sx = cx + xt * radius * p;
-        const sy = cy + yt * radius * p;
+      const p = 1.6 / (1.6 + zt2);
+      const sx = cx + xt * radius * p;
+      const sy = cy + yt * radius * p;
 
-        ctx.beginPath();
+      const trondheimStart =
+        INTRO.dots + INTRO.satellites;
+
+      const trondheimProgress = Math.min(
+        Math.max(introTime - trondheimStart, 0) / INTRO.trondheim,
+        1
+      );
+
+      if (trondheimProgress > 0 && zt2 > -0.15) {
+        const pop = 1 + 0.6 * Math.sin(trondheimProgress * Math.PI);
         ctx.fillStyle = `rgba(255,255,255,${blink})`;
-        ctx.arc(sx, sy, 4.5, 0, Math.PI * 2);
+        ctx.arc(sx, sy, 4.5 * pop, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -122,34 +160,48 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
 
       const t = time * 0.001;
 
-      for (const sat of satellites) {
-        const a = t * sat.speed + sat.phase;
+      const satellitesStart = INTRO.dots;
+      const satellitesProgress = Math.min(
+        Math.max(introTime - satellitesStart, 0) / INTRO.satellites,
+        1
+      );
+      if (satellitesProgress > 0) {
 
-        const x = Math.cos(a) * sat.radius;
-        const z = Math.sin(a) * sat.radius;
-        const y = 0.15 * Math.sin(a * 0.7);
+        for (const sat of satellites) {
+          const a = t * sat.speed + sat.phase;
 
-        const x1 = x * cosY - z * sinY;
-        const z1 = x * sinY + z * cosY;
-        const y1 = y * cosX - z1 * sinX;
-        const z2 = y * sinX + z1 * cosX;
+          const x = Math.cos(a) * sat.radius;
+          const z = Math.sin(a) * sat.radius;
+          const y = 0.15 * Math.sin(a * 0.7);
 
-        const p = 1.6 / (1.6 + z2);
-        const sx = cx + x1 * radius * p;
-        const sy = cy + y1 * radius * p;
+          const x1 = x * cosY - z * sinY;
+          const z1 = x * sinY + z * cosY;
+          const y1 = y * cosX - z1 * sinX;
+          const z2 = y * sinX + z1 * cosX;
 
-        const r = 2.5 * p + 1;
-        const root = document.documentElement;
+          const p = 1.6 / (1.6 + z2);
+          const sx = cx + x1 * radius * p;
+          const sy = cy + y1 * radius * p;
 
-        const color = getComputedStyle(root)
-          .getPropertyValue(sat.color.replace("var(", "").replace(")", ""))
-          .trim();
+          const r = 2.5 * p + 1;
+          const root = document.documentElement;
 
-        ctx.beginPath();
-        ctx.fillStyle = color;
-        ctx.arc(sx, sy, r, 0, Math.PI * 2);
-        ctx.fill();
+          const color = getComputedStyle(root)
+            .getPropertyValue(sat.color.replace("var(", "").replace(")", ""))
+            .trim();
+
+          ctx.beginPath();
+          ctx.fillStyle = color;
+          ctx.arc(sx, sy, r, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
+
+      if (!s.introDone && introTime >= TOTAL_INTRO) {
+        s.introDone = true;
+        document.body.style.overflow = "";
+      }
+
 
       rafRef.current = requestAnimationFrame(drawFrame);
     },
@@ -175,6 +227,16 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       observer.disconnect();
     };
   }, [drawFrame]);
+
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
 
   return (
     <div
