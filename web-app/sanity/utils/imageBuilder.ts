@@ -6,6 +6,11 @@ type ImageBuilderOptions = {
   quality?: number;
 };
 
+const DEFAULT_IMAGE_OPTIONS: ImageBuilderOptions = {
+  width: 1600,
+  quality: 75,
+};
+
 export const imageBuilder = (
     source?:
         | string
@@ -14,6 +19,11 @@ export const imageBuilder = (
     opts: ImageBuilderOptions = {},
 ): string => {
   if (!source) return "";
+
+  const finalOpts: ImageBuilderOptions = {
+    ...DEFAULT_IMAGE_OPTIONS,
+    ...opts,
+  };
 
   const ref =
       typeof source === "string"
@@ -24,21 +34,19 @@ export const imageBuilder = (
       typeof source !== "string" ? source.asset?.url ?? undefined : undefined;
 
   const applyParams = (url: URL) => {
-    // Only apply params if explicitly provided
-    if (opts.width) url.searchParams.set("w", String(opts.width));
-    if (opts.height) url.searchParams.set("h", String(opts.height));
-    if (opts.fit) url.searchParams.set("fit", opts.fit);
-    if (opts.format) url.searchParams.set("fm", opts.format);
-    if (opts.quality) url.searchParams.set("q", String(opts.quality));
+    if (finalOpts.width) url.searchParams.set("w", String(finalOpts.width));
+    if (finalOpts.height) url.searchParams.set("h", String(finalOpts.height));
+    if (finalOpts.fit) url.searchParams.set("fit", finalOpts.fit);
+    if (finalOpts.format) url.searchParams.set("fm", finalOpts.format);
+    if (finalOpts.quality) url.searchParams.set("q", String(finalOpts.quality));
 
     return url.toString();
   };
 
-  // If Sanity already gives us a direct URL, just return it untouched
   if (directUrl) {
     try {
       const url = new URL(directUrl);
-      return Object.keys(opts).length ? applyParams(url) : url.toString();
+      return applyParams(url);
     } catch {
       console.warn("Invalid direct image URL:", directUrl);
       return "";
@@ -65,6 +73,5 @@ export const imageBuilder = (
       `https://cdn.sanity.io/images/${projectId}/${dataset}/${filename}`,
   );
 
-  // Return raw CDN URL unless transforms are requested
-  return Object.keys(opts).length ? applyParams(url) : url.toString();
+  return applyParams(url);
 };
