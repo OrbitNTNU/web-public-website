@@ -3,51 +3,30 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Loading } from "./Layout/Loading";
-import { getSlug } from "@/lib/teams";
 
-interface Team {
+export interface StrippedTeam {
   teamID: number;
-  teamName: string;
   description: string;
+  teamName: string;
+  slug: string;
 }
 
-const TeamOverview = () => {
-  const [teams, setTeams] = useState<Team[]>([]);
+interface TeamOverviewProps {
+  strippedTeamData: StrippedTeam[];
+}
+
+const TeamOverview = ({ strippedTeamData }: TeamOverviewProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [slugs, setSlugs] = useState<Record<number, string>>({});
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Controls how fast you scroll between teams (lower = faster)
   const scrollSpeed = 0.2;
 
-  /** Fetch teams */
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await fetch("/api/teams");
-        const data = await res.json();
-        setTeams(data.teams);
-      } catch (err) {
-        console.error(err);
-      }
-    })();
-  }, []);
-
-  /** Load slugs for each team */
-  useEffect(() => {
-    const loadSlugs = async () => {
-      const slugEntries = await Promise.all(
-        teams.map(async (team) => [team.teamID, await getSlug(team.teamID)]),
-      );
-      setSlugs(Object.fromEntries(slugEntries));
-    };
-    if (teams.length) void loadSlugs();
-  }, [teams]);
 
   /** Scroll-based active index */
   useEffect(() => {
     const handleScroll = () => {
-      if (!containerRef.current || teams.length === 0) return;
+      if (!containerRef.current || strippedTeamData.length === 0) return;
 
       const container = containerRef.current;
       const containerTop = container.offsetTop + window.innerHeight / 3;
@@ -58,7 +37,7 @@ const TeamOverview = () => {
       const chunkHeight = viewportHeight * scrollSpeed;
 
       // Include extra chunk for CTA
-      const totalItems = teams.length + 1;
+      const totalItems = strippedTeamData.length + 1;
       const totalScrollable =
         (totalItems - 1) * chunkHeight + viewportHeight * 0.4;
 
@@ -75,11 +54,11 @@ const TeamOverview = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [teams, activeIndex, scrollSpeed]);
+  }, [strippedTeamData, activeIndex, scrollSpeed]);
 
-  if (!teams.length) return <Loading />;
+  if (!strippedTeamData.length) return <Loading />;
 
-  const totalItems = teams.length + 3;
+  const totalItems = strippedTeamData.length + 3;
 
   return (
     <section className="hidden lg:block px-4 md:px-12 w-full mx-auto">
@@ -92,7 +71,7 @@ const TeamOverview = () => {
       >
         {/* Left column */}
         <div className="flex flex-col gap-2 2xl:gap-4 w-1/2 md:w-1/4 sticky h-screen justify-center top-0">
-          {teams.map((team, idx) => (
+          {strippedTeamData.map((team, idx) => (
             <motion.span
               key={team.teamID}
               animate={{
@@ -129,12 +108,12 @@ const TeamOverview = () => {
             animate={{
               x: Math.max(
                 0,
-                20 * Math.exp(-Math.pow(activeIndex - teams.length, 2) / 0.8),
+                20 * Math.exp(-Math.pow(activeIndex - strippedTeamData.length, 2) / 0.8),
               ),
             }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
             className={`cursor-pointer ${
-              activeIndex === teams.length
+              activeIndex === strippedTeamData.length
                 ? "text-cloud-white font-bold"
                 : "text-charcoal-light"
             }`}
@@ -146,7 +125,7 @@ const TeamOverview = () => {
               const chunkHeight = viewportHeight * scrollSpeed;
 
               const targetScroll =
-                container.offsetTop + (teams.length + 1) * chunkHeight;
+                container.offsetTop + (strippedTeamData.length + 1) * chunkHeight;
 
               window.scrollTo({ top: targetScroll, behavior: "smooth" });
             }}
@@ -157,7 +136,7 @@ const TeamOverview = () => {
 
         {/* Right column */}
         <div className="flex-1 sticky h-screen flex items-center text-left top-0">
-          {teams
+          {strippedTeamData
             .sort((a, b) => a.teamName.localeCompare(b.teamName))
             .map((team, idx) => (
               <motion.section
@@ -173,7 +152,7 @@ const TeamOverview = () => {
                 <p className="mb-4 text-charcoal-light">{team.description}</p>
                 <Link
                   className="flex items-center gap-2 group"
-                  href={`/team/${slugs[team.teamID] || ""}`}
+                  href={`/team/${team.slug || ""}`}
                 >
                   <span>Read about {team.teamName}</span>
                   <span className="material-icons text-3xl transition-transform duration-200 group-hover:translate-x-2">
@@ -184,7 +163,7 @@ const TeamOverview = () => {
             ))}
 
           {/* CTA Screen */}
-          {activeIndex === teams.length && (
+          {activeIndex === strippedTeamData.length && (
             <motion.section
               key="cta"
               initial={{ opacity: 0, y: 100 }}
