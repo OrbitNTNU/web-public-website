@@ -23,7 +23,7 @@ export default defineConfig({
 
     presentationTool({
       previewUrl: {
-        origin: "https://web-public-website.vercel.app",
+        origin: "https://orbitntnu.com",
         preview: "/",
         previewMode: {
           enable: "/api/draft",

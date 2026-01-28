@@ -1,6 +1,10 @@
 import { revalidatePath } from "next/cache";
 import { NextRequest } from "next/server";
 
+export async function GET() {
+  return Response.json({ ok: true });
+}
+
 export async function POST(req: NextRequest) {
   const secret = process.env.REVALIDATION_SECRET;
   const token = req.nextUrl.searchParams.get("secret");
@@ -29,22 +33,17 @@ export async function POST(req: NextRequest) {
     team?: number[];
   };
 
-  // Articles
   if (_type === "article" && slug?.current) {
     revalidatePath(`/articles/${slug.current}`);
   }
 
-  // Big projects
-  if (_type === "bigProject" && slug?.current) {
+  if (
+      (_type === "bigProject" || _type === "subOrbitalProject") &&
+      slug?.current
+  ) {
     revalidatePath(`/projects/${slug.current}`);
   }
 
-  // Sub orbital projects
-  if (_type === "subOrbitalProject" && slug?.current) {
-    revalidatePath(`/projects/${slug.current}`);
-  }
-
-  // Teams not slug
   if (_type === "teamPage" && Array.isArray(team)) {
     team.forEach((id) => {
       revalidatePath(`/team/${id}`);

@@ -20,7 +20,6 @@ export async function sanityFetch<T>({
   const client = getSanityClient(isPreview);
 
   const data = await client.fetch<T>(query, params, {
-    cache: 'no-store',
   });
   return { data };
 }
