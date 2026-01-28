@@ -30,7 +30,7 @@ function latLonToXYZ(lat: number, lon: number) {
   };
 }
 
-const trondheim = latLonToXYZ(TRONDHEIM.lat + 11, TRONDHEIM.lon - 48);
+const trondheim = latLonToXYZ(TRONDHEIM.lat, TRONDHEIM.lon);
 
 /* ---------- component ---------- */
 
@@ -43,6 +43,7 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
     rotationY: 0,
     lastTime: 0,
     paused: false,
+    startTime: 0,
   });
 
   const drawFrame = useCallback(
@@ -74,7 +75,7 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       if (!s.paused) {
         s.rotationY += speed * dt;
       }
-
+      
       const cosY = Math.cos(s.rotationY);
       const sinY = Math.sin(s.rotationY);
       const cosX = Math.cos(s.rotationX);

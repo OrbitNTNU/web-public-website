@@ -3,31 +3,31 @@ import Image from "next/image";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import { PortableText } from "next-sanity";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import SponsorHeader from "./SponsorHeader";
 
 interface MainSponsorsProps {
   sponsors: MainSponsor[];
 }
 
 const MainSponsors = ({ sponsors }: MainSponsorsProps) => {
-  const handleClick = (url: string | undefined) => {
-    if (url) {
-      window.open(url, "_blank");
-    }
-  };
-
   return (
-    <div className="flex items-center flex-col gap-20">
-      <h1>{`Main sponsor` + (sponsors.length > 1 ? "s" : "")}</h1>
+    <div className="flex items-center flex-col gap-4 md:gap-12">
+      <SponsorHeader 
+        text="Main sponsor"
+        count={sponsors.length}
+      />
       <section className="w-full px-4 md:px-12 mx-auto flex flex-row items-center justify-center flex-wrap">
         {sponsors.map((sponsor) => (
           <div
             key={sponsor._key}
-            className="w-full sm:w-1/2 justify-center items-center flex flex-col lg:flex-row gap-8 px-0 py-4 md:p-4"
+            className="w-full sm:w-1/2 lg:w-2/3 justify-center items-center flex flex-col lg:flex-row gap-8 px-0 py-4 md:p-4"
           >
             <Link
               href={sponsor.website || "#"}
               target="_blank"
               rel="noopener noreferrer w-full"
+              className="w-full lg:w-1/3"
             >
               <Image
                 src={imageBuilder(sponsor.logo)}
@@ -37,7 +37,7 @@ const MainSponsors = ({ sponsors }: MainSponsorsProps) => {
                 className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
               />
             </Link>
-            <section className="flex flex-col gap-4">
+            <section className="flex flex-col gap-4 w-full lg:w-2/3">
               <h2>{sponsor.name}</h2>
               <PortableText
                 value={sponsor.description ?? []}

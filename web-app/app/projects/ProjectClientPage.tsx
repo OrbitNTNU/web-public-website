@@ -32,7 +32,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
   if (!project) return <Loading />;
 
   return (
-    <div className="w-full mx-auto px-4 py-16 gap-20 md:gap-40 flex flex-col">
+    <div className="w-full mx-auto py-16 gap-20 md:gap-40 flex flex-col">
       {project?.sections?.map((section) => {
         switch (section._type) {
           case "bannerImage":

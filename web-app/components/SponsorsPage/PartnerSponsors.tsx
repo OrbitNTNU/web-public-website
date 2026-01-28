@@ -2,6 +2,7 @@ import { PartnerSponsor } from "@/sanity/types/sponsorsPage";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import Image from "next/image";
 import Link from "next/link";
+import SponsorHeader from "./SponsorHeader";
 
 interface PartnerSponsorsProps {
   sponsors: PartnerSponsor[];
@@ -9,13 +10,16 @@ interface PartnerSponsorsProps {
 
 const PartnerSponsors = ({ sponsors }: PartnerSponsorsProps) => {
   return (
-    <div className="flex items-center flex-col gap-20">
-      <h1>{`Partner` + (sponsors.length > 1 ? "s" : "")}</h1>
-      <section className="w-full px-4 md:px-12 mx-auto flex flex-row justify-center flex-wrap">
+    <div className="flex items-center flex-col gap-4 md:gap-12">
+      <SponsorHeader 
+        text="Partner"
+        count={sponsors.length}
+      />
+      <section className="w-full px-4 md:px-12 mx-auto justify-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
         {sponsors.map((sponsor) => (
           <div
             key={sponsor._key}
-            className="w-full md:w-1/5 justify-start items-center flex flex-col gap-8 px-0 py-4 md:p-4"
+            className="w-full justify-start items-center flex flex-col gap-8"
           >
             <Link
               href={sponsor.website || "#"}

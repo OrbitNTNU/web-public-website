@@ -11,14 +11,14 @@ import { Loading } from "@/components/General/Layout/Loading";
 import SubOrbital from "@/components/General/SubOrbital";
 import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
 import ForSponsorsCard from "@/components/General/ForSponsorsCard";
-import TeamOverview from "@/components/General/TeamOverview";
-import GlobeDots from "@/components/General/GlobeDots";
+import TeamOverview, { StrippedTeam } from "@/components/General/TeamOverview";
 
 interface LandingPageProps {
   sections: LandingPageSection[];
+  teams: StrippedTeam[];
 }
 
-export default function LandingPage({ sections }: LandingPageProps) {
+export default function LandingPage({ sections, teams }: LandingPageProps) {
   if (!sections) return <Loading />;
 
   return (
@@ -110,7 +110,7 @@ export default function LandingPage({ sections }: LandingPageProps) {
             return <InstagramEmbed key={section._key} />;
 
           case "joinCard":
-            return <TeamOverview key={section._key} />;
+            return <TeamOverview key={section._key} strippedTeamData={teams} />;
 
           case "forSponsorsCardRef":
             return <ForSponsorsCard key={section._key} data={section.data} />;
