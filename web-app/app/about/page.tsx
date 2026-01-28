@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     },
   },
 };
-export const revalidate = false;
+export const revalidate = 60;
 const AboutPage = async () => {
   const data = await getAboutPage();
   const statistics = await getStatistics();
