@@ -31,7 +31,7 @@ const AllThanks = ({ sponsors }: AllThanksProps) => {
   return (
     <section className="w-full px-4 md:px-12 mx-auto">
       <motion.h1
-        className="mb-8 flex items-center gap-2 text-cloud-white text-center justify-center flex-col"
+        className="mb-8 flex items-center gap-2 text-cloud-white text-center justify-center flex-col md:mb-20"
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -43,12 +43,12 @@ const AllThanks = ({ sponsors }: AllThanksProps) => {
         </p>
       </motion.h1>
       <div
-        className="w-full columns-2 md:columns-3 lg:columns-4 2xl:columns-5 gap-6 [column-fill:_balance]"
+        className="w-full columns-2 md:columns-3 lg:columns-4 2xl:columns-5 gap-12 [column-fill:_balance]"
       >
         {sponsors.map((sponsor) => (
           <div
             key={sponsor._key || sponsor.name}
-            className={`mb-6 break-inside-avoid flex justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
+            className={`mb-12 break-inside-avoid flex justify-center items-center cursor-pointer hover:scale-105 transition-transform duration-300`}
             onClick={() => handleClick(sponsor.website)}
           >
             <Image

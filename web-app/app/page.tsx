@@ -76,7 +76,7 @@ export default async function Home() {
   const data = await getLandingPage();
   const teams = await getTeamsData();
 
-  const teamsWithSlugs = await Promise.all(teams.map(async (team) => ({
+  const teamsWithSlugs = await Promise.all(teams.map(async (team: { teamID: number; }) => ({
     ...team,
     slug: await getSlug(team.teamID), 
   })));
