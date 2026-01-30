@@ -50,10 +50,10 @@ export default function Hero() {
         Your browser does not support the video tag.
       </video>
       */}
-      {/* <div className="w-full md:w-1/2 absolute top-1/5 sm:top-1/3 p-4 md:p-8 2xl:p-8 flex flex-col justify-center transform -translate-y-1/2 z-10 space-y-4 md:space-y-6">
+      <div className="w-full md:w-1/2 absolute top-1/5 sm:top-1/3 p-4 md:p-8 2xl:p-8 flex flex-col justify-center transform -translate-y-1/2 z-10 space-y-4 md:space-y-6">
         <h2 className="text-muted">Your space journey starts here.</h2>
         <h1 className="text-2xl md:text-7xl">Orbit NTNU</h1>
-      </div> */}
+      </div>
       {/* Globe background (video replacement) */}
       <div className="absolute inset-0">
         <GlobeDots speed={0.1} />
