@@ -75,6 +75,13 @@ export default defineType({
               validation: (Rule) => Rule.required(),
             }),
             defineField({
+              name: 'isHidden',
+              title: 'Hide this card',
+              type: 'boolean',
+              initialValue: false,
+              description: 'When enabled, this join card will not appear on the website.',
+            }),
+            defineField({
               name: 'team',
               title: 'Which Team?',
               description:

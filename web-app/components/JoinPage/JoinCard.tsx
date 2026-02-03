@@ -128,17 +128,20 @@ const JoinCard = ({ position, link }: JoinCardProps) => {
               {expanded ? "expand_less" : "expand_more"}
             </span>
           </button>
-          <Link
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-row gap-2 mt-2 items-center justify-center group cursor-pointer"
-          >
-            <span>Apply here</span>
-            <span className="material-icons group-hover:translate-x-1 transition-transform duration-300">
-              arrow_forward
-            </span>
-          </Link>
+          {link && (
+              <Link
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-row gap-2 mt-2 items-center justify-center group cursor-pointer"
+              >
+                <span>Apply here</span>
+                <span className="material-icons group-hover:translate-x-1 transition-transform duration-300">
+                  arrow_forward
+                </span>
+              </Link>
+          )}
+
         </span>
       </div>
     </div>

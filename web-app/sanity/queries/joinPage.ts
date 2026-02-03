@@ -17,8 +17,10 @@ export const JOIN_PAGE_QUERY = defineQuery(`
       },
       alt
     },
+
     applyLink,
-    components[]{
+
+    components[isHidden != true]{
       header,
       description,
       team,
@@ -31,7 +33,7 @@ export const JOIN_PAGE_QUERY = defineQuery(`
           }
         },
         alt
-      },
+      }
     }
   }
 `);

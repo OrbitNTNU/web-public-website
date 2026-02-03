@@ -13,6 +13,7 @@ export const revalidate = 60;
 
 export default async function JoinPage() {
   const join = await getJoinPage();
+  console.log(join);
 
   if (!join) {
     return <Loading />;
