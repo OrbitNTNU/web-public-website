@@ -219,8 +219,7 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
         ref={canvasRef}
         className="
         absolute inset-0 
-        w-[150%]
-        md:w-full
+        w-full
         h-full
         block
         pointer-events-none

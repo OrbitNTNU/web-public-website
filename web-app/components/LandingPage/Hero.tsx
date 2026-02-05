@@ -54,10 +54,7 @@ export default function Hero() {
         <h2 className="text-muted">Your space journey starts here.</h2>
         <h1 className="hidden md:block text-2xl md:text-7xl">Orbit NTNU</h1>
       </div>
-      {/* Globe background (video replacement) */}
-      <div className="absolute inset-0">
-        <GlobeDots speed={0.1} />
-      </div>
+      <GlobeDots speed={0.1} />
 
       {/* Optional dark overlay for contrast */}
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
