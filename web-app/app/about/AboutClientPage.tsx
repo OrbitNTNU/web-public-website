@@ -65,11 +65,20 @@ export default function AboutClientPage({
                 title={section.title}
                 caption={section.caption}
                 wideCaption={section.wideCaption}
-                src1={imageBuilder(section.src1)}
+                src1={imageBuilder(section.src1, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp"})}
                 alt1={section.alt1}
-                src2={imageBuilder(section.src2)}
+                src2={imageBuilder(section.src2, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp"})}
                 alt2={section.alt2}
-                src3={imageBuilder(section.src3)}
+                src3={imageBuilder(section.src3, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp"})}
                 alt3={section.alt3}
                 variant={section.variant}
               />
