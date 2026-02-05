@@ -50,7 +50,7 @@ export default function Projects({ projects }: ProjectsProps) {
                             <div className="relative w-full h-72 md:h-128">
                                 <Image
                                     src={imageBuilder(project.image, {
-                                        width: 800,
+                                        width: 1600,
                                         quality: 75,
                                         format: "webp",
                                     })}
