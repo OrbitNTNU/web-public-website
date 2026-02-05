@@ -1,28 +1,17 @@
-"use client";
-
 import { useRef, useEffect, useCallback } from "react";
 import globePoints from "@/public/globe-points.json";
 import { satellites } from "../LandingPage/Hero";
 
-type Point = {
-  x: number;
-  y: number;
-  z: number;
-};
+type Point = { x: number; y: number; z: number };
 
-const points = globePoints as Point[];
+const POINTS = globePoints as Point[];
 
-/* ---------- coordinates ---------- */
-
-const TRONDHEIM = {
-  lat: 63.4305,
-  lon: 10.3951,
-};
+const TRONDHEIM = { lat: 63.4305, lon: 10.3951 };
+const PERSPECTIVE = 1.8;
 
 function latLonToXYZ(lat: number, lon: number) {
   const latRad = (-lat * Math.PI) / 180;
   const lonRad = (lon * Math.PI) / 180;
-
   return {
     x: Math.cos(latRad) * Math.cos(lonRad),
     y: Math.sin(latRad),
@@ -32,7 +21,12 @@ function latLonToXYZ(lat: number, lon: number) {
 
 const trondheim = latLonToXYZ(TRONDHEIM.lat, TRONDHEIM.lon);
 
-/* ---------- component ---------- */
+const packedPoints = new Float32Array(POINTS.length * 3);
+for (let i = 0; i < POINTS.length; i++) {
+  packedPoints[i * 3] = POINTS[i].x;
+  packedPoints[i * 3 + 1] = POINTS[i].y;
+  packedPoints[i * 3 + 2] = POINTS[i].z;
+}
 
 export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -43,61 +37,83 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
     rotationY: 0,
     lastTime: 0,
     paused: false,
-    startTime: 0,
+    cx: 0,
+    cy: 0,
+    radius: 0,
+    dpr: 1,
   });
+
+  const satelliteColorsRef = useRef<string[]>([]);
+
+  const resize = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    const w = canvas.clientWidth;
+    const h = canvas.clientHeight;
+
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const s = stateRef.current;
+    s.cx = w / 2;
+    s.cy = h / 2;
+    s.radius = Math.min(w, h) * 0.38;
+    s.dpr = dpr;
+  }, []);
 
   const drawFrame = useCallback(
     (time: number) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
-
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
 
-      const scale = 4; 
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-
-      canvas.width = Math.round(w * scale);
-      canvas.height = Math.round(h * scale);
-
-      ctx.setTransform(scale, 0, 0, scale, 0, 0);
-
-      const cx = w / 2;
-      const cy = h / 2;
-      const radius = Math.min(w, h) * 0.38;
-
       const s = stateRef.current;
+
       if (!s.lastTime) s.lastTime = time;
-      const dt = (time - s.lastTime) / 1000;
+      const dt = Math.min((time - s.lastTime) / 1000, 0.05);
       s.lastTime = time;
 
       if (!s.paused) {
         s.rotationY += speed * dt;
       }
-      
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       const cosY = Math.cos(s.rotationY);
       const sinY = Math.sin(s.rotationY);
       const cosX = Math.cos(s.rotationX);
       const sinX = Math.sin(s.rotationX);
 
+      ctx.beginPath();
+
       /* ---------- globe points ---------- */
 
-      for (const p of points) {
-        const x1 = p.x * cosY - p.z * sinY;
-        const z1 = p.x * sinY + p.z * cosY;
-        const y1 = p.y * cosX - z1 * sinX;
-        const z2 = p.y * sinX + z1 * cosX;
+      for (let i = 0; i < packedPoints.length; i += 3) {
+        const x = packedPoints[i];
+        const y = packedPoints[i + 1];
+        const z = packedPoints[i + 2];
 
-        const perspective = 1.6 / (1.6 + z2);
-        const sx = cx + x1 * radius * perspective;
-        const sy = cy + y1 * radius * perspective;
+        const x1 = x * cosY - z * sinY;
+        const z1 = x * sinY + z * cosY;
+        const y1 = y * cosX - z1 * sinX;
+        const z2 = y * sinX + z1 * cosX;
 
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(255,255,255,${Math.max(0.7, perspective * 0.25)})`;
-        ctx.arc(sx, sy, Math.max(0.4, perspective * 1.2), 0, Math.PI * 2);
-        ctx.fill();
+        const p = PERSPECTIVE / (PERSPECTIVE + z2);
+        const sx = s.cx + x1 * s.radius * p;
+        const sy = s.cy + y1 * s.radius * p;
+
+        ctx.moveTo(sx + 1, sy);
+        ctx.arc(sx, sy, Math.max(0.4, p * 1.2), 0, Math.PI * 2);
       }
+
+      ctx.fillStyle = "rgba(255,255,255,0.85)";
+      ctx.fill();
 
       /* ---------- trondheim ---------- */
 
@@ -108,22 +124,24 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       const yt = trondheim.y * cosX - zt * sinX;
       const zt2 = trondheim.y * sinX + zt * cosX;
 
-      if (zt2 > -0.15) {
-        const p = 1.6 / (1.6 + zt2);
-        const sx = cx + xt * radius * p;
-        const sy = cy + yt * radius * p;
-
-        ctx.beginPath();
-        ctx.fillStyle = `rgba(255,255,255,${blink})`;
-        ctx.arc(sx, sy, 4.5, 0, Math.PI * 2);
-        ctx.fill();
-      }
+      const p = PERSPECTIVE / (PERSPECTIVE + zt2);
+      ctx.beginPath();
+      ctx.fillStyle = `rgba(255,255,255,${blink})`;
+      ctx.arc(
+        s.cx + xt * s.radius * p,
+        s.cy + yt * s.radius * p,
+        4.5,
+        0,
+        Math.PI * 2,
+      );
+      ctx.fill();
 
       /* ---------- satellites ---------- */
 
       const t = time * 0.001;
 
-      for (const sat of satellites) {
+      for (let i = 0; i < satellites.length; i++) {
+        const sat = satellites[i];
         const a = t * sat.speed + sat.phase;
 
         const x = Math.cos(a) * sat.radius;
@@ -135,20 +153,17 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
         const y1 = y * cosX - z1 * sinX;
         const z2 = y * sinX + z1 * cosX;
 
-        const p = 1.6 / (1.6 + z2);
-        const sx = cx + x1 * radius * p;
-        const sy = cy + y1 * radius * p;
-
-        const r = 2.5 * p + 1;
-        const root = document.documentElement;
-
-        const color = getComputedStyle(root)
-          .getPropertyValue(sat.color.replace("var(", "").replace(")", ""))
-          .trim();
+        const p = PERSPECTIVE / (PERSPECTIVE + z2);
 
         ctx.beginPath();
-        ctx.fillStyle = color;
-        ctx.arc(sx, sy, r, 0, Math.PI * 2);
+        ctx.fillStyle = satelliteColorsRef.current[i];
+        ctx.arc(
+          s.cx + x1 * s.radius * p,
+          s.cy + y1 * s.radius * p,
+          2.5 * p + 1,
+          0,
+          Math.PI * 2,
+        );
         ctx.fill();
       }
 
@@ -157,30 +172,43 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
     [speed],
   );
 
+  /* ---------- setup ---------- */
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        stateRef.current.paused = !entry.isIntersecting;
-      },
-      { threshold: 0.1 },
+    const root = document.documentElement;
+    satelliteColorsRef.current = satellites.map((sat) =>
+      getComputedStyle(root)
+        .getPropertyValue(sat.color.replace("var(", "").replace(")", ""))
+        .trim(),
     );
 
-    observer.observe(canvas);
+    resize();
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    const io = new IntersectionObserver(
+      ([e]) => (stateRef.current.paused = !e.isIntersecting),
+      { threshold: 0.1 },
+    );
+    io.observe(canvas);
+
     rafRef.current = requestAnimationFrame(drawFrame);
 
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      observer.disconnect();
+      ro.disconnect();
+      io.disconnect();
     };
-  }, [drawFrame]);
+  }, [drawFrame, resize]);
 
   return (
     <div
       className="
-      w-full min-h-screen bg-charcoal
+      w-full h-screen bg-charcoal
       flex
       justify-center items-center
       lg:justify-end lg:items-center
@@ -190,11 +218,19 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
       <canvas
         ref={canvasRef}
         className="
-        w-[250%]
+        w-[150%]
         md:w-full
         h-full
         block
+        pointer-events-none
+        contain-strict
+        will-change-transform
       "
+
+        style={{
+          pointerEvents: "none",
+          willChange: "transform",
+        }}
       />
     </div>
   );

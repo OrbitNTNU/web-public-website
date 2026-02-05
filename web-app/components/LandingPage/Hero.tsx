@@ -18,19 +18,19 @@ export const satellites = [
     name: "FramSat 1",
   }, // yellow
   {
-    radius: 1.25,
-    speed: 0.35,
-    phase: Math.PI,
-    color: "var(--color-biosat-green)",
-    name: "BioSat",
-  }, // green
-  {
     radius: 1.3,
     speed: 0.25,
     phase: Math.PI * 1.5,
     color: "var(--color-framsat-pink)",
     name: "FramSat 1.5",
   }, // red
+  {
+    radius: 1.25,
+    speed: 0.35,
+    phase: Math.PI,
+    color: "var(--color-biosat-green)",
+    name: "BioSat",
+  }, // green
 ];
 
 export default function Hero() {
@@ -52,7 +52,7 @@ export default function Hero() {
       */}
       <div className="w-full md:w-1/2 absolute top-1/5 sm:top-1/3 p-4 md:p-8 2xl:p-8 flex flex-col justify-center transform -translate-y-1/2 z-10 space-y-4 md:space-y-6">
         <h2 className="text-muted">Your space journey starts here.</h2>
-        <h1 className="text-2xl md:text-7xl">Orbit NTNU</h1>
+        <h1 className="hidden md:block text-2xl md:text-7xl">Orbit NTNU</h1>
       </div>
       {/* Globe background (video replacement) */}
       <div className="absolute inset-0">
