@@ -60,16 +60,18 @@ export default function LandingPage({ sections, teams }: LandingPageProps) {
                 key={section._key}
                 variant={section.variant}
                 src1={imageBuilder(section.image1, {
-                  width: 1000,
-                  quality: 90,
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
                 })}
                 alt1={section.alt1 ?? ""}
                 title1={section.title1}
                 caption1={section.caption1}
                 link1={section.link1}
                 src2={imageBuilder(section.image2, {
-                  width: 1000,
-                  quality: 90,
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
                 })}
                 alt2={section.alt2 ?? ""}
                 title2={section.title2}
@@ -86,16 +88,18 @@ export default function LandingPage({ sections, teams }: LandingPageProps) {
                     key={item._key || Math.random().toString()}
                     variant={item.variant}
                     src1={imageBuilder(item.image1, {
-                      width: 1200,
-                      quality: 90,
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
                     })}
                     alt1={item.alt1 ?? ""}
                     title1={item.title1}
                     caption1={item.caption1}
                     link1={item.link1}
                     src2={imageBuilder(item.image2, {
-                      width: 1200,
-                      quality: 90,
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
                     })}
                     alt2={item.alt2 ?? ""}
                     title2={item.title2}

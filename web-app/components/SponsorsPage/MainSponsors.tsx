@@ -33,6 +33,7 @@ const MainSponsors = ({ sponsors }: MainSponsorsProps) => {
                     src={imageBuilder(sponsor.logo, {
                         width: 400,
                         quality: 100,
+                        format: "webp",
                     })}
                     alt={`${sponsor.name} logo`}
                     width={400}

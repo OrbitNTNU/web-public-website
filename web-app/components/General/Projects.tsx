@@ -51,7 +51,8 @@ export default function Projects({ projects }: ProjectsProps) {
                                 <Image
                                     src={imageBuilder(project.image, {
                                         width: 800,
-                                        quality: 90,
+                                        quality: 75,
+                                        format: "webp",
                                     })}
                                     alt={`${project.title} background`}
                                     fill

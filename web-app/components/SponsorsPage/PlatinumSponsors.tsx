@@ -28,7 +28,11 @@ const PlatinumSponsors = ({ sponsors }: PlatinumSponsorsProps) => {
               className="h-[120px] flex items-center justify-center"
             >
               <Image
-                src={imageBuilder(sponsor.logo)}
+                src={imageBuilder(sponsor.logo, {
+                    width: 400,
+                    quality: 100,
+                    format: "webp",
+                })}
                 alt={`${sponsor.name} logo`}
                 width={400}
                 height={600}
