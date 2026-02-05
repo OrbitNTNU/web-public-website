@@ -4,7 +4,7 @@ import { getSlug } from "@/lib/teams";
 import { getLandingPage } from "@/sanity/fetch/SanityFetch";
 import type { Metadata } from "next";
 
-export const revalidate = 60; // or any number
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here!",

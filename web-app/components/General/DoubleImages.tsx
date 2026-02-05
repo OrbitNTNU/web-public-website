@@ -128,44 +128,49 @@ const DoubleImages = ({
   const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
 
   const renderImage = (
-    src: string,
-    alt: string,
-    delay: number,
-    link?: string,
-    aspectClass?: string,
+      src: string,
+      alt: string,
+      delay: number,
+      link?: string,
+      aspectClass?: string,
   ) => {
     const image = (
-      <motion.div
-        ref={ref}
-        variants={imageVariants}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ type: "tween", stiffness: 200, delay: 0.1 }}
-        custom={delay}
-        whileHover={link ? "hover" : undefined}
-        className="overflow-hidden"
-      >
-        <motion.div style={{ y: y }}>
-          <Image
-            src={src}
-            alt={alt}
-            className={`scale-115 w-full h-auto shadow-lg ${aspectClass} object-cover ${link ? "cursor-pointer hover:scale-120 transition-transform duration-500 ease-in-out" : ""}`}
-            width={1600}
-            height={600}
-            style={{
-              objectFit: "cover",
-            }}
-          />
+        <motion.div
+            ref={ref}
+            variants={imageVariants}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ type: "tween", stiffness: 200, delay: 0.1 }}
+            custom={delay}
+            whileHover={link ? "hover" : undefined}
+            className="overflow-hidden"
+        >
+          <motion.div style={{ y }} className="relative w-full h-full">
+            <div className={`relative w-full ${aspectClass}`}>
+              <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw,
+                   (max-width: 1024px) 66vw,
+                   640px"
+                  className={`object-cover scale-115 shadow-lg ${
+                      link
+                          ? "cursor-pointer hover:scale-120 transition-transform duration-500 ease-in-out"
+                          : ""
+                  }`}
+              />
+            </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
     );
     return link ? (
-      <Link href={link} tabIndex={0} aria-label={alt}>
-        {image}
-      </Link>
+        <Link href={link} tabIndex={0} aria-label={alt}>
+          {image}
+        </Link>
     ) : (
-      image
+        image
     );
   };
 

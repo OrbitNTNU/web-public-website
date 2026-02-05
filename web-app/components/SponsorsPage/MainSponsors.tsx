@@ -29,13 +29,17 @@ const MainSponsors = ({ sponsors }: MainSponsorsProps) => {
               rel="noopener noreferrer w-full"
               className="w-full lg:w-1/3"
             >
-              <Image
-                src={imageBuilder(sponsor.logo)}
-                alt={`${sponsor.name} logo`}
-                width={400}
-                height={600}
-                className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
-              />
+                <Image
+                    src={imageBuilder(sponsor.logo, {
+                        width: 400,
+                        quality: 100,
+                    })}
+                    alt={`${sponsor.name} logo`}
+                    width={400}
+                    height={600}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                />
             </Link>
             <section className="flex flex-col gap-4 w-full lg:w-2/3">
               <h2>{sponsor.name}</h2>
