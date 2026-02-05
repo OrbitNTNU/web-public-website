@@ -23,7 +23,9 @@ export default function LandingPage({ sections, teams }: LandingPageProps) {
 
   return (
     <>
+    <section className="w-screen h-screen relative overflow-hidden min-h-screen">
       <Hero />
+      </section>
       {/* <GlobeDots /> */}
       {sections.map((section) => {
         switch (section._type) {
