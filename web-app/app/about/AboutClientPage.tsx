@@ -79,11 +79,19 @@ export default function AboutClientPage({
               <DoubleImages
                 key={section._key}
                 variant={section.variant}
-                src1={imageBuilder(section.image1)}
+                src1={imageBuilder(section.image1, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
+                })}
                 alt1={section.alt1 ?? ""}
                 title1={section.title1}
                 caption1={section.caption1}
-                src2={imageBuilder(section.image2)}
+                src2={imageBuilder(section.image2, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
+                })}
                 alt2={section.alt2 ?? ""}
                 title2={section.title2}
                 caption2={section.caption2}
@@ -96,12 +104,20 @@ export default function AboutClientPage({
                   <DoubleImages
                     key={item._key || Math.random().toString()}
                     variant={item.variant}
-                    src1={imageBuilder(item.image1)}
+                    src1={imageBuilder(item.image1, {
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
+                    })}
                     alt1={item.alt1 ?? ""}
                     title1={item.title1}
                     caption1={item.caption1}
                     link1={item.link1}
-                    src2={imageBuilder(item.image2)}
+                    src2={imageBuilder(item.image2, {
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
+                    })}
                     alt2={item.alt2 ?? ""}
                     title2={item.title2}
                     caption2={item.caption2}
@@ -116,7 +132,11 @@ export default function AboutClientPage({
                 {section.items?.map((item, idx) => (
                   <ImageAndCaption
                     key={idx}
-                    src={imageBuilder(item.src)}
+                    src={imageBuilder(item.src, {
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
+                    })}
                     alt={item.alt}
                     title={item.title}
                     caption={item.caption}
@@ -131,7 +151,11 @@ export default function AboutClientPage({
             return (
               <LargeImage
                 key={section._key}
-                src={imageBuilder(section.image)}
+                src={imageBuilder(section.image, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
+                })}
                 alt={section.alt}
                 caption={section.caption}
               />
