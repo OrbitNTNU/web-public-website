@@ -1,22 +1,25 @@
 "use client";
 
 import { Loading } from "@/components/General/Layout/Loading";
-import { BigProject, SubOrbitalProject } from "@/sanity/types/project";
+import { BigProject, ProjectSection, SubOrbitalProject } from "@/sanity/types/project";
 import Projects from "@/components/General/Projects";
 import SubOrbital from "@/components/General/SubOrbital";
 import DoubleImages from "@/components/General/DoubleImages";
 import Header from "@/components/General/Header";
+import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
+import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import SpanningText from "@/components/General/SpanningText";
+import LargeImage from "@/components/General/LargeImage";
+import LargeQuote from "@/components/General/LargeQuote";
 
 interface ProjectsOverviewClientProps {
-  BigProjects: BigProject[];
-  SubOrbitalProjects: SubOrbitalProject[];
+  sections: ProjectSection[];
 }
 
 export default function ProjectsOverviewClient({
-  BigProjects,
-  SubOrbitalProjects,
+  sections,
 }: ProjectsOverviewClientProps) {
-  if (!BigProjects && !SubOrbitalProjects) return <Loading />;
+  if (!sections) return <Loading />;
 
   return (
     <div className="w-full relative max-w-[2000px] mx-auto gap-20 md:gap-40 my-24 flex flex-col">
@@ -25,37 +28,91 @@ export default function ProjectsOverviewClient({
         subtitle=" - Pushing the boundaries of student-led space innovation.
         Our projects range from Selfie-taking CubeSats to high-altitude suborbital flights."
       />
+      {sections.map((section) => {
+        switch (section._type) {
+          case "largeQuote":
+            return (
+              <LargeQuote
+                key={section._key}
+                text={section.quote}
+                author={section.author}
+              />
+            );
 
-      {BigProjects.length > 0 && <Projects projects={BigProjects} />}
-      {SubOrbitalProjects.length > 0 && (
-        <SubOrbital projects={SubOrbitalProjects} />
-      )}
+          case "largeImage":
+            return (
+              <LargeImage
+                key={section._key}
+                src={imageBuilder(section.image)}
+                alt={section.alt}
+                caption={section.caption}
+              />
+            );
 
-      <section className="flex flex-col gap-12">
-        <DoubleImages
-          variant="two-third-one-third"
-          src1="/tests/1.png"
-          alt1="Orbit NTNU members working on a satellite"
-          title1="Building Satellites, Building Skills"
-          caption1="At Orbit NTNU, every project is a hands-on learning experience..."
-          src2="/tests/2.png"
-          alt2="Orbit NTNU outreach event"
-          title2="Inspiring the Next Generation"
-          caption2="We believe in the power of inspiration..."
-        />
+          case "spanningText":
+            return <SpanningText key={section._key} text={section.text} />;
 
-        <DoubleImages
-          variant="one-third-two-third"
-          src1="/tests/1.png"
-          alt1="Orbit NTNU members working on a satellite"
-          title1="Collaborative Engineering"
-          caption1="Where students learn together..."
-          src2="/tests/2.png"
-          alt2="Outreach event"
-          title2="Community and Growth"
-          caption2="We grow by lifting each other up."
-        />
-      </section>
+          case "doubleImage":
+            return (
+              <DoubleImages
+                key={section._key}
+                variant={section.variant}
+                src1={imageBuilder(section.image1)}
+                alt1={section.alt1 ?? ""}
+                title1={section.title1}
+                caption1={section.caption1}
+                link1={section.link1}
+                src2={imageBuilder(section.image2)}
+                alt2={section.alt2 ?? ""}
+                title2={section.title2}
+                caption2={section.caption2}
+                link2={section.link2}
+              />
+            );
+
+          case "doubleImageCollage":
+            return (
+              <section key={section._key} className="flex flex-col gap-12">
+                {section.items?.map((item) => (
+                  <DoubleImages
+                    key={item._key || Math.random().toString()}
+                    variant={item.variant}
+                    src1={imageBuilder(item.image1)}
+                    alt1={item.alt1 ?? ""}
+                    title1={item.title1}
+                    caption1={item.caption1}
+                    link1={item.link1}
+                    src2={imageBuilder(item.image2, {
+                      width: 1200,
+                      format: "webp",
+                      quality: 70,
+                    })}
+                    alt2={item.alt2 ?? ""}
+                    title2={item.title2}
+                    caption2={item.caption2}
+                    link2={item.link2}
+                  />
+                ))}
+              </section>
+            );
+
+          case "projectsShowcase":
+            if (section.projectType === "bigProject") {
+              return (
+                <Projects key={section._key} projects={section.projects} />
+              );
+            }
+
+            if (section.projectType === "subOrbitalProject") {
+              return (
+                <SubOrbital key={section._key} projects={section.projects} />
+              );
+            }
+
+          default:
+            return null;
+        }
+      })}
     </div>
   );
 }

@@ -1,9 +1,8 @@
 import { DoubleImage } from "./components/DoubleImage";
 import { DoubleImageCollage } from "./components/DoubleImageCollage";
-import { ImageAndCaption } from "./components/ImageAndCaption";
 import { LargeImage } from "./components/LargeImage";
 import { LargeQuote } from "./components/LargeQuote";
-import { SingleImageCollage } from "./components/SingleImageCollage";
+import { ProjectsShowcase } from "./components/ProjectsShowcase";
 import { SpanningText } from "./components/SpanningText";
 import { Image } from "./image";
 
@@ -19,9 +18,7 @@ export type ProjectSection =
   | SpanningText
   | DoubleImage
   | DoubleImageCollage
-  | BannerImage
-  | ImageAndCaption
-  | SingleImageCollage;
+  | ProjectsShowcase;
 
 export interface BaseProject {
   _key: string;
