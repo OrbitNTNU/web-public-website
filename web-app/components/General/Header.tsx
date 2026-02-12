@@ -5,7 +5,7 @@ interface HeaderProps {
 
 const Header = ({ title, subtitle }: HeaderProps) => {
   return (
-    <section className="my-24 px-4 md:px-12 bg-charcoal">
+    <section className="px-4 md:px-12 bg-charcoal">
       <div className="w-full md:w-3/4">
         <span className="text-2xl text-cloud-white md:text-3xl">{title}</span>
         {subtitle && (

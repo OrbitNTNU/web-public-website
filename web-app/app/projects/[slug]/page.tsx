@@ -2,7 +2,7 @@ import {
   getBigProject,
   getSubOrbitalProject,
 } from "@/sanity/fetch/SanityFetch";
-import ProjectClientPage from "@/app/projects/ProjectClientPage";
+import ProjectClientPage from "@/app/projects/ProjectSlugClientPage";
 import { Metadata } from "next";
 import { Loading } from "@/components/General/Layout/Loading";
 export const metadata: Metadata = {

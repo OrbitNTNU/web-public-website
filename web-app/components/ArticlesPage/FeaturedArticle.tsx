@@ -23,11 +23,12 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
     }
   };
 
+  console.log(article.category)
   return (
     <div className="flex flex-col md:flex-row h-auto md:h-auto">
       {/* Text section */}
       <motion.div
-        className="w-full md:w-1/3 flex flex-col justify-center my-auto md:p-6"
+        className="w-full md:w-1/2 xl:w-1/3 flex flex-col justify-center my-auto md:p-6"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
@@ -46,7 +47,7 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
           })}{" "}
           (Latest Article)
         </span>
-        <h2 className="mb-2">{article.title}</h2>
+        <h2 className="my-2">{article.title}</h2>
         <div className="text-charcoal-light flex flex-col gap-2 mb-4 md:mb-0">
           <PortableText
             value={article.teaser}
@@ -131,7 +132,7 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
 
       {/* Image section */}
       <motion.div
-        className="md:w-2/3 w-full relative flex-shrink-0"
+        className="md:w-1/2 xl:w-2/3 w-full relative flex-shrink-0"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}

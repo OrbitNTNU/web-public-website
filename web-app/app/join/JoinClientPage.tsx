@@ -65,7 +65,7 @@ const JoinClientPage = ({
       : joinPage.components;
 
   return (
-    <div className="w-full relative max-w-[2000px] mx-auto gap-0 md:gap-20 my-24 flex flex-col">
+    <div className="w-full relative max-w-[2000px] mx-auto gap-0 md:gap-20 my-40 flex flex-col">
       <Header
         title="Join Us and Make a Difference"
         subtitle="We're always looking for passionate people - apply for a listed role or reach out if your interests fit Orbit NTNU in another way."
