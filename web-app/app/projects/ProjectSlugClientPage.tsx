@@ -41,7 +41,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                 <BannerImage
                   key={section._key}
                   backgroundSrc={imageBuilder(section.image.asset._ref, {
-                    width: 3000,
+                    width: 2500,
                     quality: 75,
                     format: "webp",
                   })}
