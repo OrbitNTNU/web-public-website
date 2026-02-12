@@ -7,8 +7,8 @@ import type { Metadata } from "next";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Your Space Journey Starts Here!",
-  description: "",
+  title: "Your Space Journey Starts Here! | ORBITNTNU",
+  description: "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
 
   keywords: [
     "ORBIT NTNU",
@@ -26,15 +26,15 @@ export const metadata: Metadata = {
   category: "Nonprofit",
 
   openGraph: {
-    title: "Your Space Journey Starts Here",
-    description: "",
+    title: "Your Space Journey Starts Here | ORBITNTNU",
+    description: "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
     url: "https://orbitntnu.com/",
     siteName: "ORBIT NTNU",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://orbitntnu.com/1.jpg",
+        url: "https://orbitntnu.com/orbitbig.jpg",
         width: 1200,
         height: 630,
         alt: "This is ORBIT",
@@ -45,16 +45,16 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ORBIT NTNU",
-    description: "",
+    description: "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
     creator: "@ORBITNTNU",
     site: "@ORBITNTNU",
     images: ["https://orbitntnu.com/orbitbig.jpg"],
   },
 
   alternates: {
-    canonical: "https://orbitntnu.com/sponsors",
+    canonical: "https://orbitntnu.com/",
     languages: {
-      "en-US": "https://orbitntnu.com/sponsors",
+      "en-US": "https://orbitntnu.com/",
     },
   },
 

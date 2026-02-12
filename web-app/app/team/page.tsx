@@ -4,8 +4,8 @@ import { getTeamsData } from "@/lib/getTeamsData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "This is us!",
-  description: "",
+  title: "This is us! | ORBITNTNU",
+  description: "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
 
   keywords: [
     "Electronics",
@@ -24,14 +24,14 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "This is us!",
-    description: "",
+    description: "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
     url: "https://orbitntnu.com/",
     siteName: "ORBIT NTNU",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://web-public-website.vercel.app/orbitluv.png",
+        url: "https://orbitntnu.com/orbitluv.png",
         width: 1200,
         height: 630,
         alt: "This is ORBIT",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ORBIT NTNU",
-    description: "",
+    description: "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
     creator: "@ORBITNTNU",
     site: "@ORBITNTNU",
     images: ["https://orbitntnu.com/orbitbig.jpg"],
