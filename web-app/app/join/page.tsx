@@ -4,12 +4,65 @@ import JoinClientPage from "./JoinClientPage";
 import { getTeamsData } from "@/lib/getTeamsData";
 import { Team } from "@/lib/getTeamsSlug";
 import { toSlug } from "@/lib/teams";
+import {Metadata} from "next";
 
-const data = {
-  title: "Join Us!",
-  text: "Become a part of ORBIT and embark on an exciting journey in satellite technology. Whether you're a student eager to learn or a professional looking to contribute, we welcome you to join our team. Explore our open positions and find out how you can make a difference with ORBIT.",
+export const metadata: Metadata = {
+  title: "Selfiesat | Framsat | Framsat 1.5 | Biosat",
+  description: "",
+
+  keywords: [
+    "selfiesat",
+    "framsat",
+    "biosat",
+    "nextsat",
+    "sub-orbital",
+    "ORBIT",
+  ],
+
+  authors: [{ name: "ORBITNTNU", url: "https://orbitntnu.com" }],
+  creator: "ORBIT - WEB",
+  publisher: "ORBIT",
+  category: "Nonprofit",
+
+  openGraph: {
+    title: "",
+    description: "",
+    url: "https://orbitntnu.com/sponsors",
+    siteName: "ORBITNTNU",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "",
+        width: 1200,
+        height: 630,
+        alt: "",
+      },
+    ],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
-export const revalidate = 60;
+
+export const revalidate = 5;
 
 export default async function JoinPage() {
   const join = await getJoinPage();

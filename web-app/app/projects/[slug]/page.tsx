@@ -39,20 +39,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "",
-    description: "",
-    creator: "@YourTwitterHandle",
-    site: "@YourTwitterHandle",
-    images: ["https://yoursite.com/og/sponsors-og-image.jpg"],
-  },
-  alternates: {
-    canonical: "https://yoursite.com/sponsors",
-    languages: {
-      "en-US": "https://yoursite.com/sponsors",
-    },
-  },
 
   robots: {
     index: true,
@@ -78,7 +64,7 @@ export const metadata: Metadata = {
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
-export const revalidate = 60;
+export const revalidate = 5;
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
