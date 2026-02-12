@@ -4,7 +4,7 @@ import {
   getLandingPage,
   getProjectsPage,
 } from "@/sanity/fetch/SanityFetch";
-import ProjectsOverviewClient from "@/app/projects/ProjectPage";
+import ProjectsOverviewClient from "@/app/projects/ProjectClientPage";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Satellite!",
