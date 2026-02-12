@@ -40,8 +40,16 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
               <div className="h-screen" key={section._key}>
                 <BannerImage
                   key={section._key}
-                  backgroundSrc={imageBuilder(section.image.asset._ref)}
-                  patchSrc={imageBuilder(project.patch)}
+                  backgroundSrc={imageBuilder(section.image.asset._ref, {
+                    width: 3000,
+                    quality: 75,
+                    format: "webp",
+                  })}
+                  patchSrc={imageBuilder(project.patch, {
+                    width: 3000,
+                    quality: 75,
+                    format: "webp",
+                  })}
                   colors={
                     project._type === "bigProject"
                       ? (project.gradientColors ?? [])
@@ -55,7 +63,11 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
             return (
               <LargeImage
                 key={section._key}
-                src={imageBuilder(section.image)}
+                src={imageBuilder(section.image, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
+                })}
                 alt={section.alt}
                 caption={section.caption}
               />
@@ -68,11 +80,19 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                 key={section._key}
                 title1={section.title1}
                 caption1={section.caption1}
-                src1={imageBuilder(section.image1)}
+                src1={imageBuilder(section.image1, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
+                })}
                 alt1={section.alt1 ?? ""}
                 title2={section.title2}
                 caption2={section.caption2}
-                src2={imageBuilder(section.image2)}
+                src2={imageBuilder(section.image2, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
+                })}
                 alt2={section.alt2 ?? ""}
                 variant={section.variant}
               />
@@ -84,12 +104,20 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                   <DoubleImages
                     key={item._key || Math.random().toString()}
                     variant={item.variant}
-                    src1={imageBuilder(item.image1)}
+                    src1={imageBuilder(item.image1, {
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
+                    })}
                     alt1={item.alt1 ?? ""}
                     title1={item.title1}
                     caption1={item.caption1}
                     link1={item.link1}
-                    src2={imageBuilder(item.image2)}
+                    src2={imageBuilder(item.image2, {
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
+                    })}
                     alt2={item.alt2 ?? ""}
                     title2={item.title2}
                     caption2={item.caption2}
@@ -110,7 +138,11 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
             return (
               <ImageAndCaption
                 key={section._key}
-                src={imageBuilder(section.src)}
+                src={imageBuilder(section.src, {
+                  width: 1800,
+                  quality: 75,
+                  format: "webp",
+                })}
                 alt={section.alt}
                 title={section.title}
                 caption={section.caption}
@@ -125,7 +157,11 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                 {section.items?.map((item, idx) => (
                   <ImageAndCaption
                     key={idx}
-                    src={imageBuilder(item.src)}
+                    src={imageBuilder(item.src, {
+                      width: 1800,
+                      quality: 75,
+                      format: "webp",
+                    })}
                     alt={item.alt}
                     title={item.title}
                     caption={item.caption}
