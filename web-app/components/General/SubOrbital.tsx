@@ -54,11 +54,11 @@ export default function SubOrbital({ projects }: ProjectsProps) {
               <div className="relative w-full flex justify-center mb-4">
                 {proj.patch?.asset?._ref ? (
                   <Image
-                    src={imageBuilder(proj.patch.asset._ref, { width: 192 })}
+                    src={imageBuilder(proj.patch.asset._ref, { width: 600 })}
                     alt={`${proj.title} patch`}
                     className="w-32 md:w-48 h-32 md:h-48 object-contain shadow-md shadow-charcoal rounded-full group-hover:shadow-xl group-hover:scale-105 group-hover:-translate-y-2 transition duration-500"
-                    width={192}
-                    height={192}
+                    width={600}
+                    height={600}
                     priority
                   />
                 ) : (
