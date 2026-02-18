@@ -6,6 +6,7 @@ import { LargeQuote } from "./components/LargeQuote";
 import { SingleImageCollage } from "./components/SingleImageCollage";
 import { SpanningText } from "./components/SpanningText";
 import { Image } from "./image";
+import {Specifications} from "@/sanity/types/components/Specifications";
 
 export interface BannerImage {
   _key: string;
@@ -21,7 +22,8 @@ export type ProjectSection =
   | DoubleImageCollage
   | BannerImage
   | ImageAndCaption
-  | SingleImageCollage;
+  | SingleImageCollage
+  | Specifications;
 
 export interface BaseProject {
   _key: string;

@@ -11,6 +11,7 @@ import SpanningText from "@/components/General/SpanningText";
 import DoubleImages from "@/components/General/DoubleImages";
 import LargeQuote from "@/components/General/LargeQuote";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
+import Specifications from "@/components/General/Specifications";
 
 interface ProjectClientPageProps {
   project: BigProject | SubOrbitalProject;
@@ -118,7 +119,6 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                 variant={section.variant}
               />
             );
-
           case "singleImageCollage":
             return (
               <section key={section._key} className="flex flex-col gap-12">
@@ -134,6 +134,17 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                 ))}
               </section>
             );
+          case "specificationSection": {
+            console.log("Rendering specifications for section: {}", section);
+            return (
+              <Specifications
+                key={section._key}
+                title={section.title}
+                specifications={section.specifications}
+                image={section.graphic}
+              />
+            );
+          }
           default:
             return null;
         }
