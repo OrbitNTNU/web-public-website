@@ -9,6 +9,7 @@ import { LargeQuote } from "../components/LargeQuote";
 import { ProjectsShowcase } from "../components/ProjectsShowcase";
 import { SpanningText } from "../components/SpanningText";
 import { ForSponsorsCardType } from "../forSponsorsCard";
+import {AlertStripe} from "@/sanity/types/alert/alertStripe";
 
 export type LandingPageSection =
   | LargeQuote
@@ -26,5 +27,6 @@ export interface LandingPage {
   _type: "landingPage";
   _id: string;
   title: string;
+  alerts?: AlertStripe[];
   sections: LandingPageSection[];
 }

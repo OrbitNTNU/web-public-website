@@ -4,7 +4,7 @@ import { getSlug } from "@/lib/teams";
 import { getLandingPage } from "@/sanity/fetch/SanityFetch";
 import type { Metadata } from "next";
 
-export const revalidate = 60;
+export const revalidate = 5;
 
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here! | ORBITNTNU",
@@ -84,5 +84,11 @@ export default async function Home() {
 
   const sortedTeams = teamsWithSlugs.sort((a, b) => a.teamName.localeCompare(b.teamName));
 
-  return <LandingPage sections={data?.sections ?? []} teams={sortedTeams ?? []} />;
+  return (
+      <LandingPage
+          alerts={data?.alerts ?? []}
+          sections={data?.sections ?? []}
+          teams={sortedTeams ?? []}
+      />
+  );
 }

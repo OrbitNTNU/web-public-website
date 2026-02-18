@@ -7,6 +7,21 @@ export const LANDING_PAGE_QUERY = defineQuery(`
   ][0]{
     _id,
     title,
+    alerts[
+      enabled == true &&
+      (!defined(startDate) || startDate <= now()) &&
+      (!defined(endDate) || endDate >= now())
+    ] | order(startDate desc) {
+      _key,
+      _type,
+      variant,
+      icon,
+      title,
+      content,
+      cta,
+      startDate,
+      endDate
+    },
     sections[] {
       ...,
       _type == "largeQuote" => {

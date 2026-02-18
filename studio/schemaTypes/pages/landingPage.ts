@@ -12,6 +12,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "alerts",
+      title: "Alert Stripes",
+      type: "array",
+      of: [{ type: "alertStripe" }],
+    }),
+    defineField({
       name: 'sections',
       title: 'Sections',
       type: 'array',

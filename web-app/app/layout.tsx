@@ -5,6 +5,7 @@ import { Footer } from "@/components/General/Layout/Footer";
 import { NavbarProvider } from "@/components/General/Layout/NavbarContext";
 import StarBackground from "@/components/General/Layout/StarBackground";
 import VisualEditing from "@/components/Live/VisualEditing";
+import AlertStripe from "@/components/General/Alert/AlertStripe";
 
 export const metadata: Metadata = {
   title: "Your Space Journey Starts Here! | ORBITNTNU",
