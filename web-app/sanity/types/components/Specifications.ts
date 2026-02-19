@@ -1,7 +1,8 @@
+import { Image } from "../image";
 export interface Specifications {
     _key: string;
     _type: "specificationSection";
-    image: string;
+    image: Image;
     title: string;
     specifications: {
         label: string;

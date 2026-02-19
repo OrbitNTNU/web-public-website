@@ -7,7 +7,6 @@ interface SpecificationsProps {
     title: string,
     specifications: {label: string, value: string}[],
     image?: string,
-    additionalGraphic?: string,
 }
 
 const tableVariants = {
@@ -24,7 +23,6 @@ const Specifications = ({
                             title,
                             specifications,
                             image,
-                            additionalGraphic,
                         }: SpecificationsProps) => {
     const sectionRef = useRef(null);
     const imageRef = useRef(null);
@@ -87,13 +85,13 @@ const Specifications = ({
                     animate={inView ? {opacity: 1} : {opacity: 0}}
                     transition={{duration: 0.6}}
                 >
-                    {additionalGraphic && (
+                    {image && (
                         <motion.div
                             style={{y}}
                             className="hidden md:block absolute -top-24 -right-20 z-10 drop-shadow-2xl"
                         >
                             <Image
-                                src={additionalGraphic}
+                                src={image}
                                 alt="Additional Specification Graphic"
                                 width={350}
                                 height={350}
@@ -101,13 +99,6 @@ const Specifications = ({
                             />
                         </motion.div>
                     )}
-                    <Image
-                        src={image}
-                        alt="Specification Graphic"
-                        width={500}
-                        height={500}
-                        className="rounded-xl object-contain w-full h-auto relative z-0"
-                    />
                 </motion.div>
             </div>
         </section>

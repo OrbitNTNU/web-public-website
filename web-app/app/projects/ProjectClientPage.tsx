@@ -135,13 +135,12 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
               </section>
             );
           case "specificationSection": {
-            console.log("Rendering specifications for section: {}", section);
             return (
               <Specifications
                 key={section._key}
                 title={section.title}
                 specifications={section.specifications}
-                image={section.graphic}
+                image={imageBuilder(section.image)}
               />
             );
           }
