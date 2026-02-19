@@ -54,7 +54,7 @@ const Specifications = ({
             <div className="flex flex-col lg:flex-row items-start lg:items-stretch gap-10">
                 {/* Table */}
                 <motion.div
-                    className="flex-1"
+                    className="flex-1 w-full"
                     variants={tableVariants}
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
@@ -80,22 +80,21 @@ const Specifications = ({
                 {/* Graphic + Parallax */}
                 <motion.div
                     ref={imageRef}
-                    className="relative flex items-center justify-center w-full lg:w-1/2"
+                    className="relative flex items-center justify-center h-full lg:w-1/2"
                     initial={{opacity: 0}}
                     animate={inView ? {opacity: 1} : {opacity: 0}}
                     transition={{duration: 0.6}}
                 >
                     {image && (
                         <motion.div
-                            style={{y}}
-                            className="hidden md:block absolute -top-24 -right-20 z-10 drop-shadow-2xl"
+                            className="flex items-center justify-center w-full h-full"
                         >
                             <Image
                                 src={image}
                                 alt="Additional Specification Image"
                                 width={350}
                                 height={350}
-                                className="rounded-xl object-contain"
+                                className="object-contain w-auto h-full max-h-full"
                             />
                         </motion.div>
                     )}
