@@ -92,7 +92,7 @@ const Specifications = ({
                         >
                             <Image
                                 src={image}
-                                alt="Additional Specification Graphic"
+                                alt="Additional Specification Image"
                                 width={350}
                                 height={350}
                                 className="rounded-xl object-contain"
