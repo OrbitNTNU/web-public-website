@@ -51,10 +51,10 @@ const Specifications = ({
                 {title.toUpperCase()}
             </motion.h2>
 
-            <div className="flex flex-col lg:flex-row items-start lg:items-stretch gap-10">
+            <div className="flex flex-col lg:flex-row items-center lg:items-stretch gap-10">
                 {/* Table */}
                 <motion.div
-                    className="flex-1 w-full"
+                    className="flex-1 h-auto w-full"
                     variants={tableVariants}
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
@@ -80,21 +80,21 @@ const Specifications = ({
                 {/* Graphic + Parallax */}
                 <motion.div
                     ref={imageRef}
-                    className="relative flex items-center justify-center h-full lg:w-1/2"
+                    className="relative flex items-start justify-center lg:w-1/2"
                     initial={{opacity: 0}}
                     animate={inView ? {opacity: 1} : {opacity: 0}}
                     transition={{duration: 0.6}}
                 >
                     {image && (
                         <motion.div
-                            className="flex items-center justify-center w-full h-full"
+                            className="flex items-center justify-center"
                         >
                             <Image
                                 src={image}
                                 alt="Additional Specification Image"
                                 width={350}
                                 height={350}
-                                className="object-contain w-auto h-full max-h-full"
+                                className="object-fit w-full h-full"
                             />
                         </motion.div>
                     )}
