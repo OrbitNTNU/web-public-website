@@ -5,9 +5,10 @@ import { Footer } from "@/components/General/Layout/Footer";
 import { NavbarProvider } from "@/components/General/Layout/NavbarContext";
 import StarBackground from "@/components/General/Layout/StarBackground";
 import VisualEditing from "@/components/Live/VisualEditing";
+import AlertStripe from "@/components/General/Alert/AlertStripe";
 
 export const metadata: Metadata = {
-  title: "Your Space Journey Starts Here!",
+  title: "Your Space Journey Starts Here! | ORBITNTNU",
   description:
     "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
 
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ORBIT NTNU | Your Space Journey Starts Here",
     description:
-      "Join ORBIT NTNU — the student satellite team building Norway’s next space missions. Learn more about our projects, sponsors, and opportunities to join.",
+      "ORBIT NTNU is a student organization at the Norwegian University of Science and Technology developing CubeSats and advancing Norway’s space technology through hands-on engineering and innovation.",
     url: "https://orbitntnu.com/",
     siteName: "ORBIT NTNU",
     locale: "en_US",
@@ -60,7 +61,6 @@ export const metadata: Metadata = {
     canonical: "https://orbitntnu.com/",
     languages: {
       "en-US": "https://orbitntnu.com/",
-      "no-NO": "https://orbitntnu.com/no/",
     },
   },
 
@@ -79,9 +79,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/faviconTest/test_charcoal_with_yellow.svg",
-    shortcut: "/faviconTest/test_charcoal_with_yellow.svg",
-    apple: "/faviconTest/test_charcoal_with_yellow.svg",
+    icon: "/favicon/favicon.png",
+    shortcut: "/favicon/favicon.png",
+    apple: "/favicon/favicon.png",
   },
 };
 

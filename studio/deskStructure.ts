@@ -17,6 +17,11 @@ export const deskStructure = (S: StructureBuilder) =>
         .icon(MdHome)
         .child(S.document().schemaType('aboutPage').documentId('aboutPage')),
 
+      S.listItem()
+        .title('Projects Page')
+        .icon(MdHome)
+        .child(S.document().schemaType('projectsPage').documentId('projectsPage')),
+
       // Sponsors Page
       S.listItem()
         .title('Sponsors Page')

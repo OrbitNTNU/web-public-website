@@ -22,6 +22,8 @@ import { sanityFetch } from "@/sanity/live/live";
 import { JOIN_PAGE_QUERY } from "@/sanity/queries/joinPage";
 import { JoinPage } from "@/sanity/types/pages/joinPage";
 import { InternalArticle } from "@/sanity/utils/articleLink";
+import { ProjectsPage } from "../types/pages/projectsPage";
+import { PROJECTS_PAGE_QUERY } from "../queries/projectsPage";
 
 //LANDING PAGE
 export const getLandingPage = async (): Promise<LandingPage | null> => {
@@ -30,6 +32,17 @@ export const getLandingPage = async (): Promise<LandingPage | null> => {
     return (data as LandingPage) ?? null;
   } catch (e) {
     console.error("Error fetching landingpage:", e);
+    return null;
+  }
+};
+
+//PROJECTS PAGE
+export const getProjectsPage = async (): Promise<ProjectsPage | null> => {
+  try {
+    const { data } = await sanityFetch({ query: PROJECTS_PAGE_QUERY });
+    return (data as ProjectsPage) ?? null;
+  } catch (e) {
+    console.error("Error fetching projects page:", e);
     return null;
   }
 };

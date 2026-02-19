@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { Loading } from "@/components/General/Layout/Loading";
 
 export const metadata: Metadata = {
-  title: "Heartfelt Thanks to Our Sponsors!",
+  title: "Heartfelt Thanks to Our Sponsors! | ORBITNTNU",
   description:
     "A heartfelt thank you to all our incredible sponsors for their generous support and partnership in helping us achieve our mission.",
 
@@ -44,8 +44,6 @@ export const metadata: Metadata = {
     title: "Heartfelt Thanks to Our Sponsors",
     description:
       "Discover our amazing sponsors who make our mission possible. We're deeply grateful for their support.",
-    creator: "@YourTwitterHandle",
-    site: "@YourTwitterHandle",
   },
   alternates: {
     canonical: "https://orbitntnu.com/sponsors",
@@ -68,7 +66,7 @@ export const metadata: Metadata = {
     },
   },
 };
-export const revalidate = 60;
+export const revalidate = 5;
 
 
 export default async function SponsorPage() {

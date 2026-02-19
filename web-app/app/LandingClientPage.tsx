@@ -12,13 +12,16 @@ import SubOrbital from "@/components/General/SubOrbital";
 import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
 import ForSponsorsCard from "@/components/General/ForSponsorsCard";
 import TeamOverview, { StrippedTeam } from "@/components/General/TeamOverview";
+import AlertStripe from "@/components/General/Alert/AlertStripe";
+import { AlertStripe as AlertStripeType } from "@/sanity/types/alert/alertStripe";
 
 interface LandingPageProps {
+  alerts?: AlertStripeType[];
   sections: LandingPageSection[];
   teams: StrippedTeam[];
 }
 
-export default function LandingPage({ sections, teams }: LandingPageProps) {
+export default function LandingPage({alerts, sections, teams }: LandingPageProps) {
   if (!sections) return <Loading />;
 
   return (
@@ -26,6 +29,10 @@ export default function LandingPage({ sections, teams }: LandingPageProps) {
     <section className="w-screen h-screen relative overflow-hidden min-h-screen">
       <Hero />
       </section>
+      {alerts?.map((alert) => (
+          <AlertStripe key={alert._key} data={alert} />
+      ))}
+
       {/* <GlobeDots /> */}
       {sections.map((section) => {
         switch (section._type) {

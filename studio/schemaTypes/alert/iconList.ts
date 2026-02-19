@@ -1,0 +1,48 @@
+import {
+    Info,
+    CheckCircle,
+    Error,
+    Campaign,
+    RocketLaunch,
+    Event,
+    Notifications,
+    Announcement,
+    Satellite,
+    Public,
+    Bolt,
+    Science,
+    School,
+    Engineering,
+    Launch,
+    Star,
+    Celebration,
+    Schedule,
+    Flag,
+    Warning,
+} from "@mui/icons-material";
+
+export const iconOptions = [
+    { name: "Warning", component: Warning },
+    { name: "Info", component: Info },
+    { name: "Check", component: CheckCircle },
+    { name: "Error", component: Error },
+    { name: "Campaign", component: Campaign },
+    { name: "Rocket", component: RocketLaunch },
+    { name: "Event", component: Event },
+    { name: "Notifications", component: Notifications },
+    { name: "Announcement", component: Announcement },
+    { name: "Satellite", component: Satellite },
+    { name: "Public", component: Public },
+    { name: "Bolt", component: Bolt },
+    { name: "Science", component: Science },
+    { name: "School", component: School },
+    { name: "Engineering", component: Engineering },
+    { name: "Launch", component: Launch },
+    { name: "Star", component: Star },
+    { name: "Celebration", component: Celebration },
+    { name: "Schedule", component: Schedule },
+    { name: "Flag", component: Flag },
+];
+
+
+export type AlertIconName = keyof typeof iconOptions;

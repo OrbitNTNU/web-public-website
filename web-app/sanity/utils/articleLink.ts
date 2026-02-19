@@ -1,5 +1,4 @@
 import { ArticlePageSection } from "@/sanity/types/pages/articlePage";
-import ArticleBaseFields from "@/sanity/types/pages/articlePage";
 import { Category } from "@/sanity/utils/category";
 import { PortableTextBlock } from "@portabletext/react";
 

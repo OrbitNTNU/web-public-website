@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'landingPage',
-  title: 'Landing Page',
+  name: 'projectsPage',
+  title: 'Projects Page',
   type: 'document',
   fields: [
     defineField({
@@ -10,12 +10,6 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: "alerts",
-      title: "Alert Stripes",
-      type: "array",
-      of: [{ type: "alertStripe" }],
     }),
     defineField({
       name: 'sections',
@@ -28,15 +22,6 @@ export default defineType({
         {type: 'doubleImage'},
         {type: 'doubleImageCollage'},
         {type: 'projectsShowcase'},
-        {type: 'instagramEmbed'},
-        {type: 'joinCard'},
-        {
-          type: 'reference',
-          name: 'forSponsorsCardRef',
-          title: 'For Sponsors Section',
-          to: [{type: 'forSponsorsCard'}],
-          options: {disableNew: true},
-        },
       ],
     }),
   ],

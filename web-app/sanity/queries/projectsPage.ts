@@ -1,27 +1,12 @@
 import { defineQuery } from "groq";
 
-export const LANDING_PAGE_QUERY = defineQuery(`
+export const PROJECTS_PAGE_QUERY = defineQuery(`
   *[
-    _type == "landingPage" &&
+    _type == "projectsPage" &&
     !(_id in path("drafts.**"))
   ][0]{
     _id,
     title,
-    alerts[
-      enabled == true &&
-      (!defined(startDate) || startDate <= now()) &&
-      (!defined(endDate) || endDate >= now())
-    ] | order(startDate desc) {
-      _key,
-      _type,
-      variant,
-      icon,
-      title,
-      content,
-      cta,
-      startDate,
-      endDate
-    },
     sections[] {
       ...,
       _type == "largeQuote" => {
@@ -87,26 +72,6 @@ export const LANDING_PAGE_QUERY = defineQuery(`
           year
         }
       },
-
-      _type == "joinCard" => {
-        _type,
-      },
-
-      _type == "instagramEmbed" => {
-        _type,
-      },
-
-      _type == "forSponsorsCardRef" => {
-        _type,
-        "data": *[
-          _type=="forSponsorsCard" &&
-          _id=="singleton-forSponsorsCard" &&
-          !(_id in path("drafts.**"))
-        ][0]{
-          title,
-          intro,
-        }
-      }
     }
   }
 `);

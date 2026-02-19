@@ -43,6 +43,9 @@ import membersSection from './team/membersSection'
 import joinPage from "./pages/joinPage";
 import category from "./utils/category";
 import specificationSection from "./sections/specificationSection";
+import projectsPage from './pages/projectsPage'
+import {alertStripe} from "./alert/alertStripe";
+import portableText from "./richtext/portableText";
 
 export const schemaTypes = [
   ctaSection,
@@ -90,4 +93,7 @@ export const schemaTypes = [
   membersSection,
   category,
   specificationSection,
+  projectsPage,
+    alertStripe,
+    portableText,
 ]

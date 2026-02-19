@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, Variants } from "framer-motion";
-import { useRef } from "react";
 
 interface DoubleImagesProps {
   src1: string;
@@ -70,32 +68,6 @@ const getImageAspect = (
   return "aspect-[9/6]";
 };
 
-const imageVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (custom: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-      delay: custom,
-    },
-  }),
-};
-
-const textVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.3,
-      ease: "easeOut",
-      delay: 0.2,
-    },
-  },
-};
-
 const DoubleImages = ({
   src1,
   alt1,
@@ -119,14 +91,6 @@ const DoubleImages = ({
     (variant === "one-third-two-third" && index === 1) ||
     (variant === "two-third-one-third" && index === 0);
 
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-
   const renderImage = (
       src: string,
       alt: string,
@@ -135,18 +99,10 @@ const DoubleImages = ({
       aspectClass?: string,
   ) => {
     const image = (
-        <motion.div
-            ref={ref}
-            variants={imageVariants}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ type: "tween", stiffness: 200, delay: 0.1 }}
-            custom={delay}
-            whileHover={link ? "hover" : undefined}
+        <div
             className="overflow-hidden"
         >
-          <motion.div style={{ y }} className="relative w-full h-full">
+          <div className="relative w-full h-full">
             <div className={`relative w-full ${aspectClass}`}>
               <Image
                   src={src}
@@ -162,8 +118,8 @@ const DoubleImages = ({
                   }`}
               />
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
     );
     return link ? (
         <Link href={link} tabIndex={0} aria-label={alt}>
@@ -178,70 +134,48 @@ const DoubleImages = ({
     <div
       className={`w-full px-4 md:px-12 mx-auto grid ${gridCols} gap-8 md:auto-rows-fr max-w-7xl`}
     >
-      <motion.div
+      <div
         className={`relative ${getColSpan(variant, 0)} ${getRowSpan(variant, 0)}`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
       >
         {renderImage(src1, alt1, delay1, link1, getImageAspect(variant, 0))}
         {title1 && (
-          <motion.h3
+          <h3
             className={`tracking-wider mt-4 ${caption1 ? "mb-2" : ""}`}
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             {title1}
-          </motion.h3>
+          </h3>
         )}
         {caption1 && (
-          <motion.span
+          <span
             className={`block w-full ${isLarge(variant, 0) ? "md:max-w-3/4" : ""} ${title1 ? "" : "mt-4"}`}
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
           >
             <p className="text-charcoal-light whitespace-pre-wrap">
               {caption1}
             </p>
-          </motion.span>
+          </span>
         )}
-      </motion.div>
-      <motion.div
+      </div>
+      <div
         className={`relative ${getColSpan(variant, 1)} ${getRowSpan(variant, 1)}`}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
       >
         {renderImage(src2, alt2, delay2, link2, getImageAspect(variant, 1))}
         {title2 && (
-          <motion.h3
+          <h3
             className={`tracking-wider mt-4 ${caption2 ? "mb-2" : ""}`}
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
           >
             {title2}
-          </motion.h3>
+          </h3>
         )}
         {caption2 && (
-          <motion.span
+          <span
             className={`block w-full ${isLarge(variant, 1) ? "md:max-w-3/4" : ""} ${title2 ? "" : "mt-4"}`}
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
           >
             <p className="text-charcoal-light whitespace-pre-wrap">
               {caption2}
             </p>
-          </motion.span>
+          </span>
         )}
-      </motion.div>
+      </div>
     </div>
   );
 };

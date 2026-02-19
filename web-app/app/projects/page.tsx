@@ -1,8 +1,10 @@
 import {
   getAllBigProjects,
   getAllSubOrbitalProjects,
+  getLandingPage,
+  getProjectsPage,
 } from "@/sanity/fetch/SanityFetch";
-import ProjectsOverviewClient from "@/app/projects/ProjectPage";
+import ProjectsOverviewClient from "@/app/projects/ProjectClientPage";
 import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Satellite!",
@@ -67,16 +69,14 @@ export const metadata: Metadata = {
     },
   },
 };
-export const revalidate = 60;
+export const revalidate = 5;
 
 export default async function ProjectsPage() {
-  const BigProjects = await getAllBigProjects();
-  const SubOrbitalProjects = await getAllSubOrbitalProjects();
-
+  const data = await getProjectsPage();
+  
   return (
     <ProjectsOverviewClient
-      BigProjects={BigProjects ?? []}
-      SubOrbitalProjects={SubOrbitalProjects}
+      sections={data?.sections ?? []}
     />
   );
 }

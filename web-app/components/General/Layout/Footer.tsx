@@ -35,6 +35,7 @@ export const Footer = () => {
             <small>contact@orbitntnu.com</small>
             <small>O.S Bragstad Plass 2B, Elektro D</small>
             <small>7034, Trondheim</small>
+            <small>Org.Nr 999 171 583</small>
           </div>
 
           {/* Navigation Links */}

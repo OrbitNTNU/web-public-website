@@ -2,7 +2,7 @@ import {
   getBigProject,
   getSubOrbitalProject,
 } from "@/sanity/fetch/SanityFetch";
-import ProjectClientPage from "@/app/projects/ProjectClientPage";
+import ProjectClientPage from "@/app/projects/ProjectSlugClientPage";
 import { Metadata } from "next";
 import { Loading } from "@/components/General/Layout/Loading";
 export const metadata: Metadata = {
@@ -39,20 +39,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "",
-    description: "",
-    creator: "@YourTwitterHandle",
-    site: "@YourTwitterHandle",
-    images: ["https://yoursite.com/og/sponsors-og-image.jpg"],
-  },
-  alternates: {
-    canonical: "https://yoursite.com/sponsors",
-    languages: {
-      "en-US": "https://yoursite.com/sponsors",
-    },
-  },
 
   robots: {
     index: true,
@@ -67,21 +53,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
 };
 
 interface ProjectPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
-export const revalidate = 60;
+export const revalidate = 5;
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   const BigProject = await getBigProject(slug);
   const SubOrbitalProject = await getSubOrbitalProject(slug);
 
