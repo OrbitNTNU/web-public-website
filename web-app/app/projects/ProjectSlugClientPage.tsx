@@ -178,6 +178,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                     title={section.title}
                     specifications={section.specifications}
                     image={imageBuilder(section.image)}
+                    testInfo={section?.testInfo}
                 />
             );
           default:

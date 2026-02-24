@@ -39,7 +39,8 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
         specifications[] {
           label,
           value
-        }
+        },
+        testInfo
       },
 
       _type == "largeQuote" => {

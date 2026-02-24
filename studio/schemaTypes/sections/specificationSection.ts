@@ -50,7 +50,6 @@ export default defineType({
             name: 'testInfo',
             title: 'Additional Information',
             type: 'string',
-            validation: (Rule) => Rule.required(),
         }),
     ],
     preview: {

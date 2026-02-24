@@ -7,6 +7,7 @@ interface SpecificationsProps {
     title: string,
     specifications: {label: string, value: string}[],
     image?: string,
+    testInfo?: string,
 }
 
 const tableVariants = {
@@ -23,6 +24,7 @@ const Specifications = ({
                             title,
                             specifications,
                             image,
+                            testInfo,
                         }: SpecificationsProps) => {
     const sectionRef = useRef(null);
     const imageRef = useRef(null);
@@ -92,6 +94,13 @@ const Specifications = ({
                     </motion.div>
                 )}
             </div>
+            {testInfo && (
+                <div className="max-w-3xl mx-auto">
+                    <p className="mt-6 text-sm md:text-base text-charcoal-light tracking-wide">
+                        {testInfo}
+                    </p>
+                </div>
+            )}
         </section>
     );
 };

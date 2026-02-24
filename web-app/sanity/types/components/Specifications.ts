@@ -7,5 +7,6 @@ export interface Specifications {
     specifications: {
         label: string;
         value: string;
-    }[];
+    }[],
+    testInfo?: string;
 }
