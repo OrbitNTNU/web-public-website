@@ -11,6 +11,8 @@ import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import SpanningText from "@/components/General/SpanningText";
 import LargeImage from "@/components/General/LargeImage";
 import LargeQuote from "@/components/General/LargeQuote";
+import ImageAndCaption from "@/components/General/ImageAndCaption";
+import Specifications from "@/components/General/Specifications";
 
 interface ProjectsOverviewClientProps {
   sections: ProjectSection[];
@@ -95,20 +97,54 @@ export default function ProjectsOverviewClient({
                 ))}
               </section>
             );
+          case "largeQuote":
+            return (
+              <LargeQuote
+                key={section._key}
+                text={section.quote}
+                author={section.author}
+              />
+            );
+          case "imageAndCaption":
+            return (
+              <ImageAndCaption
+                key={section._key}
+                src={imageBuilder(section.src)}
+                alt={section.alt}
+                title={section.title}
+                caption={section.caption}
+                wideCaption={section.wideCaption}
+                variant={section.variant}
+              />
+            );
 
+          case "singleImageCollage":
+            return (
+              <section key={section._key} className="flex flex-col gap-12">
+                {section.items?.map((item, idx) => (
+                  <ImageAndCaption
+                    key={idx}
+                    src={imageBuilder(item.src)}
+                    alt={item.alt}
+                    title={item.title}
+                    caption={item.caption}
+                    variant={item.variant}
+                  />
+                ))}
+              </section>
+            );
           case "projectsShowcase":
             if (section.projectType === "bigProject") {
-              return (
-                <Projects key={section._key} projects={section.projects} />
-              );
+                return (
+                    <Projects key={section._key} projects={section.projects} />
+                );
             }
 
             if (section.projectType === "subOrbitalProject") {
-              return (
-                <SubOrbital key={section._key} projects={section.projects} />
-              );
+                return (
+                    <SubOrbital key={section._key} projects={section.projects}/>
+                );
             }
-
           default:
             return null;
         }

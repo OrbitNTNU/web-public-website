@@ -32,12 +32,15 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
       ...,
 
       _type == "reference" => @->{
+        _key,
         _type,
         title,
+        image,
         specifications[] {
           label,
           value
-        }
+        },
+        testInfo
       },
 
       _type == "largeQuote" => {

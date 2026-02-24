@@ -11,6 +11,7 @@ import SpanningText from "@/components/General/SpanningText";
 import DoubleImages from "@/components/General/DoubleImages";
 import LargeQuote from "@/components/General/LargeQuote";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
+import Specifications from "@/components/General/Specifications";
 
 interface ProjectClientPageProps {
   project: BigProject | SubOrbitalProject;
@@ -169,6 +170,16 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                   />
                 ))}
               </section>
+            );
+          case "specificationSection":
+            return (
+                <Specifications
+                    key={section._key}
+                    title={section.title}
+                    specifications={section.specifications}
+                    image={imageBuilder(section.image)}
+                    testInfo={section?.testInfo}
+                />
             );
           default:
             return null;

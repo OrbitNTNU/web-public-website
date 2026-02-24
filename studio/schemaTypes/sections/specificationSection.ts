@@ -6,10 +6,9 @@ export default defineType({
     type: 'document',
     fields: [
         defineField({
-            name: 'graphic',
-            title: 'Graphic URL',
-            type: 'url',
-            validation: (Rule) => Rule.uri({scheme: ['http', 'https']}),
+            name: 'image',
+            title: 'Image',
+            type: 'image',
         }),
         defineField({
             name: 'title',
@@ -46,6 +45,11 @@ export default defineType({
                 },
             ],
             validation: (Rule) => Rule.min(1),
+        }),
+        defineField ({
+            name: 'testInfo',
+            title: 'Additional Information',
+            type: 'string',
         }),
     ],
     preview: {

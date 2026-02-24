@@ -10,6 +10,7 @@ import { ProjectsShowcase } from "../components/ProjectsShowcase";
 import { SpanningText } from "../components/SpanningText";
 import { ForSponsorsCardType } from "../forSponsorsCard";
 import {AlertStripe} from "@/sanity/types/alert/alertStripe";
+import { Specifications } from "../components/Specifications";
 
 export type LandingPageSection =
   | LargeQuote
@@ -20,7 +21,8 @@ export type LandingPageSection =
   | ProjectsShowcase
   | InstagramEmbed
   | JoinCard
-  | ForSponsorsCardType;
+  | ForSponsorsCardType
+  | Specifications;
 
 // 🪩 Landing Page Document
 export interface LandingPage {
