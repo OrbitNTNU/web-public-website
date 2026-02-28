@@ -1,0 +1,16 @@
+[Unit]
+Description=Orbit NTNU public website
+After=network.target
+
+[Service]
+Type=simple
+Environment=PORT=3033
+Environment=NODE_VERSION=20
+WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app
+ExecStart=/home/orbit/.nvm/nvm-exec npm run start
+Restart=always
+RestartSec=10s
+User=orbit
+
+[Install]
+WantedBy=multi-user.target
