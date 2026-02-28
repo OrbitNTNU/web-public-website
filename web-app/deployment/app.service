@@ -4,13 +4,16 @@ After=network.target
 
 [Service]
 Type=simple
+User=orbit
+WorkingDirectory=/home/orbit/services.web/websites/web-public-webiste/web-app
+
 Environment=PORT=3034
 Environment=NODE_VERSION=20
-WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app
-ExecStart=/home/orbit/.nvm/nvm-exec npm run start
+
+ExecStart=/bin/bash -lc “npm run start”
+
 Restart=always
 RestartSec=10s
-User=orbit
 
 [Install]
 WantedBy=multi-user.target
