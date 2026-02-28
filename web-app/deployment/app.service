@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=orbit
-WorkingDirectory=/home/orbit/services.web/websites/web-public-webiste/web-app
+WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app
 
 Environment=PORT=3034
 Environment=NODE_VERSION=20
