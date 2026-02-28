@@ -10,7 +10,7 @@ WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app
 Environment=PORT=3034
 Environment=NODE_VERSION=20
 
-ExecStart=/bin/bash -lc “npm run start”
+ExecStart=/bin/bash -lc "npm run start"
 
 Restart=always
 RestartSec=10s
