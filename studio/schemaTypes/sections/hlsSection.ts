@@ -1,5 +1,4 @@
 import {defineType, defineField} from 'sanity'
-import GradientSelctor from '../../components/GradientSelector'
 import GradientSelector from "../../components/GradientSelector";
 export default defineType({
     name: 'hlsSection',
