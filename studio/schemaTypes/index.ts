@@ -46,6 +46,8 @@ import specificationSection from "./sections/specificationSection";
 import projectsPage from './pages/projectsPage'
 import {alertStripe} from "./alert/alertStripe";
 import portableText from "./richtext/portableText";
+import pmSection from "./sections/pmSection";
+import hlsSection from "./sections/hlsSection";
 
 export const schemaTypes = [
   ctaSection,
@@ -53,6 +55,8 @@ export const schemaTypes = [
   gallerySection,
   herosSection,
   imageSection,
+  pmSection,
+  hlsSection,
   textSection,
   videoSection,
   landingPage,
