@@ -13,7 +13,6 @@ import {
 
 export default function InstagramEmbed() {
   const [loading, setLoading] = useState(true);
-  const [inView, setInView] = useState(false);
   const [response, setResponse] = useState<InstagramProfile | null>(null);
   const [visiblePosts, setVisiblePosts] = useState<InstagramPost[]>([]);
   const [carouselIndices, setCarouselIndices] = useState<
@@ -29,9 +28,11 @@ export default function InstagramEmbed() {
           setResponse(data);
         } else {
           console.error(`Error: Received status code ${response.status}`);
+          setVisiblePosts([]);
         }
       } catch (error) {
         console.error("Error fetching statistics:", error);
+        setVisiblePosts([]);
       } finally {
         setLoading(false);
       }
@@ -144,6 +145,10 @@ export default function InstagramEmbed() {
     }
   };
 
+  if (visiblePosts.length === 0) {
+    return null;
+  }
+
   return (
     <section>
       <motion.h3
@@ -156,54 +161,48 @@ export default function InstagramEmbed() {
         Our feed
       </motion.h3>
 
-      {visiblePosts ? (
-        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4 md:px-12 max-w-[2000px] mx-auto auto-rows-min grid-flow-dense">
-          {visiblePosts.map((post, index) => (
-            <motion.div
-              key={post.id}
-              className="flex flex-col"
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    duration: 0.6,
-                    delay: index * 0.1,
-                    ease: "easeOut",
-                  },
+      <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4 md:px-12 max-w-[2000px] mx-auto auto-rows-min grid-flow-dense">
+        {visiblePosts.map((post, index) => (
+          <motion.div
+            key={post.id}
+            className="flex flex-col"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: "easeOut",
                 },
-              }}
-              initial="hidden"
-              whileInView="visible"
-            >
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-charcoal-light text-sm">
-                  {new Date(post.timestamp).toLocaleDateString()}
-                </span>
-                <a
-                  className="text-pink-500 hover:scale-110 transition-transform duration-200 cursor-pointer"
-                  href={post.permalink}
-                  target="_blank"
-                >
-                  <FaInstagram />
-                </a>
-              </div>
+              },
+            }}
+            initial="hidden"
+            whileInView="visible"
+          >
+            <div className="flex justify-between items-center mb-2">
+              <span className="text-charcoal-light text-sm">
+                {new Date(post.timestamp).toLocaleDateString()}
+              </span>
+              <a
+                className="text-pink-500 hover:scale-110 transition-transform duration-200 cursor-pointer"
+                href={post.permalink}
+                target="_blank"
+              >
+                <FaInstagram />
+              </a>
+            </div>
 
-              {renderPostMedia(post)}
+            {renderPostMedia(post)}
 
-              {post.caption && (
-                <span className="text-charcoal-light mt-4 whitespace-break-spaces">
-                  {post.caption}
-                </span>
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
-      ) : (
-        <p className="px-4 md:px-12 max-w-[2000px] mx-auto">
-          Failed to load Instagram feed.
-        </p>
-      )}
+            {post.caption && (
+              <span className="text-charcoal-light mt-4 whitespace-break-spaces">
+                {post.caption}
+              </span>
+            )}
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   );
 }
