@@ -48,6 +48,9 @@ import {alertStripe} from "./alert/alertStripe";
 import portableText from "./richtext/portableText";
 import pmSection from "./sections/pmSection";
 import hlsSection from "./sections/hlsSection";
+import timelineSection from "./sections/timelineSection";
+import otSection from "./sections/otSection";
+import tslSection from "./sections/tslSection";
 
 export const schemaTypes = [
   ctaSection,
@@ -82,6 +85,9 @@ export const schemaTypes = [
   forSponsorsCard,
   statistics,
   sdgSection,
+  timelineSection,
+  otSection,
+  tslSection,
   aboutPage,
   triImageCollage,
   singleImageCollage,
@@ -98,6 +104,6 @@ export const schemaTypes = [
   category,
   specificationSection,
   projectsPage,
-    alertStripe,
-    portableText,
+  alertStripe,
+  portableText,
 ]
