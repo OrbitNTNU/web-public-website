@@ -51,6 +51,7 @@ import hlsSection from "./sections/hlsSection";
 import timelineSection from "./sections/timelineSection";
 import otSection from "./sections/otSection";
 import tslSection from "./sections/tslSection";
+import herosProjectSection from "./sections/herosProjectSection";
 
 export const schemaTypes = [
   ctaSection,
@@ -86,6 +87,7 @@ export const schemaTypes = [
   statistics,
   sdgSection,
   timelineSection,
+  herosProjectSection,
   otSection,
   tslSection,
   aboutPage,

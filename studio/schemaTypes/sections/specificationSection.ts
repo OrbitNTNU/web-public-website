@@ -20,30 +20,28 @@ export default defineType({
             name: 'specifications',
             title: 'Specifications',
             type: 'array',
-            of: [
-                {
-                    name: 'specificationItem',
-                    title: 'Specification',
-                    type: 'object',
-                    fields: [
-                        defineField({
-                            name: 'label',
-                            title: 'Label',
-                            type: 'string',
-                            validation: (Rule) => Rule.required(),
-                        }),
-                        defineField({
-                            name: 'value',
-                            title: 'Value',
-                            type: 'string',
-                            validation: (Rule) => Rule.required(),
-                        }),
-                    ],
-                    preview: {
-                        select: {title: 'label', subtitle: 'value'},
-                    },
+            of: [{
+                name: 'specificationItem',
+                title: 'Specification',
+                type: 'object',
+                fields: [
+                    defineField({
+                        name: 'label',
+                        title: 'Label',
+                        type: 'string',
+                        validation: (Rule) => Rule.required(),
+                    }),
+                    defineField({
+                        name: 'value',
+                        title: 'Value',
+                        type: 'string',
+                        validation: (Rule) => Rule.required(),
+                    }),
+                ],
+                preview: {
+                    select: {title: 'label', subtitle: 'value'},
                 },
-            ],
+            }],
             validation: (Rule) => Rule.min(1),
         }),
         defineField ({

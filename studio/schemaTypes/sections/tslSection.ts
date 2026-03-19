@@ -8,7 +8,7 @@ export default defineType({
         defineField({
            name: 'lastLaunchDate',
            title: 'Last Launch Date',
-           type: 'Date',
+           type: 'date',
         }),
     ],
 });

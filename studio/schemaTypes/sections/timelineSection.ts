@@ -18,6 +18,44 @@ export default defineType({
             initialValue: ''
         }),
         defineField({
+            name: 'timelineCollection',
+            title: 'Timeline Cards',
+            type: 'array',
+            of: [{
+                name: 'timelineCard',
+                title: 'Timeline Card',
+                type: 'object',
+                fields: [
+                    defineField({
+                        name: 'imageTitle',
+                        title: 'Image Title',
+                        type: 'string',
+                        validation: (Rule) => Rule.required(),
+                    }),
+                    defineField({
+                        name: 'imageDescription',
+                        title: 'Image Description',
+                        type: 'array',
+                        of: [{type: 'block'}],
+                    }),
+                    defineField({
+                        name: 'image',
+                        title: 'Image',
+                        type: 'image',
+                        validation: (Rule) => Rule.required(),
+                    }),
+                ],
+                preview: {
+                    select: {
+                        title: 'imageTitle',
+                        description: 'imageDescription',
+                        media: 'image',
+                    }
+                },
+            }],
+
+        }),
+        defineField({
             name: 'placeholder',
             title: 'Placeholder',
             type: 'string',
@@ -26,12 +64,10 @@ export default defineType({
         })
     ],
     preview: {
-        select: {},
-        prepare() {
-            return {
-                title: 'Timeline Section',
-                subtitle: 'A section for displaying a timeline of events',
-            }
-        }
+        select: {
+            title: 'heading',
+            subheading: 'subheading',
+            collection: 'timelineCollection',
+        },
     }
 })
