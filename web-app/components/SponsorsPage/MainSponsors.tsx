@@ -29,15 +29,15 @@ const MainSponsors = ({ sponsors }: MainSponsorsProps) => {
               rel="noopener noreferrer"
               className="w-full flex justify-center"
             >
-              <div className="w-full lg:w-1/3 h-48 xl:h-96 flex items-center justify-center">
+              <div className="w-full lg:w-2/3 h-48 xl:h-96 flex items-center justify-center">
                 <Image
                   src={imageBuilder(sponsor.logo, {
-                    width: 400,
+                    width: 800,
                     quality: 100,
                     format: "webp",
                   })}
                   alt={`${sponsor.name} logo`}
-                  width={400}
+                  width={800}
                   height={600}
                   className="h-full w-auto object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
                 />
