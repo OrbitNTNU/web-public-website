@@ -13,36 +13,37 @@ interface MainSponsorsProps {
 const MainSponsors = ({ sponsors }: MainSponsorsProps) => {
   return (
     <div className="flex items-center flex-col gap-4 md:gap-12">
-      <SponsorHeader 
+      <SponsorHeader
         text="Main sponsor"
         count={sponsors.length}
       />
-      <section className="w-full px-4 md:px-12 mx-auto flex flex-row items-center justify-center flex-wrap">
+      <section className="w-full px-4 md:px-12 mx-auto grid grid-cols-2 gap-8">
         {sponsors.map((sponsor) => (
           <div
             key={sponsor._key}
-            className="w-full sm:w-1/2 lg:w-2/3 justify-center items-center flex flex-col lg:flex-row gap-8 px-0 py-4 md:p-4"
+            className="w-full flex flex-col items-center gap-8"
           >
             <Link
               href={sponsor.website || "#"}
               target="_blank"
-              rel="noopener noreferrer w-full"
-              className="w-full lg:w-1/3"
+              rel="noopener noreferrer"
+              className="w-full flex justify-center"
             >
+              <div className="w-full lg:w-1/3 h-48 xl:h-96 flex items-center justify-center">
                 <Image
-                    src={imageBuilder(sponsor.logo, {
-                        width: 400,
-                        quality: 100,
-                        format: "webp",
-                    })}
-                    alt={`${sponsor.name} logo`}
-                    width={400}
-                    height={600}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="w-full h-auto hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  src={imageBuilder(sponsor.logo, {
+                    width: 400,
+                    quality: 100,
+                    format: "webp",
+                  })}
+                  alt={`${sponsor.name} logo`}
+                  width={400}
+                  height={600}
+                  className="h-full w-auto object-contain hover:scale-105 transition-transform duration-300 cursor-pointer"
                 />
+              </div>
             </Link>
-            <section className="flex flex-col gap-4 w-full lg:w-2/3">
+            <section className="flex flex-col gap-2 w-full lg:w-2/3 text-left">
               <h2>{sponsor.name}</h2>
               <PortableText
                 value={sponsor.description ?? []}
