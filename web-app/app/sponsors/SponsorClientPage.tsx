@@ -7,7 +7,7 @@ import BronzeSponsors from "@/components/SponsorsPage/BronzeSponsors";
 import PartnerSponsors from "@/components/SponsorsPage/PartnerSponsors";
 import GoldSponsors from "@/components/SponsorsPage/GoldSponsors";
 import SilverSponsors from "@/components/SponsorsPage/SilverSponsors";
-import AllThanks from "@/components/SponsorsPage/AllThanks";
+//import AllThanks from "@/components/SponsorsPage/AllThanks";
 
 export default function SponsorClientPage({
   sponsorsPage,
@@ -21,14 +21,14 @@ export default function SponsorClientPage({
   const bronzeSponsors = sponsorsPage.bronzeSponsors || [];
   const partnerSponsors = sponsorsPage.partners || [];
 
-  const allSponsors = [
-    ...mainSponsors,
-    ...platinumSponsors,
-    ...goldSponsors,
-    ...silverSponsors,
-    ...bronzeSponsors,
-    ...partnerSponsors,
-  ];
+  //const allSponsors = [
+  //  ...mainSponsors,
+  //  ...platinumSponsors,
+  //  ...goldSponsors,
+  //  ...silverSponsors,
+  //  ...bronzeSponsors,
+  //  ...partnerSponsors,
+  //];
 
   return (
     <div className="w-full relative max-w-[1600px] mx-auto gap-20 md:gap-40 my-20 md:my-40 flex flex-col">
@@ -38,7 +38,7 @@ export default function SponsorClientPage({
       {silverSponsors && <SilverSponsors sponsors={silverSponsors} />}
       {bronzeSponsors && <BronzeSponsors sponsors={bronzeSponsors} />}
       {partnerSponsors && <PartnerSponsors sponsors={partnerSponsors} />}
-      <AllThanks sponsors={allSponsors} />
+      {/* <AllThanks sponsors={allSponsors} /> */}
     </div>
   );
 }
