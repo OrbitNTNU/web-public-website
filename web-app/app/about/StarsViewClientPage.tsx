@@ -5,6 +5,7 @@ import { Team, Member } from "@/app/team/TeamsClientPage";
 import { motion } from "framer-motion";
 import MemberCard from "@/components/General/MemberCard";
 import { useNavbar } from "@/components/General/Layout/NavbarContext";
+import { useRouter } from "next/navigation";
 
 interface StarProps {
   x: number;
@@ -20,6 +21,8 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
     x: 0,
     y: 0,
   });
+  const router = useRouter();
+
   const [hoveredStarIndex, setHoveredStarIndex] = useState<number | null>(null);
   const { setInfo, resetInfo } = useNavbar();
 
@@ -63,9 +66,11 @@ const StarsView = ({ teamsData }: { teamsData: Team[] }) => {
   }, [teamsData]);
 
   useEffect(() => {
+    const fromWhere = new URLSearchParams(window.location.search).get("from");
+
     // Set the navbar info based on the article
     setInfo({
-      baseHref: "/about",
+      baseHref: fromWhere === "about" ? "/about" : "/team",
       detailedLocation: "Our Stars",
     });
 
