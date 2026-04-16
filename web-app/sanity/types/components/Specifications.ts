@@ -8,5 +8,6 @@ export interface Specifications {
         label: string;
         value: string;
     }[],
+    // Trenger ikke egt testinfo
     testInfo?: string;
 }

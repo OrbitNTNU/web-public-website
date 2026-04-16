@@ -43,17 +43,34 @@ export default defineType({
                     defineField({
                         name: "pmPeriodStart",
                         title: "PM Period Start",
-                        type: "date",
+                        type: "datetime",
+                        initialValue: () => new Date().toISOString(),
                         validation: (Rule) => Rule.required()
                     }),
                     defineField({
                         name: "pmPeriod",
                         title: "PM Period End",
-                        type: "date",
+                        type: "datetime",
                     }),
                 ],
                 validation: (Rule) => Rule.required().min(1)
             }],
         }),
     ],
+    preview: {
+        select: {
+            title: "title",
+            body: "body",
+            pmCardCollection: "pmCardCollection",
+        },
+        prepare(selection) {
+            const {title, body, pmCardCollection} = selection;
+            const pmNames = pmCardCollection?.map((card: any) => card.pmName).join(", ");
+            return {
+                title: title,
+                body: `${body ? body[0].children[0].text : ""}${pmNames ? ` - PMs: ${pmNames}` : ""}`,
+                pmCardCollection: pmCardCollection,
+            };
+        }
+    }
 })

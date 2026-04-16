@@ -12,6 +12,7 @@ import DoubleImages from "@/components/General/DoubleImages";
 import LargeQuote from "@/components/General/LargeQuote";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
 import Specifications from "@/components/General/Specifications";
+import Pm from "@/components/General/Pm";
 import PlantDots from "@/components/General/PlantDots";
 
 interface ProjectClientPageProps {
@@ -200,6 +201,16 @@ export default function ProjectClientPage({
                                         />
                                     ))}
                                 </section>
+                            );
+
+                        case "pmSection":
+                            return (
+                                <Pm
+                                    key={section._key}
+                                    title={section.title}
+                                    description={section.description}
+                                    pmCards={section.pmCards ?? []}
+                                />
                             );
 
                         case "specificationSection":

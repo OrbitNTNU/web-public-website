@@ -7,7 +7,8 @@ import { ProjectsShowcase } from "./components/ProjectsShowcase";
 import { SingleImageCollage } from "./components/SingleImageCollage";
 import { SpanningText } from "./components/SpanningText";
 import { Image } from "./image";
-import {Specifications} from "@/sanity/types/components/Specifications";
+import { Specifications } from "@/sanity/types/components/Specifications";
+import { Pm } from "@/sanity/types/components/PmSection";
 
 export interface BannerImage {
   _key: string;
@@ -25,7 +26,8 @@ export type ProjectSection =
   | ImageAndCaption
   | BannerImage
   | ProjectsShowcase
-  | Specifications;
+  | Specifications
+  | Pm;
 
 export interface BaseProject {
   _key: string;

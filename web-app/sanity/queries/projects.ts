@@ -109,6 +109,19 @@ export const BIG_PROJECT_BY_SLUG_QUERY = defineQuery(`
           image,
           publishedAt
         }
+      },
+
+      _type == "pmSection" => {
+        _key,
+        _type,
+        title,
+        "description": coalesce(body[0].children[0].text, ""),
+        "pmCards": pmCardCollection[] {
+          pmName,
+          pmImage,
+          pmPeriodStart,
+          "pmPeriodEnd": pmPeriod
+        }
       }
     }
   }
