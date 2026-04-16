@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 interface TeamsControlsProps {
   viewMode: "list" | "gallery" | "traditional";
@@ -31,6 +32,8 @@ const TeamsControls = ({
   searchTerm,
   setSearchTerm,
 }: TeamsControlsProps) => {
+  const router = useRouter();
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (searchTerm !== "") {
       setViewMode("gallery");
@@ -69,6 +72,21 @@ const TeamsControls = ({
             <small>{control.label}</small>
           </motion.button>
         ))}
+        <motion.button
+            key="our-stars"
+            type="button"
+            className="cursor-pointer group gap-2 flex items-center hover:text-cloud-white transition-all bg-charcoal text-charcoal-light"
+            onClick={() => router.push("about/our-stars?from=teams")}
+            initial={{ scale: 1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <span
+              className="group-hover:text-cloud-white material-icons transition-colors text-charcoal-light"
+            >
+              star
+            </span>
+            <small>Stars</small>
+          </motion.button>
       </div>
       {viewMode === "gallery" && (
         <div className="hidden md:flex justify-end flex-1 items-center w-full mt-20 lg:mt-0">

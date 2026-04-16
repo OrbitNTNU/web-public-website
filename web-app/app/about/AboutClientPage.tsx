@@ -38,7 +38,7 @@ export default function AboutClientPage({
   useEffect(() => {
     // Reset typed keys after 5 seconds of inactivity
     if (typedKeys.toLowerCase() === "stars") {
-      router.push("/about/our-stars");
+      router.push("/about/our-stars?from=about");
     }
   }, [typedKeys]);
 

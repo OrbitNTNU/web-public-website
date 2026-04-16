@@ -30,13 +30,13 @@ const TeamSelector = ({
           }}
         >
           <span
-            className={`w-4 h-4 mr-2 flex items-center group-hover:border-cloud-white justify-center border-1 border-charcoal-light
-                                                    ${
-                                                      selectedTeamID ===
-                                                      team.teamID
-                                                        ? "bg-cloud-white border-cloud-white text-cloud-white"
-                                                        : "bg-transparent"
-                                                    }`}
+            className={`w-4 h-4 mr-2 flex items-center group-hover:border-cloud-white rounded-full justify-center border-1 border-charcoal-light duration-100
+              ${
+                selectedTeamID ===
+                team.teamID
+                  ? "bg-cloud-white border-cloud-white text-cloud-white"
+                  : "bg-transparent"
+              }`}
           />
           {team.teamName}
         </label>

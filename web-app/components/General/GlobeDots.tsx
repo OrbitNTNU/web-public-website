@@ -144,9 +144,9 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
         const sat = satellites[i];
         const a = t * sat.speed + sat.phase;
 
-        const x = Math.cos(a) * sat.radius;
+        const x = 0;
+        const y = -1 * Math.cos(a) * sat.radius;
         const z = Math.sin(a) * sat.radius;
-        const y = 0.15 * Math.sin(a * 0.7);
 
         const x1 = x * cosY - z * sinY;
         const z1 = x * sinY + z * cosY;
@@ -160,7 +160,7 @@ export default function GlobeDots({ speed = 0.25 }: { speed?: number }) {
         ctx.arc(
           s.cx + x1 * s.radius * p,
           s.cy + y1 * s.radius * p,
-          2.5 * p + 1,
+          5.5 * p + 1,
           0,
           Math.PI * 2,
         );
