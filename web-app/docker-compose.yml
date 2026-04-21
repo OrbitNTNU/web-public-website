@@ -1,0 +1,21 @@
+services:
+  web-app:
+    container_name: public-website
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3034:3034"
+    env_file:
+      - .env
+    command: npm start
+    restart: always
+  
+  # sanity-studio:
+  #   build:
+  #     context: ./studio
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3333:3333"
+  #   command: npm run dev
+  #   restart: unless-stopped
