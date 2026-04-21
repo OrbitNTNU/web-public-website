@@ -1,5 +1,6 @@
 [Unit]
 Description=Orbit NTNU public website
+Requires=docker.service
 After=network.target
 
 [Service]
@@ -10,7 +11,10 @@ WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app
 Environment=PORT=3034
 Environment=NODE_VERSION=20
 
-ExecStart=/bin/bash -lc "npm run start"
+#ExecStart=/bin/bash -lc "npm run start"
+ExecStart=/usr/bin/docker compose up
+ExecStop=/usr/bin/docker compose down
+
 
 Restart=always
 RestartSec=10s
