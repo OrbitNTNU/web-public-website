@@ -8,7 +8,7 @@ services:
       - "3034:3034"
     env_file:
       - .env
-    command: npm run dev
+    command: npm start
     restart: always
   
   # sanity-studio:
