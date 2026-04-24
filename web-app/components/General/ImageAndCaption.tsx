@@ -20,7 +20,7 @@ const variantStyles = {
 };
 
 const imageWidthClass = {
-  standard: "w-full md:w-1/2 md:pl-8 md:pb-0 lg:pl-12",
+  standard: "w-full md:w-1/2 md:pr-8 md:pb-0 lg:pr-12",
   "large-left": "w-full md:w-2/3 md:pr-8 md:pb-0 lg:pr-12",
   "large-right": "w-full md:w-2/3 pb-4 md:pl-8 md:pb-0 lg:pl-12",
 };
