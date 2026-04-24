@@ -75,7 +75,6 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
         alt,
         title,
         caption,
-        wideCaption,
         link,
         variant
       },
@@ -87,7 +86,6 @@ export const ARTICLE_PAGE_QUERY = defineQuery(`
           alt,
           title,
           caption,
-          wideCaption,
           link,
           variant
         }

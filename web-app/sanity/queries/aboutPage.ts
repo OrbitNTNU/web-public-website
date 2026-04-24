@@ -62,7 +62,6 @@ export const ABOUT_PAGE_QUERY = defineQuery(`
             alt,
             title,
             caption,
-            wideCaption,
             link,
             variant
           }

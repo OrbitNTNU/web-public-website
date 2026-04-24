@@ -23,7 +23,6 @@ const FeaturedArticle = ({ article, isMobile }: FeaturedArticleProps) => {
     }
   };
 
-  console.log(article.category)
   return (
     <div className="flex flex-col md:flex-row h-auto md:h-auto">
       {/* Text section */}

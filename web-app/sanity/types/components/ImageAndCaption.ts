@@ -5,7 +5,6 @@ export interface ImageAndCaption {
   alt: string;
   title?: string;
   caption?: string;
-  wideCaption?: boolean;
   link?: string;
   variant?: "standard" | "large-left" | "large-right";
 }

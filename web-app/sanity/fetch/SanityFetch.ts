@@ -267,7 +267,6 @@ export const getTeamPageForMagnus = async (): Promise<TeamPage | null> => {
                 alt,
                 title,
                 caption,
-                wideCaption,
                 link,
                 variant
               }

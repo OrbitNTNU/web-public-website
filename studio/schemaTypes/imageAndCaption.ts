@@ -31,13 +31,6 @@ export default {
       description: 'Optional caption to display under the image',
     },
     {
-      name: 'wideCaption',
-      title: 'Wide Caption',
-      type: 'boolean',
-      description: 'If true, caption spans full width',
-      initialValue: false,
-    },
-    {
       name: 'link',
       title: 'Link',
       type: 'string',
