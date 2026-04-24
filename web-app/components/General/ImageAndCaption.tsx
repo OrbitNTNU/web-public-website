@@ -14,15 +14,15 @@ interface ImageAndCaptionProps {
 }
 
 const variantStyles = {
-  standard: "flex-col md:flex-row gap-8 items-start",
-  "large-left": "flex-col md:flex-row gap-12 items-start",
-  "large-right": "flex-col md:flex-row-reverse gap-12 items-start",
+  standard: "flex-col md:flex-row items-start",
+  "large-left": "flex-col md:flex-row items-start",
+  "large-right": "flex-col md:flex-row-reverse items-start",
 };
 
 const imageWidthClass = {
-  standard: "w-full md:w-1/2",
-  "large-left": "w-full md:w-2/3",
-  "large-right": "w-full md:w-2/3",
+  standard: "w-full md:w-1/2 md:pl-8 md:pb-0 lg:pl-12",
+  "large-left": "w-full md:w-2/3 md:pr-8 md:pb-0 lg:pr-12",
+  "large-right": "w-full md:w-2/3 pb-4 md:pl-8 md:pb-0 lg:pl-12",
 };
 
 const captionWidthClass = {
@@ -69,7 +69,7 @@ const ImageAndCaption = ({
         {/* Image */}
         {src && alt && (
           <div className={`relative overflow-hidden shrink-0 ${imageWidthClass[variant]}`}>
-            <motion.div style={{ y }} className={`relative w-full ${aspectClass[variant]}`}>
+            <div className={`relative w-full ${aspectClass[variant]}`}>
               {link ? (
                 <Link href={link} rel="noopener noreferrer">
                   <Image
@@ -89,7 +89,7 @@ const ImageAndCaption = ({
                   className="object-cover shadow-lg"
                 />
               )}
-            </motion.div>
+            </div>
           </div>
         )}
 
