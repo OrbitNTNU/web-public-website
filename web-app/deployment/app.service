@@ -6,7 +6,7 @@ After=network.target
 Type=oneshot
 RemainAfterExit=true
 User=orbit
-WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app
+WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app/deployment
 
 Environment=PORT=3034
 Environment=NODE_VERSION=20
