@@ -36,15 +36,26 @@ export const Footer = () => {
             <small>O.S Bragstad Plass 2B, Elektro D</small>
             <small>7034, Trondheim</small>
             <small>Org.Nr 999 171 583</small>
+            <small>
+              <Link
+                  href="https://lifesupport.orbitntnu.com"
+                  aria-label="Go to LifeSupport internal website at Orbit NTNU (opens in a new tab)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:italic hover:text-berry-blast transition-colors focus:italic focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+              >
+                LifeSupport
+              </Link>
+            </small>
           </div>
 
           {/* Navigation Links */}
           <ul className="flex flex-wrap justify-center gap-6 col-span-1 lg:col-span-3">
             {pages.map((link) => (
-              <li key={link.title}>
-                <Link
-                  href={link.url}
-                  className="hover:text-berry-blast transition-colors uppercase"
+                <li key={link.title}>
+                  <Link
+                      href={link.url}
+                      className="hover:text-berry-blast transition-colors uppercase"
                 >
                   {link.title}
                 </Link>
