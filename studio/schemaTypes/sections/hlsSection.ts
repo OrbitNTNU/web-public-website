@@ -29,7 +29,8 @@ export default defineType({
                   defineField({
                       name: "hlsBody",
                       title: "HLS Body",
-                      type: "string"
+                      type: "string",
+                      validation: (Rule) => Rule.required()
                   }),
                   defineField({
                       name: 'gradientColors',

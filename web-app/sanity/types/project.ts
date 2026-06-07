@@ -9,6 +9,7 @@ import { SpanningText } from "./components/SpanningText";
 import { Image } from "./image";
 import { Specifications } from "@/sanity/types/components/Specifications";
 import { Pm } from "@/sanity/types/components/PmSection";
+import { SinceLaunchSection } from "@/sanity/types/components/SinceLaunchSection";
 
 export interface BannerImage {
   _key: string;
@@ -27,7 +28,8 @@ export type ProjectSection =
   | BannerImage
   | ProjectsShowcase
   | Specifications
-  | Pm;
+  | Pm
+  | SinceLaunchSection;
 
 export interface BaseProject {
   _key: string;

@@ -5,17 +5,15 @@ import {useRef} from "react"
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import type { Image as SanityImage } from "@/sanity/types/image";
 
-type PmCard = {
-    pmImage: SanityImage | null;
-    pmName: string;
-    pmPeriodStart: string;
-    pmPeriodEnd?: string;
-};
-
 interface PmProps {
     title: string,
-    description: string,
-    pmCards: PmCard[],
+    body: string,
+    pmCards: {
+        pmImage: SanityImage;
+        pmName: string;
+        pmPeriodStart: string;
+        pmPeriodEnd?: string | null;
+    }[],
 }
 
 const toDate = (value: string): Date | null => {
@@ -30,7 +28,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-GB", {
     year: "numeric",
 });
 
-const formatPeriod = (start: string, end: string | undefined): string => {
+const formatPeriod = (start: string, end: string | undefined | null): string => {
     const startDate = toDate(start);
     const endDate = end ? toDate(end) : null;
 
@@ -46,7 +44,7 @@ const pmVariants = {
     visible: {opacity: 1, y: 0, transition: {staggerChildren: 0.1}},
 }
 
-const Pm = ({title, description, pmCards}: PmProps) => {
+const Pm = ({title, body, pmCards}: PmProps) => {
     const sectionRef = useRef(null);
     const pmCardRef = useRef(null);
 
@@ -78,7 +76,7 @@ const Pm = ({title, description, pmCards}: PmProps) => {
                     animate={inView ? "visible" : "hidden"}
                     transition={{duration: 0.5, delay: 0.1}}
                 >
-                    {description}
+                    {body}
                 </motion.div>
             </div>
             <motion.div
