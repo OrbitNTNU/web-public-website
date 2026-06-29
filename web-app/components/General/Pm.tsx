@@ -4,16 +4,18 @@ import {motion, useInView } from "framer-motion"
 import {useRef} from "react"
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import type { Image as SanityImage } from "@/sanity/types/image";
+import { PortableText } from "@portabletext/react";
 
 interface PmProps {
     title: string,
-    body: string,
+    body: any,
     pmCards: {
         pmImage: SanityImage;
         pmName: string;
         pmPeriodStart: string;
         pmPeriodEnd?: string | null;
     }[],
+    combined?: boolean;
 }
 
 const toDate = (value: string): Date | null => {
@@ -44,7 +46,7 @@ const pmVariants = {
     visible: {opacity: 1, y: 0, transition: {staggerChildren: 0.1}},
 }
 
-const Pm = ({title, body, pmCards}: PmProps) => {
+const Pm = ({title, body, pmCards, combined = false}: PmProps) => {
     const sectionRef = useRef(null);
     const pmCardRef = useRef(null);
 
@@ -54,7 +56,9 @@ const Pm = ({title, body, pmCards}: PmProps) => {
     return (
       <section
         ref={sectionRef}
-        className="w-full max-w-7xl mx-auto px-4 md:px-12"
+        className={`w-full h-full flex items-center px-8 md:px-20 lg:px-32 xl:px-40 ${
+            combined ? "py-4 lg:py-2" : "py-16"
+        }`}
       >
         <motion.div
             className="flex flex-col lg:flex-row justify-center items-center gap-10"
@@ -63,7 +67,7 @@ const Pm = ({title, body, pmCards}: PmProps) => {
         >
             <div className="flex-[2px] h-auto w-full">
                 <motion.h2
-                    className="tracking-tight mb-6 text-2xl md:text-3xl font-semibold"
+                    className="text-4xl md:text-5xl lg:text-6xl font-light text-strong mb-[16px] lg:mb-6"
                     initial={{opacity: 0, y: -10}}
                     animate={inView ? {opacity: 1, y: 0} : {opacity: 0, y: -10}}
                     transition={{duration: 0.5}}
@@ -71,14 +75,15 @@ const Pm = ({title, body, pmCards}: PmProps) => {
                     {title.toUpperCase()}
                 </motion.h2>
                 <motion.div
-                    className=""
+                    className="text-charcoal-light leading-relaxed max-w-lg text-sm md:text-base"
                     initial={{opacity: 0, y: -10}}
                     animate={inView ? "visible" : "hidden"}
                     transition={{duration: 0.5, delay: 0.1}}
                 >
-                    {body}
+                    <PortableText value={body} />
                 </motion.div>
             </div>
+
             <motion.div
                 ref={pmCardRef}
                 className="flex-[1px] h-auto w-full flex flex-col gap-6"
@@ -95,6 +100,11 @@ const Pm = ({title, body, pmCards}: PmProps) => {
                         fit: "crop",
                     });
 
+                    let current = false;
+                    if (typeof(pmPeriodEnd) === "undefined") {
+                        current = true;
+                    }
+
                     return (
                         <motion.div
                             key={i}
@@ -106,9 +116,14 @@ const Pm = ({title, body, pmCards}: PmProps) => {
                                 <Image
                                     src={pmImageSrc}
                                     alt={`${pmName}'s image`}
-                                    width={150}
-                                    height={150}
-                                    className="object-cover w-full h-full"
+                                    fill
+                                    sizes={
+                                        current
+                                            ? "(min-width: 64rem) 420px, 45vw"
+                                            : "(min-width: 64rem) 200px, 22vw"
+                                    }
+                                    loading="lazy"
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 />
                             ) : null}
                             <span aria-label="PM name">

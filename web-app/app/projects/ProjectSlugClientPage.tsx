@@ -13,25 +13,22 @@ import LargeQuote from "@/components/General/LargeQuote";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
 import Specifications from "@/components/General/Specifications";
 import Pm from "@/components/General/Pm";
-import PlantDots from "@/components/General/PlantDots";
+import TSL from "@/components/General/TSL";
+import BioSatClientPage from "@/components/Project/BioSat/BioSatClientPage";
 
 interface ProjectClientPageProps {
     project: BigProject | SubOrbitalProject;
 }
 
-export default function ProjectClientPage({
-                                              project,
-                                          }: ProjectClientPageProps) {
+export default function ProjectClientPage({ project }: ProjectClientPageProps) {
     const { setInfo } = useNavbar();
 
     useEffect(() => {
         if (!project) return;
-
         setInfo({
             baseHref: "/projects",
             detailedLocation: project.title,
         });
-
         return () => {
             setInfo({});
         };
@@ -40,6 +37,11 @@ export default function ProjectClientPage({
     if (!project) return <Loading />;
 
     const isBiosat = project.slug?.current === "biosat";
+
+    // BioSat gets its own snap-scroll layout fed directly from Sanity sections
+    if (isBiosat && project._type === "bigProject") {
+        return <BioSatClientPage project={project as BigProject} />;
+    }
 
     return (
         <div className="relative w-full">
@@ -66,20 +68,8 @@ export default function ProjectClientPage({
                     />
                 ) : null
             )}
-            {isBiosat && (
-                <div
-                    className="relative w-full pointer-events-none"
-                    style={{
-                        top: "95vh",
-
-                    }}
-                >
-                    <PlantDots speed={0.15} />
-                </div>
-            )}
 
             <div className="relative z-10 pt-[110vh] flex flex-col gap-20 md:gap-40">
-
                 {project.sections?.map((section) => {
                     if (section._type === "bannerImage") return null;
 
@@ -208,8 +198,17 @@ export default function ProjectClientPage({
                                 <Pm
                                     key={section._key}
                                     title={section.title}
-                                    description={section.description}
+                                    body={section.body}
                                     pmCards={section.pmCards ?? []}
+                                    combined
+                                />
+                            );
+
+                        case "tlsSection":
+                            return (
+                                <TSL
+                                    key={section._key}
+                                    lastLaunchDate={section.lastLaunchDate}
                                 />
                             );
 
@@ -228,7 +227,6 @@ export default function ProjectClientPage({
                             return null;
                     }
                 })}
-
             </div>
         </div>
     );
