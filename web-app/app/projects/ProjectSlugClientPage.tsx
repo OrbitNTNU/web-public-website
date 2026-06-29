@@ -12,8 +12,8 @@ import DoubleImages from "@/components/General/DoubleImages";
 import LargeQuote from "@/components/General/LargeQuote";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
 import Specifications from "@/components/General/Specifications";
-import Pm from "@/components/General/Pm";
-import TSL from "@/components/General/TSL";
+import ProjectManagers from "@/components/General/ProjectManagers";
+import SinceLaunch from "@/components/General/SinceLaunch";
 import BioSatClientPage from "@/components/Project/BioSat/BioSatClientPage";
 
 interface ProjectClientPageProps {
@@ -195,7 +195,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
 
                         case "pmSection":
                             return (
-                                <Pm
+                                <ProjectManagers
                                     key={section._key}
                                     title={section.title}
                                     body={section.body}
@@ -206,7 +206,7 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
 
                         case "tlsSection":
                             return (
-                                <TSL
+                                <SinceLaunch
                                     key={section._key}
                                     lastLaunchDate={section.lastLaunchDate}
                                 />

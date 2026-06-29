@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { motion, useInView } from "framer-motion";
-import {useEffect, useRef, useState} from "react";
+import { memo, useEffect, useRef, useState } from "react";
+import { SinceLaunchSection } from "@/sanity/types/components/SinceLaunchSection";
 
-interface LaunchProps {
-    lastLaunchDate: string,
+interface Props {
+    data: SinceLaunchSection;
 }
 
-type DateParts = {
+type Parts = {
     days: number;
     hours: number;
     minutes: number;
     seconds: number;
-}
+};
 
-const dateDifference = (from: Date, to: Date) => {
+const diff = (from: Date, to: Date): Parts => {
     const ms = Math.max(0, to.getTime() - from.getTime());
     const totalSeconds = Math.floor(ms / 1000);
     return {
@@ -22,13 +22,20 @@ const dateDifference = (from: Date, to: Date) => {
         hours: Math.floor((totalSeconds % 86400) / 3600),
         minutes: Math.floor((totalSeconds % 3600) / 60),
         seconds: totalSeconds % 60,
-    }
-}
+    };
+};
 
-const TSL =  ({ lastLaunchDate }: LaunchProps) => {
+/**
+ * SinceLaunch — data-driven from Sanity `tslSection`.
+ * `lastLaunchDate` is a date string from Sanity (ISO format).
+ *
+ * The interval only runs while the section is intersecting the viewport —
+ * wasted ticks on other snap pages cost nothing.
+ */
+function SinceLaunchInner({ data }: Props) {
     const rootRef = useRef<HTMLDivElement | null>(null);
     const [mounted, setMounted] = useState(false);
-    const [dateParts, setParts] = useState<DateParts>({
+    const [parts, setParts] = useState<Parts>({
         days: 0,
         hours: 0,
         minutes: 0,
@@ -36,8 +43,9 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
     });
 
     useEffect(() => {
+        const launchDate = new Date(data.lastLaunchDate);
         setMounted(true);
-        setParts(dateDifference(new Date(lastLaunchDate), new Date()));
+        setParts(diff(launchDate, new Date()));
 
         const el = rootRef.current;
         let intervalId: number | null = null;
@@ -45,7 +53,7 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
         const start = () => {
             if (intervalId != null) return;
             intervalId = window.setInterval(() => {
-                setParts(dateDifference(new Date(lastLaunchDate), new Date()));
+                setParts(diff(launchDate, new Date()));
             }, 1000);
         };
         const stop = () => {
@@ -61,7 +69,7 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
                 (entries) => {
                     const entry = entries[0];
                     if (entry.isIntersecting) {
-                        setParts(dateDifference(new Date(lastLaunchDate), new Date()));
+                        setParts(diff(launchDate, new Date()));
                         start();
                     } else {
                         stop();
@@ -78,13 +86,10 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
             stop();
             observer?.disconnect();
         };
-    }, []);
+    }, [data.lastLaunchDate]);
 
     const hidden = !mounted;
 
-    // Each unit carries its own max-digit estimate so we can reserve
-    // width up front. Width is locked in ch-units so a digit switch
-    // (9→10, 99→100) never reshuffles its neighbours.
     const units: Array<{
         label: string;
         value: number;
@@ -94,28 +99,28 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
     }> = [
         {
             label: "DAYS",
-            value: dateParts.days,
+            value: parts.days,
             pad: 1,
             desktopMinWidth: "4.2ch",
             mobileMinWidth: "4.4ch",
         },
         {
             label: "HOURS",
-            value: dateParts.hours,
+            value: parts.hours,
             pad: 2,
             desktopMinWidth: "2.4ch",
             mobileMinWidth: "2.4ch",
         },
         {
             label: "MINUTES",
-            value: dateParts.minutes,
+            value: parts.minutes,
             pad: 2,
             desktopMinWidth: "2.4ch",
             mobileMinWidth: "2.4ch",
         },
         {
             label: "SECONDS",
-            value: dateParts.seconds,
+            value: parts.seconds,
             pad: 2,
             desktopMinWidth: "2.4ch",
             mobileMinWidth: "2.4ch",
@@ -128,11 +133,7 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
             className="w-full h-full flex items-center justify-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-20 lg:py-28"
         >
             <div className="w-full max-w-7xl mx-auto text-center flex flex-col items-center justify-center gap-14 md:gap-20 lg:gap-24">
-                {/* Desktop — single inline row, one horizontal line.
-                    Each "VALUE LABEL" pair sits side-by-side with a
-                    fixed ch-width on the value so ticks don't shove
-                    the labels around. Matches the wireframe's
-                    '1365 DAYS 15 HOURS 34 MINUTES 36 SECONDS' read. */}
+                {/* Desktop — single inline row */}
                 <div
                     className={`hidden md:flex items-baseline justify-center flex-wrap gap-x-6 lg:gap-x-10 xl:gap-x-12 gap-y-4 text-strong transition-opacity ${
                         hidden ? "opacity-0" : "opacity-100"
@@ -159,8 +160,7 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
                     ))}
                 </div>
 
-                {/* Mobile — stacked rows, big number on left, label on
-                    right; matches the wireframe's vertical list. */}
+                {/* Mobile — stacked rows */}
                 <div className="md:hidden w-full flex flex-col gap-7 text-strong">
                     {units.map(({ label, value, pad, mobileMinWidth }) => (
                         <div
@@ -188,6 +188,9 @@ const TSL =  ({ lastLaunchDate }: LaunchProps) => {
             </div>
         </div>
     );
-};
+}
 
-export default TSL;
+const SinceLaunch = memo(SinceLaunchInner);
+SinceLaunch.displayName = "SinceLaunch";
+
+export default SinceLaunch;
