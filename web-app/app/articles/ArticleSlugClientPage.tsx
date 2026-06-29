@@ -175,7 +175,6 @@ const ArticleSlugClientPage = ({ article }: ArticleSlugClientPageProps) => {
                   alt={section.alt}
                   title={section.title}
                   caption={section.caption}
-                  wideCaption={section.wideCaption}
                   variant={section.variant}
                 />
               );

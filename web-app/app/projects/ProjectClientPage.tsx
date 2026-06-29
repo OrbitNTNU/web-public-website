@@ -1,18 +1,16 @@
 "use client";
 
 import { Loading } from "@/components/General/Layout/Loading";
-import { BigProject, ProjectSection, SubOrbitalProject } from "@/sanity/types/project";
+import { ProjectSection } from "@/sanity/types/project";
 import Projects from "@/components/General/Projects";
 import SubOrbital from "@/components/General/SubOrbital";
 import DoubleImages from "@/components/General/DoubleImages";
 import Header from "@/components/General/Header";
-import InstagramEmbed from "@/components/General/InstragramGrid/InstagramEmbed";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import SpanningText from "@/components/General/SpanningText";
 import LargeImage from "@/components/General/LargeImage";
 import LargeQuote from "@/components/General/LargeQuote";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
-import Specifications from "@/components/General/Specifications";
 
 interface ProjectsOverviewClientProps {
   sections: ProjectSection[];
@@ -113,7 +111,6 @@ export default function ProjectsOverviewClient({
                 alt={section.alt}
                 title={section.title}
                 caption={section.caption}
-                wideCaption={section.wideCaption}
                 variant={section.variant}
               />
             );

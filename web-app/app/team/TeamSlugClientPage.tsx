@@ -54,7 +54,7 @@ export default function TeamSlugClientPage({
             </span>
             <span>Go back to team</span>
           </Link>
-          <div className="flex flex-col gap-4 md:flex-row mt-20 md:mt-40">
+          <div className="flex flex-col items-center justify-center md:text-center gap-4 mt-20 md:mt-40">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ export default function TeamSlugClientPage({
           switch (section._type) {
             case "membersSection":
               return (
-                <div className="w-full px-4 md:px-12" key={section._key}>
+                <div className="w-full flex flex-col px-4 md:px-12" key={section._key}>
                   <motion.h3
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -88,7 +88,7 @@ export default function TeamSlugClientPage({
                     }}
                     className="mb-8 tracking-wider"
                   >
-                    The {team.teamName} Team
+                    Meet the team
                   </motion.h3>
                   <motion.div
                     className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8"

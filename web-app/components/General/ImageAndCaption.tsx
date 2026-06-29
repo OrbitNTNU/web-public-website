@@ -9,21 +9,32 @@ interface ImageAndCaptionProps {
   alt?: string;
   title?: string;
   caption?: string;
-  wideCaption?: boolean;
   link?: string;
   variant?: "standard" | "large-left" | "large-right";
 }
 
 const variantStyles = {
-  standard: "flex-col md:flex-row gap-8 items-start",
-  "large-left": "flex-col md:flex-row gap-12 items-start",
-  "large-right": "flex-col md:flex-row-reverse gap-12 items-start",
+  standard: "flex-col md:flex-row items-start",
+  "large-left": "flex-col md:flex-row items-start",
+  "large-right": "flex-col md:flex-row-reverse items-start",
 };
 
 const imageWidthClass = {
+  standard: "w-full md:w-1/2 md:pr-8 md:pb-0 lg:pr-12",
+  "large-left": "w-full md:w-2/3 md:pr-8 md:pb-0 lg:pr-12",
+  "large-right": "w-full md:w-2/3 pb-4 md:pl-8 md:pb-0 lg:pl-12",
+};
+
+const captionWidthClass = {
   standard: "w-full md:w-1/2",
-  "large-left": "w-full md:w-2/3",
-  "large-right": "w-full md:w-2/3",
+  "large-left": "w-full md:w-1/3",
+  "large-right": "w-full md:w-1/3",
+};
+
+const aspectClass = {
+  standard: "aspect-[4/3]",
+  "large-left": "aspect-[3/2]",
+  "large-right": "aspect-[3/2]",
 };
 
 const ImageAndCaption = ({
@@ -31,7 +42,6 @@ const ImageAndCaption = ({
   alt,
   title,
   caption,
-  wideCaption = false,
   link,
   variant = "standard",
 }: ImageAndCaptionProps) => {
@@ -42,72 +52,66 @@ const ImageAndCaption = ({
     offset: ["start end", "end start"],
   });
 
-  // Create a strong parallax transform (move image slower than scroll)
   const y = useTransform(scrollYProgress, [0, 1.0], [-50, 50]);
 
   return (
-      <section
-          ref={ref}
-          className="w-full mx-auto px-4 md:px-12 max-w-7xl overflow-hidden"
+    <section
+      ref={ref}
+      className="w-full mx-auto px-4 md:px-12 max-w-7xl overflow-hidden"
+    >
+      <motion.div
+        className={`flex ${variantStyles[variant]}`}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <motion.div
-            className={`flex ${variantStyles[variant]}`}
-            initial={{ opacity: 0, y: 30 }}
+        {/* Image */}
+        {src && alt && (
+          <div className={`relative overflow-hidden shrink-0 ${imageWidthClass[variant]}`}>
+            <div className={`relative w-full ${aspectClass[variant]}`}>
+              {link ? (
+                <Link href={link} rel="noopener noreferrer">
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    className="object-cover shadow-lg transition-transform duration-300 hover:scale-105"
+                  />
+                </Link>
+              ) : (
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  className="object-cover shadow-lg"
+                />
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Text */}
+        {(title || caption) && (
+          <motion.div
+            className={`flex flex-col justify-center shrink-0 ${captionWidthClass[variant]}`}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          {/* Image */}
-          {src && alt && (
-              <motion.div
-                  className={`relative overflow-hidden ${imageWidthClass[variant]}`}
-                  transition={{ type: "spring", stiffness: 50, damping: 20 }}
-              >
-                <motion.div style={{ y }} className="relative w-full aspect-[4/3]">
-                  {link ? (
-                      <Link href={link} rel="noopener noreferrer">
-                        <Image
-                            src={src}
-                            alt={alt}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 66vw"
-                            className="object-cover shadow-lg transition-transform duration-300 hover:scale-105"
-                        />
-                      </Link>
-                  ) : (
-                      <Image
-                          src={src}
-                          alt={alt}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 66vw"
-                          className="object-cover shadow-lg"
-                      />
-                  )}
-                </motion.div>
-              </motion.div>
-          )}
-
-          {/* Text */}
-          {(title || caption) && (
-              <motion.div
-                  className={`flex flex-col justify-start ${
-                      wideCaption ? "flex-1" : ""
-                  }`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-              >
-                {title && <h3 className="tracking-wider mb-4">{title}</h3>}
-                {caption && (
-                    <p className="text-charcoal-light leading-relaxed whitespace-pre-wrap">
-                      {caption}
-                    </p>
-                )}
-              </motion.div>
-          )}
-        </motion.div>
-      </section>
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+          >
+            {title && <h3 className="tracking-wider mb-4">{title}</h3>}
+            {caption && (
+              <p className="text-charcoal-light leading-relaxed whitespace-pre-wrap">
+                {caption}
+              </p>
+            )}
+          </motion.div>
+        )}
+      </motion.div>
+    </section>
   );
 };
 
