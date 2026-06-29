@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback, useEffect, useRef } from "react";
+import {memo, useCallback, useEffect, useRef} from "react";
 
 /**
  * Inline version of the PlantDots canvas — generates a succulent-like
@@ -198,11 +198,9 @@ function RotatingPlantInner({
 
     useEffect(() => {
         const root = document.documentElement;
-        const resolved =
-            getComputedStyle(root)
-                .getPropertyValue("--color-biosat-green")
-                .trim() || color;
-        colorRef.current = resolved;
+        colorRef.current = getComputedStyle(root)
+            .getPropertyValue("--color-biosat-green")
+            .trim() || color;
 
         resize();
         window.addEventListener("resize", resize);
