@@ -2,7 +2,7 @@ import {defineType, defineField} from 'sanity'
 import GradientSelector from "../../components/GradientSelector";
 export default defineType({
     name: 'hlsSection',
-    title: 'High Level Spesifications Section',
+    title: 'High Level Specifications Section',
     type: "object",
     fields: [
         defineField({

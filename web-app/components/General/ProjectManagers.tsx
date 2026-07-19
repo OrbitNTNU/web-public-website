@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { PortableText } from "next-sanity";
 import { memo } from "react";
 import { Pm } from "@/sanity/types/components/PmSection";
 import { imageBuilder } from "@/sanity/utils/imageBuilder";
@@ -48,15 +49,9 @@ function ProjectManagersInner({ data, combined = false }: Props) {
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-strong mb-[16px] lg:mb-6">
                         {data.title}
                     </h2>
-                    {data.body && (
-                        <p className="text-charcoal-light leading-relaxed max-w-lg text-sm md:text-base">
-                            {typeof data.body === "string"
-                                ? data.body
-                                : Array.isArray(data.body as unknown[]) && (data.body as unknown[]).length > 0
-                                ? ((data.body as unknown[])[0] as any)?.children?.[0]?.text ?? ""
-                                : ""}
-                        </p>
-                    )}
+                    <div className="text-charcoal-light leading-relaxed max-w-lg text-sm md:text-base">
+                        <PortableText value={data.body} />
+                    </div>
                 </div>
 
                 {/* Desktop card row */}

@@ -250,8 +250,6 @@ html.biosat-snap footer {
 .biosat-fade.biosat-in {
   opacity: 1;
   transform: translateY(0);
-}
-.biosat-fade.biosat-in {
   will-change: auto;
 }
 

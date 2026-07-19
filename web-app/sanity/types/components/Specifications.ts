@@ -6,8 +6,6 @@ export interface Specifications {
     title: string;
     specifications: {
         label: string;
-        value: string;
     }[],
-    // Trenger ikke egt testinfo
     testInfo?: string;
 }
