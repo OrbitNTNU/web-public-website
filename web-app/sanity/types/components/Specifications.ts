@@ -6,7 +6,6 @@ export interface Specifications {
     title: string;
     specifications: {
         label: string;
-        value: string;
     }[],
     testInfo?: string;
 }

@@ -66,7 +66,13 @@ export default defineType({
           type: 'reference',
           title: 'Specification Section (Reference)',
           to: [{ type: 'specificationSection' }]
-        }
+        },
+        {type: 'herosProjectSection'},
+        {type: 'pmSection'},
+        {type: 'hlsSection'},
+        {type: 'otSection'},
+        {type: 'timelineSection'},
+        {type: 'tslSection'},
       ],
     }),
   ],

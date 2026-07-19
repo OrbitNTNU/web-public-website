@@ -1,5 +1,5 @@
 /* Imports */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Merriweather:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap&family=Merriweather:wght@400;700&display=swap');
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import "tailwindcss";
 
@@ -194,6 +194,90 @@
     animation-delay: 0.8s;
     animation: fadeIn 0.5s forwards;
   }
+}
+
+/* BioSat test page — perf utilities
+ *
+ * Scroll model:
+ *   - When `html.biosat-snap` is active, the document itself is the
+ *     scroll container with `scroll-snap-type: y mandatory`.
+ *   - Every `biosat-section` is a 100vh snap-start anchor.
+ *   - The site footer gets `scroll-snap-align: end` so scrolling down
+ *     past the last section lands with the footer pinned to the
+ *     viewport bottom; scrolling back up re-engages section snap.
+ *   - `content-visibility: auto` is kept so off-screen sections don't
+ *     pay layout/paint cost. `contain-intrinsic-size` reserves the
+ *     100vh of layout so snap heights never collapse.
+ */
+
+html.biosat-snap {
+  scroll-snap-type: y mandatory;
+  /* scroll-behavior: smooth intentionally removed — it adds artificial
+     animation overhead on top of the browser's native snap mechanism,
+     making each section transition feel sluggish. The browser's built-in
+     snap scrolling is already smooth and GPU-accelerated. */
+  overscroll-behavior-y: none; /* prevents pull-to-refresh fighting the snap */
+}
+html.biosat-snap body {
+  overflow-x: clip;
+}
+html.biosat-snap footer {
+  scroll-snap-align: end;
+}
+
+.biosat-section {
+  content-visibility: auto;
+  /* width first, height second — corrected from previous 100vh 100vw swap */
+  contain-intrinsic-size: 100vw 100vh;
+  scroll-snap-align: start;
+  /* scroll-snap-stop: always intentionally removed — it forces the browser
+     to stop at every single section even during a fast scroll, meaning the
+     user must visit each section in sequence. Removing it lets the browser's
+     snap heuristics skip sections when the user scrolls quickly. */
+}
+
+/* Section-level reveal driven by a single IntersectionObserver
+ * on the page. We animate the wrapper itself (one transition per
+ * section) rather than every child, which is far cheaper. */
+.biosat-fade {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 280ms ease-out,
+    transform 280ms ease-out;
+  will-change: opacity, transform;
+}
+.biosat-fade.biosat-in {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* biosat-swap: keyed fade-in for copy that changes on click
+ * (e.g. title / subtitle / year in the TimelineCarousel).
+ * Changing React key replays the animation. */
+@keyframes biosat-swap-in {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.biosat-swap {
+  animation: biosat-swap-in 300ms ease-out;
+}
+
+/* TimelineCarousel: during pointer-drag we want horizontal pan to be
+ * captured by the component, not by the browser. `touch-action: pan-y`
+ * preserves vertical scroll-snap navigation while blocking the browser
+ * from consuming horizontal drags. */
+.biosat-carousel {
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* TESTING */

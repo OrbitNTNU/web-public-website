@@ -7,7 +7,13 @@ import { ProjectsShowcase } from "./components/ProjectsShowcase";
 import { SingleImageCollage } from "./components/SingleImageCollage";
 import { SpanningText } from "./components/SpanningText";
 import { Image } from "./image";
-import {Specifications} from "@/sanity/types/components/Specifications";
+import { Specifications } from "@/sanity/types/components/Specifications";
+import { Pm } from "@/sanity/types/components/PmSection";
+import { SinceLaunchSection } from "@/sanity/types/components/SinceLaunchSection";
+import { HerosProjectSection } from "@/sanity/types/components/HerosProjectSection";
+import { OtSection } from "@/sanity/types/components/OtSection";
+import { HlsSection } from "@/sanity/types/components/HlsSection";
+import { TimelineSection } from "@/sanity/types/components/TimelineSection";
 
 export interface BannerImage {
   _key: string;
@@ -25,7 +31,13 @@ export type ProjectSection =
   | ImageAndCaption
   | BannerImage
   | ProjectsShowcase
-  | Specifications;
+  | Specifications
+  | Pm
+  | SinceLaunchSection
+  | HerosProjectSection
+  | OtSection
+  | HlsSection
+  | TimelineSection;
 
 export interface BaseProject {
   _key: string;
@@ -39,7 +51,6 @@ export interface BaseProject {
   sections?: ProjectSection[];
 }
 
-//Herja her ja
 export interface BigProject extends BaseProject {
   _type: "bigProject";
   teaser: string;
