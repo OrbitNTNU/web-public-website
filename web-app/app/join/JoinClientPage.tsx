@@ -5,6 +5,7 @@ import Header from "@/components/General/Header";
 import JoinCard from "../../components/JoinPage/JoinCard";
 import GroupSelector from "@/components/JoinPage/GroupSelector";
 import { useRef, useState } from "react";
+import RecruitmentSection from "@/components/JoinPage/RecruitmentSection";
 
 interface JoinClientPageProps {
   joinPage: JoinPage;
@@ -70,6 +71,7 @@ const JoinClientPage = ({
         title="Join Us and Make a Difference"
         subtitle="We're always looking for passionate people - apply for a listed role or reach out if your interests fit Orbit NTNU in another way."
       />
+      <RecruitmentSection/>
       {allGroups.length > 0 && (
         <GroupSelector
           groups={allGroups}
