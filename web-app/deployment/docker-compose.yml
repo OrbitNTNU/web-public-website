@@ -7,7 +7,6 @@ services:
       args:
         NEXT_PUBLIC_SANITY_PROJECT_ID: ${NEXT_PUBLIC_SANITY_PROJECT_ID}
         NEXT_PUBLIC_SANITY_DATASET: ${NEXT_PUBLIC_SANITY_DATASET}
-        SANITY_API_TOKEN: ${SANITY_API_TOKEN}
     ports:
       - "3034:3034"
     env_file:
