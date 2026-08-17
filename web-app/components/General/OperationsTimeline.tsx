@@ -2,10 +2,11 @@
 
 import { memo } from "react";
 import RotatingPlant from "./RotatingPlant";
-import { OtSection } from "@/sanity/types/components/OtSection";
+import {OtData} from "@/components/General/BiosatMock";
+
 
 interface Props {
-    data: OtSection;
+    data: OtData;
 }
 
 // These structural phases describe BioSat's mission. They are intentionally
@@ -31,7 +32,7 @@ const phases = [
 ];
 
 /**
- * Operations timeline — badge label comes from Sanity `otSection.heading`.
+ * Operations timeline — badge label comes from mock `otData.heading`.
  * The phase list is structural content kept in source.
  */
 function OperationsTimelineInner({ data }: Props) {

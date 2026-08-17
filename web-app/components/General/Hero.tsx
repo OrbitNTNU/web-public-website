@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import { memo } from "react";
-import { HerosProjectSection } from "@/sanity/types/components/HerosProjectSection";
-import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import {HeroData} from "@/components/General/BiosatMock";
+
 
 interface Props {
-    data: HerosProjectSection;
+    data: HeroData;
 }
 
 /**
- * BioSat split hero — content driven from Sanity `herosProjectSection`.
+ * BioSat split hero.
  *
  *  - lg+: 2-column grid. Text on the left, desktop image on the right
  *         with a charcoal → transparent gradient cutaway from the left.
@@ -18,16 +18,8 @@ interface Props {
  *              with a charcoal → transparent gradient cutaway from the top.
  */
 function BioSatHeroInner({ data }: Props) {
-    const desktopSrc = imageBuilder(data.projectImageDesktop, {
-        width: 1600,
-        quality: 80,
-        format: "webp",
-    });
-    const mobileSrc = imageBuilder(data.projectImageMobile, {
-        width: 1000,
-        quality: 80,
-        format: "webp",
-    });
+    const desktopSrc = data.projectImageDesktop;
+    const mobileSrc = data.projectImageMobile;
 
     return (
         <div className="relative w-full h-full overflow-hidden bg-charcoal">

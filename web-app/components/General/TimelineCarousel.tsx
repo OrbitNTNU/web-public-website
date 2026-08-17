@@ -10,11 +10,11 @@ import {
     useState,
     type PointerEvent as ReactPointerEvent,
 } from "react";
-import { TimelineSection } from "@/sanity/types/components/TimelineSection";
-import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import {TimelineData} from "@/components/General/BiosatMock";
+
 
 interface Props {
-    data: TimelineSection;
+    data: TimelineData;
 }
 
 // Cards further than this from the focused index are not mounted.
@@ -65,8 +65,8 @@ const styleForOffset = (offset: number): CardStyle => {
 };
 
 /**
- * TimelineCarousel — data-driven from Sanity `timelineSection`.
- * Each card uses `imageTitle` as the title and `image` from Sanity.
+ * TimelineCarousel — data-driven from mock `timelineData`.
+ * Each card uses `imageTitle` as the title and `image` (URL string).
  */
 function TimelineCarouselInner({ data }: Props) {
     const items = data.timelineCollection ?? [];
@@ -286,12 +286,7 @@ function TimelineCarouselInner({ data }: Props) {
                         if (Math.abs(offset) > VISIBLE_OFFSET) return null;
                         const isFocused = offset === 0;
 
-                        const imgSrc = imageBuilder(item.image, {
-                            width: 720,
-                            quality: 80,
-                            format: "webp",
-                            fit: "crop",
-                        });
+                        const imgSrc = item.image;
 
                         return (
                             <button

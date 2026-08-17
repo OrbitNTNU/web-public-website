@@ -1,10 +1,11 @@
 "use client";
 
 import { memo, useEffect, useRef, useState } from "react";
-import { SinceLaunchSection } from "@/sanity/types/components/SinceLaunchSection";
+import {SinceLaunchData} from "@/components/General/BiosatMock";
+
 
 interface Props {
-    data: SinceLaunchSection;
+    data: SinceLaunchData;
 }
 
 type Parts = {
@@ -26,8 +27,8 @@ const diff = (from: Date, to: Date): Parts => {
 };
 
 /**
- * SinceLaunch — data-driven from Sanity `tslSection`.
- * `lastLaunchDate` is a date string from Sanity (ISO format).
+ * SinceLaunch — data-driven from mock `sinceLaunchData`.
+ * `lastLaunchDate` is an ISO date string.
  *
  * The interval only runs while the section is intersecting the viewport —
  * wasted ticks on other snap pages cost nothing.

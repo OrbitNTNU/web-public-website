@@ -1,10 +1,11 @@
 "use client";
 
 import { memo } from "react";
-import { HlsSection } from "@/sanity/types/components/HlsSection";
+import {HlsData} from "@/components/General/BiosatMock";
+
 
 type Props = {
-    data: HlsSection;
+    data: HlsData;
     combined?: boolean;
 };
 

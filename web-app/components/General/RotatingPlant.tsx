@@ -1,10 +1,12 @@
 "use client";
 
-import {memo, useCallback, useEffect, useRef} from "react";
+import { memo, useCallback, useEffect, useRef } from "react";
 
 /**
  * Inline version of the PlantDots canvas — generates a succulent-like
  * point cloud and slowly rotates it. Fits any layout box.
+ *
+ * (Unchanged — this component never used Sanity.)
  *
  * Performance:
  *  - Point cloud is generated once at module load (module-scoped
@@ -96,10 +98,10 @@ type Props = {
 };
 
 function RotatingPlantInner({
-    speed = 0.35,
-    color = "#3fca3f",
-    className = "",
-}: Props) {
+                                speed = 0.35,
+                                color = "#3fca3f",
+                                className = "",
+                            }: Props) {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const rafRef = useRef<number | null>(null);
     const colorRef = useRef(color);

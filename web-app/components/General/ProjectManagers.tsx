@@ -1,13 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { PortableText } from "next-sanity";
 import { memo } from "react";
-import { Pm } from "@/sanity/types/components/PmSection";
-import { imageBuilder } from "@/sanity/utils/imageBuilder";
+import {PmData} from "@/components/General/BiosatMock";
+
 
 type Props = {
-    data: Pm;
+    data: PmData;
     combined?: boolean;
 };
 
@@ -49,8 +48,10 @@ function ProjectManagersInner({ data, combined = false }: Props) {
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-strong mb-[16px] lg:mb-6">
                         {data.title}
                     </h2>
-                    <div className="text-charcoal-light leading-relaxed max-w-lg text-sm md:text-base">
-                        <PortableText value={data.body} />
+                    <div className="text-charcoal-light leading-relaxed max-w-lg text-sm md:text-base flex flex-col gap-3">
+                        {data.body.map((paragraph, i) => (
+                            <p key={i}>{paragraph}</p>
+                        ))}
                     </div>
                 </div>
 
@@ -58,12 +59,7 @@ function ProjectManagersInner({ data, combined = false }: Props) {
                 <div className="hidden md:grid grid-cols-5 gap-4 lg:gap-6 items-end">
                     {cards.map((pm, i) => {
                         const isCurrent = !pm.pmPeriodEnd;
-                        const imgSrc = imageBuilder(pm.pmImage, {
-                            width: isCurrent ? 480 : 280,
-                            quality: 80,
-                            format: "webp",
-                            fit: "crop",
-                        });
+                        const imgSrc = pm.pmImage;
 
                         return (
                             <div
@@ -79,8 +75,8 @@ function ProjectManagersInner({ data, combined = false }: Props) {
                                                 ? "aspect-[3/4] max-h-[32vh] ring-1 ring-biosat-green/50"
                                                 : "aspect-[3/4] max-h-[44vh] ring-1 ring-biosat-green/50"
                                             : combined
-                                            ? "aspect-[3/4] max-h-[26vh]"
-                                            : "aspect-[3/4] max-h-[36vh]"
+                                                ? "aspect-[3/4] max-h-[26vh]"
+                                                : "aspect-[3/4] max-h-[36vh]"
                                     }`}
                                 >
                                     {imgSrc && (
@@ -123,12 +119,7 @@ function ProjectManagersInner({ data, combined = false }: Props) {
                     <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-8 no-scrollbar">
                         {cards.map((pm, i) => {
                             const isCurrent = !pm.pmPeriodEnd;
-                            const imgSrc = imageBuilder(pm.pmImage, {
-                                width: 320,
-                                quality: 80,
-                                format: "webp",
-                                fit: "crop",
-                            });
+                            const imgSrc = pm.pmImage;
 
                             return (
                                 <div
