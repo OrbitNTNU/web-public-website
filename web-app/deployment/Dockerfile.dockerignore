@@ -16,10 +16,10 @@ __tests__
 *.spec.*
 
 # next.js / nuxt / build outputs
-#.next
+.next
 .nuxt
-#dist
-#build
+dist
+build
 out
 
 # git
