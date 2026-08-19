@@ -104,7 +104,7 @@ const payload = {
 };
 
 const obc = {
-    title: "The brains",
+    title: "The On-Board computer",
     lead: "At the centre of BioSat sits the on-board computer — the core that talks to every other subsystem. It's a complex system designed end to end by Orbit NTNU, with a microcontroller doing the heavy processing that keeps the mission running.",
     figures: [
         {
