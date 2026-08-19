@@ -1,20 +1,26 @@
 [Unit]
 Description=Orbit NTNU public website
-After=network.target
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
 User=orbit
+Group=orbit
 WorkingDirectory=/home/orbit/services.web/websites/web-public-website/web-app/deployment
 
-Environment=PORT=3034
-Environment=NODE_VERSION=20
-
+ExecStartPre=-/usr/bin/docker compose pull --ignore-pull-failures
 ExecStart=/usr/bin/docker compose up -d --build
 ExecStop=/usr/bin/docker compose down
+ExecReload=/usr/bin/docker compose up -d --build
 
 TimeoutStartSec=0
+TimeoutStopSec=90
+
+NoNewPrivileges=true
+PrivateTmp=true
 
 [Install]
 WantedBy=multi-user.target
