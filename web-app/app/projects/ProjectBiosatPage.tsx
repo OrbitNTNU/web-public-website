@@ -170,14 +170,55 @@ const specs = [
     { label: "Team", value: "Orbit NTNU" },
 ];
 
-const timelineSub = "From concept to orbit.";
 const milestones = [
-    { key: "t1", title: "Concept & design", image: IMG.patch, caption: "2023" },
-    { key: "t2", title: "BioBox development", image: IMG.biobox, caption: "2024" },
-    { key: "t3", title: "FlatSat testing", image: IMG.small, caption: "2025" },
-    { key: "t4", title: "Environmental testing", image: IMG.render, caption: "2026" },
-    { key: "t5", title: "Integration", image: IMG.biobox, caption: "2027" },
-    { key: "t6", title: "Launch", image: IMG.render, caption: "Q4 2027" },
+    {
+        key: "t1",
+        title: "Concept & design",
+        caption: "2023",
+        note: "Two payloads · one 3U platform",
+        image: IMG.patch,
+        body: "The mission takes shape: a 3U CubeSat that grows a plant in orbit, with a software-defined radio as a second payload.",
+    },
+    {
+        key: "t2",
+        title: "BioBox development",
+        caption: "2024",
+        note: "Sealed chamber · sensors + camera",
+        image: IMG.biobox,
+        body: "The heart of the payload — a sealed aluminium chamber with its own electronics, camera and a hydroponic system to germinate the seeds.",
+    },
+    {
+        key: "t3",
+        title: "FlatSat testing",
+        caption: "2025",
+        note: "The full satellite, laid out flat",
+        image: IMG.small,
+        body: "Before anything is bolted into a frame, the satellite is laid out flat so every board and connection can be tested and debugged.",
+    },
+    {
+        key: "t4",
+        title: "Environmental testing",
+        caption: "2026",
+        note: "Seeds freeze-tested to −8 °C",
+        image: IMG.render,
+        body: "Seeds and hardware are pushed through the conditions of space — including freezing trials the seeds survive down to about −8 °C.",
+    },
+    {
+        key: "t5",
+        title: "Integration",
+        caption: "2027",
+        note: "3U frame + Tuna Can battery",
+        image: IMG.biobox,
+        body: "Every subsystem — power, radios, ADCS and the BioBox — comes together inside the 3U frame, the Tuna Can battery pack extending its length.",
+    },
+    {
+        key: "t6",
+        title: "Launch",
+        caption: "Q4 2027",
+        note: "Downlink to NTNU Gløshaugen",
+        image: IMG.render,
+        body: "BioSat reaches orbit, deploys its solar panels and makes first contact with the ground station at NTNU Gløshaugen.",
+    },
 ];
 
 // Targeted launch — within Q4 2027. Swap for the confirmed date/time.
@@ -743,7 +784,7 @@ const Specifications = memo(function Specifications() {
 Specifications.displayName = "Specifications";
 
 /* ═══ 05 · TIMELINE — arc deck (interaction preserved) ═══ */
-const VISIBLE_OFFSET = 3;
+const VISIBLE_OFFSET = 2;
 const DRAG_STEP = 140;
 const FLICK_VELOCITY = 0.5;
 const COMMIT_TRANSITION = "transform 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease-out";
@@ -753,11 +794,11 @@ const styleForOffset = (offset: number) => {
     const sign = offset === 0 ? 0 : offset / abs;
     const c = Math.min(abs, VISIBLE_OFFSET + 1);
     return {
-        x: sign * c * 224,
-        y: c * 34,
-        rotate: sign * c * 7,
-        scale: Math.max(0.52, 1 - c * 0.13),
-        opacity: c > VISIBLE_OFFSET ? 0 : Math.max(0, 1 - c * 0.2),
+        x: sign * c * 190,
+        y: c * 20,
+        rotate: sign * c * 6,
+        scale: Math.max(0.55, 1 - c * 0.13),
+        opacity: c > VISIBLE_OFFSET ? 0 : Math.max(0, 1 - c * 0.22),
         zIndex: 40 - Math.floor(c),
     };
 };
@@ -903,13 +944,12 @@ const Timeline = memo(function Timeline() {
         <div className={`relative w-full min-h-screen flex flex-col overflow-hidden ${PAD_X} pt-28 md:pt-32 pb-16 biosat-carousel`}>
             <GhostNumeral n="05" className="-left-6 bottom-6" />
 
-            <div className="relative z-20 text-center min-h-[112px] mt-6">
+            <div className="relative z-20 text-center min-h-[150px] md:min-h-[170px] mt-6">
                 <div key={`${focused}-${active.title}`} className="biosat-swap">
                     <h2 className="font-light text-cloud-white text-3xl md:text-5xl lg:text-6xl">{active.title}</h2>
-                    {active.caption && (
-                        <p className="mt-3 text-sm md:text-base font-light tracking-[0.3em] uppercase text-biosat-green">{active.caption}</p>
+                    {active.body && (
+                        <p className="mt-4 max-w-2xl mx-auto text-charcoal-light leading-relaxed">{active.body}</p>
                     )}
-                    {focused === 0 && <p className="mt-2 text-charcoal-light">{timelineSub}</p>}
                 </div>
             </div>
 
@@ -923,7 +963,7 @@ const Timeline = memo(function Timeline() {
                 onPointerUp={finishDrag}
                 onPointerCancel={onPointerCancel}
                 onClickCapture={onClickCapture}
-                className="relative z-10 flex-1 flex justify-center items-start min-h-[340px] sm:min-h-[380px] md:min-h-0 mt-8 cursor-grab active:cursor-grabbing focus:outline-none"
+                className="relative z-10 flex-1 flex justify-center items-start min-h-[300px] sm:min-h-[330px] md:min-h-[380px] mt-8 cursor-grab active:cursor-grabbing focus:outline-none"
             >
                 <div className="relative w-full h-full flex justify-center">
                     {items.map((item, idx) => {
@@ -941,11 +981,15 @@ const Timeline = memo(function Timeline() {
                                     setFocused(idx);
                                 }}
                                 aria-label={`Show ${item.title}`}
-                                className={`absolute top-0 left-1/2 w-[230px] h-[290px] sm:w-[270px] sm:h-[330px] md:w-[310px] md:h-[390px] lg:w-[350px] lg:h-[450px] overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-biosat-green will-change-transform ${
+                                className={`absolute top-0 left-1/2 w-[210px] h-[240px] sm:w-[240px] sm:h-[260px] md:w-[270px] md:h-[290px] lg:w-[300px] lg:h-[320px] overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-biosat-green will-change-transform ${
                                     isFocused ? "ring-2 ring-biosat-green" : "ring-1 ring-charcoal-light/15"
                                 }`}
                             >
-                                <div className="relative w-full h-full">
+                                <div
+                                    className="relative w-full h-full flex flex-col justify-between p-6 md:p-7"
+                                    style={{ backgroundColor: "var(--color-biosat-dark-green)" }}
+                                >
+                                    {/* Image commented out until there are enough assets — re-enable when ready:
                                     <Image
                                         src={item.image}
                                         alt={item.title}
@@ -957,7 +1001,19 @@ const Timeline = memo(function Timeline() {
                                             isFocused ? "" : "brightness-[0.55] grayscale-[0.3]"
                                         }`}
                                     />
-                                    {!isFocused && <div className="absolute inset-0 bg-charcoal/20" />}
+                                    */}
+                                    <span className="text-biosat-green font-light tabular-nums leading-none text-3xl md:text-4xl">
+                                        {item.caption}
+                                    </span>
+                                    <div>
+                                        <h3 className="text-cloud-white font-light leading-tight text-lg md:text-xl mb-2">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-biosat-light-green/80 text-xs md:text-sm leading-snug">
+                                            {item.note}
+                                        </p>
+                                    </div>
+                                    {!isFocused && <div className="absolute inset-0 bg-charcoal/30" />}
                                 </div>
                             </button>
                         );
