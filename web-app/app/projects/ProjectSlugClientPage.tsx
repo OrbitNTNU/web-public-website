@@ -5,7 +5,7 @@ import { imageBuilder } from "@/sanity/utils/imageBuilder";
 import BannerImage from "@/components/General/BannerImage";
 import { Loading } from "@/components/General/Layout/Loading";
 import { useNavbar } from "@/components/General/Layout/NavbarContext";
-import { useEffect } from "react";
+import { useEffect, type ComponentType } from "react";
 import LargeImage from "@/components/General/LargeImage";
 import SpanningText from "@/components/General/SpanningText";
 import DoubleImages from "@/components/General/DoubleImages";
@@ -13,11 +13,23 @@ import LargeQuote from "@/components/General/LargeQuote";
 import ImageAndCaption from "@/components/General/ImageAndCaption";
 import Specifications from "@/components/General/Specifications";
 import BioSatClientPage from "@/app/projects/ProjectBiosatPage";
+import FramSatOneClientPage from "@/app/projects/ProjectFramsatOnePage";
+
 
 
 interface ProjectClientPageProps {
   project: BigProject | SubOrbitalProject;
 }
+
+// Projects that have their own bespoke, full-page layout instead of the
+// generic section renderer below. Keyed by a normalized project title
+// (lower-cased, spaces replaced with hyphens) — no Sanity slug involved.
+const BESPOKE_PAGES: Record<string, ComponentType> = {
+  "biosat": BioSatClientPage,
+  "framsat-1": FramSatOneClientPage,
+  //"framsat-1.5": FramSat15ClientPage,
+  //"selfiesat": SelfieSatClientPage,
+};
 
 export default function ProjectClientPage({ project }: ProjectClientPageProps) {
   const { setInfo, resetInfo } = useNavbar();
@@ -32,11 +44,12 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
 
   if (!project) return <Loading />;
 
-  // BioSat has its own bespoke, full-page layout — render it directly
-  // instead of the generic section renderer below.
-  const isBiosat = project.slug?.current === "biosat";
-  if (isBiosat) {
-    return <BioSatClientPage />;
+  // Route to a bespoke page when one exists for this project, identified by
+  // its title rather than a Sanity slug.
+  const projectKey = project.title?.toLowerCase().trim().replace(/\s+/g, "-") ?? "";
+  const BespokePage = BESPOKE_PAGES[projectKey];
+  if (BespokePage) {
+    return <BespokePage />;
   }
 
   return (
@@ -63,7 +76,6 @@ export default function ProjectClientPage({ project }: ProjectClientPageProps) {
                               ? (project.gradientColors ?? [])
                               : []
                         }
-                        isBiosat={isBiosat}
                     />
                   </div>
               );
