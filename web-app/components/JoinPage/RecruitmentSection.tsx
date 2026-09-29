@@ -6,22 +6,15 @@ import { motion, type Variants } from "framer-motion";
 
 const DEADLINE = new Date("2026-08-24T23:59:00+02:00");
 
-const INFO_MEETINGS = [
-    {
-        title: "Orbit x Propulse",
-        date: "Aug 18",
-        time: "16:00",
-        location: "R7",
-        accent: "bg-sky-mint",
-    },
-    {
-        title: "Girls in Space",
-        date: "Aug 19",
-        time: "16:00",
-        location: "FRAM",
-        accent: "bg-laser-lemon",
-    },
-] as const;
+interface InfoMeeting {
+    title: string,      // e.g. "Girls in Space"
+    date: string,       // e.g. "Aug 19"
+    time: string,       // e.g. 16:00
+    location: string,   // e.g. "FRAM"
+    accent: string,     // e.g. "bg-laser-lemon"
+}
+
+const INFO_MEETINGS: InfoMeeting[] = [];
 
 type TimeLeft = {
     days: number;
@@ -157,6 +150,7 @@ export default function RecruitmentSection() {
             </motion.div>
 
             {/* Info meetings */}
+            {INFO_MEETINGS.length > 0 &&
             <div className="flex flex-col gap-10">
         <span className="text-lg tracking-[0.25em] text-charcoal-light">
           Info Meetings
@@ -192,6 +186,7 @@ export default function RecruitmentSection() {
                     ))}
                 </div>
             </div>
+            }
         </section>
     );
 }
