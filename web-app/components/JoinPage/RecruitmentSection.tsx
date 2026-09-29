@@ -152,9 +152,14 @@ export default function RecruitmentSection() {
             {/* Info meetings */}
             {INFO_MEETINGS.length > 0 &&
             <div className="flex flex-col gap-10">
-        <span className="text-lg tracking-[0.25em] text-charcoal-light">
-          Info Meetings
-        </span>
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={fallIn}
+                    className="text-lg tracking-[0.25em] text-charcoal-light"
+                >
+                    Info Meetings
+                </motion.div>
                 <div className="flex flex-col gap-8">
                     {INFO_MEETINGS.map((event, i) => (
                         <motion.div
