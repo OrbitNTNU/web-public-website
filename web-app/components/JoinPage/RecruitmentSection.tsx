@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 
 
-const DEADLINE = new Date("2026-08-24T23:59:00+02:00");
+const DEADLINE = new Date("2027-01-04T23:59:00+02:00");
 
 interface InfoMeeting {
     title: string,      // e.g. "Girls in Space"
@@ -125,7 +125,7 @@ export default function RecruitmentSection() {
                 <div className="mb-6 flex items-center gap-2">
 
                     <span className="text-2xl tracking-[0.25em] text-charcoal-light">
-            Recruitment 2026 · Application Deadline
+            Recruitment 2027 · Applications open in
           </span>
                 </div>
 
@@ -142,8 +142,8 @@ export default function RecruitmentSection() {
                             <CountdownDigit unit="seconds" value={timeLeft.seconds} />
                         </div>
                         <p className="mt-6 text-sm text-charcoal-light">
-                            Applications close{" "}
-                            <span className="text-cloud-white">August 24 at 23:59</span>.
+                            Applications open{" "}
+                            <span className="text-cloud-white">January 04</span>.
                         </p>
                     </>
                 )}
