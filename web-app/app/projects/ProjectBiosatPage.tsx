@@ -15,7 +15,6 @@ import {
     type PointerEvent as ReactPointerEvent,
 } from "react";
 
-/* ═══ IMAGES · local, in public/biosat (case-sensitive paths) ═══ */
 const IMG = {
     titleBg: "/biosat/BioSat_Small.PNG",
     render: "/biosat/Biosat_render_deployed.png",
@@ -65,7 +64,7 @@ const statement =
     "If a seed can wake in orbit, life is far more portable than we ever assumed.";
 
 const experiment = {
-    title: "The experiment",
+    title: "Biological Payload",
     lead: "BioSat's headline payload is biological. Seeds of Arabidopsis thaliana are germinated and grown inside a sealed chamber in orbit, photographed 14–16 times a day, until the plant dies or four weeks pass.",
     figures: [
         {
@@ -73,7 +72,7 @@ const experiment = {
             alt: "The BioBox growth chamber",
             title: "The BioBox",
             caption:
-                "A sealed, cylindrical aluminium container split in two: an electronics module — sensors, camera and PCB — and a payload module, where the seed sits in a petri dish.",
+                "A sealed, cylindrical aluminium container split in two: an electronics module — sensors, camera and Flex-Rigid PCBs — and a payload module, where the seed sits in a petri dish.",
         },
         {
             src: IMG.plant,
@@ -86,7 +85,7 @@ const experiment = {
 };
 
 const payload = {
-    title: "The second payload",
+    title: "SDR Payload",
     lead: "When the plant phase ends, BioSat isn't finished. A software-defined radio wakes and surveys the amateur radio band — recording noise and interference to help optimise the link between satellites and the ground.",
     small: {
         src: IMG.sdr,
@@ -94,7 +93,11 @@ const payload = {
         title: "The SDR",
         caption: "The second payload: a software-defined radio with a NanoAvionics UHF antenna and an in-house RF front-end, talking to the on-board computer over USB-C.",
     },
-    large: {
+};
+
+const communication = {
+    title: "Communication",
+    figure: {
         src: IMG.render,
         alt: "BioSat with deployed solar panels",
         title: "Talking home on S-band",
@@ -104,24 +107,30 @@ const payload = {
 };
 
 const obc = {
-    title: "The On-Board computer",
-    lead: "At the centre of BioSat sits the on-board computer — the core that talks to every other subsystem. It's a complex system designed end to end by Orbit NTNU, with a microcontroller doing the heavy processing that keeps the mission running.",
+    title: "OBC",
+    lead: "At the centre of BioSat sits the on-board computer. This is the core that talks to and controls every other subsystem. It's a complex system fully designed in-house by Orbit NTNU, to keep the mission running.",
     figures: [
         {
             src: IMG.obc,
             alt: "BioSat on-board computer",
             title: "On-board computer",
             caption:
-                "The OBC coordinates every subsystem — power, radios, sensors and the payload — and is designed in-house, board and software alike.",
+                "The OBC is developed with the mission at center and it is custom made to meet our specific requirements. It needs to be able to communicate with all the different subsystems reliably in order for the mission to succeed.",
         },
         {
             src: IMG.obc2,
             alt: "OBC printed circuit board",
-            title: "In-house avionics",
+            title: "In-house electronics",
             caption:
                 "At its heart a microcontroller handles the main processing. Building it in-house means the team understands, and can fix, every layer of the stack.",
         },
     ],
+};
+
+const adcs = {
+    title: "ADCS",
+    lead: "Keeping the satellite oriented correctly is essential for the BioSat mission. Both communications and solar panel charging rely on proper pointing to be done.",
+    body: "The Attitude Determination and Control System is developed completely by Orbit NTNU, and runs on our in-house OBC. It uses IMU and magnetometer data in addition to a set of coarse and fine sun sensors to determine the attitude of the satellite. To alter the attitude, it can use a combination of reaction wheels and magnetorquers to have full control of the satellite's orientation.",
 };
 
 const phases = [
@@ -190,16 +199,16 @@ const milestones = [
     {
         key: "t3",
         title: "FlatSat testing",
-        caption: "2025",
-        note: "The full satellite, laid out flat",
+        caption: "2026",
+        note: "Verifying systems functionality",
         image: IMG.small,
         body: "Before anything is bolted into a frame, the satellite is laid out flat so every board and connection can be tested and debugged.",
     },
     {
         key: "t4",
         title: "Environmental testing",
-        caption: "2026",
-        note: "Seeds freeze-tested to −8 °C",
+        caption: "2027",
+        note: "Testing the entire satellite",
         image: IMG.render,
         body: "Seeds and hardware are pushed through the conditions of space — including freezing trials the seeds survive down to about −8 °C.",
     },
@@ -221,14 +230,11 @@ const milestones = [
     },
 ];
 
-// Targeted launch — within Q4 2027. Swap for the confirmed date/time.
 const launchDate = "2027-11-15T00:00:00Z";
 
-/* ═══ SHARED ═══ */
 const PAD_X = "px-6 sm:px-10 md:px-16 lg:px-24 xl:px-40";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-// Scroll-reveal wrapper (framer-motion) — used across the page.
 function Reveal({
                     children,
                     delay = 0,
@@ -253,7 +259,6 @@ function Reveal({
     );
 }
 
-// Giant hollow outline numeral — the recurring structural signature.
 function GhostNumeral({
                           n,
                           className = "",
@@ -279,7 +284,6 @@ function GhostNumeral({
     );
 }
 
-/* ═══ RotatingPlant · point-cloud (engine unchanged) ═══ */
 const PERSPECTIVE = 5;
 type Pt = { x: number; y: number; z: number };
 function generateSucculent(): Float32Array {
@@ -480,7 +484,6 @@ const Hero = memo(function Hero() {
 });
 Hero.displayName = "Hero";
 
-/* ═══ MARQUEE BAND ═══ */
 const Marquee = memo(function Marquee() {
     const strip = [...marqueeWords, ...marqueeWords];
     return (
@@ -500,7 +503,6 @@ const Marquee = memo(function Marquee() {
 });
 Marquee.displayName = "Marquee";
 
-/* ═══ CONTENT · statement (text section) ═══ */
 const Statement = memo(function Statement() {
     return (
         <section className="relative w-full py-32 md:py-48">
@@ -516,7 +518,6 @@ const Statement = memo(function Statement() {
 });
 Statement.displayName = "Statement";
 
-/* ═══ CONTENT · captioned figure (matches DoubleImages styling) ═══ */
 function Figure({
                     src,
                     alt,
@@ -555,7 +556,6 @@ function Figure({
     );
 }
 
-/* ═══ CONTENT · the experiment (heading + lead + image pair) ═══ */
 const Experiment = memo(function Experiment() {
     return (
         <section className="relative w-full py-28 md:py-44">
@@ -584,7 +584,6 @@ const Experiment = memo(function Experiment() {
 });
 Experiment.displayName = "Experiment";
 
-/* ═══ CONTENT · the second payload (1/3 · 2/3 image pair) ═══ */
 const Payload = memo(function Payload() {
     return (
         <section className="relative w-full py-28 md:py-44">
@@ -595,22 +594,13 @@ const Payload = memo(function Payload() {
                     </h2>
                     <p className="text-charcoal-light leading-relaxed">{payload.lead}</p>
                 </Reveal>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:auto-rows-fr">
+                <div className="max-w-2xl">
                     <Figure
                         src={payload.small.src}
                         alt={payload.small.alt}
                         title={payload.small.title}
                         caption={payload.small.caption}
-                        className="md:col-span-1"
                         delay={0}
-                    />
-                    <Figure
-                        src={payload.large.src}
-                        alt={payload.large.alt}
-                        title={payload.large.title}
-                        caption={payload.large.caption}
-                        className="md:col-span-2"
-                        delay={0.12}
                     />
                 </div>
             </div>
@@ -618,6 +608,29 @@ const Payload = memo(function Payload() {
     );
 });
 Payload.displayName = "Payload";
+
+const Communication = memo(function Communication() {
+    return (
+        <section className="relative w-full py-28 md:py-44">
+            <div className="max-w-7xl mx-auto px-4 md:px-12">
+                <Reveal className="max-w-2xl mb-12 md:mb-16">
+                    <h2 className="font-light text-cloud-white text-4xl md:text-5xl lg:text-6xl mb-5">
+                        {communication.title}
+                    </h2>
+                </Reveal>
+
+                <Figure
+                    src={communication.figure.src}
+                    alt={communication.figure.alt}
+                    title={communication.figure.title}
+                    caption={communication.figure.caption}
+                    className="max-w-5xl"
+                />
+            </div>
+        </section>
+    );
+});
+Communication.displayName = "Communication";
 
 /* ═══ CONTENT · the brains (OBC, heading + lead + image pair) ═══ */
 const Obc = memo(function Obc() {
@@ -630,6 +643,7 @@ const Obc = memo(function Obc() {
                     </h2>
                     <p className="text-charcoal-light leading-relaxed">{obc.lead}</p>
                 </Reveal>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:auto-rows-fr">
                     {obc.figures.map((f, i) => (
                         <Figure
@@ -642,6 +656,14 @@ const Obc = memo(function Obc() {
                         />
                     ))}
                 </div>
+
+                <Reveal className="max-w-3xl mt-20 md:mt-28">
+                    <h3 className="font-light text-cloud-white text-3xl md:text-4xl lg:text-5xl mb-5">
+                        {adcs.title}
+                    </h3>
+                    <p className="text-charcoal-light leading-relaxed mb-6">{adcs.lead}</p>
+                    <p className="text-charcoal-light leading-relaxed">{adcs.body}</p>
+                </Reveal>
             </div>
         </section>
     );
@@ -759,7 +781,7 @@ const Specifications = memo(function Specifications() {
 
             <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center">
                 <h2 className="font-light text-cloud-white text-4xl md:text-5xl lg:text-6xl mb-10 lg:mb-14 max-w-2xl">
-                    Small platform,<br />serious hardware.
+                    Insights!
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-x-8 lg:gap-x-14 border-t border-charcoal-light/25">
@@ -1022,7 +1044,6 @@ const Timeline = memo(function Timeline() {
             </div>
 
             <div className="relative z-50 flex flex-col items-center gap-7 mt-8 md:mt-2">
-                {/* segmented progress ticks */}
                 <div className="flex items-center gap-2">
                     {items.map((item, idx) => (
                         <button
@@ -1037,7 +1058,6 @@ const Timeline = memo(function Timeline() {
                     ))}
                 </div>
 
-                {/* bold prev / index / next */}
                 <div className="flex items-center gap-8 md:gap-12">
                     <button
                         type="button"
@@ -1145,7 +1165,6 @@ const Status = memo(function Status() {
                     </span>
                 </div>
 
-                {/* secondary HH · MM · SS */}
                 <div className="mt-8 md:mt-12 flex items-start justify-center divide-x divide-charcoal-light/25">
                     {small.map((u) => (
                         <div key={u.label} className="flex flex-col items-center px-6 sm:px-10">
@@ -1170,7 +1189,6 @@ const Status = memo(function Status() {
 });
 Status.displayName = "Status";
 
-/* ═══ SECTION INDEX NAV ═══ */
 function SectionNav({ active, onSelect }: { active: number; onSelect: (i: number) => void }) {
     return (
         <nav
@@ -1227,14 +1245,14 @@ export default function BioSatClientPage() {
                     }
                 }
             },
-            { threshold: 0.5 }
+            {threshold: 0.5}
         );
         sections.forEach((s) => io.observe(s));
         return () => io.disconnect();
     }, []);
 
     const goTo = useCallback((i: number) => {
-        document.getElementById(`biosat-section-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.getElementById(`biosat-section-${i}`)?.scrollIntoView({behavior: "smooth", block: "start"});
     }, []);
 
     return (
@@ -1249,45 +1267,47 @@ export default function BioSatClientPage() {
               }
             `}</style>
 
-            <SectionNav active={active} onSelect={goTo} />
+            <SectionNav active={active} onSelect={goTo}/>
 
             {/* 01 · Mission */}
             <section id="biosat-section-0" data-index={0}>
-                <Hero />
-                <Marquee />
+                <Hero/>
+                <Marquee/>
             </section>
 
-            <Statement />
+            <Statement/>
 
             {/* 02 · Operations */}
             <Panel index={1}>
-                <Operations />
+                <Operations/>
             </Panel>
 
-            <Experiment />
+            <Experiment/>
 
             {/* 03 · Team */}
             <Panel index={2}>
-                <Team />
+                <Team/>
             </Panel>
 
             {/* 04 · Specifications */}
             <Panel index={3}>
-                <Specifications />
+                <Specifications/>
             </Panel>
 
-            <Obc />
+            <Obc/>
 
-            <Payload />
+            {/*<Payload/>
+
+            <Communication/>/*}
 
             {/* 05 · Timeline */}
             <Panel index={4}>
-                <Timeline />
+                <Timeline/>
             </Panel>
 
             {/* 06 · Status */}
             <Panel index={5}>
-                <Status />
+                <Status/>
             </Panel>
         </main>
     );
