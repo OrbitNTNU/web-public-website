@@ -42,7 +42,7 @@ const hero = {
     meta: [
         { label: "Class", value: "1U nanosat" },
         { label: "Orbit", value: "SSO · 560 km" },
-        { label: "Launched", value: "6 Sep 2026" },
+        { label: "Launched", value: "5 Sep 2026" },
     ],
 };
 
@@ -65,7 +65,8 @@ const mission = {
     facts: [
         { label: "Satellites", value: "FramSat-1 & 1.5" },
         { label: "Payload partners", value: "EIDEL · UiO" },
-        { label: "Funding", value: "NTNU · Norwegian Space Agency" },
+        { label: "Funding", value: "Norwegian Space Agency" },
+        { label: "Partner institution", value: "Norwegian University of Science and Technology" },
     ],
     image: IMG.fs1,
 };
@@ -93,14 +94,15 @@ const specs = [
     { label: "Ground station", value: "NTNU Gløshaugen" },
     { label: "Launch vehicle", value: "ISAR Spectrum" },
     { label: "Launch site", value: "Andøya Spaceport" },
-    { label: "Launched", value: "6 Sep 2026" },
+    { label: "Launched", value: "5 Sep 2026" },
     { label: "Built by", value: "Orbit NTNU" },
-    { label: "Funding", value: "NTNU · Norwegian Space Agency" },
+    { label: "Funding", value: "Norwegian Space Agency" },
+    { label: "Partner", value: "Partner institution" },
 ];
 
 const launch = {
     title: "Launch",
-    when: "6 September 2026 · 20:12 UTC",
+    when: "5 September 2026 · 20:12 UTC",
     lead: "ISAR Aerospace launched Spectrum from Andøya Spaceport with FramSat-1 on board — the first successful orbital launch from Norway, and from the European mainland. ISAR and Orbit NTNU made history together.",
     image: IMG.trail,
     alt: "Spectrum's launch trail over Andøya",
@@ -112,7 +114,8 @@ const signals = {
     lead: "FramSat-1 separated from Spectrum's second stage and unfolded its antennas about 30 minutes later. Using NTNU's UHF antenna at Gløshaugen in Trondheim, Orbit NTNU received its first signals roughly three hours after ignition.",
     sequence: [
         { time: "20:12 UTC", label: "Ignition", note: "Spectrum lifts off from Andøya Spaceport." },
-        { time: "T + ~30 min", label: "Antennas deployed", note: "≈30 minutes after separation from the second stage." },
+        { time: "T + ~70 min", label: "Satelite deployed", note: "≈70 minutes after separation from the second stage." },
+        { time: "T + ~100 min", label: "Antennas deployed", note: "≈100 minutes after separation from the second stage." },
         { time: "23:22 UTC", label: "First signals", note: "Received at Gløshaugen — about 3 hours after ignition." },
     ],
     repo: {
@@ -123,7 +126,7 @@ const signals = {
 };
 
 
-const launchDate = "2026-09-06T20:12:00Z";
+const launchDate = "2026-09-05T20:12:00Z";
 
 const PAD_X = "px-6 sm:px-10 md:px-16 lg:px-24 xl:px-40";
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -655,7 +658,7 @@ const Status = memo(function Status() {
                 <div className="mt-14 md:mt-20 flex items-center gap-4">
                     <span className="h-1 w-12 bg-framsat-yellow" />
                     <span className="text-cloud-white text-sm md:text-base font-light tracking-[0.25em] uppercase">
-                        Launched from Andøya · 6 September 2026, 20:12 UTC
+                        Launched from Andøya · 5 September 2026, 20:12 UTC
                     </span>
                     <span className="h-1 w-12 bg-framsat-yellow" />
                 </div>
