@@ -78,6 +78,7 @@ const teamIntro = {
 };
 type PM = { name: string; image: string | null; period: string; current: boolean };
 const pmCards: PM[] = [
+    {name: "Torbjørn brattvold", image: null, period: "Fall 2021 - Spring 2022", current: false},
     { name: "Mathias Askeland", image: null, period: "Spring 2022 — Spring 2024", current: false },
     { name: "Herman Castberg", image: IMG.herman, period: "Spring 2024 — Present", current: true },
 ];
@@ -194,20 +195,20 @@ function SmileyPlaceholder() {
 
 function Patch() {
     return (
-        <div className="flex flex-col items-center">
-            <div
-                className="relative aspect-square w-full max-w-[240px] rounded-full overflow-hidden flex items-center justify-center"
-                style={{
-                    background:
-                        "conic-gradient(from 210deg, var(--color-framsat-pink), var(--color-framsat-red), var(--color-framsat-yellow), var(--color-framsat-blue), var(--color-framsat-pink))",
-                }}
-            >
-                <div className="absolute inset-[6px] rounded-full bg-charcoal overflow-hidden flex items-center justify-center">
-                    <span className="absolute text-cloud-white/25 font-light tracking-[0.2em] text-sm">FS-1</span>
-                    <Image src={IMG.patch} alt="FramSat-1 mission patch" fill sizes="190px" className="object-contain p-3" />
-                </div>
+        <div className="flex flex-col items-center w-48 md:w-56 lg:w-64 shrink-0">
+            <div className="relative aspect-square w-full">
+                <Image
+                    src={IMG.patch}
+                    alt="FramSat-1 mission patch"
+                    fill
+                    sizes="256px"
+                    className="object-contain"
+                />
             </div>
-            <span className="mt-3 text-xs tracking-[0.2em] uppercase text-charcoal-light">Mission patch</span>
+
+            <span className="mt-3 text-xs tracking-[0.2em] uppercase text-charcoal-light">
+                Mission patch
+            </span>
         </div>
     );
 }
@@ -394,32 +395,42 @@ const Mission = memo(function Mission() {
 Mission.displayName = "Mission";
 
 const Team = memo(function Team() {
-    const [mathias, herman] = pmCards;
+    const [torbjørn, mathias, herman] = pmCards;
     return (
         <div className={`relative w-full min-h-screen flex items-center overflow-hidden ${PAD_X} py-28 md:py-36`}>
             <GhostNumeral n="02" className="-left-6 top-1/4" stroke="color-mix(in srgb, var(--color-framsat-blue) 15%, transparent)" />
 
             <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center">
-                <div className="max-w-2xl mb-12 lg:mb-16">
-                    <h2 className="font-light text-cloud-white text-4xl md:text-5xl lg:text-6xl mb-5">
-                        {teamIntro.title}
-                    </h2>
-                    <p className="text-charcoal-light leading-relaxed max-w-xl">{teamIntro.body}</p>
-                </div>
+                <div
+                    className="w-full max-w-5xl mb-12 lg:mb-16 grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center gap-8 md:gap-12">
+                    <div className="max-w-2xl">
+                        <h2 className="font-light text-cloud-white text-4xl md:text-5xl lg:text-6xl mb-5">
+                            {teamIntro.title}
+                        </h2>
 
+                        <p className="text-charcoal-light leading-relaxed max-w-xl">
+                            {teamIntro.body}
+                        </p>
+                    </div>
+
+                    <Patch/>
+                </div>
                 <Reveal>
                     <p className="text-sm md:text-base font-light tracking-[0.28em] uppercase text-framsat-yellow mb-8 md:mb-12">
                         Project managers
                     </p>
-                    <div className="grid grid-cols-[1fr_0.7fr_1fr] gap-6 sm:gap-10 lg:gap-16 items-center max-w-5xl mx-auto w-full mb-16 lg:mb-24">
-                        <PMCard pm={mathias} />
-                        <Patch />
-                        <PMCard pm={herman} />
+
+                    <div
+                        className="grid grid-cols-3 gap-6 sm:gap-10 lg:gap-16 items-center max-w-5xl mx-auto w-full mb-16 lg:mb-24">
+                        <PMCard pm={torbjørn}/>
+                        <PMCard pm={mathias}/>
+                        <PMCard pm={herman}/>
                     </div>
                 </Reveal>
 
                 <Reveal>
-                    <div className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-charcoal-light/10">
+                    <div
+                        className="relative w-full aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-charcoal-light/10">
                         <Image
                             src={teamIntro.image}
                             alt="Orbit NTNU members in front of the rocket"
@@ -438,12 +449,13 @@ Team.displayName = "Team";
 const Specifications = memo(function Specifications() {
     return (
         <div className={`relative w-full min-h-screen flex items-center overflow-hidden ${PAD_X} py-28 md:py-36`}>
-            <GhostNumeral n="03" className="-right-6 top-10" stroke="color-mix(in srgb, var(--color-framsat-yellow) 15%, transparent)" />
+            <GhostNumeral n="03" className="-right-6 top-10"
+                          stroke="color-mix(in srgb, var(--color-framsat-yellow) 15%, transparent)"/>
 
             <div className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col justify-center">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.7fr] gap-10 lg:gap-16 items-end mb-12 lg:mb-16">
                     <h2 className="font-light text-cloud-white text-4xl md:text-5xl lg:text-6xl max-w-2xl">
-                        Small platform,<br />serious hardware.
+                        Insights!
                     </h2>
                     <Reveal>
                         <div className="relative w-full aspect-[4/3] overflow-hidden bg-charcoal-light/10">
@@ -455,7 +467,7 @@ const Specifications = memo(function Specifications() {
                                 className="object-cover"
                             />
                         </div>
-                        <p className="text-charcoal-light text-sm mt-3">Vibration (shake) testing, 2024.</p>
+                        <p className="text-charcoal-light text-sm mt-3">Vibration (shake) testing</p>
                     </Reveal>
                 </div>
 
@@ -705,7 +717,6 @@ function Panel({ index, children }: { index: number; children: ReactNode }) {
     );
 }
 
-/* ═══ PAGE ═══ */
 export default function FramSatOneClientPage() {
     const rootRef = useRef<HTMLElement | null>(null);
     const [active, setActive] = useState(0);
