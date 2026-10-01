@@ -33,8 +33,8 @@ export const Footer = () => {
           <div className="text-center md:text-left flex flex-col col-span-1">
             <h3 className="font-semibold mb-1">Orbit NTNU</h3>
             <small>contact@orbitntnu.com</small>
-            <small>O.S Bragstad Plass 2B, Elektro D</small>
-            <small>7034, Trondheim</small>
+            <small>S. P. Andersens veg 4</small>
+            <small>7031, Trondheim</small>
             <small>Org.Nr 999 171 583</small>
             <small>
               <Link
