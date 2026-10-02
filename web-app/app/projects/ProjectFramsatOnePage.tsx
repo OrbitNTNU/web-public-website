@@ -86,7 +86,7 @@ const pmCards: PM[] = [
 const specs = [
     { label: "Platform", value: "1U CubeSat" },
     { label: "Dimensions", value: "10 × 10 × 10 cm" },
-    { label: "Mass", value: "= 1.3 kg" },
+    { label: "Mass", value: "1.36 kg" },
     { label: "Orbit", value: "Sun-synchronous" },
     { label: "Altitude", value: "560 km" },
     { label: "Radio band", value: "UHF" },
