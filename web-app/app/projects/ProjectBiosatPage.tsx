@@ -140,7 +140,7 @@ const phases = [
     },
     {
         title: "Plant phase",
-        body: "A 3U CubeSat designed and built by students at Orbit NTNU with two payloads - A growing plant and a software-defined radio to survey the amateur band, all while using S-Band communication with the ground",
+        body: "Germinate Arabidopsis thaliana seeds inside the BioBox and grow it in orbit, photographed 14–16 times a day. At the same time, the satellite will communicate with the ground through S-Band communication.",
     },
     {
         title: "SDR phase",
