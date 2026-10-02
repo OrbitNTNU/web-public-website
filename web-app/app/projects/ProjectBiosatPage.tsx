@@ -44,7 +44,7 @@ const hero = {
     title: "BioSat",
     kicker: "Launching Q4 2027",
     subtitle:
-        "A 3U CubeSat built by students at Orbit NTNU — first coaxing a plant to grow in orbit, then turning a radio on the sky to survey the amateur band.",
+        "A 3U CubeSat designed and built by students at Orbit NTNU with two payloads — A growing plant and a software-defined radio to survey the amateur band, all while using S-Band communication with the ground",
     image: IMG.titleBg,
     meta: [
         { label: "Class", value: "3U CubeSat" },
@@ -72,14 +72,14 @@ const experiment = {
             alt: "The BioBox growth chamber",
             title: "The BioBox",
             caption:
-                "A sealed, cylindrical aluminium container split in two: an electronics module — sensors, camera and Flex-Rigid PCBs — and a payload module, where the seed sits in a petri dish.",
+                "A sealed, cylindrical aluminium container split in two: an electronics module with sensors, camera and Flex-Rigid PCBs — and a payload module, which houses the seeds and the germination system used to grow them.",
         },
         {
             src: IMG.plant,
             alt: "Hydroponic germination system",
             title: "Germinating in orbit",
             caption:
-                "A hydroponic system — a bladder water tank, a peristaltic pump and fine tubing — controls exactly how much the seeds are hydrated, so growth can begin in space. Ground tests suggest the seeds shrug off freezing to about −8 °C, and that far-red light can hold germination back until the satellite is ready.",
+                "A hydroponic system — a bladder water tank, a peristaltic pump and fine tubing — controls exactly how much the seeds are hydrated, so growth can begin in space.",
         },
     ],
 };
@@ -140,11 +140,11 @@ const phases = [
     },
     {
         title: "Plant phase",
-        body: "Germinate Arabidopsis thaliana inside the BioBox and grow it in orbit, photographed 14–16 times a day. The phase ends when the plant dies, or after four weeks.",
+        body: "A 3U CubeSat designed and built by students at Orbit NTNU with two payloads - A growing plant and a software-defined radio to survey the amateur band, all while using S-Band communication with the ground",
     },
     {
         title: "SDR phase",
-        body: "The software-defined radio surveys the amateur radio band, recording noise and interference — while the S-band radio handles communication with the ground.",
+        body: "The software-defined radio surveys the amateur radio band, recording noise and interference — while the S-band radio continues communication with the ground.",
     },
     {
         title: "De-commissioning",
@@ -206,19 +206,19 @@ const milestones = [
     },
     {
         key: "t4",
+        title: "Assembly and Integration",
+        caption: "2027",
+        note: "3U frame + Tuna Can battery",
+        image: IMG.biobox,
+        body: "Every subsystem comes together inside and around the 3U frame.",
+    },
+    {
+        key: "t5",
         title: "Environmental testing",
         caption: "2027",
         note: "Testing the entire satellite",
         image: IMG.render,
-        body: "Seeds and hardware are pushed through the conditions of space — including freezing trials the seeds survive down to about −8 °C.",
-    },
-    {
-        key: "t5",
-        title: "Integration",
-        caption: "2027",
-        note: "3U frame + Tuna Can battery",
-        image: IMG.biobox,
-        body: "Every subsystem — power, radios, ADCS and the BioBox — comes together inside the 3U frame, the Tuna Can battery pack extending its length.",
+        body: "Seeds and hardware are pushed through the conditions of space — this assures that the satellite is ready for launch.",
     },
     {
         key: "t6",
