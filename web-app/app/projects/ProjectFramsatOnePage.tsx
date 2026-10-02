@@ -38,9 +38,9 @@ const hero = {
     title: "FramSat-1",
     kicker: "In orbit · First orbital launch from Norway",
     subtitle:
-        "A 1U nanosatellite designed, built and tested by students at Orbit NTNU — carried to orbit on the first successful launch from Norwegian, and European mainland.",
+        "A 1U CubeSat designed, built and tested by students at Orbit NTNU — carried to orbit on the first successful launch from Norway and European mainland.",
     meta: [
-        { label: "Class", value: "1U cubesat" },
+        { label: "Class", value: "1U CubeSat" },
         { label: "Orbit", value: "SSO · 560 km" },
         { label: "Launched", value: "5 Sep 2026" },
     ],
@@ -84,9 +84,9 @@ const pmCards: PM[] = [
 ];
 
 const specs = [
-    { label: "Platform", value: "1U Cubesat" },
+    { label: "Platform", value: "1U CubeSat" },
     { label: "Dimensions", value: "10 × 10 × 10 cm" },
-    { label: "Mass", value: "≈ 1.3 kg" },
+    { label: "Mass", value: "= 1.3 kg" },
     { label: "Orbit", value: "Sun-synchronous" },
     { label: "Altitude", value: "560 km" },
     { label: "Radio band", value: "UHF" },
@@ -115,8 +115,8 @@ const signals = {
     lead: "FramSat-1 separated from Spectrum's second stage and unfolded its antennas about 30 minutes later. Using NTNU's UHF antenna at Gløshaugen in Trondheim, Orbit NTNU received its first signals roughly three hours after ignition.",
     sequence: [
         { time: "20:12 UTC", label: "Ignition", note: "Spectrum lifts off from Andøya Spaceport." },
-        { time: "T + ~70 min", label: "Satelite deployed", note: "~70 minutes after separation from the second stage." },
-        { time: "T + ~100 min", label: "Antennas deployed", note: "~100 minutes after separation from the second stage." },
+        { time: "T + ~70 min", label: "Satelite deployed", note: "~70 minutes after ignition." },
+        { time: "T + ~100 min", label: "Antennas deployed", note: "~100 minutes after ignition." },
         { time: "23:22 UTC", label: "First signals", note: "Received at Gløshaugen — about 3 hours after ignition." },
     ],
     repo: {
