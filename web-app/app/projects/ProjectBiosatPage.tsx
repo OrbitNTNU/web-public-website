@@ -182,7 +182,7 @@ const specs = [
 const milestones = [
     {
         key: "t1",
-        title: "Concept & design",
+        title: "Concept & Design",
         caption: "2023",
         note: "Two payloads · one 3U platform",
         image: IMG.patch,
@@ -190,7 +190,7 @@ const milestones = [
     },
     {
         key: "t2",
-        title: "BioBox development",
+        title: "BioBox Development",
         caption: "2024",
         note: "Sealed chamber · sensors + camera",
         image: IMG.biobox,
@@ -198,22 +198,30 @@ const milestones = [
     },
     {
         key: "t3",
-        title: "FlatSat testing",
-        caption: "2026",
+        title: "Ordering and Designing Components",
+        caption: "2025",
+        note: "Optimizing in-house design and receiving needed hardware",
+        image: IMG.render,
+        body: "The components are decided as the concept becomes reality."
+    },
+    {
+        key: "t4",
+        title: "FlatSat and Subsystem testing",
+        caption: "2026/2027",
         note: "Verifying systems functionality",
         image: IMG.small,
         body: "Before anything is bolted into a frame, the satellite is laid out flat so every board and connection can be tested and debugged.",
     },
     {
-        key: "t4",
+        key: "t5",
         title: "Assembly and Integration",
-        caption: "2027",
-        note: "3U frame + Tuna Can battery",
+        caption: "2026/2027",
+        note: "3U frame + Tuna Can",
         image: IMG.biobox,
-        body: "Every subsystem comes together inside and around the 3U frame.",
+        body: "Every subsystem comes together inside and around the 3U frame, while hardware and software integration assures that the satellite works as a system.",
     },
     {
-        key: "t5",
+        key: "t6",
         title: "Environmental testing",
         caption: "2027",
         note: "Testing the entire satellite",
@@ -221,7 +229,7 @@ const milestones = [
         body: "Seeds and hardware are pushed through the conditions of space — this assures that the satellite is ready for launch.",
     },
     {
-        key: "t6",
+        key: "t7",
         title: "Launch",
         caption: "Q4 2027",
         note: "Downlink to NTNU Gløshaugen",
