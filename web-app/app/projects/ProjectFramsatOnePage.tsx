@@ -15,6 +15,7 @@ import {
 const IMG = {
     fs1: "/framsat/FS1.jpg",
     herman: "/framsat/herman.jpg",
+    lars: "/framsat/lars.jpg",
     hermanHelga: "/framsat/hermanoghelga.jpeg",
     fromSpace: "/framsat/imagefromspace.png",
     nora: "/framsat/nora.jpg",
@@ -80,7 +81,8 @@ type PM = { name: string; image: string | null; period: string; current: boolean
 const pmCards: PM[] = [
     {name: "Torbjørn brattvold", image: null, period: "Fall 2021 - Spring 2022", current: false},
     { name: "Mathias Askeland", image: null, period: "Spring 2022 — Spring 2024", current: false },
-    { name: "Herman Castberg", image: IMG.herman, period: "Spring 2024 — Present", current: true },
+    { name: "Herman Castberg", image: IMG.herman, period: "Spring 2024 — Spring 2026", current: false },
+    { name: "Lars Andreas Weel Aasen", image: IMG.lars, period: "Spring 2026 — Present", current: true },
 ];
 
 const specs = [
@@ -395,7 +397,7 @@ const Mission = memo(function Mission() {
 Mission.displayName = "Mission";
 
 const Team = memo(function Team() {
-    const [torbjørn, mathias, herman] = pmCards;
+    const [torbjørn, mathias, herman, lars] = pmCards;
     return (
         <div className={`relative w-full min-h-screen flex items-center overflow-hidden ${PAD_X} py-28 md:py-36`}>
             <GhostNumeral n="02" className="-left-6 top-1/4" stroke="color-mix(in srgb, var(--color-framsat-blue) 15%, transparent)" />
@@ -421,10 +423,11 @@ const Team = memo(function Team() {
                     </p>
 
                     <div
-                        className="grid grid-cols-3 gap-6 sm:gap-10 lg:gap-16 items-center max-w-5xl mx-auto w-full mb-16 lg:mb-24">
+                        className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-6 sm:gap-10 lg:gap-16 items-start max-w-6xl mx-auto w-full mb-16 lg:mb-24">
                         <PMCard pm={torbjørn}/>
                         <PMCard pm={mathias}/>
                         <PMCard pm={herman}/>
+                        <PMCard pm={lars}/>
                     </div>
                 </Reveal>
 
