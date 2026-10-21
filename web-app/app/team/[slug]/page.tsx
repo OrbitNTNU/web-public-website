@@ -1,7 +1,7 @@
 import { Loading } from "@/components/General/Layout/Loading";
 import TeamSlugClientPage from "../TeamSlugClientPage";
 import { getTeamPage } from "@/sanity/fetch/SanityFetch";
-import { getTeamsData } from "@/lib/getTeamsData";
+import { getStaticTeamsData } from "@/lib/getTeamsData";
 import { Team } from "../TeamsClientPage";
 import { toSlug } from "@/lib/teams";
 
@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export default async function TeamPage({ params }: TeamPageProps) {
   const { slug } = await params;
 
-  const teams = (await getTeamsData()) as Team[];
+  const teams = (await getStaticTeamsData()) as Team[];
   if (!teams) {
     console.error("No team data from Orbit API");
     return <Loading />;

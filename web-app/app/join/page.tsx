@@ -1,7 +1,7 @@
 import { Loading } from "@/components/General/Layout/Loading";
 import { getJoinPage } from "@/sanity/fetch/SanityFetch";
 import JoinClientPage from "./JoinClientPage";
-import { getTeamsData } from "@/lib/getTeamsData";
+import { getStaticTeamsData } from "@/lib/getTeamsData";
 import { Team } from "@/lib/getTeamsSlug";
 import { toSlug } from "@/lib/teams";
 import {Metadata} from "next";
@@ -65,7 +65,7 @@ export default async function JoinPage() {
     return <Loading />;
   }
 
-  const teams = (await getTeamsData()) as Team[];
+  const teams = (await getStaticTeamsData()) as Team[];
   if (!teams) {
     console.error("No team data from Orbit API");
     return <Loading />;

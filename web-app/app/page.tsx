@@ -1,5 +1,5 @@
 import LandingPage from "@/app/LandingClientPage";
-import { getTeamsData } from "@/lib/getTeamsData";
+import { getStaticTeamsData } from "@/lib/getTeamsData";
 import { getSlug } from "@/lib/teams";
 import { getLandingPage } from "@/sanity/fetch/SanityFetch";
 import type { Metadata } from "next";
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const data = await getLandingPage();
-  const teams = await getTeamsData();
+  const teams = await getStaticTeamsData();
 
   const teamsWithSlugs = await Promise.all(teams.map(async (team: { teamID: number; }) => ({
     ...team,
