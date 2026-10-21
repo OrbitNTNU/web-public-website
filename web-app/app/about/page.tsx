@@ -71,12 +71,12 @@ export const metadata: Metadata = {
 export const revalidate = 60;
 const AboutPage = async () => {
   const data = await getAboutPage();
-  const statistics = await getStatistics();
+  // const statistics = await getStatistics();
 
   return (
     <AboutClientPage
       sections={data?.sections ?? []}
-      statistics={statistics ?? undefined}
+      statistics={undefined}
     />
   );
 };

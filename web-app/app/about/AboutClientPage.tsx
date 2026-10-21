@@ -42,7 +42,7 @@ export default function AboutClientPage({
     }
   }, [typedKeys]);
 
-  if (!sections || !statistics) {
+  if (!sections) {
     return <Loading />;
   }
 
@@ -173,8 +173,8 @@ export default function AboutClientPage({
           case "spanningText":
             return <SpanningText key={section._key} text={section.text} />;
 
-          case "statistics":
-            return <Statistics key={section._key} statistics={statistics} />;
+          // case "statistics":
+          //   return <Statistics key={section._key} statistics={statistics} />;
           case "sdgSection":
             return <SDGs key={section._key} />;
           default:
