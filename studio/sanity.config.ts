@@ -25,9 +25,6 @@ export default defineConfig({
       previewUrl: {
         origin: "https://orbitntnu.com",
         preview: "/",
-        previewMode: {
-          enable: "/api/draft",
-        },
       },
     }),
 
