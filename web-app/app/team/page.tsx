@@ -1,6 +1,6 @@
 import TeamsClientPage from "@/app/team/TeamsClientPage";
 import { Loading } from "@/components/General/Layout/Loading";
-import { getTeamsData } from "@/lib/getTeamsData";
+import { getTeamsData, getStaticTeamsData } from "@/lib/getTeamsData";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -72,7 +72,8 @@ export const metadata: Metadata = {
 export const revalidate = 5;
 
 export default async function TeamsPage() {
-  const teamsData = await getTeamsData();
+  // const teamsData = await getTeamsData();
+  const teamsData = getStaticTeamsData();
   if (!teamsData) {
     return <Loading />;
   }
