@@ -10,5 +10,6 @@ export const client = createClient({
 export function getSanityClient(useDrafts = false) {
   return client.withConfig({
     useCdn: !useDrafts,
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   });
 }
