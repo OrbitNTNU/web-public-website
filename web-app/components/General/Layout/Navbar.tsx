@@ -14,7 +14,7 @@ const navItems = [
   { label: "Articles", href: "/articles" },
   { label: "Projects", href: "/projects" },
   { label: "Sponsors", href: "/sponsors" },
-  { label: "Join Us", href: "/join" },
+  // { label: "Join Us", href: "/join" },
 ];
 
 export default function Navbar() {
