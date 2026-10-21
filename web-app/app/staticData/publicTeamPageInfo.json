@@ -1,0 +1,1885 @@
+[
+    {
+        "teamID": 1,
+        "teamName": "Board",
+        "group": "ADMINISTRATIVE",
+        "description": "The board is responsible for managing the organization. The board works closely with Project Management and Marketing to ensure that projects are feasible and budgets are kept. In addition, the board is responsible for the development of the organization, HSE, ensuring that roles & responsibilities are fulfilled, and all other aspects included in the management of a growing student organization. The board makes sure that any project the organization undertakes is in line with Orbit NTNU’s mission, vision, and values.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-27.jpg",
+                "name": "Helga Therese Tomaszewski Vrenne",
+                "linkedin": "https://www.linkedin.com/in/helga-therese-tomaszewski-vrenne-6ba68836a/",
+                "mail": "helga.vrenne@orbitntnu.com",
+                "phoneNumber": "99117719",
+                "title": "Chief Executive Officer",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-143.jpg",
+                "name": "Tara Linnea Edvardsen",
+                "linkedin": null,
+                "mail": "tara-linnea.edvardsen@orbitntnu.com",
+                "phoneNumber": "41602353",
+                "title": "Chief Operations Officer",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-109.jpg",
+                "name": "August Solli Middelkoop",
+                "linkedin": "linkedin.com/in/august-solli-middelkoop",
+                "mail": "august.middelkoop@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Chief Information Officer",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-5.jpg",
+                "name": "Marius Stenbakk Nilsen",
+                "linkedin": "https://www.linkedin.com/in/marius-stenbakk-nilsen-7582542b8/",
+                "mail": "marius-stenbakk.nilsen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Chief Technical Officer",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-105.jpg",
+                "name": "Peter Thormodsen Ehrhardt",
+                "linkedin": null,
+                "mail": "peter.thormodsen-ehrhardt@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Chief Financial Officer",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-175.jpg",
+                "name": "Sandra Botonjic",
+                "linkedin": null,
+                "mail": "sandra.botonjic@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Chief Human Resources Officer",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-35.jpg",
+                "name": "Sara Heitmann",
+                "linkedin": null,
+                "mail": "sara.heitmann@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Chief Marketing Officer",
+                "privilege": "BOARD"
+            }
+        ]
+    },
+    {
+        "teamID": 2,
+        "teamName": "Systems Engineering",
+        "group": "TECHNICAL",
+        "description": "Systems engineering is a multidisciplinary field of engineering that focuses on how to design, integrate, and manage complex systems. The SE team coordinates the different teams in Orbit NTNU so that the satellite subsystems fit together and, as a result, make sure that we end up with a complete and fully functional satellite.",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-92.jpg",
+                "name": "Torje Gomme Fangel",
+                "linkedin": null,
+                "mail": "torje.gomme-fangel@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Systems Engineering, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": null,
+                "name": "Benjamin Hiis Fuglestad",
+                "linkedin": null,
+                "mail": "benjamin.fuglestad@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Systems Engineering, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-88.jpg",
+                "name": "Edvin Brattlid-Roseng",
+                "linkedin": "https://www.linkedin.com/in/edvin-brattlid-roseng-145124333/",
+                "mail": "edvin.roseng@orbitntnu.com",
+                "phoneNumber": "99673131",
+                "title": "Systems Engineering, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-117.jpg",
+                "name": "Henriette Dietrichson",
+                "linkedin": null,
+                "mail": "henriette.dietrichson@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Systems Engineering, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-71.jpg",
+                "name": "Joakim Nordeng Moulia",
+                "linkedin": "https://www.linkedin.com/in/joakim-nordeng-moulia-8a80312b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+                "mail": "joakim.nordeng-moulia@orbitntnu.com",
+                "phoneNumber": "94881285",
+                "title": "Systems Engineering, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Johan Frønsdal Bryner",
+                "linkedin": null,
+                "mail": "johan.bryner@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Systems Engineering, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Natalie Vo",
+                "linkedin": null,
+                "mail": "natalie.vo@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Systems Engineering, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Theodor Håkstad",
+                "linkedin": null,
+                "mail": "theodor.hakstad@orbitntnu.com",
+                "phoneNumber": "46773504",
+                "title": "Systems Engineering, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 3,
+        "teamName": "Payload",
+        "group": "TECHNICAL",
+        "description": "The payload team is responsible for the designing and development of the system in which the plant is growing. This includes finding plant requirements by testing, asking the right questions, and implementing creative design decisions. The constraints of working in such a small space will bring interesting problems that need to be solved. For example supply systems that provide necessary nutrients, water, and light. There will be a mix of work on the bio-lab and mechanical work.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-114.jpg",
+                "name": "Tuva Aksnes",
+                "linkedin": null,
+                "mail": "tuva.aksnes@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-162.jpg",
+                "name": "Christian Johan Rasmussen",
+                "linkedin": null,
+                "mail": "christian.rasmussen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-64.jpg",
+                "name": "Kristian Aune Levoll",
+                "linkedin": "https://www.linkedin.com/in/kristian-aune-levoll-b8a426305/",
+                "mail": "kristian-aune.levoll@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-115.jpg",
+                "name": "Krystian Chmielarski",
+                "linkedin": null,
+                "mail": "krystian.chmielarski@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-160.jpg",
+                "name": "Sara-Izabel Blagojevic",
+                "linkedin": null,
+                "mail": "sara-izabel.blagojevic@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-157.jpg",
+                "name": "Tuva Inger Samland-Hære",
+                "linkedin": null,
+                "mail": "tuva.samland-haere@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 4,
+        "teamName": "Electronics",
+        "group": "TECHNICAL",
+        "description": "The electronics team (ES – Electronic Systems) is responsible for designing, developing, and producing the electrical systems on the satellite. This includes developing and soldering circuit boards, picking suitable components for the satellites, and assembling space-grade cables. ES is also responsible for powering the satellites, ensuring enough power is delivered to each subsystem efficiently.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-26.jpg",
+                "name": "Njål Sundnes Bruheim",
+                "linkedin": "www.linkedin.com/in/njalsb",
+                "mail": "njal.sundnes-bruheim@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": null,
+                "name": "Alp Muhammed Guler",
+                "linkedin": "https://www.linkedin.com/in/alpmg",
+                "mail": "alp.guler@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-55.jpg",
+                "name": "Armin Jahanshahi",
+                "linkedin": "https://no.linkedin.com/in/armin-jahanshahi",
+                "mail": "armin.jahanshahi@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/317.png",
+                "name": "Eirik Mathias Silnes",
+                "linkedin": "https://www.linkedin.com/in/eirik-mathias-s-586234137/",
+                "mail": "eirik.silnes@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-30.jpg",
+                "name": "Even Finnøy",
+                "linkedin": "https://www.linkedin.com/in/even-finnøy/",
+                "mail": "even.finnoy@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-137.jpg",
+                "name": "Hanna Olstad-Hansen",
+                "linkedin": null,
+                "mail": "hanna.olstad-hansen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-84.jpg",
+                "name": "Henrik Sandberg",
+                "linkedin": null,
+                "mail": "henrik.sandberg@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior Electronics Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/52.png",
+                "name": "Jenny Liahjell",
+                "linkedin": "https://www.linkedin.com/in/jenny-liahjell/",
+                "mail": "jenny.liahjell@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Jonas Johannessen Hartberg",
+                "linkedin": null,
+                "mail": "jonas.hartberg@orbitntnu.com",
+                "phoneNumber": "98474010",
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-82.jpg",
+                "name": "Kim Hamberg",
+                "linkedin": null,
+                "mail": "kim.hamberg@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-68.jpg",
+                "name": "Lorenzo Campana",
+                "linkedin": "https://www.linkedin.com/in/lcampana08/",
+                "mail": "lorenzo.campana@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Marcos Ramos",
+                "linkedin": null,
+                "mail": "marcos.navarro@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-63.jpg",
+                "name": "Mathias Huse",
+                "linkedin": "https://www.linkedin.com/in/mathias-huse/",
+                "mail": "mathias.huse@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-49.jpg",
+                "name": "Regine Angermo Birkely",
+                "linkedin": null,
+                "mail": "regine.angermo-birkely@orbitntnu.com",
+                "phoneNumber": "40096964",
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Vegard Røssaak",
+                "linkedin": "www.linkedin.com/in/vegard-røssaak-73883035b",
+                "mail": "vegard.roessaak@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 5,
+        "teamName": "ADCS",
+        "group": "TECHNICAL",
+        "description": "The Attitude Determination and Control System (ADCS) team builds the ADCS algorithms that let a spacecraft know where it’s pointing and control how it rotates. Using onboard sensors, ADCS estimates orientation relative to Earth, the Sun, or stars and actively corrects disturbances. This turns a drifting object into a stable, precisely pointed spacecraft, enabling communication, power generation, and scientific measurements.",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-120.jpg",
+                "name": "Eirik Vatland Johansen",
+                "linkedin": "Eirik Vatland Johansen",
+                "mail": "eirik.johansen@orbitntnu.com",
+                "phoneNumber": "47844634",
+                "title": "ADCS, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-66.jpg",
+                "name": "Albert Hovda Røed",
+                "linkedin": null,
+                "mail": "albert.roed@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-40.jpg",
+                "name": "Ane Tveit",
+                "linkedin": null,
+                "mail": "ane.tveit@orbitntnu.com",
+                "phoneNumber": "46929322",
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-168.jpg",
+                "name": "Anne Brenden",
+                "linkedin": null,
+                "mail": "anne.brende@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-65.jpg",
+                "name": "Axel Viggo Harr",
+                "linkedin": "www.linkedin.com/in/axel-viggo-harr-21903a387",
+                "mail": "axel.viggo-harr@orbitntnu.com",
+                "phoneNumber": "40841675",
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-132.jpg",
+                "name": "Emilio Beier Lombardo",
+                "linkedin": null,
+                "mail": "emilio.lombardo@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-53.jpg",
+                "name": "Fredrik Marcelius Eriksen",
+                "linkedin": null,
+                "mail": "fredrik-marcelius.eriksen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-75.jpg",
+                "name": "Fredrik Sollie Warø",
+                "linkedin": "https://www.linkedin.com/in/fredrswa/",
+                "mail": "fredrik.waro@orbitntnu.com",
+                "phoneNumber": "+4794813420",
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-172.jpg",
+                "name": "Ingrid Sætrom",
+                "linkedin": null,
+                "mail": "ingrid.saetrom@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-60.jpg",
+                "name": "Marianne Haugvaldstad",
+                "linkedin": "https://www.linkedin.com/in/marianne-haugvaldstad/?locale=no_NO",
+                "mail": "marianne.haugvaldstad@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-174.jpg",
+                "name": "Thivihaan Sriranganathan",
+                "linkedin": "Thivihaan Sriranganathan",
+                "mail": "thivihaan.sriranganathan@orbitntnu.com",
+                "phoneNumber": "41253893",
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-73.jpg",
+                "name": "Wiktor Rutkowski",
+                "linkedin": null,
+                "mail": "wiktor.rutkowski@orbitntnu.com",
+                "phoneNumber": "+4746274612    ",
+                "title": "ADCS, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 6,
+        "teamName": "Embedded Software",
+        "group": "TECHNICAL",
+        "description": "The Embedded Satellite Software team is responsible for programming our satellite's main computer and assisting the attitude determination and control team in programming. The main computer handles commands from the ground, monitors the system, and changes its operating modes. It is the satellite's functional center and an essential part of making the satellite operational.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-11.jpg",
+                "name": "Markus Andreassen Servan",
+                "linkedin": "https://www.linkedin.com/in/markus-andreasen-servan-2620941aa/",
+                "mail": "markus.servan@orbitntnu.com",
+                "phoneNumber": "+4792641030",
+                "title": "Embedded Software Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-178.jpg",
+                "name": "Andreas Jan van der Meulen",
+                "linkedin": null,
+                "mail": "andreas.meulen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Embedded Software, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-131.jpg",
+                "name": "Endre Ekstang Grønevik",
+                "linkedin": null,
+                "mail": "endre.gronevik@orbitntnu.com",
+                "phoneNumber": "46772734",
+                "title": "Embedded Software Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-2.jpg",
+                "name": "Idar Erlend Bendiksen Buer",
+                "linkedin": null,
+                "mail": "idar-erlend-bendiksen.buer@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Embedded Software Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Loke Strøm Haugsnes",
+                "linkedin": "https://www.linkedin.com/in/loke-str%C3%B8m-haugsnes/",
+                "mail": "loke.haugsnes@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Embedded Software, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-1.jpg",
+                "name": "Mats Bjønnes",
+                "linkedin": "https://www.linkedin.com/in/mats-bjonnes-b735381a0/",
+                "mail": "mats.bjonnes@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior Embedded Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-133.jpg",
+                "name": "Nicholas Johan Berryman",
+                "linkedin": null,
+                "mail": "nicholas.berryman@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Embedded Software Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-176.jpg",
+                "name": "Pawel Sapula",
+                "linkedin": "https://www.linkedin.com/in/pawel-sapula-6b2466424/",
+                "mail": "pawel.sapula@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Embedded Software, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/105.png",
+                "name": "Sigmund Klåpbakken",
+                "linkedin": null,
+                "mail": "sigmund.klapbakken@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Embedded Software, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-170.jpg",
+                "name": "Zhuoran Sun",
+                "linkedin": "https://www.linkedin.com/in/zhuoran-sun-461199381/",
+                "mail": "zhuoran.sun@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Embedded Software, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 7,
+        "teamName": "Mechanical",
+        "group": "TECHNICAL",
+        "description": "The mechanical team works on the structural, thermal, and mechanical aspects of the satellite and the payload. They make 3D models to plan the layout, design mechanical components, run simulations and then build the satellite. They ensure structural integrity concerning vibrations, temperatures, shock, and other hazards. Additionally, they have other projects that work indirectly on building a satellite, like designing and building foldable solar panels, and general test equipment and rigs to assist the other groups.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-13.jpg",
+                "name": "Albert Haug Hanssen",
+                "linkedin": "https://www.linkedin.com/in/albert-haug-hanssen-ba2480325/",
+                "mail": "albert.hanssen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-44.jpg",
+                "name": "Andrea Helme Bere",
+                "linkedin": null,
+                "mail": "andrea.helme-bere@orbitntnu.com",
+                "phoneNumber": "94475390",
+                "title": "Mechanical, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Birk Norderval Forseng",
+                "linkedin": null,
+                "mail": "birk.forseng@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-107.jpg",
+                "name": "Eline Zidiao Akselvoll",
+                "linkedin": "https://www.linkedin.com/in/eline-akselvoll-681699367/",
+                "mail": "eline.zidiao-akselvoll@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-112.jpg",
+                "name": "Joachim Betsaker",
+                "linkedin": "www.linkedin.com/in/joachim-betsaker-53b04538a",
+                "mail": "joachim.betsaker@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-113.jpg",
+                "name": "Lars Brynjulv Nordbø",
+                "linkedin": "www.linkedin.com/in/lars-brynjulv-nordbø-9617a3295",
+                "mail": "lars.nordbo@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-122.jpg",
+                "name": "Robin Andreas Jørgensen",
+                "linkedin": null,
+                "mail": "robin.jorgensen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 8,
+        "teamName": "SatCom",
+        "group": "TECHNICAL",
+        "description": "SatCom (Satellite Communication) is responsible for maintaining our ground station and implementing the satellite operations center. The team works closely with the Embedded team to implement the routing of commands from the operations center on the ground to the on-board computer on the satellites, and telemetry and data from the satellite to the center. The satellite and ground station radios are essential to ensure mission success. Much effort is being put into ensuring we have a reliable communication link with high bandwidth.\nSatCom is also responsible for the SDR (Software Defined Radio) payload to be on board Biosat.\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-90.jpg",
+                "name": "Gaute Alvarstein",
+                "linkedin": null,
+                "mail": "gaute.alvarstein@orbitntnu.com",
+                "phoneNumber": "+4745136365",
+                "title": "SatCom, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-19.jpg",
+                "name": "Dag Herman Øyerhamn",
+                "linkedin": "https://www.linkedin.com/in/dag-herman-%C3%B8yerhamn-138987347",
+                "mail": "dag-herman.oyerhamn@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-80.jpg",
+                "name": "Henrik Øen",
+                "linkedin": null,
+                "mail": "henrik.oen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-48.jpg",
+                "name": "Mats Gaupset",
+                "linkedin": "gaupset",
+                "mail": "mats.gaupset@orbitntnu.com",
+                "phoneNumber": "95930299",
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-159.jpg",
+                "name": "Moa Theres Meilicke",
+                "linkedin": null,
+                "mail": "moa.meilicke@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/80.png",
+                "name": "Nicolai Sommervold",
+                "linkedin": null,
+                "mail": "nicolai.sommervold@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-116.jpg",
+                "name": "Nicolas Gabriel Astrup",
+                "linkedin": "linkedin.com/in/nicolas-astrup-1230282a7",
+                "mail": "nicolas.astrup@orbitntnu.com",
+                "phoneNumber": "95527675",
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-41.jpg",
+                "name": "Øivind Andreas Bodal Holm",
+                "linkedin": "Øivind Holm",
+                "mail": "oivind-andreas.bodal-holm@orbitntnu.com",
+                "phoneNumber": "40534370",
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-135.jpg",
+                "name": "Sebastian Racraquin",
+                "linkedin": null,
+                "mail": "sebastian.racraquin@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "SatCom, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 9,
+        "teamName": "DevOps",
+        "group": "IT",
+        "description": "The DevOps team plays a crucial role in optimizing our development and operational environment. The goal is to streamline Orbit as an organization and improve the use of all utilities. Their diverse tasks include integrating autonomy, maintaining servers, ensuring stability at every stage of the software development process, and creating applications, pipelines, containers, slackbots, and much more.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-95.jpg",
+                "name": "Sebastian Kaul",
+                "linkedin": "https://www.linkedin.com/in/sebkaul?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+                "mail": "sebastian.kaul@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "DevOps Team Lead",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-171.jpg",
+                "name": "Eirik Engen Kvam",
+                "linkedin": "https://www.linkedin.com/in/eirik-engen-kvam/",
+                "mail": "eirik.kvam@orbitntnu.com",
+                "phoneNumber": "46964145",
+                "title": "DevOps Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-4.jpg",
+                "name": "Jakob Gundersen",
+                "linkedin": "https://www.linkedin.com/in/jakobsgundersen/",
+                "mail": "jakob.gundersen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "DevOps Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/59.png",
+                "name": "Knut Olav Nordgarden Kragh",
+                "linkedin": "https://www.linkedin.com/in/knut-olav-kragh-243a81197/",
+                "mail": "knut-olav.kragh@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior DevOps Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-98.jpg",
+                "name": "Mateja Vasic",
+                "linkedin": "https://www.linkedin.com/in/mateja-vasi%C4%87-915248383/",
+                "mail": "mateja.vasic@orbitntnu.com",
+                "phoneNumber": "97924461",
+                "title": "DevOps Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-42.jpg",
+                "name": "Selin Yuki Øzkan",
+                "linkedin": "https://www.linkedin.com/in/selin-yuki-%C3%B8zkan-618439273?originalSubdomain=no",
+                "mail": "selin.ozkan@orbitntnu.com",
+                "phoneNumber": "+4797822953",
+                "title": "DevOps Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-146.jpg",
+                "name": "Simen Mathiesen",
+                "linkedin": "https://www.linkedin.com/in/simen-mathiesen-605548212",
+                "mail": "simen.mathiesen@orbitntnu.com",
+                "phoneNumber": "96907254",
+                "title": "DevOps Engineer",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 10,
+        "teamName": "Sub-Orbital",
+        "group": "TECHNICAL",
+        "description": "The Sub-Orbital team consists of only first-year students. They create a small satellite released into the earth's stratosphere with a weather balloon. Under the guidance of experienced Orbit NTNU mentors, the team gets unique insight into satellite production, from concept to completion, allowing them to become satellite engineers in a year.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-161.jpg",
+                "name": "Felix Magnus Rustbakken",
+                "linkedin": null,
+                "mail": "felix.rustbakken@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "SO, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-148.jpg",
+                "name": "Artur Minshin",
+                "linkedin": null,
+                "mail": "artur.minshin@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-158.jpg",
+                "name": "Emma Marie Andersen",
+                "linkedin": null,
+                "mail": "emma.andersen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-145.jpg",
+                "name": "Jacob Ellingsen Neteland",
+                "linkedin": null,
+                "mail": "jacob.neteland@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-155.jpg",
+                "name": "Michael Redvald Skullerud",
+                "linkedin": null,
+                "mail": "michael.skullerud@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Nayfa Fadhilah Nasution",
+                "linkedin": null,
+                "mail": "nayfa.nasution@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-163.jpg",
+                "name": "Oscar Hildonen Frisvold",
+                "linkedin": null,
+                "mail": "oscar.frisvold@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-150.jpg",
+                "name": "Sara Katarzyna Kwiatkowska",
+                "linkedin": null,
+                "mail": "sara.kwiatkowska@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-154.jpg",
+                "name": "Solveig Ulriksen",
+                "linkedin": null,
+                "mail": "solveig.ulriksen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Sub-Orbital, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 12,
+        "teamName": "Web",
+        "group": "IT",
+        "description": "The web team is responsible for creating and maintaining our web applications. This includes all steps of the process: design, technical architecture, development, and getting continuous feedback for an iterative development process.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-39.jpg",
+                "name": "Hanne Marie Haakaas",
+                "linkedin": null,
+                "mail": "hanne.haakaas@orbitntnu.com",
+                "phoneNumber": "+4790095630    ",
+                "title": "Web Team Lead",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-152.jpg",
+                "name": "Christopher Braathen",
+                "linkedin": "https://www.linkedin.com/in/christopher-braathen-6ab31b332/",
+                "mail": "christopher.braathen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Web, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-46.jpg",
+                "name": "David Salguero Spilde",
+                "linkedin": "https://www.linkedin.com/in/david-salguero-spilde-474459215/",
+                "mail": "david.salguero-spilde@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior Fullstack Developer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-165.jpg",
+                "name": "Matilde Lund",
+                "linkedin": "https://www.linkedin.com/in/matilde-lund-931434280/",
+                "mail": "matilde.lund@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Web, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-144.jpg",
+                "name": "Stian Sarmiento Olsen",
+                "linkedin": "https://linkedin.com/in/stian-sarmiento-olsen-4407b2330",
+                "mail": "stian.olsen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Web, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 13,
+        "teamName": "Marketing and Communications",
+        "group": "DAILY_OPERATIONS",
+        "description": "Orbit Marketing communicates who we are and what we do. We represent Orbit across our social platforms, including Facebook, Instagram, TikTok, and LinkedIn. Our team focuses on clear communication and capturing the moments that define our community. Feel free to contact us if needed.",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-35.jpg",
+                "name": "Sara Heitmann",
+                "linkedin": null,
+                "mail": "sara.heitmann@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "CMO/Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-169.jpg",
+                "name": "Aina Karine Eid-Larssen",
+                "linkedin": null,
+                "mail": "aina.eidlarssen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Marketing and Communications, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-164.jpg",
+                "name": "Arun Rethnam Haug",
+                "linkedin": null,
+                "mail": "arun.haug@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Marketing and Communications, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/413.png",
+                "name": "Johanne Husvik Bernhus",
+                "linkedin": "https://www.linkedin.com/in/johanne-husvik-bernhus-837026248/",
+                "mail": "johanne.husvik-bernhus@orbitntnu.com",
+                "phoneNumber": "+4747945420",
+                "title": "Marketing and Communications, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-124.jpg",
+                "name": "Kristine Weel Aasen",
+                "linkedin": null,
+                "mail": "kristine.aasen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Marketing and Communications, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-102.jpg",
+                "name": "Magnus Rengård Kolstad",
+                "linkedin": "https://www.linkedin.com/in/kolstadmagnus/",
+                "mail": "magnus.kolstad@orbitntnu.com",
+                "phoneNumber": "46761526",
+                "title": "Marketing and Communications, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 14,
+        "teamName": "HR",
+        "group": "DAILY_OPERATIONS",
+        "description": "The Human Resource team helps shape the future of the space industry by recruiting and facilitating of our talented individuals. The team manages internal conflicts but also works actively to ensure that Orbit has a work environment where damaging conflicts don't arise.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-136.jpg",
+                "name": "Hannah Andrea Staib",
+                "linkedin": null,
+                "mail": "hannah.staib@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "HR, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-59.jpg",
+                "name": "Caroline Grefslie Killingmo",
+                "linkedin": "https://www.linkedin.com/in/caroline-grefslie-killingmo-72094932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+                "mail": "caroline.killingmo@orbitntnu.com",
+                "phoneNumber": "+4798001750",
+                "title": "HR, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Harmoni Martina Amato",
+                "linkedin": null,
+                "mail": "harmoni.amato@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "HR, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-134.jpg",
+                "name": "Malin Fevang Vidum",
+                "linkedin": null,
+                "mail": "malin.fevang-vidum@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "HR, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-177.jpg",
+                "name": "Mia Gong",
+                "linkedin": null,
+                "mail": "mia.gong@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "HR, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-110.jpg",
+                "name": "Nora Ytterbø",
+                "linkedin": "https://www.linkedin.com/in/nora-ytterbo/",
+                "mail": "nora.ytterbo@orbitntnu.com",
+                "phoneNumber": "+4794978363    ",
+                "title": "HR, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 15,
+        "teamName": "Event",
+        "group": "DAILY_OPERATIONS",
+        "description": "The Event Team in Orbit NTNU is the heart of our community engagement efforts. They plan, organize and execute both external, formal events and internal, social gatherings, orchestrating initiatives that leave a lasting positive impact on our community. Through meticulous planning and seamless teamwork, they breathe life into our vision.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-167.jpg",
+                "name": "Synne Steinsrud",
+                "linkedin": null,
+                "mail": "synne.steinsrud@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Event, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-173.jpg",
+                "name": "Victoria Le",
+                "linkedin": null,
+                "mail": "victoria.le@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Event, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 16,
+        "teamName": "Test",
+        "group": "TECHNICAL",
+        "description": "A test team for CubeSats is a specialized group of individuals responsible for conducting various tests and evaluations on CubeSat spacecraft. The test team's primary role is to ensure the CubeSat functions correctly and meets mission objectives before it is launched into space.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-166.jpg",
+                "name": "Siddham Awasthi",
+                "linkedin": "https://www.linkedin.com/in/siddham-awasthi-41139229b/",
+                "mail": "siddham.awasthi@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Test, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-119.jpg",
+                "name": "Arkadiusz Pielinski",
+                "linkedin": "Arkadiusz Pielinski",
+                "mail": "arkadiusz.pielinski@orbitntnu.com",
+                "phoneNumber": "93995653",
+                "title": "Test Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-153.jpg",
+                "name": "Erlend Eindride Tveito Loktu",
+                "linkedin": null,
+                "mail": "erlend.loktu@orbitntnu.com",
+                "phoneNumber": "41327048",
+                "title": "Test, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-12.jpg",
+                "name": "Fredrik Soltveit Gabrielli",
+                "linkedin": "https://www.linkedin.com/in/fredrik-gabrielli-691889338/",
+                "mail": "fredrik.gabrielli@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Test, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-147.jpg",
+                "name": "Julian Sánchez Lenz",
+                "linkedin": null,
+                "mail": "julian.lenz@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Test, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-37.jpg",
+                "name": "Kajsa Hoffmann",
+                "linkedin": null,
+                "mail": "kajsa.hoffmann@orbitntnu.com",
+                "phoneNumber": "94979103",
+                "title": "Test Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-156.jpg",
+                "name": "Sakarias Stork-Nordahl",
+                "linkedin": "https://www.linkedin.com/in/sakarias-stork-nordahl-68a15b2b5/",
+                "mail": "sakarias.stork-nordahl@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Test, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-142.jpg",
+                "name": "Vetle Breiteig Berg",
+                "linkedin": null,
+                "mail": "vetle.berg@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Test Engineer",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 17,
+        "teamName": "PMO",
+        "group": "ADMINISTRATIVE",
+        "description": "Project Management is responsible for requirement understanding, planning, execution, controlling, monitoring, reviewing, and delivering our projects on time with the help of the whole team.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-33.jpg",
+                "name": "Filip Österberg",
+                "linkedin": "https://www.linkedin.com/in/filip-%C3%B6sterberg-176452383/",
+                "mail": "filip.osterberg@orbitntnu.com",
+                "phoneNumber": "45116441",
+                "title": "Project Manager BioSat",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-31.jpg",
+                "name": "Heming Uverud Westad",
+                "linkedin": "https://www.linkedin.com/in/heming-westad-23776b334/",
+                "mail": "heming.westad@orbitntnu.com",
+                "phoneNumber": "+4795018505",
+                "title": "Program Director",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-32.jpg",
+                "name": "Herman Castberg",
+                "linkedin": "https://www.linkedin.com/in/herman-castberg-17a17b109/",
+                "mail": "herman.castberg@orbitntnu.com",
+                "phoneNumber": "+4748045560    ",
+                "title": "Project Manager FramSat-1",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-111.jpg",
+                "name": "Lars Andreas Weel Aasen",
+                "linkedin": "https://www.linkedin.com/in/lars-andreas-weel-aasen-3469732ab/",
+                "mail": "larsa.asen@orbitntnu.com",
+                "phoneNumber": "+4795426616",
+                "title": "Project Manager Framsat 1.5",
+                "privilege": "BOARD"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-22.jpg",
+                "name": "Hedda Aukan",
+                "linkedin": "www.linkedin.com/in/heddaaukan",
+                "mail": "hedda.aukan@orbitntnu.com",
+                "phoneNumber": "47689674",
+                "title": "Project Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": null,
+                "name": "Henrik Østingsen",
+                "linkedin": null,
+                "mail": "henrik.oestingsen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "PMO, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-18.jpg",
+                "name": "Katharina Nilssen",
+                "linkedin": "https://www.linkedin.com/in/katharina-nilssen-2255bb380/overlay/about-this-profile/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3Bra1tsZGsTHWdzw8%2FuPb8fg%3D%3D",
+                "mail": "katharina.nilssen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Project Engineer",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-149.jpg",
+                "name": "Kristin Myklebost Moldsvor",
+                "linkedin": null,
+                "mail": "kristin.moldsvor@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "PMO, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-151.jpg",
+                "name": "Paul Odland",
+                "linkedin": null,
+                "mail": "paul.odland@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "PMO, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    },
+    {
+        "teamID": 18,
+        "teamName": "Mentors",
+        "group": "MENTORS",
+        "description": "The mentor team guides students in their projects and learning. The experienced individuals from NTNU, Orbit NTNU and the industry give technical guidance, project support, and industry information. They help students navigate the complexities of satellite design, construction and operations, fostering a collaborative and innovative environment for hands-on learning and skill development.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/5.png",
+                "name": "Amund Gjersvik",
+                "linkedin": null,
+                "mail": "amund.gjersvik@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Board, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-67.jpg",
+                "name": "André Nielsen",
+                "linkedin": null,
+                "mail": "andre.nielsen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-96.jpg",
+                "name": "Andreas Tauge",
+                "linkedin": "https://www.linkedin.com/in/andreas-tauge-b39761284/",
+                "mail": "andreas.tauge@orbitntnu.com",
+                "phoneNumber": "+4790120319    ",
+                "title": "Board, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-96.jpg",
+                "name": "Andreas Tauge",
+                "linkedin": "https://www.linkedin.com/in/andreas-tauge-b39761284/",
+                "mail": "andreas.tauge@orbitntnu.com",
+                "phoneNumber": "+4790120319    ",
+                "title": "DevOps, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Andreas Westre",
+                "linkedin": null,
+                "mail": "andreas.westre@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-86.jpg",
+                "name": "Anine Selle Standnes",
+                "linkedin": "https://www.linkedin.com/in/anine-standnes-713212278/",
+                "mail": "anine.standnes@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior Fullstack Developer",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/11.png",
+                "name": "Astrid Christine Zieritz",
+                "linkedin": "https://www.linkedin.com/in/astrid-christine-zieritz/",
+                "mail": "astrid.zieritz@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "SatCom, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-59.jpg",
+                "name": "Caroline Grefslie Killingmo",
+                "linkedin": "https://www.linkedin.com/in/caroline-grefslie-killingmo-72094932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+                "mail": "caroline.killingmo@orbitntnu.com",
+                "phoneNumber": "+4798001750",
+                "title": "Board, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/15.png",
+                "name": "Christoffer Dahl Hystad",
+                "linkedin": null,
+                "mail": "christoffer.hystad@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-106.jpg",
+                "name": "Daniel Ehrhardt",
+                "linkedin": "https://www.linkedin.com/in/daniel-thormodsen-ehrhardt-89217a230?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BUQYh0ADoT9CXfO5lwwnwRQ%3D%3D",
+                "mail": "daniel.ehrhardt@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Board, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/338.png",
+                "name": "Daniel René Astor",
+                "linkedin": "https://www.linkedin.com/in/daniel-ren%C3%A9-astor-061844221/",
+                "mail": "daniel.astor@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentors, Member",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-20.jpg",
+                "name": "Eirik Thunshelle Øvstedal",
+                "linkedin": "https://www.linkedin.com/in/eirik-thunshelle-%C3%B8vstedal/",
+                "mail": "eirik.ovstedal@orbitntnu.com",
+                "phoneNumber": "+4791786816",
+                "title": "Economics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/126.png",
+                "name": "Eivind Heggset",
+                "linkedin": null,
+                "mail": "eivind.heggset@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-69.jpg",
+                "name": "Ema Malina",
+                "linkedin": "https://www.linkedin.com/in/ema-malina/",
+                "mail": "ema.malina@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-38.jpg",
+                "name": "Erwan Barzic",
+                "linkedin": "https://www.linkedin.com/in/erwanbarzic/",
+                "mail": "erwan.barzic@orbitntnu.com",
+                "phoneNumber": "46520996",
+                "title": "Board, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-38.jpg",
+                "name": "Erwan Barzic",
+                "linkedin": "https://www.linkedin.com/in/erwanbarzic/",
+                "mail": "erwan.barzic@orbitntnu.com",
+                "phoneNumber": "46520996",
+                "title": "Economics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-16.jpg",
+                "name": "Filip Lunde Fosen",
+                "linkedin": "https://www.linkedin.com/in/filip-fosen-08047b291/",
+                "mail": "filip.fosen@orbitntnu.com",
+                "phoneNumber": "45434357",
+                "title": "Electronics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-94.jpg",
+                "name": "Filip Repstad Spanne",
+                "linkedin": "https://www.linkedin.com/in/spanne/",
+                "mail": "filip.spanne@orbitntnu.com",
+                "phoneNumber": "45171672",
+                "title": "DevOps, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/28.png",
+                "name": "Filiz Emirli",
+                "linkedin": "https://www.linkedin.com/in/filiz-emirli/",
+                "mail": "filiz.emirli@orbitntnu.com",
+                "phoneNumber": "+4748368131    ",
+                "title": "Payload, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-99.jpg",
+                "name": "Freider Engstrøm Fløan",
+                "linkedin": "https://www.linkedin.com/in/freider/",
+                "mail": "freider.floan@orbitntnu.com",
+                "phoneNumber": "+4798655256    ",
+                "title": "Economics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Haakon Alexander Hjul Strand",
+                "linkedin": "https://www.linkedin.com/in/haakon-strand/",
+                "mail": "haakon.strand@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/340.png",
+                "name": "Håvard Fredwall",
+                "linkedin": "https://www.linkedin.com/in/h%C3%A5vard-fredwall-548137234?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+                "mail": "havard.fredwall@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/40.png",
+                "name": "Henrik Hauge",
+                "linkedin": null,
+                "mail": "henrik.hauge@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/51.png",
+                "name": "Jarle Steinberg",
+                "linkedin": null,
+                "mail": "jarle.steinberg@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-36.jpg",
+                "name": "Jayan Thayananthan",
+                "linkedin": "https://www.linkedin.com/in/jayan-thayananthan/",
+                "mail": "jayan.thayananthan@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior Fullstack Utvikler",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-57.jpg",
+                "name": "Jesper Vigtel Hølland",
+                "linkedin": "https://www.linkedin.com/in/jesper-vigtel-hoelland/",
+                "mail": "jesper-vigtel.holland@orbitntnu.com",
+                "phoneNumber": "+4746951572",
+                "title": "Mentors, Member",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/58.png",
+                "name": "Jørgen Aagesen",
+                "linkedin": "https://www.linkedin.com/in/j%C3%B8rgen-aagesen-18bb7419b/",
+                "mail": "jorgen.aagesen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-3.jpg",
+                "name": "Magnus Andreas Giverin",
+                "linkedin": "https://www.linkedin.com/in/magnus-giverin-5344b5188/",
+                "mail": "magnus-andreas.giverin@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Senior Fullstack Developer",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-21.jpg",
+                "name": "Maja Iuel",
+                "linkedin": "https://www.linkedin.com/in/maja-iuel-a981b1229/",
+                "mail": "maja.iuel@orbitntnu.com",
+                "phoneNumber": "+4790134950    ",
+                "title": "PMO, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/71.png",
+                "name": "Marius Johannessen",
+                "linkedin": null,
+                "mail": "marius.johannessen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/72.png",
+                "name": "Markus Klund",
+                "linkedin": "https://linkedin.com/in/markus-klund",
+                "mail": "markus.klund@orbitntnu.com",
+                "phoneNumber": "+4797885193    ",
+                "title": "DevOps Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Mathias Askeland",
+                "linkedin": null,
+                "mail": "mathias.askeland@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "PMO, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/129.png",
+                "name": "Natanael Hjermann",
+                "linkedin": null,
+                "mail": "natanael.hjermann@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/82.png",
+                "name": "Nikolay Klausen",
+                "linkedin": "https://www.linkedin.com/in/nikolayklausen",
+                "mail": "nikolay.klausen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mechanical, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-110.jpg",
+                "name": "Nora Ytterbø",
+                "linkedin": "https://www.linkedin.com/in/nora-ytterbo/",
+                "mail": "nora.ytterbo@orbitntnu.com",
+                "phoneNumber": "+4794978363    ",
+                "title": "Board, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/85.png",
+                "name": "Oscar Alexadner Estensen",
+                "linkedin": "https://www.linkedin.com/in/oscar-a-estensen/",
+                "mail": "oscar.estensen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/88.png",
+                "name": "Parleen Brar",
+                "linkedin": "http://linkedin.com/in/parleen-brar-2a5057233",
+                "mail": "parleen.brar@orbitntnu.com",
+                "phoneNumber": "+4793995774    ",
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/125.png",
+                "name": "Patric André Berthelsen",
+                "linkedin": null,
+                "mail": "patric.berthelsen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "FPGA Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/92.png",
+                "name": "Peter Knutsen",
+                "linkedin": null,
+                "mail": "peter.knutsen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/93.png",
+                "name": "Peter Magerøy",
+                "linkedin": null,
+                "mail": "peter.mageroy@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/97.png",
+                "name": "Rebecca Flugstad",
+                "linkedin": "www.linkedin.com/in/rebecca-flugstad-20a3b528a",
+                "mail": "rebecca.flugstad@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentors, Member",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/98.png",
+                "name": "Renate Klemetsdal",
+                "linkedin": "https://www.linkedin.com/in/renate-heierstad-klemetsdal-02aa13221/",
+                "mail": "renate.klemetsdal@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Roger Birkeland",
+                "linkedin": null,
+                "mail": "roger.birkeland@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/103.png",
+                "name": "Sebastian Gabrielli",
+                "linkedin": null,
+                "mail": "sebastian.gabrielli@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Electronics, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/288.png",
+                "name": "Sebastian Måren",
+                "linkedin": null,
+                "mail": "sebastian.maaren@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Payload, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/104.png",
+                "name": "Selma Stokholm",
+                "linkedin": "https://www.linkedin.com/in/selma-stokholm-640248177/",
+                "mail": "selma.stokholm@orbitntnu.com",
+                "phoneNumber": "+4797311148    ",
+                "title": "ADCS, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Simen Berg",
+                "linkedin": null,
+                "mail": "simen.berg@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Sindre Herstad",
+                "linkedin": null,
+                "mail": "sindre.herstad@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentors, Member",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/289.png",
+                "name": "Sofie Thien Kim Nguyen",
+                "linkedin": "https://www.linkedin.com/in/sofie-thien-kim-nguyen-044aa5273/",
+                "mail": "sofie-thien-kim.nguyen@orbitntnu.com",
+                "phoneNumber": "+47 922 62 151",
+                "title": "Payload, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/124.png",
+                "name": "Svein Kåre Sørestad",
+                "linkedin": null,
+                "mail": "svein.sorestad@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "DevOps, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-8.jpg",
+                "name": "Teodor Nørstebø-Vartdal",
+                "linkedin": "https://no.linkedin.com/in/teodornv",
+                "mail": "teodor.norstebo-vartdal@orbitntnu.com",
+                "phoneNumber": "40175071",
+                "title": "Board, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Torbjørn Bratvold",
+                "linkedin": null,
+                "mail": "torbjorn.bratvold@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-97.jpg",
+                "name": "Tri Tac Le",
+                "linkedin": "https://www.linkedin.com/in/tritacle/",
+                "mail": "tri.tac-le@orbitntnu.com",
+                "phoneNumber": "47686930",
+                "title": "DevOps, Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/119.png",
+                "name": "Ulrik Falk-Petersen",
+                "linkedin": "https://www.linkedin.com/in/ulrikfalk/",
+                "mail": "ulrik.falk-petersen@orbitntnu.com",
+                "phoneNumber": "+4790100577    ",
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/121.png",
+                "name": "Victoria Seline Bakken",
+                "linkedin": "https://www.linkedin.com/in/victoria-seline-bakken-3b2658286/",
+                "mail": "victoria.bakken@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            },
+            {
+                "image": null,
+                "name": "Wilhelm Kristiansen",
+                "linkedin": null,
+                "mail": "wilhelm.kristiansen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Mentor",
+                "privilege": "MENTOR",
+                "_cPosition": null
+            }
+        ]
+    },
+    {
+        "teamID": 19,
+        "teamName": "Economics",
+        "group": "DAILY_OPERATIONS",
+        "description": "The sponsorship team is responsible for securing the funds behind our projects. For this, we entirely depend on our sponsors. Orbit NTNU's Key Account Managers are responsible for acquiring new sponsors and maintaining our relationship with current partners.\n\n",
+        "members": [
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-105.jpg",
+                "name": "Peter Thormodsen Ehrhardt",
+                "linkedin": null,
+                "mail": "peter.thormodsen-ehrhardt@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Economics, Leader",
+                "privilege": "LEADER"
+            },
+            {
+                "image": null,
+                "name": "Anders Granaas Vold",
+                "linkedin": null,
+                "mail": "anders.vold@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Economics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-58.jpg",
+                "name": "Eduard Tarmet",
+                "linkedin": "www.linkedin.com/in/eduard-tarmet-3948821bb",
+                "mail": "eduard.tarmet@orbitntnu.com",
+                "phoneNumber": "+4740142521",
+                "title": "Economics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-123.jpg",
+                "name": "Ole Gustav Nesbø",
+                "linkedin": null,
+                "mail": "ole.nesbo@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Economics, Member",
+                "privilege": "MEMBER"
+            },
+            {
+                "image": "https://cdn.orbitntnu.com/profilePictures/headshots-74.jpg",
+                "name": "Oskar Sunde Pedersen",
+                "linkedin": null,
+                "mail": "oskar.sunde-pedersen@orbitntnu.com",
+                "phoneNumber": null,
+                "title": "Economics, Member",
+                "privilege": "MEMBER"
+            }
+        ]
+    }
+]
